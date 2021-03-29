@@ -1,5 +1,7 @@
 <x-guest-layout>
+
     <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+        <x-jet-validation-errors class="mb-4" />
         <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
             <div class="md:flex w-full">
                 <div class="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
@@ -91,7 +93,7 @@
                             @csrf
                             <div class="flex -mx-3">
                                 <div class="w-1/2 px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Nombre(s)</label>
+                                    <label for="" class="text-xs font-semibold px-1">Primer Nombre*</label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -99,11 +101,11 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="names" name="names">
+                                            placeholder="John" id="firstname" name="firstname" required>
                                     </div>
                                 </div>
                                 <div class="w-1/2 px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Primer Apellido</label>
+                                    <label for="" class="text-xs font-semibold px-1">Segundo Nombre (Opcional)</label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -111,25 +113,46 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="Smith" id="apellidop" name="apellidop">
-                                    </div>
-                                </div>
-                                <div class="w-1/2 px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Segundo Apellido</label>
-                                    <div class="flex">
-                                        <div
-                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                            <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
-                                        </div>
-                                        <input type="text"
-                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="Smith" id="apellidom" name="apellidom">
+                                            placeholder="John" id="secondname" name="secondname">
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="flex -mx-3">
+                                <div class="w-1/2 px-3 mb-5">
+                                    <label for="" class="text-xs font-semibold px-1">Apellido Paterno*</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                                        </div>
+                                        <input type="text"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                            placeholder="John" id="lastname" name="lastname" required>
+                                    </div>
+                                </div>
+
+                                <div class="w-1/2 px-3 mb-5">
+                                    <label for="" class="text-xs font-semibold px-1">Apellido Materno*</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                                        </div>
+                                        <input type="text"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                            placeholder="Smith" id="motherslastname" name="motherslastname" required>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Email</label>
+                                    <label for="" class="text-xs font-semibold px-1">Email*</label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -137,13 +160,13 @@
                                         </div>
                                         <input type="email"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="johnsmith@example.com" id="email" name="email">
+                                            placeholder="johnsmith@example.com" id="email" name="email" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-12">
-                                    <label for="" class="text-xs font-semibold px-1">Password</label>
+                                    <label for="" class="text-xs font-semibold px-1">Password*</label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -151,11 +174,11 @@
                                         </div>
                                         <input type="password"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="************" id="password" name="password">
+                                            placeholder="************" id="password" name="password" required>
                                     </div>
                                 </div>
                                 <div class="w-full px-3 mb-12">
-                                    <label for="" class="text-xs font-semibold px-1">Confirmar Password</label>
+                                    <label for="" class="text-xs font-semibold px-1">Confirmar Password*</label>
                                     <div class="flex">
                                         <div
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -164,11 +187,83 @@
                                         <input type="password"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="************" id="password_confirmation"
-                                            name="password_confirmation">
+                                            name="password_confirmation" required>
                                     </div>
                                 </div>
                             </div>
                             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                <div class="mt-4">
+                                    <x-jet-label for="terms">
+                                        <div class="flex items-center">
+                                            <x-jet-checkbox name="terms" id="terms" />
+
+                                            <div class="ml-2">
+                                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
+    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Privacy Policy') . '</a>',
+]) !!}
+                                            </div>
+                                        </div>
+                                    </x-jet-label>
+                                </div>
+                            @endif
+
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-5">
+                                    <x-jet-button
+                                        class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                                        REGISTRATE</x-jet-button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-end mt-4">
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900"
+                                    href="{{ route('login') }}">
+                                    {{ __('Ya tienes cuenta? Iniciar Sesion') }}
+                                </a>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--<x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
+
+        <x-jet-validation-errors class="mb-4" />
+
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div>
+                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
+                    autofocus autocomplete="name" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                    autocomplete="new-password" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                    name="password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-jet-label for="terms">
                         <div class="flex items-center">
@@ -185,28 +280,17 @@
                 </div>
             @endif
 
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
-                                    <x-jet-button
-                                        class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTRATE</x-jet-button>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-end mt-4">
-                                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                                    {{ __('Ya tienes cuenta? Iniciar Sesion') }}
-                                </a>
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
 
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <x-jet-button class="ml-4">
+                    {{ __('Register') }}
+                </x-jet-button>
             </div>
-        </div>
-    </div>
-
-
-
+        </form>
+    </x-jet-authentication-card>--}}
 
 
 
