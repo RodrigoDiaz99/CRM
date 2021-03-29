@@ -215,21 +215,30 @@
                                         REGISTRATE</x-jet-button>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-end mt-4">
-                                <a class="underline text-sm text-gray-600 hover:text-gray-900"
+
+                        </form>
+                        <div >
+                            <p class="mt-4">
+                                <a class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
                                     href="{{ route('login') }}">
                                     {{ __('Ya tienes cuenta? Iniciar Sesion') }}
                                 </a>
+                            </p>
 
 
-                            </div>
-                        </form>
+                            <p class="mt-4">
+                                <a class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                                    href="{{ route('welcome') }}">
+                                    {{ __('Volver al Inicio') }}
+                                </a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {{--<x-jet-authentication-card>
+    {{-- <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
@@ -290,7 +299,7 @@
                 </x-jet-button>
             </div>
         </form>
-    </x-jet-authentication-card>--}}
+    </x-jet-authentication-card> --}}
 
 
 
