@@ -17,6 +17,7 @@
                     </x-jet-nav-link>
                 </div>
             </div>
+
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -121,9 +122,6 @@
                     </x-jet-dropdown>
                 </div>
             </div>
-
-
-
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">

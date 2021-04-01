@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "462bd6f06bd8096276f7c731fd6487aa",
+    "content-hash": "d9f6c5eb00393a680bf824895b5514ea",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1128,6 +1128,58 @@
             "time": "2020-06-13T08:05:20+00:00"
         },
         {
+            "name": "laravel-lang/lang",
+            "version": "8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/lang.git",
+                "reference": "5cb49c43fb5c11c8a741e61480664612c90f8769"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/5cb49c43fb5c11c8a741e61480664612c90f8769",
+                "reference": "5cb49c43fb5c11c8a741e61480664612c90f8769",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "require-dev": {
+                "andrey-helldar/pretty-array": "^2.0",
+                "andrey-helldar/support": "^3.0",
+                "php": "^7.4|^8.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "suggest": {
+                "andrey-helldar/laravel-lang-publisher": "Easy installation and update of translation files for your project",
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laravel-Lang Team",
+                    "homepage": "https://github.com/Laravel-Lang"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Lang/lang/issues",
+                "source": "https://github.com/Laravel-Lang/lang"
+            },
+            "time": "2021-03-23T20:57:44+00:00"
+        },
+        {
             "name": "laravel/fortify",
             "version": "v1.7.7",
             "source": {
@@ -1427,16 +1479,16 @@
         },
         {
             "name": "laravel/sanctum",
-            "version": "v2.9.0",
+            "version": "v2.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "eb191ddfc3ec04bbead33593bf982e871095f25c"
+                "reference": "81f3027af262590ffb63f202cba6d055d562a9a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/eb191ddfc3ec04bbead33593bf982e871095f25c",
-                "reference": "eb191ddfc3ec04bbead33593bf982e871095f25c",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/81f3027af262590ffb63f202cba6d055d562a9a1",
+                "reference": "81f3027af262590ffb63f202cba6d055d562a9a1",
                 "shasum": ""
             },
             "require": {
@@ -1487,7 +1539,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-            "time": "2021-01-26T19:47:38+00:00"
+            "time": "2021-03-30T21:29:22+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1811,16 +1863,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "8055af7730938cd607616fde122825ed960a9b71"
+                "reference": "b0cb782674673a67ddfd5910d2fcb5308bb32857"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/8055af7730938cd607616fde122825ed960a9b71",
-                "reference": "8055af7730938cd607616fde122825ed960a9b71",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/b0cb782674673a67ddfd5910d2fcb5308bb32857",
+                "reference": "b0cb782674673a67ddfd5910d2fcb5308bb32857",
                 "shasum": ""
             },
             "require": {
@@ -1871,7 +1923,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.4.0"
+                "source": "https://github.com/livewire/livewire/tree/v2.4.1"
             },
             "funding": [
                 {
@@ -1879,7 +1931,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-23T17:44:50+00:00"
+            "time": "2021-03-22T14:03:36+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

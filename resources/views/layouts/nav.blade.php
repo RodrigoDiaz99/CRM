@@ -91,12 +91,12 @@
                     <div class="border-t border-gray-100"></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-
-                            <a  class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary" href="{{ route('logout') }}">
-
-                               {{ __('Cerrar Sesión') }}
+                        <li class="flex">
+                            <a  class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                            href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <span>{{ __('Cerrar Sesión') }}</span>
                             </a>
-
+                        </li>
                 </form>
                 </div>
             </div>

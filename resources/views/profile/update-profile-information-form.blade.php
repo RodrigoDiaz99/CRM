@@ -12,11 +12,8 @@
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
-                            wire:model="photo"
-                            x-ref="photo"
-                            x-on:change="
-                                    photoName = $refs.photo.files[0].name;
+                <input type="file" class="hidden" wire:model="photo" x-ref="photo" x-on:change="
+                                    photoName = $refs.photo.files[0].firstname;
                                     const reader = new FileReader();
                                     reader.onload = (e) => {
                                         photoPreview = e.target.result;
@@ -28,13 +25,14 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->firstname }}"
+                        class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
                 <div class="mt-2" x-show="photoPreview">
                     <span class="block rounded-full w-20 h-20"
-                          x-bind:style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'">
+                        x-bind:style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'">
                     </span>
                 </div>
 
@@ -54,9 +52,24 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
+            <x-jet-label for="name" value="{{ __('Primer Nombre') }}" />
+            <x-jet-input id="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname"
+                autocomplete="firstname" required/>
+            <x-jet-label for="secondname" value="{{ __('Segundo Nombre') }}" />
+            <x-jet-input id="secondname" type="text" class="mt-1 block w-full" wire:model.defer="state.secondname"
+                autocomplete="secondname" />
+            <x-jet-label for="lastname" value="{{ __('Apellido Paterno') }}" />
+            <x-jet-input id="lastname" type="text" class="mt-1 block w-full" wire:model.defer="state.lastname"
+                autocomplete="lastname" required/>
+            <x-jet-label for="motherslastname" value="{{ __('Apellido Materno') }}" />
+            <x-jet-input id="motherslastname" type="text" class="mt-1 block w-full" wire:model.defer="state.motherslastname"
+                autocomplete="motherslastname" required/>
+
             <x-jet-input-error for="name" class="mt-2" />
+
+
+            <x-jet-input-error for="lastname" class="mt-2" />
+            <x-jet-input-error for="motherslastname" class="mt-2" />
         </div>
 
         <!-- Email -->
