@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WishList extends Model
+class Report extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,8 @@ class WishList extends Model
      * @var array
      */
     protected $fillable = [
-        'product_id',
+        'cash_fund_id',
+        'voucher_id',
         'user_id'
     ];
 }
