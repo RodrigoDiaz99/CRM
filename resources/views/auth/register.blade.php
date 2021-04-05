@@ -101,7 +101,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="first_name" name="first_name" required>
+                                            placeholder="John" id="firstname" name="first_name" required>
                                     </div>
                                 </div>
                                 <div class="w-1/2 px-3 mb-5">
@@ -113,7 +113,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="second_name" name="second_name">
+                                            placeholder="John" id="secondname" name="second_name">
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="first_last_name" name="first_last_name" required>
+                                            placeholder="John" id="lastname" name="last_name" required>
                                     </div>
                                 </div>
 
@@ -142,7 +142,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="Smith" id="second_last_name" name="second_last_name" required>
+                                            placeholder="Smith" id="motherslastname" name="second_last_name" required>
                                     </div>
                                 </div>
 
