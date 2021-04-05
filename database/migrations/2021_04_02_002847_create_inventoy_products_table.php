@@ -15,7 +15,15 @@ class CreateInventoyProductsTable extends Migration
     {
         Schema::create('inventoy_products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id');
+            $table->integer('total_count');
+            $table->double('purchase_price');
+            $table->double('sale_price');
             $table->timestamps();
+            $table->softDeletes();
+
+            // Foreing Keys
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

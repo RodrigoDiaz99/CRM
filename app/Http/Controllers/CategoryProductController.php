@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
 
 class CategoryProductController extends Controller
@@ -41,10 +40,10 @@ class CategoryProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CategoryProduct  $categoryProduct
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoryProduct $categoryProduct)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class CategoryProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CategoryProduct  $categoryProduct
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoryProduct $categoryProduct)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class CategoryProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CategoryProduct  $categoryProduct
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoryProduct $categoryProduct)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class CategoryProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CategoryProduct  $categoryProduct
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryProduct $categoryProduct)
+    public function destroy($id)
     {
         //
     }
