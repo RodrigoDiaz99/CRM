@@ -129,7 +129,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="last_name" name="last_name" required>
+                                            placeholder="John" id="first_last_name" name="first_last_name" required>
                                     </div>
                                 </div>
 

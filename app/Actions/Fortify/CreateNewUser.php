@@ -23,7 +23,7 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'first_name' => ['required', 'string', 'max:255'],
             //'secondname' => ['string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
+            'first_last_name' => ['required', 'string', 'max:255'],
             'second_last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
@@ -33,7 +33,7 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'first_name' => $input['first_name'],
             'second_name' => $input['second_name'],
-            'last_name' => $input['last_name'],
+            'first_last_name' => $input['last_name'],
             'second_last_name' => $input['second_last_name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
