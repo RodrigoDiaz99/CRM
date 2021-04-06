@@ -17,9 +17,15 @@
     <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
     <script src="{{ asset('js/init-alpine.js') }}" defer></script>
-
-
+    <script>
+        var botmanWidget = {
+            aboutText: 'Write Something',
+            introMessage: "✋ Hi! I'm form Real Programmer"
+        };
+    </script>
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
     <!-- Scripts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -73,7 +79,7 @@
                 </footer>
             </div>
 
-         
+
             <!-- Backdrop -->
             <div x-transition:enter="transition duration-300 ease-in-out" x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100" x-transition:leave="transition duration-300 ease-in-out"
@@ -172,15 +178,15 @@
                 </div>
             </section>
 
-            
-           
-            
+
+
+
         </div>
 
     </div>
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
-   
+
 
   @stack('modals')
 
