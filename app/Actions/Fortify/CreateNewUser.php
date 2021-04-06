@@ -21,21 +21,22 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         Validator::make($input, [
-            'firstname' => ['required', 'string', 'max:255'],
-            //'secondname' => ['string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'motherslastname' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'second_name' => ['string', 'max:255'],
+            'first_last_name' => ['required', 'string', 'max:255'],
+            'second_last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
 
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+
             'password' => $this->passwordRules(),
         ])->validate();
 
         return User::create([
-            'firstname' => $input['firstname'],
-            'secondname' => $input['secondname'],
-            'lastname' => $input['lastname'],
-            'motherslastname' => $input['motherslastname'],
+            'first_name' => $input['first_name'],
+            'second_name' => $input['second_name'],
+            'first_last_name' => $input['first_last_name'],
+            'second_last_name' => $input['second_last_name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
