@@ -101,9 +101,10 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="firstname" name="firstname" required>
+                                            placeholder="John" id="first_name" name="first_name" value="{{ old('first_name') }}" autofocus required>
                                     </div>
                                 </div>
+                                
                                 <div class="w-1/2 px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">Segundo Nombre (Opcional)</label>
                                     <div class="flex">
@@ -113,7 +114,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="secondname" name="secondname">
+                                            placeholder="John" id="secondname" name="second_name" value="{{ old('second_name') }}">
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +130,7 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="John" id="lastname" name="lastname" required>
+                                            placeholder="John" id="lastname" name="first_last_name" value="{{ old('first_last_name') }}" required>
                                     </div>
                                 </div>
 
@@ -142,14 +143,11 @@
                                         </div>
                                         <input type="text"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="Smith" id="motherslastname" name="motherslastname" required>
+                                            placeholder="Smith" id="motherslastname" name="second_last_name" value="{{ old('second_last_name') }}" required>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
+
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">Email*</label>
@@ -160,10 +158,11 @@
                                         </div>
                                         <input type="email"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                            placeholder="johnsmith@example.com" id="email" name="email" required>
+                                            placeholder="johnsmith@example.com" id="email" name="email" value="{{ old('email') }}" required>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-12">
                                     <label for="" class="text-xs font-semibold px-1">Password*</label>
@@ -195,13 +194,13 @@
                                 <div class="mt-4">
                                     <x-jet-label for="terms">
                                         <div class="flex items-center">
-                                            <x-jet-checkbox name="terms" id="terms" />
+                                            <x-jet-checkbox name="terms" id="terms" required />
 
                                             <div class="ml-2">
                                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
-    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Privacy Policy') . '</a>',
-]) !!}
+                                                    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
+                                                    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Privacy Policy') . '</a>',
+                                                ]) !!}
                                             </div>
                                         </div>
                                     </x-jet-label>
