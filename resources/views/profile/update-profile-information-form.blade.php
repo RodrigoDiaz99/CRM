@@ -1,17 +1,24 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
+       <div class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
         {{ __('Profile Information') }}
+       </div> 
+    
     </x-slot>
 
-    <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+    <x-slot  name="description">
+ 
+            {{ __('Update your account\'s profile information and email address.') }}
+        
     </x-slot>
 
     <x-slot name="form">
+     
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
+            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4 bg-white rounded-md dark:bg-darker">
                 <!-- Profile Photo File Input -->
+               
                 <input type="file" class="hidden" wire:model="photo" x-ref="photo" x-on:change="
                                     photoName = $refs.photo.files[0].firstname;
                                     const reader = new FileReader();
@@ -51,9 +58,10 @@
         @endif
 
         <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 sm:col-span-4 bg-white rounded-md dark:bg-darker">
+            
             <x-jet-label for="name" value="{{ __('Primer Nombre') }}" />
-            <x-jet-input id="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname"
+            <x-jet-input id="firstname" type="text" class="mt-1 block w-full text-gray-500 uppercase dark:text-primary-light" wire:model.defer="state.firstname"
                 autocomplete="firstname" required/>
             <x-jet-label for="secondname" value="{{ __('Segundo Nombre') }}" />
             <x-jet-input id="secondname" type="text" class="mt-1 block w-full" wire:model.defer="state.secondname"
@@ -70,6 +78,7 @@
 
             <x-jet-input-error for="lastname" class="mt-2" />
             <x-jet-input-error for="motherslastname" class="mt-2" />
+          
         </div>
 
         <!-- Email -->
@@ -89,4 +98,5 @@
             {{ __('Save') }}
         </x-jet-button>
     </x-slot>
+    
 </x-jet-form-section>
