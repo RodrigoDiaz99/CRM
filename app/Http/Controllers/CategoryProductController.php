@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryStore;
+use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
 
 class CategoryProductController extends Controller
@@ -11,74 +13,75 @@ class CategoryProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $category = CategoryProduct::all();
+        return view('products.category.index', compact('category'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function create($id)
     {
-        //
+        $category = CategoryProduct::findOrFail($id);
+        return view('products.category.create', compact('category'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(CategoryStore $request)
     {
-        //
+
+        $category = new CategoryProduct();
+        $category->name = $request->name;
+
+        $category->save();
+        return redirect()->route('category.index')->with('success', 'Se ha publicado correctamente el contenido.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $category = CategoryProduct::find($id);
+        return redirect()->route('category.index')->with('success','Se ha publicada correctamente');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(CategoryStore $request, $id)
     {
-        //
+        $category = new CategoryProduct();
+        $category->name = $request->name;
+
+        $category->update();
+        return redirect()->route('category.index')->with('success', 'Se ha publicado correctamente el contenido.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $category = CategoryProduct::find($id);
+
+        $category->delete();
+        return back()->with('Success', 'Se elimino correctamente');
+        /*
+   foreach(item as items){
+
+   }
+   */
+    }
+    public function restore($id)
+    {
+        $category = CategoryProduct::onlyTrashed()->get();
+        $category->restore();
     }
 }
