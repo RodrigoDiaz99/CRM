@@ -17,15 +17,16 @@
     <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!--<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
     <script src="{{ asset('js/init-alpine.js') }}" defer></script>
-   {{--  <script>
+    {{-- <script>
         var botmanWidget = {
             aboutText: 'Write Something',
             introMessage: "✋ Hi! I'm form Real Programmer"
         };
-    </script>--}}
-<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    </script> --}}
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
     <!-- Scripts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -57,7 +58,7 @@
             </div>
 
             <!-- Sidebar -->
-  @include('layouts.side')
+            @include('layouts.side')
 
             <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
                 <!-- Navbar -->
@@ -67,14 +68,13 @@
                 <main>
                     {{ $slot }}
                 </main>
-                              <!-- Main footer -->
+                <!-- Main footer -->
                 <footer
                     class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
                     <div>CRM PENTAFUERZA; 2021</div>
                     <div>
-                       Hecho por
-                        <a href="#" target="_blank"
-                            class="text-blue-500 hover:underline">Pentafuerza</a>
+                        Hecho por
+                        <a href="#" target="_blank" class="text-blue-500 hover:underline">Pentafuerza</a>
                     </div>
                 </footer>
             </div>
@@ -117,7 +117,8 @@
                                     d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                             </svg>
                         </span>
-                        <h2 id="settinsPanelLabel" class="text-xl font-medium text-gray-500 dark:text-light">Configuraciones
+                        <h2 id="settinsPanelLabel" class="text-xl font-medium text-gray-500 dark:text-light">
+                            Configuraciones
                         </h2>
                     </div>
                     <!-- Content -->
@@ -188,13 +189,13 @@
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
 
 
-  @stack('modals')
+    @stack('modals')
 
-        @livewireScripts
+    @livewireScripts
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-<script src="{{asset('js/script.js')}}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 <script>
     const setup = () => {
         const getTheme = () => {
@@ -328,4 +329,5 @@
     }
 
 </script>
+
 </html>

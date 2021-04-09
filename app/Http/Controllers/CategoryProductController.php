@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryStore;
 use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
+use Livewire\Request as LivewireRequest;
 
 class CategoryProductController extends Controller
 {
@@ -26,10 +27,10 @@ class CategoryProductController extends Controller
     }
 
 
-    public function create($id)
+    public function create()
     {
-        $category = CategoryProduct::findOrFail($id);
-        return view('products.category.create', compact('category'));
+
+        return view('products.category.create');
     }
 
 
@@ -52,16 +53,15 @@ class CategoryProductController extends Controller
 
     public function edit($id)
     {
-        $category = CategoryProduct::find($id);
-        return redirect()->route('category.index')->with('success','Se ha publicada correctamente');
+        $category = CategoryProduct::findOrFail($id);
+        return view('products.category.edit', compact('category'));
     }
 
 
-    public function update(CategoryStore $request, $id)
+    public function update(Request $request, $id)
     {
-        $category = new CategoryProduct();
+        $category = CategoryProduct::findOrFail($id);
         $category->name = $request->name;
-
         $category->update();
         return redirect()->route('category.index')->with('success', 'Se ha publicado correctamente el contenido.');
     }
