@@ -20,7 +20,7 @@
 
                 {{--  --}}
 
-                    <div class="w-full overflow-x-auto">
+
                         <div
                             class="align-middle inline-block min-w-full shadow overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
 
@@ -58,7 +58,7 @@
                                 <!-- end card -->
                             </div>
                         </div>
-                    </div>
+
 
 
                 <!-- end -->
