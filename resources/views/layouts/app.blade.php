@@ -69,14 +69,7 @@
                     {{ $slot }}
                 </main>
                 <!-- Main footer -->
-                <footer
-                    class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
-                    <div>CRM PENTAFUERZA; 2021</div>
-                    <div>
-                        Hecho por
-                        <a href="#" target="_blank" class="text-blue-500 hover:underline">Pentafuerza</a>
-                    </div>
-                </footer>
+
             </div>
 
 

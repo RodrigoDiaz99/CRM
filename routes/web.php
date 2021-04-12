@@ -23,5 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('products/category', CategoryProductController::class);
-
+Route::resource('products', ProductController::class);
 //Route::get('products/category/index', 'CategoryProductController@index')->name('category_index');
