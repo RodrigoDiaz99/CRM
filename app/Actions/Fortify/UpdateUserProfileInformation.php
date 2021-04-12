@@ -19,9 +19,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'motherslastname' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'second_name' => ['max:255'],
+            'first_last_name' => ['required', 'string', 'min:2', 'max:255'],
+            'second_last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'image', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
@@ -35,10 +36,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'firstname' => $input['firstname'],
-            'secondname' => $input['secondname'],
-            'lastname' => $input['lastname'],
-            'motherslastname' => $input['motherslastname'],
+                'first_name' => ['required', 'string', 'max:255'],
+            'second_name' => ['max:255'],
+            'first_last_name' => ['required', 'string', 'min:2', 'max:255'],
+            'second_last_name' => ['required', 'string', 'max:255'],
                 'email' => $input['email'],
             ])->save();
         }
