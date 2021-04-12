@@ -2,8 +2,7 @@
 
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
-            <div
-                class="w-full overflow-x-auto font-semibold tracking-wide text-left bg-white rounded-md dark:bg-darker mt-4 mb-4">
+
                 {{--  --}}
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">En esta sección se agregan las categorias de los productos.</h1>
@@ -18,10 +17,9 @@
                         </a>
                     </div>--}}
                 </div>
-                <div></div>
+
                 {{--  --}}
-                <div
-                    class="w-full overflow-hidden tracking-wide text-left shadow-xs bg-white rounded-md dark:bg-darker mt-4 mb-4">
+
                     <div class="w-full overflow-x-auto">
                         <div
                             class="align-middle inline-block min-w-full shadow overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
@@ -61,11 +59,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
 
                 <!-- end -->
 
-            </div>
+
         </div>
     </div>
 </x-app-layout>
