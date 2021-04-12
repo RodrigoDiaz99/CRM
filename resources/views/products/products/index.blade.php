@@ -38,9 +38,11 @@
                             <div class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3">
                                 <div
                                     class="shadow-xl rounded-lg overflow-hidden text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                    <div class="bg-cover bg-center h-56 p-4"
+                                    {{--<div class="bg-cover bg-center h-56 p-4"
                                         style="background-image: url({{ Storage::url($row->img_paths) }})">
-                                    </div>
+                                        <img href=“” alt=“error”>
+                                    </div>--}}
+                                    <img href="{{Storage::url($row->img_paths)}}" alt="error">
                                     <div class="p-4">
                                         <p class="text-md italic bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                             Conferencia</p>

@@ -28,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.products.create');
+
+        $category = CategoryProduct::orderBy('name', 'desc')->get();
+        return view('products.products.create', compact('category'));
     }
 
     /**
@@ -50,17 +52,17 @@ class ProductController extends Controller
             $pathCover = $cover_file->storeAs('public/productsImg', $coverName);
 
             //Almacenamos los datos respectivos en la DB;
-            Conference::create([
+            Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'img_paths' => $pathCover,
-                'category_products_id' => $request->id,
+                'category_id' => $request->category_id,
             ]);
         } else {
             return back();
         }
 
-        return redirect()->route('products.index')->with('success', 'Video gurdado con éxito');
+        return redirect()->route('products.index')->with('success', 'producto gurdado con éxito');
     }
 
 

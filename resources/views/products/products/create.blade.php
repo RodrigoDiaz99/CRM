@@ -29,6 +29,21 @@
                                         <input type="text" name="description" id="description" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Link de la conferencia" required autofocus>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="direction" class="col-md-4 col-form-label text-md-right">Departamento</label>
+                                        <div class="col-md-6">
+                                            <select name="category_id" id="category_id" class="form-control" >
+
+                                                <option value="" selected>Seleccione una categoria</option>
+
+                                                    @foreach ($category as $row)
+                                                <option value="{{ $row->id }}">{{ $row->name}}</option>
+                                                </option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="flex flex-col">
                                         <label class="leading-loose">Miniatura</label>
 
