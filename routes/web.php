@@ -26,4 +26,4 @@ Route::resource('products/category', CategoryProductController::class);
 //Route::post('ruta','contro@kenn')->(name);
 Route::resource('products', ProductController::class);
 
-Route::resource('inventory', InventoryControlelr::class);
+Route::resource('inventory', InventoryProductController::class);
