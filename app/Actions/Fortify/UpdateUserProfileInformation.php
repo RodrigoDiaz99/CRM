@@ -37,9 +37,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         } else {
             $user->forceFill([
                 'first_name' => ['required', 'string', 'max:255'],
-            'second_name' => ['max:255'],
-            'first_last_name' => ['required', 'string', 'min:2', 'max:255'],
-            'second_last_name' => ['required', 'string', 'max:255'],
+                'second_name' => ['max:255'],
+                'first_last_name' => ['required', 'string', 'min:2', 'max:255'],
+                'second_last_name' => ['required', 'string', 'max:255'],
                 'email' => $input['email'],
             ])->save();
         }
@@ -55,10 +55,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
-            'firstname' => $input['firstname'],
-            'secondname' => $input['secondname'],
-            'lastname' => $input['lastname'],
-            'motherslastname' => $input['motherslastname'],
+            'first_name' => $input['firstname'],
+            'second_name' => $input['secondname'],
+            'first_last_name' => $input['lastname'],
+            'second_last_name' => $input['motherslastname'],
             'email_verified_at' => null,
         ])->save();
 
