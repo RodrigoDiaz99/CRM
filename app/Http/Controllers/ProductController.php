@@ -74,7 +74,7 @@ class ProductController extends Controller
                     'sale_price' => $request->sale_price,
 
                 ]);
-            } 
+            }
         } else {
             return back();
         }
@@ -176,6 +176,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
