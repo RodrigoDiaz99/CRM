@@ -93,7 +93,7 @@ class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker da
                             d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                 </span>
-                <span class="ml-2 text-sm"> Pages </span>
+                <span class="ml-2 text-sm"> Promociones </span>
                 <span aria-hidden="true" class="ml-auto">
                     <!-- active class 'rotate-180' -->
                     <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
@@ -107,9 +107,9 @@ class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker da
             <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
                 <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                 <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                <a href="pages/blank.html" role="menuitem"
+                <a href="{{route('promotions.index')}}" role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                    Blank
+                    Productos
                 </a>
 
             </div>
