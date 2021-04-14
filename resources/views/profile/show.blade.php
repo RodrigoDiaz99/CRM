@@ -6,7 +6,7 @@
         </div>
 
         <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker mb-4">
-            @include('profile.delivery-data')
+            @livewire('delivery-data')
         </div>
 
         <div x-show="open" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker mb-4" role="menu" arial-label="Components"">
