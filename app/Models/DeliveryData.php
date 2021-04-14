@@ -20,4 +20,9 @@ class DeliveryData extends Model
         'city',
         'zip'
     ];
+
+    // Relaciones
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

@@ -20,4 +20,9 @@ class InventoryProduct extends Model
         'purchase_price',
         'sale_price'
     ];
+
+    //Relaciones
+    public function Product () {
+        return $this->belongsTo(Product::class);
+    }
 }
