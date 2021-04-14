@@ -43,7 +43,7 @@
                                             class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Categoria</label>
                                         <div class="col-md-6">
                                             <select name="category_id" id="category_id"
-                                                class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
+                                                class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black" required>
 
                                                 <option value="" selected>Seleccione una categoria</option>
 
@@ -73,7 +73,7 @@
                                         </label>
                                     </div>
 
-                                    <div class="flex flex-col">
+                                    {{--<div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Cantidad de productos</label>
                                         <input type="number" min="1" name="total_count" id="total_count" step="any"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
@@ -97,6 +97,9 @@
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="38.5" required autofocus>
                                     </div>
+
+
+--}}
 
                                 </div>
                                 <div class="pt-4 flex items-center space-x-4">

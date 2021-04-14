@@ -2,74 +2,106 @@
 
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
-            <div
-                class="w-full overflow-x-auto font-semibold tracking-wide text-left bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                {{--  --}}
-                <div class="text-center mt-3">
-                    <h1 class="text-4xl">En esta sección se editan las categorias de los productos.</h1>
-                    <p class="small text-center"></p>
 
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto ">
+                <div class="relative px-4 py-10 bg-white text-center dark:bg-darker mb-4 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
 
-                    {{-- <div class="btn-group py-2">
-                        <a href="{{ route('category.index') }}"
-                            class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span>Ir a Lista</span>
-                        </a>
-                    </div> --}}
-                </div>
-                <div></div>
-                {{--  --}}
-                <div
-                    class="w-full overflow-hidden tracking-wide text-left shadow-xs bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                    <div class="w-full overflow-x-auto">
-                        <div
-                            class="align-middle inline-block min-w-full shadow overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                    <div class="max-w-md mx-auto">
+                        <div class="flex items-center space-x-5">
+                            <div
+                                class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
+                                SP</div>
+                            <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
+                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Subir Producto</h2>
+                                <p class="text-sm text-black font-normal leading-relaxed">Llena este formulario para
+                                    guardar un nuevo proyecto</p>
+                            </div>
+                        </div>
+                        <div class="divide-y divide-gray-200 ">
+                            <form action="{{ route('products.store') }}" enctype="multipart/form-data" method="POST">
+                                @csrf
 
-                            <div class="container flex flex-col justify-center items-center mx-auto my-8 py-10">
-                                <div style="background-image: url(https://images.unsplash.com/photo-1538582709238-0a503bd5ae04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80)"
-                                    class="max-w-5xl bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center">
-                                </div>
+                                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                                    <div class="flex flex-col">
+                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Nombre del producto</label>
+                                        <input type="text" name="name" id="name" onkeyup="mayus(this);"
+                                            style="text-transform: uppercase;"
+                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                            placeholder="Nombre del producto" required autofocus>
+                                    </div>
 
-                                <!-- Card -->
-                                <div class="bg-white dark:bg-darker -mt-24 shadow-md rounded-lg overflow-hidden">
-                                    <div
-                                        class="items-center justify-between py-10 px-5 bg-white shadow-2xl rounded-lg mx-auto text-center dark:bg-darker mb-4">
-                                        <div class="px-2 -mt-6">
-                                            <div class="text-center">
-                                                <h1
-                                                    class="font-normal text-3xl text-grey-800 leading-loose my-3 w-full">
-                                                    Editar categoria</h1>
-                                                <div class="w-full text-center">
-                                                    <form action="{{ route('category.update', $category->id) }}"
-                                                        enctype="multipart/form-data" method="POST">
-                                                        @method('PUT')
-                                                        @csrf
-                                                        <div
-                                                            class="col-span-6 sm:col-span-4 max-w-sm mx-auto p-1 pr-0 flex items-center">
-                                                            <input type="text" id="name" name="name"
-                                                                class="flex-1 appearance-none rounded shadow p-3 text-dark mr-2 focus:outline-none"
-                                                                required value="{{ $category->name }}">
+                                    <div class="flex flex-col">
+                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion producto</label>
+                                        <input type="text" name="description" id="description" onkeyup="mayus(this);"
+                                            style="text-transform: uppercase;"
+                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                            placeholder="Descripcion del producto" required autofocus>
+                                    </div>
 
-                                                            <button type="submit"
-                                                                class="bg-blue-600 text-white text-base font-semibold rounded-md shadow-md hover:bg-indigo-600 p-3">Editar</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                    <div class="form-group row">
+                                        <label for="direction"
+                                            class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Categoria</label>
+                                        <div class="col-md-6">
+                                            <select name="category_id" id="category_id"
+                                                class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black" required>
+
+                                                <option value="" selected>Seleccione una categoria</option>
+
+                                                @foreach ($category as $row)
+                                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                                    </option>
+                                                @endforeach
+
+                                            </select>
                                         </div>
                                     </div>
+                                    <div class="flex flex-col">
+                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Miniatura</label>
+
+                                        <label
+                                            class="w-full flex flex-col items-center px-4 py-2 bg-white text-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white">
+                                            <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                            </svg>
+                                            <span id="coverRecive" class="mt-2 text-base leading-normal">SELECCIONE
+                                                MINIATURA</span>
+                                            <input type='file' accept="image/png, image/jpeg, image/jpg" id="cover_file"
+                                                id="cover_file" name="cover_file" class="hidden" required />
+
+                                        </label>
+                                    </div>
+
+
                                 </div>
-                                <!-- end card -->
-                            </div>
+                                <div class="pt-4 flex items-center space-x-4">
+
+                                    <button type="submit"
+                                        class="w-full flex-col bg-transparent hover:bg-blue-400 text-blue-500 font-semibold hover:text-white py-2 px-1 border border-blue hover:border-transparent rounded">
+                                        <i class="fas fa-upload mx-2"></i>
+                                        <span>Subir Producto</span>
+                                    </button>
+
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                <!-- end -->
-
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('cover_file').onchange = function() {
+            console.log(this.value);
+            document.getElementById('coverRecive').innerHTML = document.getElementById('cover_file').files[0].name;
+        }
 
+    </script>
+    <script>
+        function mayus(e) {
+            e.value = e.value.toUpperCase();
+        }
+
+    </script>
 </x-app-layout>
