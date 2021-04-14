@@ -19,4 +19,17 @@ class Voucher extends Model
         'expense',
         'report_id'
     ];
+
+    // Relaciones
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
+
+    public function report () {
+        return $this->belongsTo(Report::class);
+    }
+
+    public function products () {
+        return $this->belongsToMany(Product::class);
+    }
 }

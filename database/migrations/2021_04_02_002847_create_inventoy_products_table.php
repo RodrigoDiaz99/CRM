@@ -18,6 +18,7 @@ class CreateInventoyProductsTable extends Migration
             $table->foreignId('product_id');
             $table->integer('total_count');
             $table->double('purchase_price');
+            $table->double('percent_of_profit');
             $table->double('sale_price');
             $table->timestamps();
             $table->softDeletes();

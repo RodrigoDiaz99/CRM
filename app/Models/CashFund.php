@@ -17,4 +17,9 @@ class CashFund extends Model
     protected $fillable = [
         'money'
     ];
+
+    //Relaciones
+    public function report () {
+        return $this->belongsTo(Report::class);
+    }
 }

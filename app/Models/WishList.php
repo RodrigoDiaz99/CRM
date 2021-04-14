@@ -18,4 +18,13 @@ class WishList extends Model
         'product_id',
         'user_id'
     ];
+
+    // Relaciones
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
+
+    public function product () {
+        return $this->hasOne(Product::class);
+    }
 }

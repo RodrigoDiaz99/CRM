@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::match(['get', 'post'], '/botman', [ChatController::class, 'index']);
+Route::resource('products/category', CategoryProductController::class);
+Route::resource('products', ProductController::class);
+
