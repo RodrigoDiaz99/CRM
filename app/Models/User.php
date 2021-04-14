@@ -62,4 +62,39 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // Relaciones
+    public function deliveryData () {
+        return $this->hasMany(DeliveryData::class);
+    }
+
+    public function promotion () {
+        return $this->hasOne(Promotion::class);
+    }
+
+    public function report () {
+        return $this->hasOne(Report::class);
+    }
+
+    public function wishList () {
+        return $this->hasOne(WishList::class);
+    }
+
+    public function vouchers () {
+        return $this->hasMany(Voucher::class);
+    }
+
+    public function comments () {
+        return $this->hasMany(CommentProduct::class);
+    }
+
+    public function scoreProduct () {
+        return $this->hasOne(scoreProduct::class);
+    }
+
+    public function promotions () {
+        return $this->belongsToMany(Promotion::class);
+    }
+
+
 }
