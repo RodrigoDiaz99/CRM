@@ -4,7 +4,8 @@
         <div class="w-full overflow-hidden rounded-lg">
 
             <div class="relative py-3 sm:max-w-xl sm:mx-auto ">
-                <div class="relative px-4 py-10 bg-white text-center dark:bg-darker mb-4 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+                <div
+                    class="relative px-4 py-10 bg-white text-center dark:bg-darker mb-4 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
 
                     <div class="max-w-md mx-auto">
                         <div class="flex items-center space-x-5">
@@ -12,28 +13,34 @@
                                 class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
                                 EP</div>
                             <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
-                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Editar Producto</h2>
+                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Editar
+                                    Producto</h2>
                                 <p class="text-sm text-black font-normal leading-relaxed">Llena este formulario para
-                                   editar el producto</p>
+                                    editar el producto</p>
                             </div>
                         </div>
                         <div class="divide-y divide-gray-200 ">
-                            <form action="{{ route('products.store') }}" enctype="multipart/form-data" method="POST">
+                            <form action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data"
+                                method="POST">
                                 @csrf
-@method('PUT')
+                                @method('PUT')
                                 <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                     <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Nombre del producto</label>
-                                        <input type="text" name="name" id="name" onkeyup="mayus(this);"
-                                            style="text-transform: uppercase;"
+                                        <label
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Nombre
+                                            del producto</label>
+                                        <input type="text" name="name" value="{{ $product->name }}" id="name"
+                                            onkeyup="mayus(this);" style="text-transform: uppercase;"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="Nombre del producto" required autofocus>
                                     </div>
 
                                     <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion producto</label>
-                                        <input type="text" name="description" id="description" onkeyup="mayus(this);"
-                                            style="text-transform: uppercase;"
+                                        <label
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion
+                                            producto</label>
+                                        <input type="text" value="{{ $product->description }}" name="description"
+                                            id="description" onkeyup="mayus(this);" style="text-transform: uppercase;"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="Descripcion del producto" required autofocus>
                                     </div>
@@ -43,7 +50,8 @@
                                             class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Categoria</label>
                                         <div class="col-md-6">
                                             <select name="category_id" id="category_id"
-                                                class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black" required>
+                                                class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
+                                                required>
 
                                                 <option value="" selected>Seleccione una categoria</option>
 
@@ -56,8 +64,10 @@
                                         </div>
                                     </div>
                                     <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Miniatura</label>
-
+                                        <label
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Miniatura</label>
+                                        <img class="object-contain h-24 w-full"
+                                            src="{{ Storage::url($product->img_paths) }}" alt="$row->name">
                                         <label
                                             class="w-full flex flex-col items-center px-4 py-2 bg-white text-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white">
                                             <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
