@@ -1,93 +1,116 @@
 <x-app-layout>
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
-            <div
-                class="w-full overflow-x-auto font-semibold tracking-wide text-left text-gray-500 border-b dark:border-gray-700 bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                <div class="text-center">
+            <div class="w-full overflow-x-auto font-semibold tracking-wide text-left bg-white rounded-md dark:bg-darker mt-4 mb-4">
 
+                <div class="text-center mt-3">
+                    <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
+                    <p class="text-center font-italic">En esta sección se hace la administración de los inventarios.
+                    <p class="small text-center"></p>
 
-                    <div class="text-center my-3">
-                        <h1 class="text-4xl">¡Bienvenido al catalogo de productos {{ Auth::user()->name }}! </h1>
-
-                        <p>Aquí el super administrador podrá realizar las modificaciones pertinentes a los productos
-                        </p>
-
-
-
-
-                    </div>
 
                     <div class="btn-group py-2">
-                        <a href="{{ route('products.create') }}"
-                            class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
+                        <a href="{{ route('inventory.create') }}" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
                             <i class="fas fa-plus mr-2"></i>
-                            <span>Subir Contenido</span>
+                            <span>Añadir inventario</span>
                         </a>
                     </div>
-
                 </div>
 
-                <div class="table-responsive">
+                <div></div>
+                <div class="w-full overflow-hidden tracking-wide text-left shadow-xs bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                    <div class="w-full overflow-x-auto">
+                        <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            ID</th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Producto</th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Conteo total</th>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4">
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Precio de compra</th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Porcentaje de beneficio
+                                        </th>
 
-                        @foreach ($product as $row)
-                            <div
-                                class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3 bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                                <div
-                                    class="shadow-xl  overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                                    {{-- <div class="bg-cover bg-center h-56 p-4"
-                                        style="background-image: url({{ Storage::url($row->img_paths) }})">
-                                        <img href=“” alt=“error”>
-                                    </div> --}}
-                                    <div
-                                        class="max-w-xs bg-white dark:bg-darker shadow-lg rounded-lg overflow-hidden my-10 text-center">
-                                        <div class="px-4 py-2 bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                                            <h1 class="text-black text-3xl uppercase dark:text-primary-white"> {{ $row->name }}
-                                            </h1>
-                                            <p class="text-blue-500 text-sm mt-1 dark:text-primary-light">{{ $row->description }}</p>
-                                        </div>
-                                        <div class="text-center">
-                                            <img class="h-56 w-full object-cover mt-2 center"
-                                                src="{{ Storage::url($row->img_paths) }}" alt="producto">
-                                            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                                                <h1 class="text-gray-200 font-bold text-xl">PV</h1>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Precio de venta</th>
+
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
+                                    @foreach ($inventory as $row)
+
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-xl font-semibold">#{{ $row->id }}</div>
                                                 </div>
-                                        </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold">{{ $row->Product()->first()->name }}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">{{ $row->total_count }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">
+                                                ${{ $row->purchase_price }}
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold">{{ $row->percent_of_profit }}%</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold">${{ $row->sale_price }}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="btn-group-py">
+                                                <div class="inline-flex items-center">
+                                                    <a href="{{ route('inventory.edit', $row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
+                                                    <form action="{{route('inventory.destroy',$row->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar
 
-                                    </div>
+                                                        </button>
+                                                    </form>
 
-                                    <div class="flex p-4 border-t border-gray-300 text-gray-700">
-                                        <div class="flex-1 inline-flex justify-between items-center">
-                                            <a href="{{ route('products.edit', $row->id) }}"
-                                                class="bg-transparent hover:bg-yellow-200 text-yellow-500 font-semibold hover:text-white py-2 px-4 border border-yellow-400 hover:border-transparent rounded">
-                                                <i class="far fa-edit"></i>
-                                            </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                            <form action="{{ route('products.destroy', $row->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button
-                                                    class="bg-transparent hover:bg-red-400 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-400 hover:border-transparent rounded">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        @endforeach
-
-
-
-
-
-
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{-- --}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </x-app-layout>

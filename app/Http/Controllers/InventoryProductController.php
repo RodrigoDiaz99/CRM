@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InventoryStore;
 use Illuminate\Http\Request;
+use App\Models\InventoryProduct;
+use App\Models\Product;
 
 class InventoryProductController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,8 @@ class InventoryProductController extends Controller
      */
     public function index()
     {
-        //
+        $inventory = InventoryProduct::all();
+        return view('inventory.index', compact('inventory'));
     }
 
     /**
@@ -23,7 +29,9 @@ class InventoryProductController extends Controller
      */
     public function create()
     {
-        //
+        $inventory = InventoryProduct::all();
+        $product = Product::orderBy('name', 'desc')->get();
+        return view('inventory.create', compact('product'));
     }
 
     /**
@@ -32,9 +40,16 @@ class InventoryProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InventoryStore $request)
     {
-        //
+        $inventory = new InventoryProduct();
+        $inventory->product_id = $request->product_id;
+        $inventory->total_count = $request->total_count;
+        $inventory->purchase_price = $request->purchase_price;
+        $inventory->percent_of_profit = $request->percent_of_profit;
+        $inventory->sale_price = $request->sale_price;
+        $inventory->save();
+        return redirect()->route('inventory.index');
     }
 
     /**
@@ -56,7 +71,9 @@ class InventoryProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inventory = InventoryProduct::findOrFail($id);
+        $product = Product::orderBy('name', 'desc')->get();
+        return view('inventory.edit', compact('product', 'inventory'));
     }
 
     /**
@@ -66,9 +83,16 @@ class InventoryProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InventoryStore $request, $id)
     {
-        //
+        $inventory = new InventoryProduct();
+        $inventory->product_id = $request->product_id;
+        $inventory->total_count = $request->total_count;
+        $inventory->purchase_price = $request->purchase_price;
+        $inventory->percent_of_profit = $request->percent_of_profit;
+        $inventory->sale_price = $request->sale_price;
+        $inventory->update();
+        return redirect()->route('inventory.index');
     }
 
     /**
@@ -79,6 +103,8 @@ class InventoryProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inventory = InventoryProduct::find($id);
+        $inventory->delete();
+        return back()->with('Success', 'Se elimino correctamente');
     }
 }
