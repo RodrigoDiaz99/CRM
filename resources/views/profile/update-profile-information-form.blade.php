@@ -32,7 +32,7 @@
 
             <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">
-                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->firstname }}" class="rounded-full h-20 w-20 object-cover">
+                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->first_name }}" class="rounded-full h-20 w-20 object-cover">
             </div>
 
             <!-- New Profile Photo Preview -->
@@ -58,25 +58,26 @@
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name"  value="{{ __('Primer Nombre') }}" />
-            <x-jet-input id="firstname" type="text" wire:model.defer="state.firstname" autocomplete="firstname" required />
+            <x-jet-input id="first_name" type="text" wire:model.defer="state.first_name" autocomplete="first_name" required />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="secondname"  value="{{ __('Segundo Nombre') }}" />
-            <x-jet-input id="secondname" type="text" class="mt-1 block w-full " wire:model.defer="state.secondname" autocomplete="secondname" />
+            <x-jet-label for="second_name"  value="{{ __('Segundo Nombre') }}" />
+            <x-jet-input id="second_name" type="text" class="mt-1 block w-full " wire:model.defer="state.second_name" autocomplete="second_name" />
+            <x-jet-input-error for="second_name" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="lastname" value="{{ __('Apellido Paterno') }}" />
-            <x-jet-input id="lastname" type="text" class="mt-1 block w-full  " wire:model.defer="state.lastname" autocomplete="lastname" required />
-            <x-jet-input-error for="lastname" class="mt-2" />
+            <x-jet-label for="first_last_name" value="{{ __('Apellido Paterno') }}" />
+            <x-jet-input id="first_last_name" type="text" class="mt-1 block w-full  " wire:model.defer="state.first_last_name" autocomplete="first_last_name" required />
+            <x-jet-input-error for="first_last_name" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="motherslastname"  value="{{ __('Apellido Materno') }}" />
-            <x-jet-input id="motherslastname" type="text" class="mt-1 block w-full  " wire:model.defer="state.motherslastname" autocomplete="motherslastname" required />
-            <x-jet-input-error for="motherslastname" class="mt-2" />
+            <x-jet-label for="second_last_name"  value="{{ __('Apellido Materno') }}" />
+            <x-jet-input id="second_last_name" type="text" class="mt-1 block w-full  " wire:model.defer="state.second_last_name" autocomplete="second_last_name" required />
+            <x-jet-input-error for="second_last_name" class="mt-2" />
         </div>
 
 
