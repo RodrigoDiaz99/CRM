@@ -19,4 +19,18 @@ class Report extends Model
         'voucher_id',
         'user_id'
     ];
+
+    // Relaciones
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
+
+    public function cash_fund () {
+        return $this->hasOne(CashFund::class);
+    }
+
+    public function vouchers () {
+        return $this->hasMany(Voucher::class);
+    }
+    
 }

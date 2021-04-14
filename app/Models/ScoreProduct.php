@@ -19,4 +19,9 @@ class ScoreProduct extends Model
         'product_id',
         'total'
     ];
+
+    //Relaciones
+    public function product () {
+        return $this->belongsTo(Product::class);
+    }
 }

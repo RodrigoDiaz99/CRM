@@ -20,4 +20,37 @@ class Product extends Model
         'description',
         'category_id'
     ];
+
+    // Relaciones
+    public function voucher () {
+        return $this->belongsToMany(Voucher::class);
+    }
+
+    public function wishList () {
+        return $this->belongsTo(WishList::class);
+    }
+
+    public function promotions () {
+        return $this->belongsToMany(Promotion::class);
+    }
+
+    public function comments () {
+        return $this->hasMany(CommentProduct::class);
+    }
+
+    public function scores () {
+        return $this->hasMany(ScoreProduct::class);
+    }
+    
+    public function inventories () {
+        return $this->hasOne(InventoryProduct::class);
+    }
+
+    public function soldProduct () {
+        return $this->hasOne(SoldProduct::class);
+    }
+
+    public function category () {
+        return $this->belongsTo(CategoryProduct::class);
+    }
 }
