@@ -73,7 +73,7 @@
                                         </label>
                                     </div>
 
-                                    {{--<div class="flex flex-col">
+                                    <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Cantidad de productos</label>
                                         <input type="number" min="1" name="total_count" id="total_count" step="any"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
@@ -99,7 +99,7 @@
                                     </div>
 
 
---}}
+
 
                                 </div>
                                 <div class="pt-4 flex items-center space-x-4">

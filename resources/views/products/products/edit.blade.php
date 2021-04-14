@@ -53,11 +53,11 @@
                                                 class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
                                                 required>
 
-                                                <option value="" selected>Seleccione una categoria</option>
+                                                
 
                                                 @foreach ($category as $row)
-                                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                                    </option>
+                                                    <option value="{{ $row->id }}" {{$product->category->id == $row->id ? "selected":""}}>{{ $row->name }}</option>
+                                                  
                                                 @endforeach
 
                                             </select>
