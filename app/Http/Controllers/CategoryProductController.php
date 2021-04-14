@@ -11,7 +11,7 @@ class CategoryProductController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *d
      * @return \Illuminate\Http\Response
      */
 

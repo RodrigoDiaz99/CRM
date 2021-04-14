@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductStore;
+use App\Models\Product;
+use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::all();
+        $category = CategoryProduct::orderBy('name', 'desc')->get();
+        return view('products.products.index', compact('product', 'category'));
     }
 
     /**
@@ -23,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+
+        $category = CategoryProduct::orderBy('name', 'desc')->get();
+        return view('products.products.create', compact('category'));
     }
 
     /**
@@ -32,10 +39,32 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductStore $request)
     {
-        //
+        $cover_file = $request->file('cover_file');
+
+        if ($cover_file) {
+
+            //obtenemos el nombre del archivo
+            $coverName = time(); //$cover_file->getClientOriginalName();
+
+            // Img del libro o documento PDF.
+            $pathCover = $cover_file->storeAs('public/productsImg', $coverName);
+
+            //Almacenamos los datos respectivos en la DB;
+            Product::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'img_paths' => $pathCover,
+                'category_id' => $request->category_id,
+            ]);
+        } else {
+            return back();
+        }
+
+        return redirect()->route('products.index')->with('success', 'producto gurdado con éxito');
     }
+
 
     /**
      * Display the specified resource.
