@@ -1,8 +1,8 @@
-<x-app-layout>
+<x-app-layout title="CRM | Productos">
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
             <div
-                class="w-full overflow-x-auto font-semibold tracking-wide text-left border-b dark:border-gray-700 bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                class="w-full overflow-x-auto font-semibold tracking-wide text-left dark:border-gray-700 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                 <div class="text-center">
 
 
@@ -26,10 +26,9 @@
                     </div>
 
                 </div>
-                <div></div>
-                <div
-                    class="w-full overflow-hidden tracking-wide text-left shadow-xs bg-white rounded-md dark:bg-darker mt-4 mb-4">
-                    <div class="w-full overflow-x-auto">
+               
+               
+                  
                         <div class="table-responsive">
 
                             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4">
@@ -38,7 +37,7 @@
                                     <div
                                         class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                                         <div
-                                            class="shadow-xl  overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                                            class="shadow-xl  overflow-hidden bg-white rounded-lg dark:bg-darker mt-4 mb-4">
                                             {{-- <div class="bg-cover bg-center h-56 p-4"
                                         style="background-image: url({{ Storage::url($row->img_paths) }})">
                                         <img href=“” alt=“error”>
@@ -86,18 +85,14 @@
                                         </div>
                                     </div>
                                 @endforeach
+</div>
 
-
-
-
-
-
-                            </div>
+                           
                         </div>
 
 
-                    </div>
-                </div>
+                    
+              
             </div>
         </div>
 
