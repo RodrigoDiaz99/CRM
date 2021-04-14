@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio compra</label>
-                                    <input value="{{$inventory->purchase_price}}" type="number" min="1" name="purchase_price" id="purchase_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="35" required autofocus>
+                                    <input oninput="salePriceCalculator()" value="{{$inventory->purchase_price}}" type="number" min="1" name="purchase_price" id="purchase_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="35" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Margen ganancia %</label>
