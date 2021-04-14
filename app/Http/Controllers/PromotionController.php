@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Promotion;
+use App\Models\Product;
 
 class PromotionController extends Controller
 {
@@ -13,7 +15,8 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //
+        $promotions = Promotion::all();
+        return view('products.promotions.index', compact('promotions'));
     }
 
     /**
@@ -23,7 +26,8 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::orderBy('name','desc')->get();
+        return view('products.promotions.create', compact('products'));
     }
 
     /**
@@ -32,9 +36,17 @@ class PromotionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PromotionStore $request)
     {
-        //
+        $promotions = new Promotion();
+        $promotions->title = $request->title;
+        $promotions->products_id = $request->products_id;
+        $promotions->description = $request->description;
+        $promotions->cash_discount = $request->cash_discount;
+        $promotions->expiration_date = $request->expiration_date;
+        $promotions->user_id = auth()->user()->id;
+        $promotions->save();
+        return redirect()->route('promotions.index')->with('succes', 'Promocion agregada');
     }
 
     /**
@@ -56,7 +68,8 @@ class PromotionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $promotions = Promotion::findOrFail($id);
+        return view('products.promotions.edit', compact('promotions'));
     }
 
     /**
@@ -66,9 +79,17 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PromotionStore $request, $id)
     {
-        //
+        $promotions = new Promotion();
+        $promotions->title = $request->title;
+        $promotions->products_id = $request->products_id;
+        $promotions->description = $request->description;
+        $promotions->cash_discount = $request->cash_discount;
+        $promotions->expiration_date = $request->expiration_date;
+        $promotions->user_id = $request->user_id;
+        $promotions->update();
+        return redirect()->route('promotions.index')->with('succes', 'Promocion actualizada');
     }
 
     /**

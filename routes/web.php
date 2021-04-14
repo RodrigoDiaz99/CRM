@@ -25,5 +25,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('products/category', CategoryProductController::class);
 //Route::post('ruta','contro@kenn')->(name);
 Route::resource('products', ProductController::class);
+Route::resource('promotions', PromotionController::class);
 
 Route::resource('inventory', InventoryProductController::class);
