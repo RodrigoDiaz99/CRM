@@ -13,7 +13,7 @@
         </button>
 
         <!-- Brand -->
-        <a href="index.html"
+        <a href="/dashboard"
             class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light">
             CRM
         </a>

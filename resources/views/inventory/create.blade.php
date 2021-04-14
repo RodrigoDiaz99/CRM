@@ -46,11 +46,11 @@
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Margen ganancia %</label>
-                                    <input type="number" min="1" name="percent_of_profit" id="percent_of_profit" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="10" required autofocus>
+                                    <input oninput="salePriceCalculator()" type="number" min="1" name="percent_of_profit" id="percent_of_profit" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="10" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio venta</label>
-                                    <input type="number" min="1" name="sale_price" id="sale_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="38.5" required autofocus>
+                                    <input oninput="percentProfitCalculator()" type="number" min="1" name="sale_price" id="sale_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="38.5" required autofocus>
                                 </div>
 
                         </div>
