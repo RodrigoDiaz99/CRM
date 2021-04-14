@@ -2,7 +2,7 @@
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
             <div
-                class="w-full overflow-x-auto font-semibold tracking-wide text-left text-gray-500 border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                class="w-full overflow-x-auto font-semibold tracking-wide text-left text-gray-500 border-b dark:border-gray-700 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                 <div class="text-center">
 
 
@@ -21,7 +21,7 @@
                         <a href="{{ route('products.create') }}"
                             class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
                             <i class="fas fa-plus mr-2"></i>
-                            <span>Subir conferencias</span>
+                            <span>Subir Contenido</span>
                         </a>
                     </div>
 
@@ -29,25 +29,31 @@
 
                 <div class="table-responsive">
 
-                    <h1
-                        class="text-center text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800 text-3xl">
-                        CONFERENCIAS</h1>
                     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4">
 
                         @foreach ($product as $row)
-                            <div class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3">
+                            <div
+                                class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                                 <div
-                                    class="shadow-xl rounded-lg overflow-hidden text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                    {{--<div class="bg-cover bg-center h-56 p-4"
+                                    class="shadow-xl  overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                                    {{-- <div class="bg-cover bg-center h-56 p-4"
                                         style="background-image: url({{ Storage::url($row->img_paths) }})">
                                         <img href=“” alt=“error”>
-                                    </div>--}}
-                                    <img href="{{Storage::url($row->img_paths)}}" alt="error">
-                                    <div class="p-4">
-                                        <p class="text-md italic bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                            Conferencia</p>
-                                        <p class="text-md italic bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                            {{ $row->name }}</p>
+                                    </div> --}}
+                                    <div
+                                        class="max-w-xs bg-white dark:bg-darker shadow-lg rounded-lg overflow-hidden my-10 text-center">
+                                        <div class="px-4 py-2 bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                                            <h1 class="text-black text-3xl uppercase dark:text-primary-white"> {{ $row->name }}
+                                            </h1>
+                                            <p class="text-blue-500 text-sm mt-1 dark:text-primary-light">{{ $row->description }}</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <img class="h-56 w-full object-cover mt-2 center"
+                                                src="{{ Storage::url($row->img_paths) }}" alt="producto">
+                                            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+                                                <h1 class="text-gray-200 font-bold text-xl">PV</h1>
+                                                </div>
+                                        </div>
 
                                     </div>
 
