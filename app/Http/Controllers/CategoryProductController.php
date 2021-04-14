@@ -58,7 +58,7 @@ class CategoryProductController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(CategoryStore $request, $id)
     {
         $category = CategoryProduct::findOrFail($id);
         $category->name = $request->name;

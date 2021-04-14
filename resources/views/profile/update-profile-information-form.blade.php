@@ -57,9 +57,9 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name"  value="{{ __('Primer Nombre') }}" />
+            <x-jet-label for="first_name"  value="{{ __('Primer Nombre') }}" />
             <x-jet-input id="first_name" type="text" wire:model.defer="state.first_name" autocomplete="first_name" required />
-            <x-jet-input-error for="name" class="mt-2" />
+            <x-jet-input-error for="first_name" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
