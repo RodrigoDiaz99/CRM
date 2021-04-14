@@ -27,7 +27,7 @@
                                         <input type="text" name="name" id="name" onkeyup="mayus(this);"
                                             style="text-transform: uppercase;"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="Nombre del producto" required autofocus>
+                                            placeholder="Titulo de la promocion" required autofocus>
                                     </div>
 
                                     <div class="form-group row">
@@ -53,7 +53,7 @@
                                         <input type="text" name="description" id="description" onkeyup="mayus(this);"
                                             style="text-transform: uppercase;"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="Descripcion del producto" required autofocus>
+                                            placeholder="Descripcion de la promocion" required autofocus>
                                     </div>
 
                                     <div class="flex flex-col">

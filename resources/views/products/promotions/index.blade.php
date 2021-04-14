@@ -48,9 +48,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
-                                    
-
-
+                                @foreach($promotions as $row)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="flex items-center">
@@ -71,7 +69,7 @@
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="btn-group-py">
                                                     <div class="inline-flex items-center">
-                                                        <a href=""
+                                                        <a href="{{ route('promotions.edit',$row->id) }}"
                                                             class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
                                                         <form action="" method="POST">
                                                             @csrf
@@ -86,7 +84,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-
+                                @endforeach
                                     
                                 </tbody>
                             </table>
