@@ -86,7 +86,7 @@ class PromotionController extends Controller
      */
     public function update(PromotionStore $request, $id)
     {
-        $promotions = new Promotion();
+        $promotions = Promotion::findOrFail($id);
         $promotions->title = $request->title;
         $promotions->product_id = $request->product_id;
         $promotions->description = $request->description;

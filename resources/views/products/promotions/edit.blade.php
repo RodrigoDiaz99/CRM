@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <div class="divide-y divide-gray-200 ">
-                            <form action="{{route('promotions.update',$promotions->id) }}" enctype="multipart/form-data" method="POST">
+                            <form action="{{route('promotions.update',$promotions->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
@@ -37,10 +37,8 @@
                                             <select name="product_id" id="product_id"
                                                 class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
 
-                                                <option value="" selected>Seleccione un producto</option>
-
                                                 @foreach ($products as $row)
-                                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                                    <option value="{{ $row->id }}" {{$promotions->product->id == $row->id ? "selected":""}}>{{ $row->name }}</option>
                                                 @endforeach
 
                                             </select>
