@@ -75,29 +75,34 @@
 
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Cantidad de productos</label>
-                                        <input type="number" min="1" name="total_count" id="total_count" step="any"
+                                        <input type="number" min="1" name="total_count" id="total_count"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="100" required autofocus>
                                     </div>
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio compra</label>
-                                        <input type="number" min="1" name="purchase_price" id="purchase_price"
+                                        <input oninput="salePriceCalculator()" type="number" min="1" name="purchase_price" id="purchase_price" step="any"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="35" required autofocus>
                                     </div>
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Margen ganancia %</label>
-                                        <input type="number" min="1" name="percent_of_profit" id="percent_of_profit"
+                                        <input oninput="salePriceCalculator()" type="number" min="1" name="percent_of_profit" id="percent_of_profit" step="any"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="10" required autofocus>
                                     </div>
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio venta</label>
-                                        <input type="number" min="1" name="sale_price" id="sale_price"
+                                        <input oninput="percentProfitCalculator()" type="number" min="1" name="sale_price" id="sale_price" step="any"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="38.5" required autofocus>
                                     </div>
-
+                                    <div class="flex flex-col">
+                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Costo de Envio</label>
+                                        <input  type="number" min="1" name="cost_of_shipping" id="cost_of_shipping" step="any"
+                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                            placeholder="150.25" required autofocus>
+                                    </div>
 
 
 

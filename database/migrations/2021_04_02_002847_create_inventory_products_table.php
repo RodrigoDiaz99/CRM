@@ -20,6 +20,7 @@ class CreateInventoryProductsTable extends Migration
             $table->double('purchase_price');
             $table->double('percent_of_profit');
             $table->double('sale_price');
+            $table->double('cost_of_shipping');
             $table->timestamps();
             $table->softDeletes();
 

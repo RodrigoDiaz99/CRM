@@ -19,7 +19,8 @@ class InventoryProduct extends Model
         'total_count',
         'purchase_price',
         'percent_of_profit',
-        'sale_price'
+        'sale_price',
+        'cost_of_shipping'
     ];
 
     //Relaciones
