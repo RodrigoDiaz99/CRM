@@ -22,4 +22,17 @@ class Promotion extends Model
         'expiration_date',
         'user_id'
     ];
+
+    // Relaciones
+    public function userAt () {
+        return $this->belongsTo(User::class);
+    }
+
+    public function users () {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function products () {
+        return $this->belongsToMany(Product::class);
+    }
 }

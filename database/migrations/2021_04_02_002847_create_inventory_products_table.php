@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInventoyProductsTable extends Migration
+class CreateInventoryProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInventoyProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventoy_products', function (Blueprint $table) {
+        Schema::create('inventory_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id');
             $table->integer('total_count');

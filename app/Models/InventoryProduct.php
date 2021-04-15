@@ -18,6 +18,12 @@ class InventoryProduct extends Model
         'product_id',
         'total_count',
         'purchase_price',
+        'percent_of_profit',
         'sale_price'
     ];
+
+    //Relaciones
+    public function product () {
+        return $this->belongsTo(Product::class);
+    }
 }
