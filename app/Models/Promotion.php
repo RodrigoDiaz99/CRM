@@ -33,7 +33,7 @@ class Promotion extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function products () {
-        return $this->belongsToMany(Product::class);
+    public function product () {
+        return $this->belongsTo(Product::class);
     }
 }
