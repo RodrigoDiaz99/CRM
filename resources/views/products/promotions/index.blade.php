@@ -83,7 +83,7 @@
                                                     <div class="inline-flex items-center">
                                                         <a href="{{ route('promotions.edit',$row->id) }}"
                                                             class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
-                                                        <form action="" method="POST">
+                                                        <form action="{{route('promotions.destroy', $row->id)}}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button

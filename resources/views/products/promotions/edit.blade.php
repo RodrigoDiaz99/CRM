@@ -18,9 +18,9 @@
                             </div>
                         </div>
                         <div class="divide-y divide-gray-200 ">
-                            <form action="{{route('promotions.store') }}" enctype="multipart/form-data" method="POST">
+                            <form action="{{route('promotions.update',$promotions->id) }}" enctype="multipart/form-data" method="POST">
                                 @csrf
-
+                                @method('PUT')
                                 <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Titulo de la promoción</label>
@@ -37,7 +37,7 @@
                                             <select name="product_id" id="product_id"
                                                 class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
 
-                                                <option value="{{}}" selected>Seleccione un producto</option>
+                                                <option value="" selected>Seleccione un producto</option>
 
                                                 @foreach ($products as $row)
                                                     <option value="{{ $row->id }}">{{ $row->name }}</option>
@@ -57,13 +57,13 @@
 
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descuento</label>
-                                        <input type="number" min="1" name="cash_discount" id="cash_discount"
+                                        <input type="number" min="1" name="cash_discount" id="cash_discount" value="{{$promotions->cash_discount}}"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="35" required autofocus>
                                     </div>
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de expiracion de la promocion</label>
-                                        <input type="date" min="1" name="expiration_date" id="expiration_date"
+                                        <input type="date" min="1" name="expiration_date" id="expiration_date" value="{{$promotions->expiration_date}}"
                                             class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                             placeholder="10" required autofocus>
                                     </div>

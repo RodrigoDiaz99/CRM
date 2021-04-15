@@ -9,7 +9,9 @@ use App\Http\Requests\PromotionStore;
 
 class PromotionController extends Controller
 {
+
     /**
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -71,7 +73,8 @@ class PromotionController extends Controller
     public function edit($id)
     {
         $promotions = Promotion::findOrFail($id);
-        return view('products.promotions.edit', compact('promotions'));
+        $products = Product::orderBy('name','desc')->get();
+        return view('products.promotions.edit', compact('promotions','products'));
     }
 
     /**
@@ -89,9 +92,8 @@ class PromotionController extends Controller
         $promotions->description = $request->description;
         $promotions->cash_discount = $request->cash_discount;
         $promotions->expiration_date = $request->expiration_date;
-        $promotions->user_id = $request->user_id;
         $promotions->update();
-        return redirect()->route('products.promotions.index')->with('succes', 'Promocion actualizada');
+        return redirect()->route('promotions.index')->with('succes', 'Promocion actualizada');
     }
 
     /**
@@ -102,6 +104,9 @@ class PromotionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $promotions = Promotion::find($id);
+
+        $promotions->delete();
+        return back()->with('Success', 'Se elimino correctamente');
     }
 }
