@@ -27,7 +27,7 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        $products = Product::orderBy('name','desc')->get();
+        $products = Product::orderBy('name','ASC')->get();
         return view('products.promotions.create', compact('products'));
     }
 
