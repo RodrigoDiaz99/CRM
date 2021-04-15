@@ -24,7 +24,7 @@ class InventoryProduct extends Model
     ];
 
     //Relaciones
-    public function Product () {
+    public function product () {
         return $this->belongsTo(Product::class);
     }
 }

@@ -42,7 +42,7 @@ class Product extends Model
         return $this->hasMany(ScoreProduct::class);
     }
     
-    public function Inventories () {
+    public function inventories () {
         return $this->hasOne(InventoryProduct::class);
     }
 
