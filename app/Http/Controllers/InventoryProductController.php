@@ -89,7 +89,7 @@ class InventoryProductController extends Controller
      */
     public function update(InventoryStore $request, $id)
     {
-        $inventory = new InventoryProduct();
+        $inventory = InventoryProduct::findOrFail($id);
         $inventory->product_id = $request->product_id;
         $inventory->total_count = $request->total_count;
         $inventory->purchase_price = $request->purchase_price;
