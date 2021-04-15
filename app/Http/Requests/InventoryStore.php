@@ -24,7 +24,11 @@ class InventoryStore extends FormRequest
     public function rules()
     {
         return [
-            
+            'product_id' => 'required',
+            'total_count'=>'required',
+            'purchase_price'=>'required',
+            'percent_of_profit'=>'required',
+            'sale_price'=>'required',
         ];
     }
 }
