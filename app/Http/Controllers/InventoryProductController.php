@@ -52,6 +52,7 @@ class InventoryProductController extends Controller
         $inventory->purchase_price = $request->purchase_price;
         $inventory->percent_of_profit = $request->percent_of_profit;
         $inventory->sale_price = $request->sale_price;
+        $inventory->cost_of_shipping  = $request->cost_of_shipping;
         $inventory->save();
         return redirect()->route('inventory.index');
     }
@@ -95,6 +96,7 @@ class InventoryProductController extends Controller
         $inventory->purchase_price = $request->purchase_price;
         $inventory->percent_of_profit = $request->percent_of_profit;
         $inventory->sale_price = $request->sale_price;
+        $inventory->cost_of_shipping = $request->cost_of_shipping;
         $inventory->update();
         return redirect()->route('inventory.index');
     }

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//{{route('category.create')}}
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -23,7 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('products/category', CategoryProductController::class);
-//Route::post('ruta','contro@kenn')->(name);
+
 Route::resource('products', ProductController::class);
 
+Route::resource('promotions', PromotionController::class);
 Route::resource('inventory', InventoryProductController::class);
