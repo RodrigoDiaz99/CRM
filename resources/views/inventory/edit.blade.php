@@ -17,14 +17,14 @@
                             </div>
                         </div>
                         <div class="divide-y divide-gray-200 ">
-                            <form action="{{ route('inventory.store') }}" enctype="multipart/form-data" method="POST">
+                            <form action="{{ route('inventory.update', $inventory->id)}}" enctype="multipart/form-data" method="PUT">
                                 @csrf
 
 
                                 <div class="form-group row">
                                     <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Producto</label>
                                     <div class="col-md-6">
-                                        <select name="product_id" id="product_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
+                                        <select disabled name="product_id" id="product_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
 
                                             <option value="" selected>Seleccione un producto</option>
                                             @foreach ($product as $row)
@@ -38,7 +38,7 @@
 
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Cantidad de productos</label>
-                                    <input value="{{$inventory->total_count}}" type="number" min="1" name="total_count" id="total_count" step="any" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
+                                    <input value="{{$inventory->total_count}}" type="number" min="1" step="0.01" name="total_count" id="total_count" step="any" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio compra</label>
