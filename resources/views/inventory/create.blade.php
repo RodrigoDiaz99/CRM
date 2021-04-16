@@ -11,7 +11,7 @@
                             <div class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
                                 SP</div>
                             <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
-                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Subir Producto</h2>
+                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Subir inventario</h2>
                                 <p class="text-sm text-black font-normal leading-relaxed">Llena este formulario para
                                     guardar un nuevo proyecto</p>
                             </div>
@@ -62,7 +62,7 @@
 
                             <button type="submit" class="w-full flex-col bg-transparent hover:bg-blue-400 text-blue-500 font-semibold hover:text-white py-2 px-1 border border-blue hover:border-transparent rounded">
                                 <i class="fas fa-upload mx-2"></i>
-                                <span>Subir Producto</span>
+                                <span>Subir inventario</span>
                             </button>
 
                         </div>
