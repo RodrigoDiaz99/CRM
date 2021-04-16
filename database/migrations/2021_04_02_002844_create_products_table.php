@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('img_paths');
             $table->string('name');
             $table->string('description');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
 

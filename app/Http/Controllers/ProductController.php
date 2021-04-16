@@ -23,6 +23,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
         $category = CategoryProduct::orderBy('name', 'desc')->get();
+
         return view('products.products.index', compact('product', 'category'));
     }
 
