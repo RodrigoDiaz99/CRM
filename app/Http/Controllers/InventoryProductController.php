@@ -97,7 +97,7 @@ class InventoryProductController extends Controller
         $inventory->percent_of_profit = $request->percent_of_profit;
         $inventory->sale_price = $request->sale_price;
         $inventory->cost_of_shipping = $request->cost_of_shipping;
-        $inventory->update();
+         $inventory->update();
         return redirect()->route('inventory.index');
     }
 

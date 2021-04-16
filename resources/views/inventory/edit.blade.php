@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="divide-y divide-gray-200 ">
-                            <form action="{{ route('inventory.update', $inventory->id)}}" enctype="multipart/form-data" method="PUT">
+                            <form action="{{ route('inventory.update', $inventory->id) }}" enctype="multipart/form-data" method="PUT">
                                 @csrf
 
 
