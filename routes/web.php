@@ -27,5 +27,4 @@ Route::resource('products/category', CategoryProductController::class);
 Route::resource('products', ProductController::class);
 
 Route::resource('promotions', PromotionController::class);
-
 Route::resource('inventory', InventoryProductController::class);

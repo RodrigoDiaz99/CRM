@@ -39,6 +39,8 @@
 
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Precio de venta</th>
+                                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                                Costo de envio</th>
 
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Acciones</th>
@@ -82,6 +84,13 @@
                                             <div class="flex items-center">
                                                 <div>
                                                     <div class="text-sm font-semibold">${{ $row->sale_price }}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold">${{ $row->cost_of_shipping }}</div>
                                                 </div>
                                             </div>
                                         </td>

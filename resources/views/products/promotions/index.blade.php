@@ -17,7 +17,7 @@
                         <a href="{{ route('promotions.create') }}"
                             class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
                             <i class="fas fa-plus mr-2"></i>
-                            <span>Añadir contenido</span>
+                            <span>Añadir oferta</span>
                         </a>
                     </div>
                 </div>
@@ -33,14 +33,19 @@
                                     <tr>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            ID</th>
+                                            Titulo de Promoción</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Nombre</th>
-
+                                            Nombre del Producto</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Fecha de Creacion</th>
+                                            Descripcion de la Promoción</th>
+                                        <th
+                                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Porcentaje de descuento</th>
+                                        <th
+                                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Fecha de expiracion de la Promoción</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Acciones
@@ -53,17 +58,24 @@
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="flex items-center">
                                                     <div>
-                                                        <div class="text-xl font-semibold"></div>
+                                                        <div class="text-xl font-semibold">{{$row->title}}</div>
                                                     </div>
                                                 </div>
                                             </td>
+
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                <div class="text-sm font-semibold"></div>
+                                                <div class="text-sm font-semibold">{{$row->product->name}}</div>
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                                <div class="text-sm font-semibold">{{$row->description}}</div>
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                                <div class="text-sm font-semibold">{{$row->cash_discount}}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                <div class="text-sm font-semibold">
-                                                    
-                                                </div>
+                                                <div class="text-sm font-semibold">{{$row->expiration_date}}</div>
                                             </td>
                                             <td 
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -71,7 +83,7 @@
                                                     <div class="inline-flex items-center">
                                                         <a href="{{ route('promotions.edit',$row->id) }}"
                                                             class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
-                                                        <form action="" method="POST">
+                                                        <form action="{{route('promotions.destroy', $row->id)}}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button

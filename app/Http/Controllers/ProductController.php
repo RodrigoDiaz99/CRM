@@ -72,6 +72,8 @@ class ProductController extends Controller
                     'purchase_price' => $request->purchase_price,
                     'percent_of_profit' => $request->percent_of_profit,
                     'sale_price' => $request->sale_price,
+                    'cost_of_shipping' => $request-> cost_of_shipping,
+
 
                 ]);
             }
@@ -176,6 +178,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $product = Product::find($id);
 
+        $product->delete();
+        return back()->with('Success', 'Se elimino correctamente');
     }
 }
