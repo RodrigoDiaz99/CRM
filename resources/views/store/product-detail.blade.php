@@ -133,16 +133,7 @@
 
             <div class="flex items-center justify-between">
                 <h3 class="text-2xl font-medium text-gray-700">Tu Carrito</h3>
-                @if (count(Cart::getContent()))
-                    <a @click="cartOpen = !cartOpen" class="text-gray-600 focus:outline-none"
-                        href="{{ route('cart.checkout') }}">
-                        <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                        <span class="badge badge-danger">{{ count(Cart::getContent()) }}</span>
-                    </a>
-                @endif
+                
             </div>
 
             <hr class="my-3">
@@ -198,7 +189,7 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-4/5 mx-auto flex flex-wrap">
                             <img alt="ecommerce"
-                                class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                                class="object-cover object-center rounded border border-gray-200"
                                 src="{{ Storage::url($productos->img_paths) }}">
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
 
@@ -241,7 +232,7 @@
                                     <span
                                         class="title-font font-medium text-2xl text-gray-900">${{ $productos->inventories->sale_price }}</span>
                                     <button
-                                        class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Button</button>
+                                        class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Agregar al Carrito</button>
                                     <button
                                         class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"

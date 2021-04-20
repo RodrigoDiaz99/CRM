@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -90,27 +90,11 @@
                 </div>
                 <nav :class="isOpen ? '' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-4">
                     <div class="flex flex-col sm:flex-row">
-                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Inicio</a>
-                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Tienda</a>
-                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categorias</a>
-                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Contacto</a>
-                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Acerca de</a>
-                        @if (Route::has('login'))
-
-                            @auth
-                                <a href="{{ route('dashboard') }}"
-                                    class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Panel</a>
-                            @else
-                                <a href="{{ route('login') }}"
-                                    class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Acceso</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registro</a>
-                                @endif
-                            @endauth
-
-                        @endif
+                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Home</a>
+                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Shop</a>
+                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categories</a>
+                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Contact</a>
+                        <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">About</a>
                     </div>
                 </nav>
                 <div class="relative mt-6 max-w-lg mx-auto">
@@ -241,26 +225,28 @@
                     <h3 class="text-gray-600 text-2xl font-medium">Mas Productos</h3>
                     <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                         @forelse ($productos as $row )
-                            <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-                                <div class="flex items-end justify-end h-56 w-full bg-cover"
-                                    style="background-image: url(Storage::url($row->img_paths))">
-                                    <img class="flex items-end justify-end h-56 w-full bg-cover" src="{{ Storage::url($row->img_paths) }}" alt="">
-                                    <!-- TODO -->
-                                </div>
-                                <div class="px-5 py-3">
-                                    <a href="{{route('welcome.show',$row->id)}}" class="text-gray-700 uppercase">{{ $row->name }}</a>
-                                  <br>
-                                
-                                    <span class="text-gray-500 mt-2">{{ $row->inventories->sale_price }}</span>
-                                </div>
+                        <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
+                            <div class="flex items-end justify-end h-56 w-full bg-cover"
+                                style="background-image: url('{{ Storage::url($row->img_paths) }}')">
+                                <a href="{{ route('welcome.show', $row->id) }}"
+                                    class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                                    <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                </a>
                             </div>
+                            <div class="px-5 py-3">
+                                <h3 class="text-gray-700 uppercase">{{ $row->name }}</h3>
+                                <span class="text-gray-500 mt-2">${{ $row->inventories->sale_price }}</span>
+                            </div>
+                        </div>
+                            
                         @empty
                             <h1>No hay nada</h1>
                         @endforelse
-
-
-
-
                     </div>
                 </div>
             </div>
