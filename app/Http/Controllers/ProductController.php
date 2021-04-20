@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::all();
-        $category = CategoryProduct::orderBy('name', 'desc')->get();
+        $category = CategoryProduct::orderBy('name', 'asc')->get();
         return view('products.products.index', compact('product', 'category'));
     }
 
@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function create()
     {
 
-        $category = CategoryProduct::orderBy('name', 'desc')->get();
+        $category = CategoryProduct::orderBy('name', 'asc')->get();
         return view('products.products.create', compact('category'));
     }
 
@@ -105,7 +105,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $category = CategoryProduct::orderBy('name', 'desc')->get();
+        $category = CategoryProduct::orderBy('name', 'asc')->get();
         return view('products.products.edit', compact('product', 'category'));
     }
 
