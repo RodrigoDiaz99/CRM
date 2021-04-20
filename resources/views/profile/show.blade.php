@@ -19,11 +19,19 @@
             </div>
         @endif
 
-        <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker mb-4">
+        <div class="mt-10 sm:mt-0">
+            <h4 class="mb-4 text-lg font-semibold text-white dark:text-gray-300">
+                {{ __('Sesiones en Navegadores') }}
+            </h4>
+
             @livewire('profile.logout-other-browser-sessions-form')
         </div>
 
-        <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker mb-4">
+        <div class="mt-10 sm:mt-0">
+            <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+                {{ __('Borrar Cuenta') }}
+            </h4>
+
             @livewire('profile.delete-user-form')
         </div>
 
