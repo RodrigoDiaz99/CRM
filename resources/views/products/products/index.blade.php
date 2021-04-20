@@ -55,7 +55,7 @@
                                             <img class="h-56 w-full object-cover mt-2 center"
                                                 src="{{ Storage::url($row->img_paths) }}" alt="producto">
                                             <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                                                <h1 class="text-gray-200 font-bold text-xl">PV</h1>
+                                                <h1 class="text-gray-200 font-bold text-xl">{{ $row->inventories->sale_price }}</h1>
                                             </div>
                                         </div>
 

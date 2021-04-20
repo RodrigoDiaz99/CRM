@@ -15,4 +15,10 @@ class FrontController extends Controller
         return view('welcome',compact('productos','price'));
 
     }
+    public function show($id){
+        $productos    =   Product::find($id);
+        $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
+        return view('store.product-detail',compact('productos','price'));
+
+    }
 }

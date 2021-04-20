@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 })->name('welcome');*/
 Route::get('/', 'FrontController@index' )->name('welcome');
+Route::get('product/info/{id}', 'FrontController@show' )->name('welcome.show');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
