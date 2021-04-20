@@ -133,16 +133,7 @@
 
             <div class="flex items-center justify-between">
                 <h3 class="text-2xl font-medium text-gray-700">Tu Carrito</h3>
-                @if (count(Cart::getContent()))
-                    <a @click="cartOpen = !cartOpen" class="text-gray-600 focus:outline-none"
-                        href="{{ route('cart.checkout') }}">
-                        <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                        <span class="badge badge-danger">{{ count(Cart::getContent()) }}</span>
-                    </a>
-                @endif
+                
             </div>
 
             <hr class="my-3">
