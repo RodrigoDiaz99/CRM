@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InventoryStore;
-use Illuminate\Http\Request;
+use App\Http\Requests\InventoryUpdate;
 use App\Models\InventoryProduct;
 use App\Models\Product;
 
@@ -88,10 +88,9 @@ class InventoryProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(InventoryStore $request, $id)
+    public function update(InventoryUpdate $request, $id)
     {
-        $inventory = new InventoryProduct();
-        $inventory->product_id = $request->product_id;
+        $inventory = InventoryProduct::findOrFail($id);
         $inventory->total_count = $request->total_count;
         $inventory->purchase_price = $request->purchase_price;
         $inventory->percent_of_profit = $request->percent_of_profit;
