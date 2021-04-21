@@ -29,5 +29,7 @@ Route::resource('products', ProductController::class);
 Route::resource('promotions', PromotionController::class);
 Route::resource('inventory', InventoryProductController::class);
 
-Route::resource('/', 'FrontController' );
+Route::get('/', 'FrontController@index' )->name('welcome');
+Route::get('product/info/{id}', 'FrontController@show' )->name('details.show');
+Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart' )->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
