@@ -6,6 +6,7 @@
 
             <hr class="my-3">
             <div class="flex justify-between mt-6">
+                @forelse ($shopingItems as $item)
                 <div class="flex">
                     <img class="h-20 w-20 object-cover rounded"
                         src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
@@ -30,6 +31,9 @@
                     </div>
                 </div>
                 <span class="text-gray-600">20$</span>
+                @empty
+                <h2>Carrito Vacío!</h2>
+                @endforelse
             </div>
 
             <div class="mt-8">
