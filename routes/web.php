@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 })->name('welcome');*/
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -27,6 +28,6 @@ Route::resource('products', ProductController::class);
 
 Route::resource('promotions', PromotionController::class);
 Route::resource('inventory', InventoryProductController::class);
-Route::get('/', 'FrontController@index' )->name('welcome');
-Route::get('product/info/{id}', 'FrontController@show' )->name('welcome.show');
+
+Route::resource('/', 'FrontController' );
 Route::get('checkout', 'FrontController@checkout')->name('checkout');

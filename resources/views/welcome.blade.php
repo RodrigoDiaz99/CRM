@@ -1,6 +1,5 @@
 <x-app2-layout>
-
-
+    @include('store.shopingCart', ['shopingItem' => $shopingItems ])
     <div class="container mx-auto px-6">
         <div class="md:flex md:items-center">
             <div class="w-full h-64 md:w-1/2 lg:h-96">
@@ -73,7 +72,7 @@
                         </div>
                         <div class="px-5 py-3">
                             <h3 class="text-gray-700 uppercase"><a
-                                    href="{{ route('welcome.show', $row->id) }}">{{ $row->name }}</a></h3>
+                                    href="{{ route('show', $row->id) }}">{{ $row->name }}</a></h3>
                             <span class="text-gray-500 mt-2">${{ $row->inventories['0']->sale_price }}</span>
                         </div>
                     </div>
@@ -84,5 +83,4 @@
             </div>
         </div>
     </div>
-
 </x-app2-layout>
