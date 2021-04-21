@@ -53,4 +53,8 @@ class Product extends Model
     public function category () {
         return $this->belongsTo(CategoryProduct::class);
     }
+
+    public function shopingCart (){
+        return $this->belongsTo(ShopingCart::class);
+    }
 }

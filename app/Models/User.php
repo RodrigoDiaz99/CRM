@@ -96,5 +96,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Promotion::class);
     }
 
+    public function shopingCart() {
+        return $this->belongsTo(ShopingCart::class);
+    }
+
 
 }

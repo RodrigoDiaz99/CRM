@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateShopingCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('shoping_carts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('img_paths');
-            $table->string('description');
-            $table->foreignId('category_id')->onDelete('cascade');
+            $table->foreignId("user_id");
+            $table->foreignId("product_id");
             $table->timestamps();
             $table->softDeletes();
 
-            // Foreing Keys
-            $table->foreign('category_id')->references('id')->on('category_products');
+            //Relaciones
+            $table->foreign("user_id")->references('id')->on("users");
+
+            $table->foreign("product_id")->references('id')->on("products");
         });
     }
 
@@ -34,6 +34,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('shoping_carts');
     }
 }
