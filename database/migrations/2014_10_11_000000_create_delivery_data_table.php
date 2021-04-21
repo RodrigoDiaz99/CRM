@@ -15,10 +15,18 @@ class CreateDeliveryDataTable extends Migration
     {
         Schema::create('delivery_data', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('last_name');
             $table->string('phone');
-            $table->string('direction');
+            $table->string('country');
+            $table->string('state');
             $table->string('city');
+            $table->string('street');
+            $table->string('number_exterior');
+            $table->string('number_interior')->nullable();
+            $table->string('suburb');
             $table->string('zip');
+            $table->string('reference');
             $table->timestamps();
             $table->softDeletes();
         });

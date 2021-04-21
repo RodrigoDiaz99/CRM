@@ -15,10 +15,17 @@ class DeliveryData extends Model
      * @var array
      */
     protected $fillable = [
+        'name',
+        'last_name',
         'phone',
-        'direction',
+        'country',
+        'state',
         'city',
-        'zip'
+        'street',
+        'number_exterior',
+        'suburb',
+        'zip',
+        'reference',
     ];
 
     // Relaciones

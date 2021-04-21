@@ -32,6 +32,9 @@ class FrontController extends Controller
     public function checkout(){
         return view('store.checkout');
     }
+    public function payment(){
+return view('store.payment');
+    }
 
     public function addShopingCart ($id) {
         ShopingCart::create([
