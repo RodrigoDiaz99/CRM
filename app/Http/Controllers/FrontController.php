@@ -21,4 +21,7 @@ class FrontController extends Controller
         return view('store.product-detail',compact('productos','price'));
 
     }
+    public function checkout(){
+        return view('store.checkout');
+    }
 }
