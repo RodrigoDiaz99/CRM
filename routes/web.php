@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Models\CashFund;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +28,6 @@ Route::resource('products', ProductController::class);
 
 Route::resource('promotions', PromotionController::class);
 Route::resource('inventory', InventoryProductController::class);
+
+//Cash Fund Resource
+Route::resource('cashfund', CashFundController::class);
