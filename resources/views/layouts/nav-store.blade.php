@@ -39,11 +39,24 @@
     </div>
     <nav :class="isOpen ? '' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-4">
         <div class="flex flex-col sm:flex-row">
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Home</a>
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Shop</a>
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categories</a>
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Contact</a>
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">About</a>
+            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Inicio</a>
+            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Tienda</a>
+            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categorias</a>
+            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Contacto</a>
+            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Acerca de</a>
+            @if (Route::has('login'))
+
+                @auth
+                    <a href="{{ url('/home') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Panel</a>
+                @else
+                    <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Acceso</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registro</a>
+                    @endif
+                @endauth
+
+        @endif
         </div>
     </nav>
     <div class="relative mt-6 max-w-lg mx-auto">
