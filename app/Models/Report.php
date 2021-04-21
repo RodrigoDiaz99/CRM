@@ -26,7 +26,7 @@ class Report extends Model
     }
 
     public function cash_fund () {
-        return $this->hasOne(CashFund::class);
+        return $this->belongsTo(CashFund::class);
     }
 
     public function vouchers () {

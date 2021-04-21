@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Report;
+use App\Models\CashFund;
+use App\Models\User;
 
 class ReportController extends Controller
 {
@@ -11,9 +14,15 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        //
+        $report = Report::all();
+        $cashfund = CashFund::all();
+        return view('report.index', compact('report', 'cashfund'));
     }
 
     /**
@@ -23,7 +32,10 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+        $cashfund = CashFund::all();
+        $users = User::all();
+
+        return view('report.create', compact('cashfund', 'users'));
     }
 
     /**
@@ -34,7 +46,11 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new Report();
+        $report->cash_fund_id = $request->cash_fund_id;
+        $report->user_id = $request->user_id;
+        $report->save();
+        return redirect()->route('report.index');
     }
 
     /**
