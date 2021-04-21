@@ -8,9 +8,12 @@ use App\Http\Requests\DeliverydataStore;
 use App\Models\DeliveryData;
 class DeliveryDataController extends Controller
 {
-    public function create(){
-        return view('store.checkout');
-    }
+public function index(){
+
+}
+public function create(){
+
+}
     public function store(DeliverydataStore $request ){
         $delivery = new DeliveryData();
         $delivery->name = $request->name;
@@ -26,6 +29,15 @@ class DeliveryDataController extends Controller
         $delivery->zip = $request->zip;
         $delivery->reference = $request->reference;
         $delivery->save();
-        return redirect()->route('payment')->with('success', 'Se ha publicado correctamente el contenido.');
+        return redirect()->route('welcome')->with('success', 'Se ha publicado correctamente el contenido.');
+    }
+    public function show(){
+
+    }
+    public function edit(){
+
+    }
+    public function update(){
+
     }
 }

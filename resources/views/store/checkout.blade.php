@@ -14,21 +14,22 @@
                             class="flex items-center justify-center border-2 border-gray-500 rounded-full h-5 w-5 mr-2">3</span>
                         Payments</button>
                 </div>
-                <form class="mt-8 lg:w-3/4">
+                <form action="{{route('delivery.store')}}" method="POST"class="mt-8 lg:w-3/4">
+                    @csrf
                     <div class="mt-8">
                         <div class="grid-cols-2">
                             <h4 class="text-sm text-gray-500 font-medium">Datos de envio</h4>
 
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="">Nombre(s)</label>
+                                    for="name">Nombre(s)</label>
                                 <input
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="text" id="name" name="name">
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="">Apellidos</label>
+                                    for="last_name">Apellidos</label>
                                 <input
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="text" id="last_name" name="last_name">
@@ -37,10 +38,10 @@
 
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="">Celular</label>
+                                    for="phone">Celular</label>
                                 <input
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                    type="text" id="phone" name="phone">
+                                    type="number" id="phone" name="phone">
 
 
                             </div>
@@ -50,36 +51,36 @@
                         <h4 class="text-sm text-gray-500 font-medium">Direccion de envio de envio</h4>
                         <div class="grid grid-cols-3">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"> PAIS
-                                    <select
+                                <label for="country" class="block uppercase tracking-wide text-gray-700 font-bold mb-2"> PAIS
+                                    <select name="contry" id="country"
                                         class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
                                         required>
                                         <option value="" selected>SELECCIONE UN PAIS</option>
-                                        <option value="">ARGENTINA</option>
-                                        <option value="">BOLIVIA</option>
-                                        <option value="">CHILE</option>
-                                        <option value="">COLOMBIA</option>
-                                        <option value="">COSTA RICA</option>
-                                        <option value="">CUBA</option>
-                                        <option value="">ECUADOR</option>
-                                        <option value="">EL SALVADOR</option>
-                                        <option value="">GUATEMALA</option>
-                                        <option value="">HONDURAS</option>
-                                        <option value="">MEXICO</option>
-                                        <option value="">NICARAGUA</option>
-                                        <option value="">PANAMA</option>
-                                        <option value="">PERU</option>
-                                        <option value="">REPUBLICA DOMINICANA</option>
-                                        <option value="">URUGUAY</option>
-                                        <option value="">VENEZUELA</option>
-                                        <option value="">PUERTO RICO</option>
+                                        <option value="ARGENTINA">ARGENTINA</option>
+                                        <option value="BOLIVIA">BOLIVIA</option>
+                                        <option value="CHILE">CHILE</option>
+                                        <option value="COLOMBIA">COLOMBIA</option>
+                                        <option value="COSTA RICA">COSTA RICA</option>
+                                        <option value="CUBA">CUBA</option>
+                                        <option value="ECUADOR">ECUADOR</option>
+                                        <option value="EL SALVADOR">EL SALVADOR</option>
+                                        <option value="GUATEMALA">GUATEMALA</option>
+                                        <option value="HONDURAS">HONDURAS</option>
+                                        <option value="MÉXICO">MÉXICO</option>
+                                        <option value="NICARAGUA">NICARAGUA</option>
+                                        <option value="PANAMA">PANAMA</option>
+                                        <option value="PERU">PERU</option>
+                                        <option value="REPUBLICA DOMINICANA">REPUBLICA DOMINICANA</option>
+                                        <option value="URUGUAY">URUGUAY</option>
+                                        <option value="VENEZUELA">VENEZUELA</option>
+                                        <option value="PUERTO RICO">PUERTO RICO</option>
 
 
                                     </select>
                                 </label>
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label
+                                <label for="state"
                                     class="block uppercase tracking-wide text-gray-700 font-bold mb-2">ESTADO/PROVINCIA/REGION
                                     <input type="text" onkeyup="mayus(this);" style="text-transform: uppercase;"
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
@@ -87,7 +88,7 @@
                             </div>
 
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label
+                                <label for="city"
                                     class="block uppercase tracking-wide text-gray-700 font-bold mb-2">MUNICIPIO/CIUDAD
                                     <input type="text"
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
@@ -97,21 +98,21 @@
                         <div class="mt-8">
                             <div class="grid grid-cols-3">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">DIRECCION
+                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="street">DIRECCION
                                         POSTAL/CALLE
                                         <input type="text" id="street" name="street"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                     </label>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">NUMERO
+                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="number_exterior">NUMERO
                                         EXTERIOR
                                         <input type="number" id="number_exterior" name="number_exterior"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                     </label>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="tracking-wide text-gray-700 font-bold mb-2">NUMERO INTERIOR (opcional)
+                                    <label class="tracking-wide text-gray-700 font-bold mb-2" for="number:interior">NUMERO INTERIOR (opcional)
 
                                         <input type="number" id="number_interior" name="number_interior"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
@@ -123,14 +124,14 @@
                     <div class="mt-8">
                         <div class="grid grid-cols-3">
                             <div class="w-full md:w-1/2 px-3 mb-3">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">COLONIA
+                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="suburb">COLONIA
 
                                     <input type="text" id="suburb" name="suburb"
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                 </label>
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-3">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">
+                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="zip">
                                     CODIGO POSTAL
                                     <input type="number" id="zip" name="zip"
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
@@ -138,10 +139,10 @@
                             </div>
 
                             <div class="w-full md:w-1/2 px-3 mb-3">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">
+                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="reference">
                                     REFERENCIA
                                     <textarea id="reference" name="reference"
-                                        class="px-4 py-2 focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600 resize border rounded-md"></textarea>
+                                        class="px-4 py-2 focus:ring-gray-500 w-full sm:text-sm border-blue-500 focus:outline-none text-gray-600 resize border rounded-md"></textarea>
                                 </label>
                             </div>
 
@@ -150,7 +151,7 @@
 
                     <div class="flex items-center justify-between mt-8">
 
-                        <button
+                        <button type="submit"
                             class="flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
                             <span>METODO DE PAGO</span>
                             <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
