@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Voucher;
 use App\Models\Report;
-use App\Models\CashFund;
- 
-class ReportController extends Controller
+use App\Models\User;
+
+class VoucherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +20,8 @@ class ReportController extends Controller
     }
     public function index()
     {
-        $report = Report::all();
-        $cashfund = CashFund::all();
-        return view('report.index', compact('report', 'cashfund'));
+        $voucher = Voucher::all();
+        return view('voucher.index', compact('voucher'));
     }
 
     /**
@@ -31,10 +31,12 @@ class ReportController extends Controller
      */
     public function create()
     {
-        $cashfund = CashFund::all();
+        $voucher = Voucher::all();
+        $report = Report::all();
         $users = User::all();
 
-        return view('report.create', compact('cashfund', 'users'));
+
+        return view('voucher.create', compact('report', 'voucher', 'users'));
     }
 
     /**
@@ -45,11 +47,12 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        $report = new Report();
-        $report->cash_fund_id = $request->cash_fund_id;
-        $report->user_id = $request->user_id;
-        $report->save();
-        return redirect()->route('report.index');
+        $voucher = new Voucher();
+        $voucher->user_id = $request->user_id;
+        $voucher->expense = $request->expense;
+        $voucher->report_id = $request->report_id;
+        $voucher->save();
+        return redirect()->route('voucher.index');
     }
 
     /**
@@ -71,7 +74,10 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-        //
+        $voucher = Voucher::findOrFail($id);
+        $report = Report::all();
+        $users = User::all();
+        return view('voucher.edit', compact('report', 'voucher', 'users'));
     }
 
     /**
@@ -83,7 +89,12 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $voucher = Voucher::findOrFail($id);
+        $voucher->user_id = $request->user_id;
+        $voucher->expense = $request->expense;
+        $voucher->report_id = $request->report_id;
+        $voucher->update();
+        return redirect()->route('voucher.index');
     }
 
     /**
@@ -94,6 +105,8 @@ class ReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $voucher = Voucher::findOrFail($id);
+        $voucher->delete();
+        return back()->with('Success', 'Se elimino correctamente');
     }
 }

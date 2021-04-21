@@ -36,3 +36,6 @@ Route::get('checkout', 'FrontController@checkout')->name('checkout');
 
 //Reports Resource
 Route::resource('report', ReportController::class);
+
+//Voucher resource
+Route::resource('voucher', VoucherController::class);
