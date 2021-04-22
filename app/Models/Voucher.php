@@ -14,6 +14,8 @@ class Voucher extends Model
      *
      * @var array
      */
+
+    protected $primaryKey = 'folio';
     protected $fillable = [
         'user_id',
         'expense',
@@ -21,15 +23,18 @@ class Voucher extends Model
     ];
 
     // Relaciones
-    public function user () {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function report () {
+    public function report()
+    {
         return $this->belongsTo(Report::class);
     }
 
-    public function products () {
+    public function products()
+    {
         return $this->belongsToMany(Product::class);
     }
 }

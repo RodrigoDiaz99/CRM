@@ -35,3 +35,9 @@ Route::get('product/info/{id}', 'FrontController@show' )->name('details.show');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart' )->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@checkout_payment')->name('payment');
+
+//Reports Resource
+Route::resource('report', ReportController::class);
+
+//Voucher resource
+Route::resource('voucher', VoucherController::class);
