@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\InventoryProduct;
-use Illuminate\Http\Request;
 
 use App\Models\Product;
 use App\Models\ShopingCart;
@@ -32,16 +31,20 @@ class FrontController extends Controller
     public function checkout(){
         return view('store.checkout');
     }
+    
     public function payment(){
-return view('store.payment');
+        return view('store.payment');
     }
 
     public function addShopingCart ($id) {
-        ShopingCart::create([
+        $total = ShopingCart::find($id)->count();
+        echo $total;
+        /*ShopingCart::create([
             "user_id" => auth()->user()->id,
-            "product_id" => $id
+            "product_id" => $id,
+            "sum" => 1
         ]);
 
-        return redirect()->back();
+        return redirect()->back();*/
     }
 }

@@ -42,8 +42,6 @@
                                 <input
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="number" id="phone" name="phone">
-
-
                             </div>
                         </div>
                     </div>
@@ -52,7 +50,7 @@
                         <div class="grid grid-cols-3">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="country" class="block uppercase tracking-wide text-gray-700 font-bold mb-2"> PAIS
-                                    <select name="contry" id="country"
+                                    <select name="country" id="country"
                                         class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
                                         required>
                                         <option value="" selected>SELECCIONE UN PAIS</option>
@@ -74,8 +72,6 @@
                                         <option value="URUGUAY">URUGUAY</option>
                                         <option value="VENEZUELA">VENEZUELA</option>
                                         <option value="PUERTO RICO">PUERTO RICO</option>
-
-
                                     </select>
                                 </label>
                             </div>
@@ -149,19 +145,18 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between mt-8">
-
-                        <button type="submit"
-                            class="flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                            <span>METODO DE PAGO</span>
-                            <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </button>
+                        <div class="flex items-center justify-between mt-8">
+                            <button type="submit"
+                                class="flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                                <span>METODO DE PAGO</span>
+                                <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-            </div>
-            </form>
+                </form>
         </div>
         <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
             <div class="flex justify-center lg:justify-end">
@@ -200,6 +195,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </x-app2-layout>

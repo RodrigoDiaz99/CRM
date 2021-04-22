@@ -34,7 +34,7 @@ class DeliverydataStore extends FormRequest
             'number_exterior'=>'required',
             'suburb'=>'required',
             'zip'=>'required',
-            'reference'=>'required',
+            'reference'=>'required'
         ];
     }
 }

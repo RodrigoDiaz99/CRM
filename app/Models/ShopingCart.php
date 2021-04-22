@@ -18,7 +18,8 @@ class ShopingCart extends Model
      */
     protected $fillable = [
         'user_id',
-        'product_id'
+        'product_id',
+        'sum'
     ];
 
     // Relaciones

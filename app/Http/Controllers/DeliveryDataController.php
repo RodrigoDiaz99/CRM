@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests\DeliverydataStore;
 use App\Models\DeliveryData;
-class DeliveryDataController extends Controller
-{
-public function index(){
+use Illuminate\Http\Request;
 
-}
-public function create(){
+class DeliveryDataController extends Controller{
+    public function index(){
 
-}
-    public function store(DeliverydataStore $request ){
+    }
+
+    public function create(){
+
+    }
+
+    public function store(Request $request ){
         $delivery = new DeliveryData();
         $delivery->name = $request->name;
         $delivery->last_name = $request->last_name;
@@ -31,12 +32,15 @@ public function create(){
         $delivery->save();
         return redirect()->route('welcome')->with('success', 'Se ha publicado correctamente el contenido.');
     }
+
     public function show(){
 
     }
+
     public function edit(){
 
     }
+
     public function update(){
 
     }
