@@ -77,6 +77,9 @@
                     </a>   <a href="{{ route('voucher.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Vouchers
+                    <a href="{{ route('cashfund.index') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Cash Fund
                     </a>
                     <a href="{{ route('products.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">

@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Models\CashFund;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +39,5 @@ Route::resource('report', ReportController::class);
 
 //Voucher resource
 Route::resource('voucher', VoucherController::class);
+//Cash Fund Resource
+Route::resource('cashfund', CashFundController::class);
