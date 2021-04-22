@@ -18,6 +18,7 @@ class ReportController extends Controller
     {
         $this->middleware('auth');
     }
+    
     public function index()
     {
         $report = Report::all();
