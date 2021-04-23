@@ -34,4 +34,4 @@ Route::get('/', 'FrontController@index' )->name('welcome');
 Route::get('product/info/{id}', 'FrontController@show' )->name('details.show');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart' )->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
-Route::get('checkout/payment', 'FrontController@checkout_payment')->name('payment');
+Route::get('checkout/payment', 'FrontController@payment')->name('payment');

@@ -30,7 +30,7 @@ class DeliveryDataController extends Controller{
         $delivery->zip = $request->zip;
         $delivery->reference = $request->reference;
         $delivery->save();
-        return redirect()->route('welcome')->with('success', 'Se ha publicado correctamente el contenido.');
+        return redirect()->route('payment')->with('success', 'Se ha publicado correctamente el contenido.');
     }
 
     public function show(){
