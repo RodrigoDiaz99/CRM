@@ -99,10 +99,10 @@ module.exports = {
                     <div class="mt-8">
                         <div class="grid-cols-2">
                             <h4 class="text-sm text-gray-500 font-medium">Datos de pago</h4>
-                            <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 pb-10 pt-16">
+                            <div class="min-w-screen min-h-screen bg-white flex items-center justify-center px-5 pb-10 pt-16">
                                 <div class="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700" style="max-width: 600px">
                                     <div class="w-full pt-1 pb-5">
-                                        <div class="bg-indigo-500 text-white overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg flex justify-center items-center">
+                                        <div class="bg-blue-600 text-white overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg flex justify-center items-center">
                                             <i class="mdi mdi-credit-card-outline text-3xl"></i>
                                         </div>
                                     </div>
@@ -112,32 +112,32 @@ module.exports = {
                                     <div class="mb-3 flex -mx-2">
                                         <div class="px-2">
                                             <label for="type1" class="flex items-center cursor-pointer">
-                                                <input type="radio" class="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" checked>
+                                                <input type="radio" class="form-radio h-5 w-5 bg-blue-600" name="type" id="type1" checked>
                                                 <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-8 ml-3">
                                             </label>
                                         </div>
                                         <div class="px-2">
                                             <label for="type2" class="flex items-center cursor-pointer">
-                                                <input type="radio" class="form-radio h-5 w-5 text-indigo-500" name="type" id="type2">
+                                                <input type="radio" class="form-radio h-5 w-5 bg-blue-600" name="type" id="type2">
                                                 <img src="https://www.sketchappsources.com/resources/source-image/PayPalCard.png" class="h-8 ml-3">
                                             </label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="font-bold text-sm mb-2 ml-1">Name on card</label>
+                                        <label class="font-bold text-sm mb-2 ml-1">Nombre en la tarjeta</label>
                                         <div>
                                             <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Smith" type="text"/>
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="font-bold text-sm mb-2 ml-1">Card number</label>
+                                        <label class="font-bold text-sm mb-2 ml-1">Numero de tarjeta</label>
                                         <div>
                                             <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="0000 0000 0000 0000" type="text"/>
                                         </div>
                                     </div>
                                     <div class="mb-3 -mx-2 flex items-end">
                                         <div class="px-2 w-1/2">
-                                            <label class="font-bold text-sm mb-2 ml-1">Expiration date</label>
+                                            <label class="font-bold text-sm mb-2 ml-1">Fecha de expiracion</label>
                                             <div>
                                                 <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
                                                     <option value="01">01 - January</option>
@@ -167,47 +167,33 @@ module.exports = {
                                                 <option value="2027">2027</option>
                                                 <option value="2028">2028</option>
                                                 <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="mb-10">
-                                        <label class="font-bold text-sm mb-2 ml-1">Security code</label>
+                                        <label class="font-bold text-sm mb-2 ml-1">Codigo de Seguridad</label>
                                         <div>
                                             <input class="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="000" type="text"/>
                                         </div>
                                     </div>
                                     <div>
-                                        <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
+                                        <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
-                            <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
-                                <div>
-                                    <a title="Buy me a beer" href="https://www.buymeacoffee.com/scottwindon" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-                                        <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
-                                    </a>
-                                </div>
-                            </div>
+
 
 
 
 
                         </div>
-                    </div>
-
-
-                    <div class="flex items-center justify-between mt-8">
-
-                        <button
-                            class="flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                            <span>Pago</span>
-                            <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </button>
                     </div>
             </div>
             </form>
