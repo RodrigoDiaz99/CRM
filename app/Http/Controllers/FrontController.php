@@ -6,7 +6,7 @@ use App\Models\InventoryProduct;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
-use App\Models\ShopingCart;
+use App\Models\ShoppingCart;
 
 class FrontController extends Controller
 {
@@ -32,8 +32,9 @@ class FrontController extends Controller
     public function checkout(){
         return view('store.checkout');
     }
+
     public function payment(){
-return view('store.payment');
+        return view('store.payment');
     }
 
     public function addShopingCart ($id) {
