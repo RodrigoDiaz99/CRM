@@ -1,87 +1,87 @@
 <x-app2-layout>
     <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
-<style>
-/*
-module.exports = {
-    plugins: [require('@tailwindcss/forms'),]
-};
-*/
-.form-radio {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -webkit-print-color-adjust: exact;
-          color-adjust: exact;
-  display: inline-block;
-  vertical-align: middle;
-  background-origin: border-box;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  flex-shrink: 0;
-  border-radius: 100%;
-  border-width: 2px;
-}
+    <style>
+        /*
+        module.exports = {
+            plugins: [require('@tailwindcss/forms'),]
+        };
+        */
+        .form-radio {
+        -webkit-appearance: none;
+            -moz-appearance: none;
+                appearance: none;
+        -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+        display: inline-block;
+        vertical-align: middle;
+        background-origin: border-box;
+        -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        flex-shrink: 0;
+        border-radius: 100%;
+        border-width: 2px;
+        }
 
-.form-radio:checked {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-  border-color: transparent;
-  background-color: currentColor;
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+        .form-radio:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+        border-color: transparent;
+        background-color: currentColor;
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        }
 
-@media not print {
-  .form-radio::-ms-check {
-    border-width: 1px;
-    color: transparent;
-    background: inherit;
-    border-color: inherit;
-    border-radius: inherit;
-  }
-}
+        @media not print {
+        .form-radio::-ms-check {
+            border-width: 1px;
+            color: transparent;
+            background: inherit;
+            border-color: inherit;
+            border-radius: inherit;
+        }
+        }
 
-.form-radio:focus {
-  outline: none;
-}
+        .form-radio:focus {
+        outline: none;
+        }
 
-.form-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3e%3cpath d='M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z'/%3e%3c/svg%3e");
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -webkit-print-color-adjust: exact;
-          color-adjust: exact;
-  background-repeat: no-repeat;
-  padding-top: 0.5rem;
-  padding-right: 2.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  background-position: right 0.5rem center;
-  background-size: 1.5em 1.5em;
-}
+        .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3e%3cpath d='M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z'/%3e%3c/svg%3e");
+        -webkit-appearance: none;
+            -moz-appearance: none;
+                appearance: none;
+        -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+        background-repeat: no-repeat;
+        padding-top: 0.5rem;
+        padding-right: 2.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        background-position: right 0.5rem center;
+        background-size: 1.5em 1.5em;
+        }
 
-.form-select::-ms-expand {
-  color: #a0aec0;
-  border: none;
-}
+        .form-select::-ms-expand {
+        color: #a0aec0;
+        border: none;
+        }
 
-@media not print {
-  .form-select::-ms-expand {
-    display: none;
-  }
-}
+        @media not print {
+        .form-select::-ms-expand {
+            display: none;
+        }
+        }
 
-@media print and (-ms-high-contrast: active), print and (-ms-high-contrast: none) {
-  .form-select {
-    padding-right: 0.75rem;
-  }
-}
-</style>
+        @media print and (-ms-high-contrast: active), print and (-ms-high-contrast: none) {
+        .form-select {
+            padding-right: 0.75rem;
+        }
+        }
+    </style>
     <div class="container mx-auto px-6">
         <h3 class="text-gray-700 text-2xl font-medium">Checkout</h3>
         <div class="flex flex-col lg:flex-row mt-8">
@@ -95,7 +95,7 @@ module.exports = {
                             class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">3</span>
                         Payments</button>
                 </div>
-                <form class="mt-8 lg:w-3/4">
+                <form class="mt-8 lg:w-3/4" id="form-checkout" >
                     <div class="mt-8">
                         <div class="grid-cols-2">
                             <h4 class="text-sm text-gray-500 font-medium">Datos de pago</h4>
@@ -123,80 +123,74 @@ module.exports = {
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="font-bold text-sm mb-2 ml-1">Nombre en la tarjeta</label>
-                                        <div>
-                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Smith" type="text"/>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="mb-3">
                                         <label class="font-bold text-sm mb-2 ml-1">Numero de tarjeta</label>
                                         <div>
-                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="0000 0000 0000 0000" type="text"/>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardNumber" id="form-checkout__cardNumber"/>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="font-bold text-sm mb-2 ml-1">Titular de la tarjeta</label>
+                                        <div>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardholderName" id="form-checkout__cardholderName"/>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="font-bold text-sm mb-2 ml-1">Correo Electronico</label>
+                                        <div>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
                                         </div>
                                     </div>
                                     <div class="mb-3 -mx-2 flex items-end">
                                         <div class="px-2 w-1/2">
                                             <label class="font-bold text-sm mb-2 ml-1">Fecha de expiracion</label>
                                             <div>
-                                                <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
-                                                    <option value="01">01 - January</option>
-                                                    <option value="02">02 - February</option>
-                                                    <option value="03">03 - March</option>
-                                                    <option value="04">04 - April</option>
-                                                    <option value="05">05 - May</option>
-                                                    <option value="06">06 - June</option>
-                                                    <option value="07">07 - July</option>
-                                                    <option value="08">08 - August</option>
-                                                    <option value="09">09 - September</option>
-                                                    <option value="10">10 - October</option>
-                                                    <option value="11">11 - November</option>
-                                                    <option value="12">12 - December</option>
-                                                </select>
+                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
+
+                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="font-bold text-sm mb-2 ml-1">Código Seguridad</label>
+                                            <div>
+                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="securityCode" id="form-checkout__securityCode"/>
                                             </div>
                                         </div>
                                         <div class="px-2 w-1/2">
-                                            <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
-                                                <option value="2020">2020</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2025">2025</option>
-                                                <option value="2026">2026</option>
-                                                <option value="2027">2027</option>
-                                                <option value="2028">2028</option>
-                                                <option value="2029">2029</option>
-                                                <option value="2030">2030</option>
-                                                <option value="2031">2031</option>
-                                                <option value="2032">2032</option>
-                                                <option value="2033">2033</option>
-                                                <option value="2034">2034</option>
-                                                <option value="2035">2035</option>
+                                            <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="issuer" id="form-checkout__issuer">
+                                                
                                             </select>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="px-2 w-1/2">
+                                        <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="identificationType" id="form-checkout__identificationType">
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="mb-10">
+                                        <label class="font-bold text-sm mb-2 ml-1">Codigo de Seguridad</label>
+                                        <div>
+                                            <input class="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
                                         </div>
                                     </div>
                                     <div class="mb-10">
                                         <label class="font-bold text-sm mb-2 ml-1">Codigo de Seguridad</label>
                                         <div>
-                                            <input class="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="000" type="text"/>
+                                            <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="installments" id="form-checkout__installments"></select>
                                         </div>
                                     </div>
                                     <div>
-                                        <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
+                                        <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold" type="submit" id="form-checkout__submit"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
         </div>
         <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
             <div class="flex justify-center lg:justify-end">
@@ -236,5 +230,119 @@ module.exports = {
             </div>
         </div>
     </div>
-    </div>
+    <!-- Step #2 -->
+    <!--<form id="form-checkout" >
+        <input type="text" name="cardNumber" id="form-checkout__cardNumber" />
+        <input type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
+        <input type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
+        <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
+        <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
+        <input type="text" name="securityCode" id="form-checkout__securityCode" />
+        <select name="issuer" id="form-checkout__issuer"></select>
+        <select name="identificationType" id="form-checkout__identificationType"></select>
+        <input type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
+        <select name="installments" id="form-checkout__installments"></select>
+        <button type="submit" id="form-checkout__submit">Pagar</button>
+        <progress value="0" class="progress-bar">Cargando...</progress>
+    </form>-->
+    @section('javascript')
+
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+            const mp = new MercadoPago('TEST-5750e16e-0923-4477-9549-bf94cf238fa3');
+            // Step #3
+            const cardForm = mp.cardForm({
+            amount: "100.5",
+            autoMount: true,
+            form: {
+                id: "form-checkout",
+                cardholderName: {
+                id: "form-checkout__cardholderName",
+                placeholder: "Titular de la tarjeta",
+                },
+                cardholderEmail: {
+                id: "form-checkout__cardholderEmail",
+                placeholder: "E-mail",
+                },
+                cardNumber: {
+                id: "form-checkout__cardNumber",
+                placeholder: "Número de la tarjeta",
+                },
+                cardExpirationMonth: {
+                id: "form-checkout__cardExpirationMonth",
+                placeholder: "Mes de vencimiento",
+                },
+                cardExpirationYear: {
+                id: "form-checkout__cardExpirationYear",
+                placeholder: "Año de vencimiento",
+                },
+                securityCode: {
+                id: "form-checkout__securityCode",
+                placeholder: "Código de seguridad",
+                },
+                installments: {
+                id: "form-checkout__installments",
+                placeholder: "Cuotas",
+                },
+                identificationType: {
+                id: "form-checkout__identificationType",
+                placeholder: "Tipo de documento",
+                },
+                identificationNumber: {
+                id: "form-checkout__identificationNumber",
+                placeholder: "Número de documento",
+                },
+                issuer: {
+                id: "form-checkout__issuer",
+                placeholder: "Banco emisor",
+                },
+            },
+            callbacks: {
+                onFormMounted: error => {
+                if (error) return console.warn("Form Mounted handling error: ", error);
+                console.log("Form mounted");
+                },
+                onSubmit: event => {
+                event.preventDefault();
+
+                const {
+                    paymentMethodId: payment_method_id,
+                    issuerId: issuer_id,
+                    cardholderEmail: email,
+                    amount,
+                    token,
+                    installments,
+                    identificationNumber,
+                    identificationType,
+                } = cardForm.getCardFormData();
+
+                fetch("{{ route('payment') }}", {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                    token,
+                    issuer_id,
+                    payment_method_id,
+                    transaction_amount: Number(amount),
+                    installments: Number(installments),
+                    description: "Descripción del producto",
+                    payer: {
+                        email,
+                        identification: {
+                        type: identificationType,
+                        number: identificationNumber,
+                        },
+                    },
+                    }),
+                });
+                },
+                onFetching: (resource) => {
+                console.log("Fetching resource: ", resource);
+                },
+            },
+            });
+        </script>
+    @endsection
 </x-app2-layout>

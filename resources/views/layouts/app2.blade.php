@@ -15,11 +15,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
     <!--<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>-->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
-    <script src="{{ asset('js/init-alpine.js') }}" defer></script>
+    
+    
     {{-- <script>
             var botmanWidget = {
                 aboutText: 'Write Something',
@@ -32,17 +31,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-mutate-approach="sync"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-    <script src="{{ asset('js/charts-lines.js') }}" defer></script>
-    <script src="{{ asset('js/charts-pie.js') }}" defer></script>
-    <script src="{{ asset('js/charts-bars.js') }}" defer></script>
+    
     <script src="{{ mix('js/app.js') }}" defer></script>
     @livewireStyles
-    <script>
-        import Turbolinks from 'turbolinks';
-        Turbolinks.start()
-
-    </script>
 </head>
 
 <body class="font-sans antialiased">
@@ -61,5 +52,5 @@
         </footer>
     </div>
 </body>
-
+@yield('javascript')
 </html>

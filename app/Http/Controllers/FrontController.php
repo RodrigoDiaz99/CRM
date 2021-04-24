@@ -33,6 +33,7 @@ class FrontController extends Controller
     }
     
     public function payment(){
+        
         return view('store.payment');
     }
 
