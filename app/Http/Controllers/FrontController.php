@@ -37,14 +37,13 @@ class FrontController extends Controller
     }
 
     public function addShopingCart ($id) {
-        $total = ShopingCart::find($id)->count();
-        echo $total;
-        /*ShopingCart::create([
+        
+        ShopingCart::create([
             "user_id" => auth()->user()->id,
             "product_id" => $id,
             "sum" => 1
         ]);
 
-        return redirect()->back();*/
+        return redirect()->back();
     }
 }
