@@ -1,161 +1,199 @@
 <x-app2-layout>
+    <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+<style>
+/*
+module.exports = {
+    plugins: [require('@tailwindcss/forms'),]
+};
+*/
+.form-radio {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  flex-shrink: 0;
+  border-radius: 100%;
+  border-width: 2px;
+}
+
+.form-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media not print {
+  .form-radio::-ms-check {
+    border-width: 1px;
+    color: transparent;
+    background: inherit;
+    border-color: inherit;
+    border-radius: inherit;
+  }
+}
+
+.form-radio:focus {
+  outline: none;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3e%3cpath d='M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z'/%3e%3c/svg%3e");
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+  background-repeat: no-repeat;
+  padding-top: 0.5rem;
+  padding-right: 2.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
+
+.form-select::-ms-expand {
+  color: #a0aec0;
+  border: none;
+}
+
+@media not print {
+  .form-select::-ms-expand {
+    display: none;
+  }
+}
+
+@media print and (-ms-high-contrast: active), print and (-ms-high-contrast: none) {
+  .form-select {
+    padding-right: 0.75rem;
+  }
+}
+</style>
     <div class="container mx-auto px-6">
         <h3 class="text-gray-700 text-2xl font-medium">Checkout</h3>
         <div class="flex flex-col lg:flex-row mt-8">
             <div class="w-full lg:w-1/2 order-2">
                 <div class="flex items-center">
+
                     <button class="flex text-sm text-blue-500 focus:outline-none"><span
-                            class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">1</span>
-                        Contacts</button>
-                    <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span
-                            class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">2</span>
+                            class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">2</span>
                         Shipping</button>
-                    <button class="flex text-sm text-gray-500 ml-8 focus:outline-none" disabled><span
-                            class="flex items-center justify-center border-2 border-gray-500 rounded-full h-5 w-5 mr-2">3</span>
+                    <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span
+                            class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">3</span>
                         Payments</button>
                 </div>
                 <form class="mt-8 lg:w-3/4">
                     <div class="mt-8">
                         <div class="grid-cols-2">
-                            <h4 class="text-sm text-gray-500 font-medium">Datos de envio</h4>
-
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="">Nombre(s)</label>
-                                <input
-                                    class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                    type="text">
-                                </div>
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="">Apellidos</label>
-                                <input
-                                    class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                    type="text">
-                            </div>
-
-
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="">Celular</label>
-                                <input
-                                    class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                    type="text">
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-sm text-gray-500 font-medium">Direccion de envio de envio</h4>
-                        <div class="grid grid-cols-3">
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"> PAIS
-                                    <select
-                                        class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
-                                        required>
-                                        <option value="" selected>SELECCIONE UN PAIS</option>
-                                        <option value="">ARGENTINA</option>
-                                        <option value="">BOLIVIA</option>
-                                        <option value="">CHILE</option>
-                                        <option value="">COLOMBIA</option>
-                                        <option value="">COSTA RICA</option>
-                                        <option value="">CUBA</option>
-                                        <option value="">ECUADOR</option>
-                                        <option value="">EL SALVADOR</option>
-                                        <option value="">GUATEMALA</option>
-                                        <option value="">HONDURAS</option>
-                                        <option value="">MEXICO</option>
-                                        <option value="">NICARAGUA</option>
-                                        <option value="">PANAMA</option>
-                                        <option value="">PERU</option>
-                                        <option value="">REPUBLICA DOMINICANA</option>
-                                        <option value="">URUGUAY</option>
-                                        <option value="">VENEZUELA</option>
-                                        <option value="">PUERTO RICO</option>
-
-
-                                    </select>
-                                </label>
-                            </div>
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label
-                                    class="block uppercase tracking-wide text-gray-700 font-bold mb-2">ESTADO/PROVINCIA/REGION
-                                    <input type="text" onkeyup="mayus(this);" style="text-transform: uppercase;"
-                                        class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                        required autofocus></label>
-                            </div>
-
-                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label
-                                    class="block uppercase tracking-wide text-gray-700 font-bold mb-2">MUNICIPIO/CIUDAD
-                                    <input type="text"
-                                        class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                        placeholder=""></label>
-                            </div>
-                        </div>
-                        <div class="mt-8">
-                            <div class="grid grid-cols-3">
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">DIRECCION POSTAL/CALLE
-                                        <input type="text"
-                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
-                                    </label>
-                                </div>
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label
-                                        class="block uppercase tracking-wide text-gray-700 font-bold mb-2">NUMERO EXTERIOR
-                                        <input type="number"
-                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
-                                    </label>
-                                </div>
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="tracking-wide text-gray-700 font-bold mb-2">NUMERO INTERIOR (opcional)
-
-                                        <input type="number"
-                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
-                                    </label>
+                            <h4 class="text-sm text-gray-500 font-medium">Datos de pago</h4>
+                            <div class="min-w-screen min-h-screen bg-white flex items-center justify-center px-5 pb-10 pt-16">
+                                <div class="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700" style="max-width: 600px">
+                                    <div class="w-full pt-1 pb-5">
+                                        <div class="bg-blue-600 text-white overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg flex justify-center items-center">
+                                            <i class="mdi mdi-credit-card-outline text-3xl"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mb-10">
+                                        <h1 class="text-center font-bold text-xl uppercase">Info de pago seguro</h1>
+                                    </div>
+                                    <div class="mb-3 flex -mx-2">
+                                        <div class="px-2">
+                                            <label for="type1" class="flex items-center cursor-pointer">
+                                                <input type="radio" class="form-radio h-5 w-5 bg-blue-600" name="type" id="type1" checked>
+                                                <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-8 ml-3">
+                                            </label>
+                                        </div>
+                                        <div class="px-2">
+                                            <label for="type2" class="flex items-center cursor-pointer">
+                                                <input type="radio" class="form-radio h-5 w-5 bg-blue-600" name="type" id="type2">
+                                                <img src="https://www.sketchappsources.com/resources/source-image/PayPalCard.png" class="h-8 ml-3">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="font-bold text-sm mb-2 ml-1">Nombre en la tarjeta</label>
+                                        <div>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Smith" type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="font-bold text-sm mb-2 ml-1">Numero de tarjeta</label>
+                                        <div>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="0000 0000 0000 0000" type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 -mx-2 flex items-end">
+                                        <div class="px-2 w-1/2">
+                                            <label class="font-bold text-sm mb-2 ml-1">Fecha de expiracion</label>
+                                            <div>
+                                                <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                                                    <option value="01">01 - January</option>
+                                                    <option value="02">02 - February</option>
+                                                    <option value="03">03 - March</option>
+                                                    <option value="04">04 - April</option>
+                                                    <option value="05">05 - May</option>
+                                                    <option value="06">06 - June</option>
+                                                    <option value="07">07 - July</option>
+                                                    <option value="08">08 - August</option>
+                                                    <option value="09">09 - September</option>
+                                                    <option value="10">10 - October</option>
+                                                    <option value="11">11 - November</option>
+                                                    <option value="12">12 - December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="px-2 w-1/2">
+                                            <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-10">
+                                        <label class="font-bold text-sm mb-2 ml-1">Codigo de Seguridad</label>
+                                        <div>
+                                            <input class="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="000" type="text"/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <div class="grid grid-cols-3">
-                            <div class="w-full md:w-1/2 px-3 mb-3">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">COLONIA
-                                    POSTAL/CALLE
-                                    <input type="text"
-                                        class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
-                                </label>
-                            </div>
-                            <div class="w-full md:w-1/2 px-3 mb-3">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">
-                                    CODIGO POSTAL
-                                    <input type="number"
-                                        class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
-                                </label>
-                            </div>
 
-                            <div class="w-full md:w-1/2 px-3 mb-3">
-                                <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2">
-                                    REFERENCIA
-                                    <textarea class="px-4 py-2 focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600 resize border rounded-md"></textarea>
-                                </label>
-                            </div>
+
+
+
+
 
                         </div>
-                    </div>
-
-                    <div class="flex items-center justify-between mt-8">
-
-                        <button
-                            class="flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                            <span>Payment</span>
-                            <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </button>
                     </div>
             </div>
             </form>

@@ -47,7 +47,7 @@
             @if (Route::has('login'))
 
                 @auth
-                    <a href="{{ url('/home') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Panel</a>
+                    <a href="{{ url('dashboard') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Panel</a>
                 @else
                     <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Acceso</a>
 
