@@ -2,45 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function add(Request $request)
+    public function index()
     {
+        $cart = session('cart')->fresh();
 
-        $product = Product::find($request->id);
-
-        Cart::add(
-            $product->id,
-            $product->name,
-            1,
-
-
-        );
-        return back()->with('success', "$product->name ¡se ha agregado con éxito al carrito!");
+        return view('cart.index')->with('cart', $cart);
     }
 
-    public function cart()
+    public function confirm() 
     {
+        $cart = session('cart');
 
-        return view('checkout');
-    }
+        \MercadoPago\SDK::setAccessToken(env('MP_TEST_ACCESS_TOKEN'));
 
-    public function removeitem(Request $request)
-    {
-        //$producto = Producto::where('id', $request->id)->firstOrFail();
-        Cart::remove([
-            'id' => $request->id,
-        ]);
-        return back()->with('success', "Producto eliminado con éxito de su carrito.");
-    }
+        $preference = new \MercadoPago\Preference();
 
-    public function clear()
-    {
-        Cart::clear();
-        return back()->with('success', "The shopping cart has successfully beed added to the shopping cart!");
+        $productos = [];
+
+        foreach ($cart->items as $product) {
+            $item = new \MercadoPago\Item();
+            $item->title = $product->title;
+            $item->quantity = 1;
+            $item->currency_id = $product->currency_id;
+            $item->unit_price = $product->unit_price;
+            $item->description = $product->description;
+            $item->picture_url = $product->picture_url;
+            $productos[] = $item;
+        }
+
+        $preference->items = $productos;
+
+        $preference->back_urls = [
+            'success' => url('/mp/success'),
+            'failure' => url('/mp/failure'),
+            'pending' => url('/mp/pending'),
+        ];
+        
+        $preference->save();
+
+
+        return redirect($preference->init_point);
     }
 }

@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use App\Models\Product;
+
 use App\Models\ScoreProduct;
+
+use App\Models\User;
+use App\Models\Voucher;
+
 class ReportController extends Controller
 {
     /**
@@ -13,13 +18,23 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-        $score =ScoreProduct::all();
-        $product = Product::orderBy('name', 'desc')->get();
-        return view('reports.sales.index', compact('score','product'));
+        $this->middleware('auth');
     }
 
+    public function index()
+    {
+
+
+        $report = Report::all();
+        return view('report.index', compact('report'));
+    }
+public function index2(){
+    $score =ScoreProduct::all();
+    $product = Product::orderBy('name', 'desc')->get();
+    return view('reports.sales.index', compact('score','product'));
+}
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +42,9 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+
+        return view('report.create', compact('users'));
     }
 
     /**
@@ -38,7 +55,12 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new Report();
+        $report->user_id = auth()->user()->id;
+        $report->startDate = $request->startDate;
+        $report->endDate = $request->endDate;
+        $report->save();
+        return redirect()->route('report.index');
     }
 
     /**
@@ -49,7 +71,14 @@ class ReportController extends Controller
      */
     public function show($id)
     {
-        //
+        $report = Report::findOrFail($id);
+        $voucher = Voucher::whereBetween('created_at', array($report->startDate, $report->endDate))->get();
+        return view('report.show', compact('report', 'voucher'));
+    }
+
+    public function mostSoldItem(){
+        $score = ScoreProduct::all();
+
     }
 
     /**

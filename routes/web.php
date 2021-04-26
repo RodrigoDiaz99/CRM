@@ -31,15 +31,35 @@ Route::get('checkout/confirm', 'FrontController@confirm')->name('confirm');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@payment')->name('payment');
-
+Route::get('/carrito', 'CartController@index');
+// Confirmar la compra
+Route::post('/carrito/confirmar', 'CartController@confirm');
+// Agregar productos al carrito
+Route::post('/carrito/{id}', 'PreferencesController@store');
 /*  */
 Route::resource('products/category', CategoryProductController::class);
 Route::resource('products', ProductController::class);
 Route::resource('promotions', PromotionController::class);
 Route::resource('inventory', InventoryProductController::class);
 Route::resource('delivery', DeliveryDataController::class);
-Route::get('reports/sales','ReportController@index')->name('sales.index');
+Route::get('reports/sales','ReportController@index2')->name('sales.index');
 //Route::resource('report/sales', ReportController::class);
-
+//Reports Resource
+Route::resource('report', ReportController::class);
+//Voucher resource
+Route::resource('voucher', VoucherController::class);
 //Cash Fund Resource
 Route::resource('cashfund', CashFundController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+// Productos agregados al carrito

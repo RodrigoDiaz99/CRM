@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CashFund;
+use App\Models\Voucher;
 use App\Models\User;
 
-class CashFundController extends Controller
+class VoucherController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +19,8 @@ class CashFundController extends Controller
     }
     public function index()
     {
-        $cashfund = CashFund::all();
-        return view('cashfund.index', compact('cashfund'));
+        $voucher = Voucher::all();
+        return view('voucher.index', compact('voucher'));
     }
 
     /**
@@ -32,8 +30,11 @@ class CashFundController extends Controller
      */
     public function create()
     {
+        $voucher = Voucher::all();
         $users = User::all();
-        return view('cashfund.create', compact('users'));
+
+
+        return view('voucher.create', compact('voucher', 'users'));
     }
 
     /**
@@ -44,11 +45,11 @@ class CashFundController extends Controller
      */
     public function store(Request $request)
     {
-        $cashfund = new CashFund();
-        $cashfund->money = $request->money;
-        $cashfund->user_id = $request->user_id;
-        $cashfund->save();
-        return redirect()->route('cashfund.index');
+        $voucher = new Voucher();
+        $voucher->user_id = auth()->user()->id;
+        $voucher->expense = $request->expense;
+        $voucher->save();
+        return redirect()->route('voucher.index');
     }
 
     /**
@@ -70,9 +71,6 @@ class CashFundController extends Controller
      */
     public function edit($id)
     {
-        $cashfund = CashFund::findOrFail($id);
-        $users = User::all();
-        return view('cashfund.edit', compact('users', 'cashfund'));
     }
 
     /**
@@ -84,11 +82,6 @@ class CashFundController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cashfund = CashFund::findOrFail($id);
-        $cashfund->money = $request->money;
-        $cashfund->user_id = $request->user_id;
-        $cashfund->update();
-        return redirect()->route('cashfund.index');
     }
 
     /**
@@ -99,8 +92,8 @@ class CashFundController extends Controller
      */
     public function destroy($id)
     {
-        $cashfund = CashFund::findOrFail($id);
-        $cashfund->delete();
+        $voucher = Voucher::findOrFail($id);
+        $voucher->delete();
         return back()->with('Success', 'Se elimino correctamente');
     }
 }

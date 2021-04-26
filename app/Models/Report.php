@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
     use HasFactory;
-
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -26,7 +27,7 @@ class Report extends Model
     }
 
     public function cash_fund () {
-        return $this->hasOne(CashFund::class);
+        return $this->belongsTo(CashFund::class);
     }
 
     public function vouchers () {
