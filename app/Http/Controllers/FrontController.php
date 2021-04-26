@@ -65,4 +65,7 @@ class FrontController extends Controller
 
         return redirect()->back();
     }
+    public function confirm(){
+return view('store.confirm');
+    }
 }

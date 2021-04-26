@@ -117,15 +117,7 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Productos
                     </a>
-                    <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
-                        <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                        <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                        <a href="pages/blank.html" role="menuitem"
-                            class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                            Blank
-                        </a>
 
-                    </div>
                 </div>
 
                 <!-- Authentication links -->
@@ -142,7 +134,7 @@
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </span>
-                        <span class="ml-2 text-sm"> Authentication </span>
+                        <span class="ml-2 text-sm"> Reportes </span>
                         <span aria-hidden="true" class="ml-auto">
                             <!-- active class 'rotate-180' -->
                             <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
@@ -156,9 +148,9 @@
                     <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Authentication">
                         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                        <a href="auth/register.html" role="menuitem"
+                        <a href="{{route('sales.index')}}" role="menuitem"
                             class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
-                            Register
+                            Ventas
                         </a>
 
 

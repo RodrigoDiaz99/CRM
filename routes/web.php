@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +26,7 @@ Route::get('/', 'FrontController@index')->name('welcome');
 
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
+Route::get('checkout/confirm', 'FrontController@confirm')->name('confirm');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@payment')->name('payment');
@@ -36,3 +37,5 @@ Route::resource('products', ProductController::class);
 Route::resource('promotions', PromotionController::class);
 Route::resource('inventory', InventoryProductController::class);
 Route::resource('delivery', DeliveryDataController::class);
+Route::get('reports/sales','ReportController@index')->name('sales.index');
+//Route::resource('report/sales', ReportController::class);

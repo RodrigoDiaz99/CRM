@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Report;
+use App\Models\Product;
+use App\Models\ScoreProduct;
 class ReportController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        $score =ScoreProduct::all();
+        $product = Product::orderBy('name', 'desc')->get();
+        return view('reports.sales.index', compact('score','product'));
     }
 
     /**
