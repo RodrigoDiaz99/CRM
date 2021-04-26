@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\InventoryStore;
 use Illuminate\Http\Request;
 use App\Models\CashFund;
 use App\Models\User;

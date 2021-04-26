@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Voucher;
-use App\Models\Report;
 use App\Models\User;
 
 class VoucherController extends Controller
@@ -32,11 +31,10 @@ class VoucherController extends Controller
     public function create()
     {
         $voucher = Voucher::all();
-        $report = Report::all();
         $users = User::all();
 
 
-        return view('voucher.create', compact('report', 'voucher', 'users'));
+        return view('voucher.create', compact('voucher', 'users'));
     }
 
     /**
@@ -48,9 +46,8 @@ class VoucherController extends Controller
     public function store(Request $request)
     {
         $voucher = new Voucher();
-        $voucher->user_id = $request->user_id;
+        $voucher->user_id = auth()->user()->id;
         $voucher->expense = $request->expense;
-        $voucher->report_id = $request->report_id;
         $voucher->save();
         return redirect()->route('voucher.index');
     }
@@ -74,10 +71,6 @@ class VoucherController extends Controller
      */
     public function edit($id)
     {
-        $voucher = Voucher::findOrFail($id);
-        $report = Report::all();
-        $users = User::all();
-        return view('voucher.edit', compact('report', 'voucher', 'users'));
     }
 
     /**
@@ -89,12 +82,6 @@ class VoucherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $voucher = Voucher::findOrFail($id);
-        $voucher->user_id = $request->user_id;
-        $voucher->expense = $request->expense;
-        $voucher->report_id = $request->report_id;
-        $voucher->update();
-        return redirect()->route('voucher.index');
     }
 
     /**

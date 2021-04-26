@@ -17,13 +17,13 @@ class CreateVouchersTable extends Migration
             $table->id('folio');
             $table->foreignId('user_id');
             $table->double('expense');
-            $table->foreignId('report_id');
+            // $table->foreignId('report_id');
             $table->timestamps();
             $table->softDeletes();
-
+            
             // Foreing Key
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('report_id')->references('id')->on('reports');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade');
         });
     }
 
