@@ -9,7 +9,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Nombre
                             <input
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
+                                type="text" value="{{$delivery->name}}" readonly>
                         </label>
                         <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for=""> Apellido
                             <input

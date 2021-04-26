@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\ShopingCart;
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
-
+use App\Models\DeliveryData;
 
 class FrontController extends Controller
 {
@@ -65,7 +65,8 @@ class FrontController extends Controller
 
         return redirect()->back();
     }
-    public function confirm(){
-return view('store.confirm');
+    public function confirm($id){
+        $delivery=DeliveryData::find($id);
+return view('store.confirm', compact('delivery'));
     }
 }
