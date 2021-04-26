@@ -74,8 +74,6 @@ class FrontController extends Controller
     {
         MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
 
-
-
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
         $payment->transaction_amount = (float)$request->MPHiddenInputAmount;
@@ -104,10 +102,16 @@ class FrontController extends Controller
         $this->saveScore();
 
         echo json_encode($response);
+
+        // Datos de nuestra vista
+        $item = $request->all();
+
+        return view('store.confirm', compact('response'));
     }
 
     public function generateVoucher()
     {
+
     }
 
     public function saveScore()
@@ -138,13 +142,11 @@ class FrontController extends Controller
         ]);
     }
 
-    public function addShopingCart($id)
-    {
-
+    public function addShopingCart($id, Request $request) {
         ShoppingCart::create([
             "user_id" => auth()->user()->id,
             "product_id" => $id,
-            "sum" => 1
+            "quantity" => 1
         ]);
 
         return redirect()->back();

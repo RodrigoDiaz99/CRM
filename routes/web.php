@@ -26,14 +26,11 @@ Route::get('/', 'FrontController@index')->name('welcome');
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
 Route::post('checkout/confirm', 'FrontController@confirm')->name('confirm');
+
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@payment')->name('payment');
-Route::get('/carrito', 'CartController@index');
-// Confirmar la compra
-Route::post('/carrito/confirmar', 'CartController@confirm');
-// Agregar productos al carrito
-Route::post('/carrito/{id}', 'PreferencesController@store');
+
 /*  */
 Route::resource('products/category', CategoryProductController::class);
 Route::resource('products', ProductController::class);
