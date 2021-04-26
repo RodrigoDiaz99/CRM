@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ShopingCart extends Model
+class ShoppingCart extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -18,7 +18,8 @@ class ShopingCart extends Model
      */
     protected $fillable = [
         'user_id',
-        'product_id'
+        'product_id',
+        'sum'
     ];
 
     // Relaciones
