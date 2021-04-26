@@ -25,7 +25,7 @@ Route::get('/', 'FrontController@index')->name('welcome');
 
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
-Route::get('checkout/confirm', 'FrontController@confirm')->name('confirm');
+Route::post('checkout/confirm', 'FrontController@confirm')->name('confirm');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@payment')->name('payment');

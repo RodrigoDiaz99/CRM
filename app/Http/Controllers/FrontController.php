@@ -31,19 +31,22 @@ class FrontController extends Controller
         $productos = Product::find($id);
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
         $comment_products = CommentProduct::orderBy('comment')->get();
-        return view('store.product-detail',compact('productos', 'price', 'comment_products'));
+        return view('store.product-detail', compact('productos', 'price', 'comment_products'));
     }
 
-    public function indexComment(){
+    public function indexComment()
+    {
         $comment_products = CommentProduct::all();
         return view('store.product-detail', compact('comments'));
     }
 
-    public function createComment(){
-        $products = Product::orderBy('name','ASC')->get();
+    public function createComment()
+    {
+        $products = Product::orderBy('name', 'ASC')->get();
     }
 
-    public function storeComment(CommentStore $request){
+    public function storeComment(CommentStore $request)
+    {
         $comment_products = new CommentProduct();
         $comment_products->comment = $request->comment;
         $comment_products->product_id = $request->product_id;
@@ -64,6 +67,8 @@ class FrontController extends Controller
         $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
         return view('store.payment', compact('ShoppingCart'));
     }
+
+
 
     public function confirm(Request $request)
     {
@@ -103,7 +108,6 @@ class FrontController extends Controller
 
     public function generateVoucher()
     {
-
     }
 
     public function saveScore()
@@ -123,7 +127,6 @@ class FrontController extends Controller
                 $score->save();
             }
         }
-
     }
 
     public function updateScore($id)
@@ -145,9 +148,5 @@ class FrontController extends Controller
         ]);
 
         return redirect()->back();
-    }
-    public function confirm($id){
-        $delivery=DeliveryData::find($id);
-return view('store.confirm', compact('delivery'));
     }
 }
