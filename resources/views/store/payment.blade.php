@@ -95,7 +95,8 @@
                             class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">3</span>
                         Payments</button>
                 </div>
-                <form class="mt-8 lg:w-3/4" id="form-checkout" >
+                <!--<form class="mt-8 lg:w-3/4" id="form-checkout" >
+                    <input type="hidden" id="csrf_token" value="{{-- csrf_token() --}}">
                     <div class="mt-8">
                         <div class="grid-cols-2">
                             <h4 class="text-sm text-gray-500 font-medium">Datos de pago</h4>
@@ -189,6 +190,22 @@
                             </div>
                         </div>
                     </div>
+                </form>-->
+                <form id="form-checkout" action="{{ route('confirm') }}" >
+                    @csrf
+                    <input type="text" name="cardNumber" id="form-checkout__cardNumber" />
+                    <input type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
+                    <input type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
+                    <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
+                    <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
+                    <input type="text" name="securityCode" id="form-checkout__securityCode" />
+                    <select name="issuer" id="form-checkout__issuer"></select>
+                    
+                    <select name="installments" id="form-checkout__installments"></select>
+
+                    <button type="submit" id="form-checkout__submit">Pay</button>
+                 
+                    <progress value="0" class="progress-bar">loading...</progress>
                 </form>
             </div>
         </div>
@@ -246,12 +263,104 @@
         <progress value="0" class="progress-bar">Cargando...</progress>
     </form>-->
     @section('javascript')
-
         <script src="https://sdk.mercadopago.com/js/v2"></script>
+
         <script>
-            const mp = new MercadoPago('TEST-5750e16e-0923-4477-9549-bf94cf238fa3');
-            // Step #3
+            //const mp = new MercadoPago("{{config('mercadopago.test.public_key')}}");
+            const mp = new MercadoPago("{{config('mercadopago.test.public_key')}}", {
+                locale: 'es-MX'
+            });
+
             const cardForm = mp.cardForm({
+                amount: '100.5',
+                autoMount: true,
+                processingMode: 'aggregator',
+                form: {
+                    id: 'form-checkout',
+                    cardholderName: {
+                        id: 'form-checkout__cardholderName',
+                        placeholder: 'Cardholder name',
+                    },
+                    cardholderEmail: {
+                        id: 'form-checkout__cardholderEmail',
+                        placeholder: 'Email',
+                    },
+                    cardNumber: {
+                        id: 'form-checkout__cardNumber',
+                        placeholder: 'Card number',
+                    },
+                    cardExpirationMonth: {
+                        id: 'form-checkout__cardExpirationMonth',
+                        placeholder: 'MM'
+                    },
+                    cardExpirationYear: {
+                        id: 'form-checkout__cardExpirationYear',
+                        placeholder: 'YYYY'
+                    },
+                    securityCode: {
+                        id: 'form-checkout__securityCode',
+                        placeholder: 'CVV',
+                    },
+                    installments: {
+                        id: 'form-checkout__installments',
+                        placeholder: 'Total installments'
+                    },
+                    
+                    issuer: {
+                        id: 'form-checkout__issuer',
+                        placeholder: 'Issuer'
+                    }
+                },
+                callbacks: {
+                    onFormMounted: error => {
+                        if (error) return console.warn('Form Mounted handling error: ', error)
+                        console.log('Form mounted')
+                    },
+                    onFormUnmounted: error => {
+                        if (error) return console.warn('Form Unmounted handling error: ', error)
+                        console.log('Form unmounted')
+                    },
+                    onIdentificationTypesReceived: (error, identificationTypes) => {
+                        if (error) return console.warn('identificationTypes handling error: ', error)
+                        console.log('Identification types available: ', identificationTypes)
+                    },
+                    onPaymentMethodsReceived: (error, paymentMethods) => {
+                        if (error) return console.warn('paymentMethods handling error: ', error)
+                        console.log('Payment Methods available: ', paymentMethods)
+                    },
+                    onIssuersReceived: (error, issuers) => {
+                        if (error) return console.warn('issuers handling error: ', error)
+                        console.log('Issuers available: ', issuers)
+                    },
+                    onInstallmentsReceived: (error, installments) => {
+                        if (error) return console.warn('installments handling error: ', error)
+                        console.log('Installments available: ', installments)
+                    },
+                    onCardTokenReceived: (error, token) => {
+                        if (error) return console.warn('Token handling error: ', error)
+                        console.log('Token available: ', token)
+                    },
+                    onSubmit: (event) => {
+                        event.preventDefault();
+                        const cardData = cardForm.getCardFormData();
+                        console.log('CardForm data available: ', cardData)
+                    },
+                    onFetching:(resource) => {
+                        console.log('Fetching resource: ', resource)
+
+                        // Animate progress bar
+                        const progressBar = document.querySelector('.progress-bar')
+                        progressBar.removeAttribute('value')
+
+                        return () => {
+                            progressBar.setAttribute('value', '0')
+                        }
+                    },
+                }
+            })
+
+            // Step #3
+            /*const cardForm = mp.cardForm({
             amount: "100.5",
             autoMount: true,
             form: {
@@ -299,50 +408,51 @@
             },
             callbacks: {
                 onFormMounted: error => {
-                if (error) return console.warn("Form Mounted handling error: ", error);
-                console.log("Form mounted");
+                    if (error) return console.warn("Form Mounted handling error: ", error);
+                    console.log("Form mounted");
                 },
                 onSubmit: event => {
-                event.preventDefault();
+                    event.preventDefault();
 
-                const {
-                    paymentMethodId: payment_method_id,
-                    issuerId: issuer_id,
-                    cardholderEmail: email,
-                    amount,
-                    token,
-                    installments,
-                    identificationNumber,
-                    identificationType,
-                } = cardForm.getCardFormData();
+                    const {
+                        paymentMethodId: payment_method_id,
+                        issuerId: issuer_id,
+                        cardholderEmail: email,
+                        amount,
+                        token,
+                        installments,
+                        identificationNumber,
+                        identificationType,
+                    } = cardForm.getCardFormData();
 
-                fetch("{{ route('payment') }}", {
-                    method: "POST",
-                    headers: {
-                    "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                    token,
-                    issuer_id,
-                    payment_method_id,
-                    transaction_amount: Number(amount),
-                    installments: Number(installments),
-                    description: "Descripción del producto",
-                    payer: {
-                        email,
-                        identification: {
-                        type: identificationType,
-                        number: identificationNumber,
+                    fetch("/process_payment", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'X-CSRF-TOKEN': document.getElementById('csrf_token').value// <--- aquí el token
                         },
-                    },
-                    }),
-                });
+                        body: JSON.stringify({
+                        token,
+                        issuer_id,
+                        payment_method_id,
+                        transaction_amount: Number(amount),
+                        installments: Number(installments),
+                        description: "Descripción del producto",
+                        payer: {
+                            email,
+                            identification: {
+                            type: identificationType,
+                            number: identificationNumber,
+                            },
+                        },
+                        }),
+                    });
                 },
                 onFetching: (resource) => {
                 console.log("Fetching resource: ", resource);
                 },
             },
-            });
+            });*/
         </script>
     @endsection
 </x-app2-layout>

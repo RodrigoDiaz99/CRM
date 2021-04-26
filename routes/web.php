@@ -36,6 +36,17 @@ Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart' )->na
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@payment')->name('payment');
 
+Route::post('checkout/confirm', 'FrontController@confirm')->name('confirm');
+
+// Productos agregados al carrito
+Route::get('/carrito', 'CartController@index');
+
+// Confirmar la compra
+Route::post('/carrito/confirmar', 'CartController@confirm');
+
+// Agregar productos al carrito
+Route::post('/carrito/{id}', 'PreferencesController@store');
+
 //Reports Resource
 Route::resource('report', ReportController::class);
 
