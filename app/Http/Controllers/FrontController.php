@@ -9,6 +9,7 @@ use App\Models\ShopingCart;
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 
+
 class FrontController extends Controller
 {
 
@@ -42,7 +43,7 @@ class FrontController extends Controller
 
     public function storeComment(CommentStore $request){
         $comment_products = new CommentProduct();
-        $comment_products->comment = $request->comment; 
+        $comment_products->comment = $request->comment;
         $comment_products->product_id = $request->product_id;
         $comment_products->user_id = auth()->user()->id;
         $comment_products->save();
@@ -52,13 +53,13 @@ class FrontController extends Controller
     public function checkout(){
         return view('store.checkout');
     }
-    
+
     public function payment(){
         return view('store.payment');
     }
 
     public function addShopingCart ($id) {
-        
+
         ShopingCart::create([
             "user_id" => auth()->user()->id,
             "product_id" => $id,
