@@ -92,7 +92,7 @@ class FrontController extends Controller
         foreach ($cart as $row) {
             $score = new ScoreProduct();
             $score->user_id = $row->user_id;
-            
+
             if ($actualRow = ScoreProduct::where('product_id', $row->product_id)->first() != null) {
                 $actualRow = ScoreProduct::where('product_id', $row->product_id)->first();
                 $this->updateScore($actualRow->id);
@@ -108,8 +108,10 @@ class FrontController extends Controller
     public function updateScore($id)
     {
         $score = ScoreProduct::find($id);
-        $score->total = $score->total + 1;
-        $score->update();
+        $scoreSum = $score->total + 1;
+        $score->where('id', $id)->update([
+            'total' => $scoreSum,
+        ]);
     }
 
     public function addShopingCart($id)
