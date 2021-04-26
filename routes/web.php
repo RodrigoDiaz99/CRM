@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/', 'FrontController@index')->name('welcome');
+
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
