@@ -6,6 +6,7 @@ use App\Models\InventoryProduct;
 
 use App\Models\Product;
 use App\Models\ShoppingCart;
+use Illuminate\Http\Request;
 use MercadoPago;
 
 class FrontController extends Controller
@@ -30,41 +31,42 @@ class FrontController extends Controller
     }
 
     public function checkout(){
-        return view('store.checkout');
+        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.checkout', compact('ShoppingCart'));
     }
     
     public function payment(){
         return view('store.payment');
     }
 
-    public function confirm() {
-        echo "Prueba";
-        MercadoPago\SDK::setAccessToken("config('mercadopago.test.token')");
+    public function confirm(Request $request) {
+        MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
 
-            $payment = new MercadoPago\Payment();
-            $payment->transaction_amount = (float)$_POST['transactionAmount'];
-            $payment->token = $_POST['token'];
-            $payment->description = $_POST['description'];
-            $payment->installments = (int)$_POST['installments'];
-            $payment->payment_method_id = $_POST['paymentMethodId'];
-            $payment->issuer_id = (int)$_POST['issuer'];
+        $payment = new MercadoPago\Payment();
+        $payment->token = $request->MPHiddenInputToken;
+        $payment->transaction_amount = (float)$request->MPHiddenInputAmount;
+        $payment->installments = (int)$request->installments;
+        $payment->payment_method_id = $request->MPHiddenInputPaymentMethod;
+        
+        //$payment->description = $_POST['description'];
+        //$payment->issuer_id = (int)$_POST['issuer'];
 
-            $payer = new MercadoPago\Payer();
-            $payer->email = $_POST['email'];
-            $payer->identification = array(
-                "type" => $_POST['docType'],
-                "number" => $_POST['docNumber']
-            );
-            $payment->payer = $payer;
+        $payer = new MercadoPago\Payer();
+        $payer->email = $request->cardholderEmail;
+        /*$payer->identification = array(
+            "type" => $_POST['docType'],
+            "number" => $_POST['docNumber']
+        );*/
+        $payment->payer = $payer;
 
-            $payment->save();
+        $payment->save();
 
-            $response = array(
-                'status' => $payment->status,
-                'status_detail' => $payment->status_detail,
-                'id' => $payment->id
-            );
-            echo json_encode($response);
+        $response = array(
+            'status' => $payment->status,
+            'status_detail' => $payment->status_detail,
+            'id' => $payment->id
+        );
+        echo json_encode($response);
     }
 
     public function addShopingCart ($id) {

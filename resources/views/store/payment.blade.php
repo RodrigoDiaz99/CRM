@@ -95,8 +95,8 @@
                             class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">3</span>
                         Payments</button>
                 </div>
-                <!--<form class="mt-8 lg:w-3/4" id="form-checkout" >
-                    <input type="hidden" id="csrf_token" value="{{-- csrf_token() --}}">
+                <form id="form-checkout" action="{{ route('confirm') }}" method="POST" >
+                    @csrf
                     <div class="mt-8">
                         <div class="grid-cols-2">
                             <h4 class="text-sm text-gray-500 font-medium">Datos de pago</h4>
@@ -108,107 +108,91 @@
                                         </div>
                                     </div>
                                     <div class="mb-10">
-                                        <h1 class="text-center font-bold text-xl uppercase">Info de pago seguro</h1>
+                                        <h1 class="text-center font-bold text-xl uppercase">Datos Pago</h1>
                                     </div>
                                     <div class="mb-3 flex -mx-2">
                                         <div class="px-2">
                                             <label for="type1" class="flex items-center cursor-pointer">
-                                                <input type="radio" class="form-radio h-5 w-5 bg-blue-600" name="type" id="type1" checked>
                                                 <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-8 ml-3">
                                             </label>
                                         </div>
-                                        <div class="px-2">
+                                        <!--<div class="px-2">
                                             <label for="type2" class="flex items-center cursor-pointer">
                                                 <input type="radio" class="form-radio h-5 w-5 bg-blue-600" name="type" id="type2">
                                                 <img src="https://www.sketchappsources.com/resources/source-image/PayPalCard.png" class="h-8 ml-3">
                                             </label>
-                                        </div>
+                                        </div>-->
                                     </div>
-                                    
+
                                     <div class="mb-3">
-                                        <label class="font-bold text-sm mb-2 ml-1">Numero de tarjeta</label>
+                                        <label class="font-bold text-sm mb-2 ml-1">Número de tarjeta</label>
                                         <div>
-                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardNumber" id="form-checkout__cardNumber"/>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardNumber" id="form-checkout__cardNumber" />
                                         </div>
                                     </div>
+
+                                    <div class="mb-3 -mx-2 flex items-end">
+                                        <div class="px-2 w-1/2">
+                                            <label class="font-bold text-sm mb-2 ml-1">CVV</label>
+                                            <div>
+                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="securityCode" id="form-checkout__securityCode" />
+                                            </div>
+                                        </div>
+
+                                        <div class="px-2 w-1/2">
+                                            <label class="font-bold text-sm mb-2 ml-1">Provedor de Red</label>
+                                            <div>
+                                                <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="issuer" id="form-checkout__issuer"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 -mx-2 flex items-end">
+                                        <div class="px-2 w-1/2">
+                                            <label class="font-bold text-sm mb-2 ml-1">Mes de expiración</label>
+                                            <div>
+                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
+                                            </div>
+                                        </div>
+
+                                        <div class="px-2 w-1/2">
+                                            <label class="font-bold text-sm mb-2 ml-1">Año de Expiración</label>
+                                            <div>
+                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="mb-3">
                                         <label class="font-bold text-sm mb-2 ml-1">Titular de la tarjeta</label>
                                         <div>
                                             <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardholderName" id="form-checkout__cardholderName"/>
                                         </div>
                                     </div>
+
                                     <div class="mb-3">
                                         <label class="font-bold text-sm mb-2 ml-1">Correo Electronico</label>
                                         <div>
-                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
+                                            <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
                                         </div>
                                     </div>
-                                    <div class="mb-3 -mx-2 flex items-end">
-                                        <div class="px-2 w-1/2">
-                                            <label class="font-bold text-sm mb-2 ml-1">Fecha de expiracion</label>
-                                            <div>
-                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
 
-                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="font-bold text-sm mb-2 ml-1">Código Seguridad</label>
-                                            <div>
-                                                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="securityCode" id="form-checkout__securityCode"/>
-                                            </div>
-                                        </div>
-                                        <div class="px-2 w-1/2">
-                                            <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="issuer" id="form-checkout__issuer">
-                                                
-                                            </select>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="px-2 w-1/2">
-                                        <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="identificationType" id="form-checkout__identificationType">
-                                            
-                                        </select>
-                                    </div>
-                                    <div class="mb-10">
-                                        <label class="font-bold text-sm mb-2 ml-1">Codigo de Seguridad</label>
-                                        <div>
-                                            <input class="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
-                                        </div>
-                                    </div>
-                                    <div class="mb-10">
-                                        <label class="font-bold text-sm mb-2 ml-1">Codigo de Seguridad</label>
-                                        <div>
-                                            <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="installments" id="form-checkout__installments"></select>
-                                        </div>
+                                    <div class="px-2">
+                                        <label class="font-bold text-sm mb-2 ml-1">Cuotas</label>
+                                        <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="installments" id="form-checkout__installments"></select>
                                     </div>
                                     <div>
+                                        <progress value="0" class="progress-bar">loading...</progress>
                                         <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold" type="submit" id="form-checkout__submit"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>-->
-                <form id="form-checkout" action="{{ route('confirm') }}" >
-                    @csrf
-                    <input type="text" name="cardNumber" id="form-checkout__cardNumber" />
-                    <input type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
-                    <input type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
-                    <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
-                    <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
-                    <input type="text" name="securityCode" id="form-checkout__securityCode" />
-                    <select name="issuer" id="form-checkout__issuer"></select>
-                    
-                    <select name="installments" id="form-checkout__installments"></select>
-
-                    <button type="submit" id="form-checkout__submit">Pay</button>
-                 
-                    <progress value="0" class="progress-bar">loading...</progress>
                 </form>
             </div>
         </div>
+
         <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
             <div class="flex justify-center lg:justify-end">
                 <div class="border rounded-md max-w-md w-full px-4 py-3">
@@ -247,27 +231,12 @@
             </div>
         </div>
     </div>
-    <!-- Step #2 -->
-    <!--<form id="form-checkout" >
-        <input type="text" name="cardNumber" id="form-checkout__cardNumber" />
-        <input type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
-        <input type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
-        <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
-        <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
-        <input type="text" name="securityCode" id="form-checkout__securityCode" />
-        <select name="issuer" id="form-checkout__issuer"></select>
-        <select name="identificationType" id="form-checkout__identificationType"></select>
-        <input type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
-        <select name="installments" id="form-checkout__installments"></select>
-        <button type="submit" id="form-checkout__submit">Pagar</button>
-        <progress value="0" class="progress-bar">Cargando...</progress>
-    </form>-->
+
     @section('javascript')
         <script src="https://sdk.mercadopago.com/js/v2"></script>
 
         <script>
-            //const mp = new MercadoPago("{{config('mercadopago.test.public_key')}}");
-            const mp = new MercadoPago("{{config('mercadopago.test.public_key')}}", {
+            const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}", {
                 locale: 'es-MX'
             });
 
@@ -279,36 +248,42 @@
                     id: 'form-checkout',
                     cardholderName: {
                         id: 'form-checkout__cardholderName',
-                        placeholder: 'Cardholder name',
+                        placeholder: 'Titular Tarjeta',
                     },
+
                     cardholderEmail: {
                         id: 'form-checkout__cardholderEmail',
                         placeholder: 'Email',
                     },
+
                     cardNumber: {
                         id: 'form-checkout__cardNumber',
-                        placeholder: 'Card number',
+                        placeholder: 'Número Tarjeta',
                     },
+
                     cardExpirationMonth: {
                         id: 'form-checkout__cardExpirationMonth',
                         placeholder: 'MM'
                     },
+
                     cardExpirationYear: {
                         id: 'form-checkout__cardExpirationYear',
-                        placeholder: 'YYYY'
+                        placeholder: 'YY'
                     },
+
                     securityCode: {
                         id: 'form-checkout__securityCode',
                         placeholder: 'CVV',
                     },
+
                     installments: {
                         id: 'form-checkout__installments',
-                        placeholder: 'Total installments'
+                        placeholder: 'Total Cuotas'
                     },
                     
                     issuer: {
                         id: 'form-checkout__issuer',
-                        placeholder: 'Issuer'
+                        placeholder: 'Red'
                     }
                 },
                 callbacks: {
@@ -316,35 +291,46 @@
                         if (error) return console.warn('Form Mounted handling error: ', error)
                         console.log('Form mounted')
                     },
+
                     onFormUnmounted: error => {
                         if (error) return console.warn('Form Unmounted handling error: ', error)
                         console.log('Form unmounted')
                     },
+
                     onIdentificationTypesReceived: (error, identificationTypes) => {
                         if (error) return console.warn('identificationTypes handling error: ', error)
                         console.log('Identification types available: ', identificationTypes)
                     },
+
                     onPaymentMethodsReceived: (error, paymentMethods) => {
                         if (error) return console.warn('paymentMethods handling error: ', error)
                         console.log('Payment Methods available: ', paymentMethods)
                     },
+
                     onIssuersReceived: (error, issuers) => {
                         if (error) return console.warn('issuers handling error: ', error)
                         console.log('Issuers available: ', issuers)
                     },
+
                     onInstallmentsReceived: (error, installments) => {
                         if (error) return console.warn('installments handling error: ', error)
                         console.log('Installments available: ', installments)
                     },
+
                     onCardTokenReceived: (error, token) => {
                         if (error) return console.warn('Token handling error: ', error)
                         console.log('Token available: ', token)
                     },
+
                     onSubmit: (event) => {
                         event.preventDefault();
                         const cardData = cardForm.getCardFormData();
                         console.log('CardForm data available: ', cardData)
+
+                        var form = document.getElementById('form-checkout');
+                        form.submit();
                     },
+
                     onFetching:(resource) => {
                         console.log('Fetching resource: ', resource)
 
@@ -358,101 +344,6 @@
                     },
                 }
             })
-
-            // Step #3
-            /*const cardForm = mp.cardForm({
-            amount: "100.5",
-            autoMount: true,
-            form: {
-                id: "form-checkout",
-                cardholderName: {
-                id: "form-checkout__cardholderName",
-                placeholder: "Titular de la tarjeta",
-                },
-                cardholderEmail: {
-                id: "form-checkout__cardholderEmail",
-                placeholder: "E-mail",
-                },
-                cardNumber: {
-                id: "form-checkout__cardNumber",
-                placeholder: "Número de la tarjeta",
-                },
-                cardExpirationMonth: {
-                id: "form-checkout__cardExpirationMonth",
-                placeholder: "Mes de vencimiento",
-                },
-                cardExpirationYear: {
-                id: "form-checkout__cardExpirationYear",
-                placeholder: "Año de vencimiento",
-                },
-                securityCode: {
-                id: "form-checkout__securityCode",
-                placeholder: "Código de seguridad",
-                },
-                installments: {
-                id: "form-checkout__installments",
-                placeholder: "Cuotas",
-                },
-                identificationType: {
-                id: "form-checkout__identificationType",
-                placeholder: "Tipo de documento",
-                },
-                identificationNumber: {
-                id: "form-checkout__identificationNumber",
-                placeholder: "Número de documento",
-                },
-                issuer: {
-                id: "form-checkout__issuer",
-                placeholder: "Banco emisor",
-                },
-            },
-            callbacks: {
-                onFormMounted: error => {
-                    if (error) return console.warn("Form Mounted handling error: ", error);
-                    console.log("Form mounted");
-                },
-                onSubmit: event => {
-                    event.preventDefault();
-
-                    const {
-                        paymentMethodId: payment_method_id,
-                        issuerId: issuer_id,
-                        cardholderEmail: email,
-                        amount,
-                        token,
-                        installments,
-                        identificationNumber,
-                        identificationType,
-                    } = cardForm.getCardFormData();
-
-                    fetch("/process_payment", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'X-CSRF-TOKEN': document.getElementById('csrf_token').value// <--- aquí el token
-                        },
-                        body: JSON.stringify({
-                        token,
-                        issuer_id,
-                        payment_method_id,
-                        transaction_amount: Number(amount),
-                        installments: Number(installments),
-                        description: "Descripción del producto",
-                        payer: {
-                            email,
-                            identification: {
-                            type: identificationType,
-                            number: identificationNumber,
-                            },
-                        },
-                        }),
-                    });
-                },
-                onFetching: (resource) => {
-                console.log("Fetching resource: ", resource);
-                },
-            },
-            });*/
         </script>
     @endsection
 </x-app2-layout>
