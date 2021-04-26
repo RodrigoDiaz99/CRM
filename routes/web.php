@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\ReportController;
-use App\Models\CashFund;
 use Illuminate\Support\Facades\Route;
 
 /*

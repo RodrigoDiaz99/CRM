@@ -30,11 +30,12 @@ class ReportController extends Controller
         $report = Report::all();
         return view('report.index', compact('report'));
     }
-public function index2(){
-    $score =ScoreProduct::all();
-    $product = Product::orderBy('name', 'desc')->get();
-    return view('reports.sales.index', compact('score','product'));
-}
+    public function index2()
+    {
+        $score = ScoreProduct::all();
+        $product = Product::orderBy('name', 'desc')->get();
+        return view('reports.sales.index', compact('score', 'product'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -76,9 +77,9 @@ public function index2(){
         return view('report.show', compact('report', 'voucher'));
     }
 
-    public function mostSoldItem(){
+    public function mostSoldItem()
+    {
         $score = ScoreProduct::all();
-
     }
 
     /**
