@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReportController;
+use App\Models\CashFund;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,6 @@ Route::resource('inventory', InventoryProductController::class);
 Route::resource('delivery', DeliveryDataController::class);
 Route::get('reports/sales','ReportController@index')->name('sales.index');
 //Route::resource('report/sales', ReportController::class);
+
+//Cash Fund Resource
+Route::resource('cashfund', CashFundController::class);
