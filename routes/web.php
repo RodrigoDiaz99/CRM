@@ -27,7 +27,7 @@ Route::resource('products/category', CategoryProductController::class);
 Route::resource('products', ProductController::class);
 
 Route::resource('promotions', PromotionController::class);
-Route::get('comments', 'FrontController@storeComment')->name('storeComment');
+Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::resource('inventory', InventoryProductController::class);
 Route::resource('delivery', DeliveryDataController::class);
 

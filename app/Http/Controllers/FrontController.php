@@ -7,6 +7,7 @@ use App\Models\InventoryProduct;
 use App\Models\Product;
 use App\Models\ShopingCart;
 use App\Models\CommentProduct;
+use App\Http\Requests\CommentStore;
 
 class FrontController extends Controller
 {
@@ -26,7 +27,7 @@ class FrontController extends Controller
     public function show($id) {
         $productos = Product::find($id);
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $comment_products = CommentProduct::find($id);
+        $comment_products = CommentProduct::orderBy('comment')->get();
         return view('store.product-detail',compact('productos', 'price', 'comment_products'));
     }
 
@@ -45,7 +46,7 @@ class FrontController extends Controller
         $comment_products->product_id = $request->product_id;
         $comment_products->user_id = auth()->user()->id;
         $comment_products->save();
-        return redirect()->route('promotions.index');
+        return back();
     }
 
     public function checkout(){

@@ -60,10 +60,14 @@
                             </button>
                         </div>
                         <!-- comment form -->
-                        <form action="{{route('storeComment') }}">
+                        <form action="{{route('storeComment') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                             <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Agregar un nuevo comentario</h2>
                             <div class="w-full md:w-full px-3 mb-2 mt-2">
-                                <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="comment" id="comment" placeholder='Escribe tu comentario' required></textarea>
+                                <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" 
+                                name="comment" id="comment" placeholder='Escribe tu comentario' required></textarea>
+                                <input type="text" id="product_id" name="product_id" value="{{$productos->id}}" hidden>
+                                <p class="leading-relaxed"></p>
                             </div>
                             <div class="w-full flex items-start md:w-full px-3">
                                 <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
@@ -79,9 +83,16 @@
                         </form>
                         
                         <!--comments-->
-                        {{--@foreach($comment_products as $row)
-                            <div class="text-sm font-semibold">{{$row->comment}}</div>
-                        @endforeach--}}
+                        @foreach($comment_products as $row)
+                        <div class="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
+                        <div class="flex flex-row justify-center mr-2">
+                            <img alt="avatar" width="48" height="48" class="rounded-full w-10 h-10 mr-4 shadow-lg mb-4" src="https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png%22%3E
+                            <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">@Tim Motti</h3>
+                        </div>
+                            <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left "><span class="text-purple-600 font-semibold">@Shanel</span>{{$row->comment}}</p>
+
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

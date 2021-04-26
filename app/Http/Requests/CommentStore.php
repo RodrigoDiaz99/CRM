@@ -24,7 +24,7 @@ class CommentStore extends FormRequest
     public function rules()
     {
         return [
-            'comment'=>'required|min:15|max:655',
+            'comment'=>'required|max:655',
         ];
     }
 }
