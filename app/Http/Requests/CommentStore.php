@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeliverydataStore extends FormRequest
+class CommentStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,7 @@ class DeliverydataStore extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'last_name'=>'required',
-            'phone'=>'required',
-            'country'=>'required',
-            'state'=>'required',
-            'city'=>'required',
-            'street'=>'required',
-            'number_exterior'=>'required',
-            'suburb'=>'required',
-            'zip'=>'required',
-            'reference'=>'required'
+            'comment'=>'required|max:655',
         ];
     }
 }

@@ -23,6 +23,7 @@ class DeliveryData extends Model
         'city',
         'street',
         'number_exterior',
+        'number_interior',
         'suburb',
         'zip',
         'reference',

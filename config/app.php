@@ -182,6 +182,9 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        // Mercado Pago
+        App\Providers\MercadoPagoProvider::class,
+
     ],
 
     /*

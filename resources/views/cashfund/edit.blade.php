@@ -17,46 +17,32 @@
                             </div>
                         </div>
                         <div class="divide-y divide-gray-200 ">
-                            <form action="{{ route('voucher.update', $voucher->folio) }}" enctype="multipart/form-data" method="POST">
+                            <form action="{{ route('cashfund.update', $cashfund->id) }}" enctype="multipart/form-data" method="POST">
                                 @csrf
                                 @method('PUT')
-
+                                <div class="flex flex-col">
+                                    <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fondo de efectivo</label>
+                                    <input value="{{ $cashfund->money }}" type="number" min="1" name="money" id="money" step="any" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
+                                </div>
                                 <div class="form-group row">
                                     <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Usuario</label>
                                     <div class="col-md-6">
                                         <select name="user_id" id="user_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
                                             <option value="" selected>Seleccione un usuario</option>
                                             @foreach ($users as $row)
-                                            <option value="{{ $row->id }}" {{$row->id == $voucher->user_id ? 'selected' : '' }}>{{ $row->first_name }} {{ $row->second_name }} {{ $row->first_last_name }} {{ $row->second_last_name }}</option>
+                                            <option value="{{ $row->id }}" {{$row->id == $cashfund->user_id ? 'selected' : '' }}>{{ $row->first_name }} {{ $row->second_name }} {{ $row->first_last_name }} {{ $row->second_last_name }}</option>
                                             </option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="flex flex-col">
-                                    <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Gastos</label>
-                                    <input value = "{{$voucher->expense}}" type="number" min="1" name="expense" id="expense" step="0.01" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Reporte</label>
-                                    <div class="col-md-6">
-                                        <select name="report_id" id="report_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-                                            <option value="" selected>Seleccione un reporte</option>
-                                            @foreach ($report as $row)
-                                            <option value="{{ $row->id }}" {{$row->id == $voucher->report_id ? 'selected' : '' }}>Reporte: #{{ $row->id }}</option>
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
                         </div>
                         <div class="pt-4 flex items-center space-x-4">
 
                             <button type="submit" class="w-full flex-col bg-transparent hover:bg-blue-400 text-blue-500 font-semibold hover:text-white py-2 px-1 border border-blue hover:border-transparent rounded">
                                 <i class="fas fa-upload mx-2"></i>
-                                <span>Crear reporte</span>
+                                <span>Actualizar fondo de efectivo</span>
                             </button>
 
                         </div>

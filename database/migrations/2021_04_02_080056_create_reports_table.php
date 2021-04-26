@@ -15,14 +15,17 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cash_fund_id');
+            // $table->foreignId('cash_fund_id');
             $table->foreignId('user_id');
+            $table->date('startDate');
+            $table->date('endDate');
             $table->timestamps();
             $table->softDeletes();
 
             // Foreing Key
-            $table->foreign('cash_fund_id')->references('id')->on('cash_funds');
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('cash_fund_id')->references('id')->on('cash_funds')->onDelete('cascade');;
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+
         });
     }
 

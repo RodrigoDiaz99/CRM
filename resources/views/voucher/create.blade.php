@@ -19,38 +19,13 @@
                         <div class="divide-y divide-gray-200 ">
                             <form action="{{ route('voucher.store') }}" enctype="multipart/form-data" method="POST">
                                 @csrf
-                                <div class="form-group row">
-                                    <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Usuario</label>
-                                    <div class="col-md-6">
-                                        <select name="user_id" id="user_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-                                            <option value="" selected>Seleccione un usuario</option>
-                                            @foreach ($users as $row)
-                                            <option value="{{ $row->id }}">{{ $row->first_name }} {{ $row->second_name }} {{ $row->first_last_name }} {{ $row->second_last_name }}</option>
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Gastos</label>
                                     <input type="number" min="1" name="expense" id="expense" step="0.01" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Reporte</label>
-                                    <div class="col-md-6">
-                                        <select name="report_id" id="report_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-                                            <option value="" selected>Seleccione un reporte</option>
-                                            @foreach ($report as $row)
-                                            <option value="{{ $row->id }}">Reporte: #{{ $row->id }}</option>
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-
+                                
 
                         </div>
                         <div class="pt-4 flex items-center space-x-4">

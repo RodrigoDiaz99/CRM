@@ -19,34 +19,14 @@
                         <div class="divide-y divide-gray-200 ">
                             <form action="{{ route('report.store') }}" enctype="multipart/form-data" method="POST">
                                 @csrf
-                                <div class="form-group row">
-                                    <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Fondo de efectivo</label>
-                                    <div class="col-md-6">
-                                        <select name="cash_fund_id" id="cash_fund_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-                                            <option value="" selected>Seleccione un fondo de efectivo</option>
-                                            @foreach ($cashfund as $row)
-                                            <option value="{{ $row->id }}">{{ $row->id }} - ${{ $row->money }}</option>
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Usuario</label>
-                                    <div class="col-md-6">
-                                        <select name="user_id" id="user_id" required class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-                                            <option value="" selected>Seleccione un usuario</option>
-                                            @foreach ($users as $row)
-                                            <option value="{{ $row->id }}">{{ $row->first_name }} {{ $row->second_name }} {{ $row->first_last_name }} {{ $row->second_last_name }}</option>
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de inicio</label>
+                            <input type="date"  name="startDate" id="startDate" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de fin</label>
+                            <input type="date"  name="endDate" id="endDate" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
                         </div>
                         <div class="pt-4 flex items-center space-x-4">
 

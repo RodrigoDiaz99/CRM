@@ -5,14 +5,14 @@
 
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
-                    <p class="text-center font-italic">En esta sección se hace la administración de los reportes.
+                    <p class="text-center font-italic">En esta sección se hace la administración de fondos de efectivo.
                     <p class="small text-center"></p>
 
 
                     <div class="btn-group py-2">
-                        <a href="{{ route('report.create') }}" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
+                        <a href="{{ route('cashfund.create') }}" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
                             <i class="fas fa-plus mr-2"></i>
-                            <span>Generar reporte</span>
+                            <span>Añadir fondo de efectivo</span>
                         </a>
                     </div>
                 </div>
@@ -25,9 +25,9 @@
                                 <thead>
                                     <tr>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Numero de reporte</th>
+                                            ID</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Rango de fechas</th>
+                                            Dinero</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Usuario</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
@@ -35,7 +35,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
-                                    @foreach ($report as $row)
+                                    @foreach ($cashfund as $row)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
@@ -44,18 +44,28 @@
                                                 </div>
                                             </div>
                                         </td>
+
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                 <div>
-                                                    <div class="text-sm font-semibold">{{ $row->startDate }} - {{ $row->endDate }}</div>
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold">${{ $row->money }}</div>
                                                 </div>
-                                         </td>
+                                        </td>
+
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->user()->first()->first_name }} {{ $row->user()->first()->first_last_name }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="btn-group-py">
                                                 <div class="inline-flex items-center">
-                                                    <a href="{{ route('report.show', $row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Ver reporte</a>
+                                                    <a href="{{ route('cashfund.edit', $row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
+                                                    <form action="{{route('cashfund.destroy',$row->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar
+
+                                                        </button>
+                                                    </form>
 
                                                 </div>
                                             </div>
