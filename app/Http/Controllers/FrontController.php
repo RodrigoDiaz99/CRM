@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InventoryProduct;
-
+use App\Models\ScoreProduct;
 use App\Models\Product;
 use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
@@ -17,37 +17,45 @@ class FrontController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index()
+    {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
         $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-        return view('welcome', compact('productos','price', 'shopingItems'));
+        return view('welcome', compact('productos', 'price', 'shopingItems'));
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $productos = Product::find($id);
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        return view('store.product-detail',compact('productos', 'price'));
+        return view('store.product-detail', compact('productos', 'price'));
     }
 
-    public function checkout(){
+    public function checkout()
+    {
         $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
         return view('store.checkout', compact('ShoppingCart'));
     }
-    
-    public function payment(){
-        return view('store.payment');
+
+    public function payment()
+    {
+        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.payment', compact('ShoppingCart'));
     }
 
-    public function confirm(Request $request) {
+    public function confirm(Request $request)
+    {
         MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
+
+
 
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
         $payment->transaction_amount = (float)$request->MPHiddenInputAmount;
         $payment->installments = (int)$request->installments;
         $payment->payment_method_id = $request->MPHiddenInputPaymentMethod;
-        
+
         //$payment->description = $_POST['description'];
         //$payment->issuer_id = (int)$_POST['issuer'];
 
@@ -66,11 +74,47 @@ class FrontController extends Controller
             'status_detail' => $payment->status_detail,
             'id' => $payment->id
         );
+
+        $this->saveScore();
+
         echo json_encode($response);
     }
 
-    public function addShopingCart ($id) {
+    public function generateVoucher()
+    {
+
+    }
+
+    public function saveScore()
+    {
+        $cart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+
+        foreach ($cart as $row) {
+            $score = new ScoreProduct();
+            $score->user_id = $row->user_id;
+            
+            if ($actualRow = ScoreProduct::where('product_id', $row->product_id)->first() != null) {
+                $actualRow = ScoreProduct::where('product_id', $row->product_id)->first();
+                $this->updateScore($actualRow->id);
+            } else {
+                $score->product_id = $row->product_id;
+                $score->total = 1;
+                $score->save();
+            }
+        }
         
+    }
+
+    public function updateScore($id)
+    {
+        $score = ScoreProduct::find($id);
+        $score->total = $score->total + 1;
+        $score->update();
+    }
+
+    public function addShopingCart($id)
+    {
+
         ShoppingCart::create([
             "user_id" => auth()->user()->id,
             "product_id" => $id,

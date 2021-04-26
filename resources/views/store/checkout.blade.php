@@ -181,7 +181,7 @@
                                                 </path>
                                             </svg>
                                         </button>
-                                        <span class="text-gray-700 mx-2">1</span>
+                                        <span class="text-gray-700 mx-2">{{ $item->sum }}</span>
                                         <button class="text-gray-500 focus:outline-none focus:text-gray-600">
                                             <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
                                                 stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ScoreProduct;
 use App\Models\Report;
 use App\Models\User;
 use App\Models\Voucher;
@@ -64,6 +65,11 @@ class ReportController extends Controller
         $report = Report::findOrFail($id);
         $voucher = Voucher::whereBetween('created_at', array($report->startDate, $report->endDate))->get();
         return view('report.show', compact('report', 'voucher'));
+    }
+
+    public function mostSoldItem(){
+        $score = ScoreProduct::all();
+        
     }
 
     /**
