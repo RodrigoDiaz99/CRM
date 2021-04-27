@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryStore extends FormRequest
 {
@@ -24,7 +25,12 @@ class CategoryStore extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => [
+                'required',
+                'min:2',
+                'max:45',
+                Rule::unique('category_products')->ignore($this->id)
+            ]
         ];
     }
 }
