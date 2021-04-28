@@ -100,20 +100,10 @@
                     class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }" role="button" aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'">
-<<<<<<< Updated upstream
-                    {{--<span aria-hidden="true">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                        </svg>
-                    </span>--}}
-=======
                     <span aria-hidden="true">
                         <i class="far fa-chart-bar"></i>
                     </span>
 
->>>>>>> Stashed changes
                     <span class="ml-2 text-sm"> Reportes </span>
                     <span aria-hidden="true" class="ml-auto">
                         <!-- active class 'rotate-180' -->
