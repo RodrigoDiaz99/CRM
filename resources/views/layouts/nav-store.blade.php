@@ -40,10 +40,10 @@
                 @auth
                     <a href="{{ url('dashboard') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">CRM</a>
                 @else
-                    <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Acceso</a>
+                    <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Iniciar Sesión</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registro</a>
+                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registrate</a>
                     @endif
                 @endauth
             @endif
