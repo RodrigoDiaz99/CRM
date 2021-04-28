@@ -185,6 +185,4 @@ class FrontController extends Controller
         Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
-
-
 }
