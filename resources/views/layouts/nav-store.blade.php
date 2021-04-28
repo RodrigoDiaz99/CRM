@@ -1,17 +1,7 @@
 <div class="container mx-auto px-6 py-3">
     <div class="flex items-center justify-between">
         <div class="hidden w-full text-gray-600 md:flex md:items-center">
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('dashboard') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">CRM</a>
-                @else
-                    <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Acceso</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registro</a>
-                    @endif
-                @endauth
-            @endif
+            LOGO
         </div>
         <div class="w-full text-gray-700 md:text-center text-2xl font-semibold">
             CRM
@@ -46,6 +36,17 @@
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categorias</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('contact')}}">Contacto</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Acerca de</a>
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ url('dashboard') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">CRM</a>
+                @else
+                    <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Acceso</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registro</a>
+                    @endif
+                @endauth
+            @endif
         </div>
     </nav>
     <div class="relative mt-6 max-w-lg mx-auto">
