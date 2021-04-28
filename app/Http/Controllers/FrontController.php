@@ -23,7 +23,7 @@ class FrontController extends Controller
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
 
-        if(Auth::check()){
+        if (Auth::check()) {
             $shoppingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
             return view('welcome', compact('productos', 'price', 'shoppingItems'));
         }
@@ -73,6 +73,12 @@ class FrontController extends Controller
         return view('store.payment', compact('ShoppingCart'));
     }
 
+    public function contact()
+    {
+        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.contact', compact('shopingItems'));
+    }
+
     public function confirm(Request $request)
     {
         MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
@@ -114,7 +120,7 @@ class FrontController extends Controller
 
     public function generateVoucher()
     {
-        // TODO 
+        // TODO
     }
 
     public function saveScore()
@@ -145,8 +151,9 @@ class FrontController extends Controller
         ]);
     }
 
-    public function addShopingCart($id, Request $request) {
-        if(Auth::check()){
+    public function addShopingCart($id, Request $request)
+    {
+        if (Auth::check()) {
             ShoppingCart::create([
                 "user_id" => auth()->user()->id,
                 "product_id" => $id,
@@ -154,30 +161,33 @@ class FrontController extends Controller
             ]);
 
             return redirect()->back();
-        }else {
+        } else {
             //$this->middleware('authrnticate');
         }
     }
-    
-    public function shop(){
+
+    public function shop()
+    {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
         $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
         return view('store.shop', compact('productos', 'price', 'shopingItems'));
     }
-    
-    public function sendEmail(Request $request){
+
+    public function sendEmail(Request $request)
+    {
         $details = [
-            'name' =>$request->name,
-            'email' =>$request->email,
-            'msg'=>$request->msg,
+            'name' => $request->name,
+            'email' => $request->email,
+            'msg' => $request->msg,
         ];
-        
+
         Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('store.contact');
     }
 }

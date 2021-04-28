@@ -1,9 +1,12 @@
 <x-app2-layout>
+    @include('store.shopingCart', ['shopingItem' => $shopingItems ])
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
             <div class="relative py-3 sm:max-w-xl sm:mx-auto ">
+
                 <div
                     class="relative px-4 py-10 bg-white text-center dark:bg-darker mb-4 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+
                     <div class="space-y-4 ...">
                         <div class="max-w-md mx-auto">
                             <form action="{{ route('contact_send') }}" class="w-full max-w-lg" method="post"
