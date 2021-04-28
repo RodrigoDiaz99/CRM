@@ -22,10 +22,5 @@
             </div>
         </div>
         @endforeach
-
-
     </div>
-
-
-
 </x-app2-layout>
