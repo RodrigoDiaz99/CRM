@@ -23,11 +23,6 @@ class FrontController extends Controller
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
 
-        if (Auth::check()) {
-            $shoppingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-            return view('welcome', compact('productos', 'price', 'shoppingItems'));
-        }
-
         return view('welcome', compact('productos', 'price'));
     }
 

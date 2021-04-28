@@ -56,70 +56,65 @@
     </main>
     @if (Route::has('login'))
 
-    @auth
+        @auth
 
-    <div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center py-5">
-        <div class="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800 font-light">
-            <div class="w-full max-w-6xl mx-auto pb-5">
-                <div class="-mx-3 md:flex items-center">
-                    <div class="px-3 md:w-2/3 mb-10 md:mb-0">
-                        <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Bienvenido <br class="hidden md:block">de regreso</h1>
-                        <h2 class="text-gray-600 mb-7 md:text-4xl leading-tight">{{auth()->user()->first_name}}</h2>
-                        <div>
-                            <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
-                            <span class="inline-block w-3 h-1 rounded-full bg-blue-500 ml-1"></span>
-                            <span class="inline-block w-1 h-1 rounded-full bg-blue-500 ml-1"></span>
-                        </div>
-                    </div>
-                    <div class="px-3 md:w-1/3">
-                        <form>
-
-                            <div>
-                                <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold" href="{{route('shop')}}">Tienda</a>
+            <div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center py-5">
+                <div class="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800 font-light">
+                    <div class="w-full max-w-6xl mx-auto pb-5">
+                        <div class="-mx-3 md:flex items-center">
+                            <div class="px-3 md:w-2/3 mb-10 md:mb-0">
+                                <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Bienvenido <br class="hidden md:block">de regreso</h1>
+                                <h2 class="text-gray-600 mb-7 md:text-4xl leading-tight">{{auth()->user()->first_name}} {{ auth()->user()->first_last_name }}</h2>
+                                <div>
+                                    <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
+                                    <span class="inline-block w-3 h-1 rounded-full bg-blue-500 ml-1"></span>
+                                    <span class="inline-block w-1 h-1 rounded-full bg-blue-500 ml-1"></span>
+                                </div>
                             </div>
-                        </form>
+                            <div class="px-3 md:w-1/3">
+                                <form>
+
+                                    <div>
+                                        <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold" href="{{route('shop')}}">Tienda</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
+        @else
 
-
-    @else
-    <div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center py-5">
-        <div class="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800 font-light">
-            <div class="w-full max-w-6xl mx-auto pb-5">
-                <div class="-mx-3 md:flex items-center">
-                    <div class="px-3 md:w-2/3 mb-10 md:mb-0">
-                        <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Gracias <br class="hidden md:block">Por visitarnos</h1>
-                        <h3 class="text-gray-600 mb-7 leading-tight">Te invitamos a comprar con nosotros</h3>
-                        <div>
-                            <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
-                            <span class="inline-block w-3 h-1 rounded-full bg-blue-500 ml-1"></span>
-                            <span class="inline-block w-1 h-1 rounded-full bg-blue-500 ml-1"></span>
-                        </div>
-                    </div>
-                    <div class="px-3 md:w-1/3">
-                        <form>
-
-                            <div>
-                                <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold-center" href="{{route('register')}}">Registrate</a>
+            <div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center py-5">
+                <div class="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800 font-light">
+                    <div class="w-full max-w-6xl mx-auto pb-5">
+                        <div class="-mx-3 md:flex items-center">
+                            <div class="px-3 md:w-2/3 mb-10 md:mb-0">
+                                <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Gracias <br class="hidden md:block">Por visitarnos</h1>
+                                <h3 class="text-gray-600 mb-7 leading-tight">Te invitamos a comprar con nosotros</h3>
+                                <div>
+                                    <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
+                                    <span class="inline-block w-3 h-1 rounded-full bg-blue-500 ml-1"></span>
+                                    <span class="inline-block w-1 h-1 rounded-full bg-blue-500 ml-1"></span>
+                                </div>
                             </div>
-                        </form>
+                            <div class="px-3 md:w-1/3">
+                                <form>
+
+                                    <div>
+                                        <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold-center" href="{{route('register')}}">Registrate</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @endauth
+    @endif
 
-
-
-    @endauth
-
-@endif
-
-    @livewire('shopping-cart', ['shoppingItems' => $shoppingItems ?? ''])
+    @livewire('shopping-cart')
 
     <div class="container mx-auto px-6">
         
@@ -135,7 +130,7 @@
                     <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                         <div class="flex items-end justify-end h-56 w-full bg-cover"
                             style="background-image: url('{{ Storage::url($row->img_paths) }}')">
-                            <a href="{{ route('addShopingCart', $row->id) }}"
+                            <a wire:click="$emit('AddItem')"
                                 class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
