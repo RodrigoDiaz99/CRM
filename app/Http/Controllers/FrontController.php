@@ -70,7 +70,10 @@ class FrontController extends Controller
         return view('store.payment', compact('ShoppingCart'));
     }
 
-
+    public function contact(){
+        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.contact',compact('shopingItems'));
+    }
 
     public function confirm(Request $request)
     {
@@ -160,6 +163,7 @@ class FrontController extends Controller
         return view('store.shop', compact('productos', 'price', 'shopingItems'));
     }
     public function sendEmail(Request $request){
+
         $details =[
             'name' =>$request->name,
             'email' =>$request->email,
@@ -168,7 +172,5 @@ class FrontController extends Controller
                 Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
                 return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
-    public function contact(){
-        return view('store.contact');
-    }
+
 }
