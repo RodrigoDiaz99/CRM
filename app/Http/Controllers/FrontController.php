@@ -9,6 +9,7 @@ use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 use App\Models\DeliveryData;
 use App\Models\ShoppingCart;
+use App\Http\Controllers\VoucherController; 
 use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,11 +23,6 @@ class FrontController extends Controller
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-
-        if (Auth::check()) {
-            $shoppingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-            return view('welcome', compact('productos', 'price', 'shoppingItems'));
-        }
 
         return view('welcome', compact('productos', 'price'));
     }
@@ -109,6 +105,8 @@ class FrontController extends Controller
         );
 
         $this->saveScore();
+        $voucher = new VoucherController();
+        $voucher->store($request);
 
         echo json_encode($response);
 
