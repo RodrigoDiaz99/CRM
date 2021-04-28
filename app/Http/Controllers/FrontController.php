@@ -10,9 +10,11 @@ use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 use App\Models\DeliveryData;
 use App\Models\ShoppingCart;
-use Illuminate\Http\Request;
-use MercadoPago;
 
+use MercadoPago;
+use Mail;
+use Illuminate\Http\Request;
+use App\Mail\ContactMail;
 class FrontController extends Controller
 {
 
@@ -150,5 +152,23 @@ class FrontController extends Controller
         ]);
 
         return redirect()->back();
+    }
+    public function shop(){
+        $productos = Product::all();
+        $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
+        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.shop', compact('productos', 'price', 'shopingItems'));
+    }
+    public function sendEmail(Request $request){
+        $details =[
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'msg'=>$request->msg,
+                ];
+                Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
+                return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
+    }
+    public function contact(){
+        return view('store.contact');
     }
 }

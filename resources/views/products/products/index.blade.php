@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4">
+                    <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-4">
                         @foreach ($product as $row)
                             <div class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                                 <div class="shadow-xl overflow-hidden bg-white rounded-lg dark:bg-darker mt-4 mb-4">
