@@ -5,25 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\InventoryProduct;
 use App\Models\ScoreProduct;
 use App\Models\Product;
-
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 use App\Models\DeliveryData;
 use App\Models\ShoppingCart;
+use Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Mail\ContactMail;
 use MercadoPago;
 
 class FrontController extends Controller
 {
 
-
-
     public function index()
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-        return view('welcome', compact('productos', 'price', 'shopingItems'));
+
+        if (Auth::check()) {
+            $shoppingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+            return view('welcome', compact('productos', 'price', 'shoppingItems'));
+        }
+
+        return view('welcome', compact('productos', 'price'));
     }
 
     public function show($id)
@@ -68,13 +73,15 @@ class FrontController extends Controller
         return view('store.payment', compact('ShoppingCart'));
     }
 
-
+    public function contact()
+    {
+        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.contact', compact('shopingItems'));
+    }
 
     public function confirm(Request $request)
     {
         MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
-
-
 
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
@@ -104,10 +111,16 @@ class FrontController extends Controller
         $this->saveScore();
 
         echo json_encode($response);
+
+        // Datos de nuestra vista
+        $item = $request->all();
+
+        return view('store.confirm', compact('response'));
     }
 
     public function generateVoucher()
     {
+        // TODO
     }
 
     public function saveScore()
@@ -138,15 +151,38 @@ class FrontController extends Controller
         ]);
     }
 
-    public function addShopingCart($id)
+    public function addShopingCart($id, Request $request)
     {
+        if (Auth::check()) {
+            ShoppingCart::create([
+                "user_id" => auth()->user()->id,
+                "product_id" => $id,
+                "quantity" => 1
+            ]);
 
-        ShoppingCart::create([
-            "user_id" => auth()->user()->id,
-            "product_id" => $id,
-            "sum" => 1
-        ]);
+            return redirect()->back();
+        } else {
+            //$this->middleware('authrnticate');
+        }
+    }
 
-        return redirect()->back();
+    public function shop()
+    {
+        $productos = Product::all();
+        $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
+        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        return view('store.shop', compact('productos', 'price', 'shopingItems'));
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $details = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'msg' => $request->msg,
+        ];
+
+        Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
+        return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
 }

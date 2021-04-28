@@ -46,6 +46,28 @@
                                             </select>
                                         </div>
                                     </div>
+
+                                   <div class="flex flex-col">
+                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Color del producto</label>
+                                        <input type="color"  onkeyup="mayus(this);" style="text-transform: uppercase;" class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Descripcion del producto" >
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="direction" class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Categoria</label>
+                                        <div class="col-md-6">
+                                            <select  class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black" >
+
+                                                <option value="" selected>Seleccione tallas</option>
+
+
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                 <option value="L">L</option>
+                                                  <option value="XL">XL</option>
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="flex flex-col">
                                         <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Miniatura</label>
 

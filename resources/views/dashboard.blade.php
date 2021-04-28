@@ -15,7 +15,7 @@
                     <div>
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                            Value
+                            Ventas
                         </h6>
                         <span class="text-xl font-semibold">$30,000</span>
                         <span
@@ -40,9 +40,9 @@
                     <div>
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                            Users
+                            Usuarios
                         </h6>
-                        <span class="text-xl font-semibold">50,021</span>
+                        <span class="text-xl font-semibold">{{$users_count}}</span>
                         <span
                             class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             +2.6%
@@ -65,9 +65,9 @@
                     <div>
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                            Orders
+                            Pedidos
                         </h6>
-                        <span class="text-xl font-semibold">45,021</span>
+                        <span class="text-xl font-semibold">{{$sales_count}}</span>
                         <span
                             class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             +3.1%
@@ -90,9 +90,9 @@
                     <div>
                         <h6
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                            Tickets
+                            Reportes
                         </h6>
-                        <span class="text-xl font-semibold">20,516</span>
+                        <span class="text-xl font-semibold">{{$sales_count}}</span>
                         <span
                             class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                             +3.1%

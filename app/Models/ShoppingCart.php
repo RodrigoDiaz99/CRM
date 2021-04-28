@@ -19,7 +19,7 @@ class ShoppingCart extends Model
     protected $fillable = [
         'user_id',
         'product_id',
-        'sum'
+        'quantity'
     ];
 
     // Relaciones

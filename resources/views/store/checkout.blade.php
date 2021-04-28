@@ -163,7 +163,7 @@
                 <div class="flex justify-center lg:justify-end">
                     <div class="border rounded-md max-w-md w-full px-4 py-3">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-gray-700 font-medium">Order total (2)</h3>
+                            <h3 class="text-gray-700 font-medium">Order total (1)</h3>
                             <span class="text-gray-600 text-sm">Edit</span>
                         </div>
                         <div class="flex justify-between mt-6">

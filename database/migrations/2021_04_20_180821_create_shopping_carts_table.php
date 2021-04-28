@@ -17,7 +17,7 @@ class CreateShoppingCartsTable extends Migration
             $table->id();
             $table->foreignId("user_id");
             $table->foreignId("product_id");
-            $table->integer('sum');
+            $table->integer("quantity");
             $table->timestamps();
             $table->softDeletes();
 

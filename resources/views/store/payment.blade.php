@@ -192,14 +192,15 @@
                 </form>
             </div>
         </div>
-
+        @php
+            $total = 0;   
+        @endphp
         @foreach ($ShoppingCart as $item)
             <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
                 <div class="flex justify-center lg:justify-end">
                     <div class="border rounded-md max-w-md w-full px-4 py-3">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-gray-700 font-medium">Order total (2)</h3>
-                            <span class="text-gray-600 text-sm">Edit</span>
+                            <h3 class="text-gray-700 font-medium">Order total (1)</h3>
                         </div>
                         <div class="flex justify-between mt-6">
                             <div class="flex">
@@ -226,7 +227,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="text-gray-600">${{ $item->products->inventories['0']->sale_price }}</span>
+                            <span class="text-gray-600">$@php
+                                $price = $item->products->inventories['0']->sale_price;
+                                $total = $total + $price;
+                                echo $price
+                            @endphp
+                        </span>
                         </div>
                     </div>
                 </div>
@@ -243,7 +249,7 @@
             });
 
             const cardForm = mp.cardForm({
-                amount: '100.5',
+                amount: '{{ $total }}',
                 autoMount: true,
                 processingMode: 'aggregator',
                 form: {
