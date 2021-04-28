@@ -1,5 +1,5 @@
 <x-app2-layout>
-    @include('store.shopingCart', ['shopingItem' => $shopingItems ])
+    @include('store.shoppingCart', ['shoppingItems' => $shoppingItems ?? null ])
     <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
         @foreach ($productos as $row)
         <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
