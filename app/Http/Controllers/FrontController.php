@@ -9,6 +9,7 @@ use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 use App\Models\DeliveryData;
 use App\Models\ShoppingCart;
+use App\Http\Controllers\VoucherController; 
 use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -109,6 +110,8 @@ class FrontController extends Controller
         );
 
         $this->saveScore();
+        $voucher = new VoucherController();
+        $voucher->store($request);
 
         echo json_encode($response);
 

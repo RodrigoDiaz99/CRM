@@ -73,7 +73,7 @@ class ProductController extends Controller
                     'purchase_price' => $request->purchase_price,
                     'percent_of_profit' => $request->percent_of_profit,
                     'sale_price' => $request->sale_price,
-                    'cost_of_shipping' => $request-> cost_of_shipping,
+                    'cost_of_shipping' => $request->cost_of_shipping,
 
 
                 ]);

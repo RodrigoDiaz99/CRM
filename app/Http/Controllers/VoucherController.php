@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ShoppingCart;
 use App\Models\Voucher;
+use App\Models\InventoryProduct;
 use App\Models\User;
 
 class VoucherController extends Controller
@@ -30,11 +32,6 @@ class VoucherController extends Controller
      */
     public function create()
     {
-        $voucher = Voucher::all();
-        $users = User::all();
-
-
-        return view('voucher.create', compact('voucher', 'users'));
     }
 
     /**
@@ -46,10 +43,17 @@ class VoucherController extends Controller
     public function store(Request $request)
     {
         $voucher = new Voucher();
+        $totalCart = 0;
+        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+
+        foreach ($ShoppingCart as $row) {
+            $salePrice = InventoryProduct::select('sale_price')->where('product_id', $row->product_id)->first()->sale_price;
+            $totalCart = $totalCart + $salePrice;
+        }
+
         $voucher->user_id = auth()->user()->id;
-        $voucher->expense = $request->expense;
+        $voucher->expense = $totalCart;
         $voucher->save();
-        return redirect()->route('voucher.index');
     }
 
     /**
