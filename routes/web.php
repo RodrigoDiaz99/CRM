@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 })->name('welcome');*/
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
-
+})->name('dashboard');*/
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/', 'FrontController@index')->name('welcome');
 
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
@@ -30,7 +30,7 @@ Route::post('checkout/confirm', 'FrontController@confirm')->name('confirm');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::get('checkout', 'FrontController@checkout')->name('checkout');
 Route::get('checkout/payment', 'FrontController@payment')->name('payment');
-
+Route::get('comments/list', 'commentsController@index')->name('comments.list');
 /*  */
 Route::resource('products/category', CategoryProductController::class);
 Route::resource('products', ProductController::class);
