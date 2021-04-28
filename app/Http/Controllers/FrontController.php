@@ -12,7 +12,6 @@ use App\Models\ShoppingCart;
 use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use MercadoPago;
 use App\Mail\ContactMail;
 use MercadoPago;
 
