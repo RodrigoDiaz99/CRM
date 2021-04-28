@@ -1,5 +1,5 @@
 <x-app2-layout>
-    @include('store.shopingCart', ['shopingItem' => $shopingItems ])
+
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
             <div class="relative py-3 sm:max-w-xl sm:mx-auto ">
