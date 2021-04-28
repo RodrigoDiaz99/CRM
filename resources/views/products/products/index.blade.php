@@ -3,6 +3,20 @@
         <div class="w-full overflow-hidden rounded-lg">
             <div class="w-full overflow-x-auto font-semibold tracking-wide text-left dark:border-gray-700 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                 <div class="text-center">
+                    @if(Session::has('success'))
+                <div class="bg-green-100 rounded-md p-3 mb-2 flex">
+                    <svg class="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M0 0h24v24H0z" stroke="none" />
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
+
+                    <div class="text-green-700">
+                        <div class="font-bold text-xl">Producto guardado o modificada</div>
+                    </div>
+                </div>
+
+                @endif
                     <div class="text-center mt-3">
                         <h1 class="text-4xl">¡Bienvenido al catalogo de productos {{ Auth::user()->first_name }}!</h1>
 
@@ -19,7 +33,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4">
+                    <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-4">
                         @foreach ($product as $row)
                             <div class="max-w-sm w-full sm:w-1/2 lg:w-1/3 py-3 px-3 bg-white rounded-md dark:bg-darker mt-4 mb-4">
                                 <div class="shadow-xl overflow-hidden bg-white rounded-lg dark:bg-darker mt-4 mb-4">
@@ -35,7 +49,9 @@
                                         <img class="h-56 w-full object-cover mt-2 center" src="{{ Storage::url($row->img_paths) }}" alt="producto">
                                         <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
                                             <h1 class="text-gray-200 font-bold text-xl">${{ $row->inventories['0']->sale_price}}</h1>
+                                            <p class="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded">{{$row->category->name}}</p>
                                         </div>
+
                                     </div>
 
 

@@ -3,6 +3,21 @@
         <div class="w-full overflow-hidden rounded-lg">
             <div
                 class="w-full overflow-x-auto font-semibold tracking-wide text-left bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                @if(Session::has('success'))
+                <div class="bg-green-100 rounded-md p-3 mb-2 flex">
+                    <svg class="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M0 0h24v24H0z" stroke="none" />
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
+
+                    <div class="text-green-700">
+                        <div class="font-bold text-xl">Categoria guardada o modificada</div>
+                    </div>
+                </div>
+
+                @endif
+
 
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
@@ -31,9 +46,7 @@
                             <table class="min-w-full">
                                 <thead>
                                     <tr>
-                                        <th
-                                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            ID</th>
+
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Nombre</th>
@@ -52,13 +65,7 @@
 
 
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                <div class="flex items-center">
-                                                    <div>
-                                                        <div class="text-xl font-semibold">#{{ $row->id }}</div>
-                                                    </div>
-                                                </div>
-                                            </td>
+
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="text-sm font-semibold">{{ $row->name }}</div>
                                             </td>

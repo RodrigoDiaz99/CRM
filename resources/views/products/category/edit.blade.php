@@ -5,6 +5,21 @@
             <div
                 class="w-full overflow-x-auto font-semibold tracking-wide text-left bg-white rounded-md dark:bg-darker mt-4 mb-4">
                 {{--  --}}
+                @if(Session::has('success'))
+
+            @else
+            <div class="bg-green-100 rounded-md p-3 mb-2 flex">
+                <svg class="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M0 0h24v24H0z" stroke="none" />
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M9 12l2 2 4-4" />
+                </svg>
+
+                <div class="text-green-700">
+                    <div class="font-bold text-xl">Categoria no guardada</div>
+                </div>
+            </div>
+                @endif
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">En esta sección se editan las categorias de los productos.</h1>
                     <p class="small text-center"></p>
@@ -47,6 +62,7 @@
                                                         @csrf
                                                         <div
                                                             class="col-span-6 sm:col-span-4 max-w-sm mx-auto p-1 pr-0 flex items-center">
+                                                            <input type="text" value="{{$category->id}}" hidden>
                                                             <input type="text" id="name" name="name"
                                                                 class="flex-1 appearance-none rounded shadow p-3 text-dark mr-2 focus:outline-none"
                                                                 required value="{{ $category->name }}">
