@@ -1,8 +1,6 @@
 <x-app2-layout>
     <main class="my-8">
         <div class="container mx-auto px-6">
-
-
             <div class="h-64 rounded-md overflow-hidden bg-cover bg-center"
                 style="background-image: url('https://images.unsplash.com/photo-1577655197620-704858b270ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=144')">
                 <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
@@ -53,10 +51,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </main>
     @if (Route::has('login'))
@@ -124,20 +119,19 @@
 
 @endif
 
-
     @include('store.shoppingCart', ['shoppingItems' => $shoppingItems ?? ''])
 
     <div class="container mx-auto px-6">
 
 
         <div class="mt-16">
-            <h3 class="text-gray-600 text-2xl font-medium">Mas Productos</h3>
+            <h3 class="text-gray-600 text-2xl font-medium">Nuevos Productos</h3>
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                 <?php $count = 0; ?>
 
                 @foreach ($productos as $row)
                     <?php if ($count == 4) {
-                    break;
+                        break;
                     } ?>
                     <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                         <div class="flex items-end justify-end h-56 w-full bg-cover"
@@ -158,8 +152,6 @@
                             <span class="text-gray-500 mt-2">${{ $row->inventories['0']->sale_price }}</span>
                         </div>
                     </div>
-
-
                     <?php $count++; ?>
                 @endforeach
             </div>
