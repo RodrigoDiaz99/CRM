@@ -59,7 +59,10 @@
 
         </div>
     </main>
-    @include('store.shopingCart', ['shopingItem' => $shopingItems ])
+
+
+    @include('store.shoppingCart', ['shoppingItems' => $shoppingItems ?? ''])
+
     <div class="container mx-auto px-6">
 
 
@@ -95,7 +98,6 @@
 
                     <?php $count++; ?>
                 @endforeach
-
             </div>
         </div>
     </div>
