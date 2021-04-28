@@ -186,8 +186,5 @@ class FrontController extends Controller
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
 
-    public function contact()
-    {
-        return view('store.contact');
-    }
+
 }
