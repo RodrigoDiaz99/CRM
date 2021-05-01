@@ -16,29 +16,18 @@
                 </svg>
             </button>
 
-            <div class="flex sm:hidden">
-                <button @click="isOpen = !isOpen" type="button"
-                    class="text-gray-600 hover:text-gray-500 focus:outline-none focus:text-gray-500"
-                    aria-label="toggle menu">
-                    <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-                        <path fill-rule="evenodd"
-                            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
-                        </path>
-                    </svg>
-                </button>
-            </div>
+
         </div>
     </div>
-    <nav :class="isOpen ? '' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-4">
+    <nav class="sm:flex sm:justify-center sm:items-center mt-4">
         <div class="flex flex-col sm:flex-row">
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('welcome')}}">Inicio</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('shop')}}">Tienda</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categorias</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('contact')}}">Contacto</a>
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Acerca de</a>
             @if (Route::has('login'))
                 @auth
-                    <a href="{{ url('dashboard') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">CRM</a>
+                    <a href="{{ url('dashboard') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Panel</a>
                 @else
                     <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Iniciar Sesión</a>
 

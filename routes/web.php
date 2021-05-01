@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/', 'FrontController@index')->name('welcome');
 Route::get('shop', 'FrontController@shop')->name('shop');
-Route::get('contact', 'FrontController@contact')->name('shop');
+Route::get('contact', 'FrontController@contact')->name('contact');
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
 Route::post('checkout/confirm', 'FrontController@confirm')->name('confirm');
