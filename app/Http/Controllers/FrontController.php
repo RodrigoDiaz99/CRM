@@ -179,7 +179,8 @@ class FrontController extends Controller
             'email' => $request->email,
             'msg' => $request->msg,
         ];
-//en teoria todo esta bien jajaj algo tienes mal movido xdxd
+        
+        //en teoria todo esta bien jajaj algo tienes mal movido xdxd
         Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }

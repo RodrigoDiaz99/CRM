@@ -41,5 +41,6 @@
             </footer>
         </div>
     </body>
+    @livewireScripts
     @yield('javascript')
 </html>
