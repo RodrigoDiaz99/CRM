@@ -1,56 +1,96 @@
 <x-app2-layout>
     <main class="my-8">
         <div class="container mx-auto px-6">
-            <div class="h-64 rounded-md overflow-hidden bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1577655197620-704858b270ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=144')">
-                <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+            @forelse ($content1 as $row )
+                <div class="h-64 rounded-md overflow-hidden bg-cover bg-center"
+                    style="background-image: url('{{ Storage::url($row->img_paths) }}')">
+                    <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
 
-                    <div class="px-10 max-w-xl">
-                        <h2 class="text-2xl text-white font-semibold">Sport Shoes</h2>
-                        <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore
-                            facere provident molestias ipsam sint voluptatum pariatur.</p>
-                        <button
-                            class="flex items-center mt-4 px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                            <span>Ir Tienda</span>
-                            <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </button>
+                        <div class="px-10 max-w-xl">
+                            <h2 class="text-2xl text-white font-semibold">{{ $row->title }}</h2>
+                            <p class="mt-2 text-gray-400">{{ $row->description }}</p>
+                            <a href="{{route('shop')}}"
+                                class="flex items-center mt-4 px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                                <span>Ir Tienda</span>
+                                <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
-            </div>
+            @empty
+                <div class="h-64 rounded-md overflow-hidden bg-cover bg-center"
+                    style="background-image: url('{{ Storage::url($row->img_paths) }}')">
+                    <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+
+                        No hay datos
+
+
+                    </div>
+                </div>
+            @endforelse
             <div class="md:flex mt-8 md:-mx-4">
-                <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2"
-                    style="background-image: url('https://images.unsplash.com/photo-1547949003-9792a18a2601?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
+                @forelse ($content2 as $row)
+                    <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2"
+                        style="background-image: url('{{ Storage::url($row->img_paths) }}')">
+                        <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                            <div class="px-10 max-w-xl">
+                                <h2 class="text-2xl text-white font-semibold">{{ $row->title }}</h2>
+                                <p class="mt-2 text-gray-400">{{ $row->description }}</p>
+                                <a href="{{route('shop')}}"
+                                    class="flex items-center mt-4 text-white text-sm uppercase font-medium rounded hover:underline focus:outline-none">
+                                    <span>Ir Tienda</span>
+                                    <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2"
+                        style="background-image: url('')">
+                        <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                            No hay datos
+                        </div>
+                    </div>
+                @endforelse
+@forelse ($content3 as $row )
+<div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2"
+                    style="background-image: url('{{ Storage::url($row->img_paths) }}')">
                     <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                         <div class="px-10 max-w-xl">
-                            <h2 class="text-2xl text-white font-semibold">Back Pack</h2>
-                            <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
-                            <button
+                            <h2 class="text-2xl text-white font-semibold">{{ $row->name }}</h2>
+                            <p class="mt-2 text-gray-400">{{ $row->description}}</p>
+                            <a href="{{route('shop')}}"
                                 class="flex items-center mt-4 text-white text-sm uppercase font-medium rounded hover:underline focus:outline-none">
                                 <span>Ir Tienda</span>
                                 <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2" style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+@empty
+<div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2"
+                    style="background-image: url('')">
                     <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
                         <div class="px-10 max-w-xl">
-                            <h2 class="text-2xl text-white font-semibold">Games</h2>
-                            <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
-                            <button class="flex items-center mt-4 text-white text-sm uppercase font-medium rounded hover:underline focus:outline-none">
-                                <span>Ir Tienda</span>
-                                <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </button>
+                            No hay datos
                         </div>
                     </div>
                 </div>
+@endforelse
+
+
+
             </div>
         </div>
     </main>
@@ -63,8 +103,10 @@
                     <div class="w-full max-w-6xl mx-auto pb-5">
                         <div class="-mx-3 md:flex items-center">
                             <div class="px-3 md:w-2/3 mb-10 md:mb-0">
-                                <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Bienvenido <br class="hidden md:block">de regreso</h1>
-                                <h2 class="text-gray-600 mb-7 md:text-4xl leading-tight">{{auth()->user()->first_name}} {{ auth()->user()->first_last_name }}</h2>
+                                <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Bienvenido <br
+                                        class="hidden md:block">de regreso</h1>
+                                <h2 class="text-gray-600 mb-7 md:text-4xl leading-tight">{{ auth()->user()->first_name }}
+                                   </h2>
                                 <div>
                                     <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
                                     <span class="inline-block w-3 h-1 rounded-full bg-blue-500 ml-1"></span>
@@ -75,7 +117,8 @@
                                 <form>
 
                                     <div>
-                                        <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold" href="{{route('shop')}}">Tienda</a>
+                                        <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold"
+                                            href="{{ route('shop') }}">Tienda</a>
                                     </div>
                                 </form>
                             </div>
@@ -91,7 +134,8 @@
                     <div class="w-full max-w-6xl mx-auto pb-5">
                         <div class="-mx-3 md:flex items-center">
                             <div class="px-3 md:w-2/3 mb-10 md:mb-0">
-                                <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Gracias <br class="hidden md:block">Por visitarnos</h1>
+                                <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">Gracias <br
+                                        class="hidden md:block">Por visitarnos</h1>
                                 <h3 class="text-gray-600 mb-7 leading-tight">Te invitamos a comprar con nosotros</h3>
                                 <div>
                                     <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
@@ -103,7 +147,8 @@
                                 <form>
 
                                     <div>
-                                        <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold-center" href="{{route('register')}}">Registrate</a>
+                                        <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold-center"
+                                            href="{{ route('register') }}">Registrate</a>
                                     </div>
                                 </form>
                             </div>
@@ -125,7 +170,7 @@
 
                 @foreach ($productos as $row)
                     <?php if ($count == 4) {
-                        break;
+                    break;
                     } ?>
                     <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
                         <div class="flex items-end justify-end h-56 w-full bg-cover"

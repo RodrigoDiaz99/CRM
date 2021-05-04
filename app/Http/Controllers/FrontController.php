@@ -9,11 +9,15 @@ use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 use App\Models\DeliveryData;
 use App\Models\ShoppingCart;
-use App\Http\Controllers\VoucherController; 
+use App\Http\Controllers\VoucherController;
 use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
+
+use App\Models\bannerone;
+use App\Models\bannerthree;
+use App\Models\bannertwo;
 use MercadoPago;
 
 class FrontController extends Controller
@@ -24,7 +28,11 @@ class FrontController extends Controller
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
 
-        return view('welcome', compact('productos', 'price'));
+$content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
+$content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
+$content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
+
+        return view('welcome', compact('productos', 'price','content1','content2','content3'));
     }
 
     public function show($id)
@@ -179,8 +187,13 @@ class FrontController extends Controller
             'email' => $request->email,
             'msg' => $request->msg,
         ];
-//en teoria todo esta bien jajaj algo tienes mal movido xdxd
+        //en teoria todo esta bien jajaj algo tienes mal movido xdxd
         Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
+    }
+
+    public function index_element(){
+
+
     }
 }

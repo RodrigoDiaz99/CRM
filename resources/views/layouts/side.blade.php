@@ -41,6 +41,10 @@
                         class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
                         Inicio
                     </a>
+                    <a href="{{ route('content.list') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                   Elementos
+                </a>
 
                 </div>
             </div>
