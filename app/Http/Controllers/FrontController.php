@@ -187,6 +187,7 @@ $content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
             'email' => $request->email,
             'msg' => $request->msg,
         ];
+
         //en teoria todo esta bien jajaj algo tienes mal movido xdxd
         Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
