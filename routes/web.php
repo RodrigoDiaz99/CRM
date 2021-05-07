@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
@@ -54,20 +55,23 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::put('first/update/{id}', 'ContentController@update1')->name('update_one');
     Route::get('second/create', 'ContentController@create2')->name('create_second');
     Route::post('second/store', 'ContentController@store2')->name('store_second');
-    Route::post('first/store', 'ContentController@storeone')->name('store_one');
-    Route::post('first/store', 'ContentController@storeone')->name('store_one');
+  
+    
     Route::get('third/create', 'ContentController@create3')->name('create_three');
     Route::post('third/store', 'ContentController@store3')->name('store_three');
-    Route::post('first/store', 'ContentController@storeone')->name('store_one');
-    Route::post('first/store', 'ContentController@storeone')->name('store_one');
+ 
+ 
     Route::get('reports/sales', 'ReportController@index2')->name('sales.index');
-    Route::get('reports/sales', 'ReportController@index2')->name('sales.index');
+    Route::get('client/card', 'ClientController@card')->name('card.index');
+    Route::get('client/street', 'ClientController@street')->name('street.index');
+    Route::get('client/order', 'ClientController@order')->name('order.index');
     /*Aqui termina la ruta de los banners*/
     Route::resource('products/category', CategoryProductController::class);
     Route::resource('products', ProductController::class);
     Route::resource('promotions', PromotionController::class);
     Route::resource('inventory', InventoryProductController::class);
     Route::resource('delivery', DeliveryDataController::class);
+ 
     //Route::resource('report/sales', ReportController::class);
     //Reports Resource
     Route::resource('report', ReportController::class);

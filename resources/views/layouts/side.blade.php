@@ -173,34 +173,37 @@
                 </div>
 @endrole
 @role('Client')
-<div class="flex-shrink-0 px-2 py-4 space-y-2">
-    <a href="{{ route('welcome') }}" type="button"
-        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
+<a href="{{ route('order.index') }}" role="menuitem"
+class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">   <span aria-hidden="true">
+    <i class="fas fa-sort"></i>
+</span>
+Pedidos
+</a>
+<a href="{{ route('street.index') }}" role="menuitem"
+class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+<span aria-hidden="true">
+    <i class="fas fa-road"></i>
+</span>
+Direcciones
 
-        <span>Pedidos</span>
-    </a>
-</div>
-<div class="flex-shrink-0 px-2 py-4 space-y-2">
-    <a href="{{ route('welcome') }}" type="button"
-        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
+</a>
+<a href="{{ route('promotions.index') }}" role="menuitem"
+class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+<span aria-hidden="true">
+    <i class="fas fa-ad"></i>
+</span>
+Promociones
 
-        <span>Tienda</span>
-    </a>
-</div>
-<div class="flex-shrink-0 px-2 py-4 space-y-2">
-    <a href="{{ route('welcome') }}" type="button"
-        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
+</a>
+<a href="{{ route('card.index') }}" role="menuitem"
+class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+<span aria-hidden="true">
+    <i class="fas fa-credit-card"></i>
+</span>
+Tarjetas
 
-        <span>Direcciones</span>
-    </a>
-</div>
- <div class="flex-shrink-0 px-2 py-4 space-y-2">
-                <a href="{{ route('welcome') }}" type="button"
-                    class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
+</a>
 
-                    <span>Tarjetas</span>
-                </a>
-            </div>
                
                 @endrole
         </nav>
