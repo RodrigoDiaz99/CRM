@@ -10,6 +10,7 @@ use App\Models\bannerthree;
 use App\Models\bannertwo;
 use Illuminate\Http\Request;
 
+
 class ContentController extends Controller
 {
     /**
@@ -102,7 +103,7 @@ class ContentController extends Controller
             ]);
             //obtenemos el campo file definido en el formulario
             //Eliminamos archivos que estamos editando;
-            Storage::delete($request->productCoverDelete);
+            Storage::delete($request->firstCoverDelete);
 
             $coverName = time(); //. $cover_file->getClientOriginalName();
 
@@ -192,7 +193,8 @@ class ContentController extends Controller
     }
     public function edit2($id)
     {
-        return view('inicio.second.edit');
+
+        return view('inicio.second.edit',compact('banner'));
     }
 
     /**
@@ -202,9 +204,57 @@ class ContentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update2(Request $request, $id)
+    public function update2(SecondStore $request, $id)
     {
-        //
+        $cover_file = $request->file('cover_file');
+
+        if ($cover_file) {
+
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'cover_file' => 'required|mimes:jpeg,bmp,png'
+            ]);
+            //obtenemos el campo file definido en el formulario
+            //Eliminamos archivos que estamos editando;
+            Storage::delete($request->productCoverDelete);
+
+            $coverName = time(); //. $cover_file->getClientOriginalName();
+
+            $cover_file = $request->file('cover_file');
+
+            // Img del libro o documento PDF.
+            $pathCover = $request->file('cover_file')->storeAs('public/second', $coverName);
+
+            //Almacenamos los datos respectivos en la DB;
+            bannertwo::where('id', $id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'img_paths' => $pathCover,
+
+
+
+
+            ]);
+            //$video->update();
+        } else {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required'
+            ]);
+            //obtenemos el campo file definido en el formulario
+
+
+            //Almacenamos los datos respectivos en la DB;
+            bannertwo::where('id', $id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'img_paths' => $pathCover,
+
+            ]);
+        }
+
+        return redirect()->route('content.list')->with('update');
     }
     public function destroy2($id)
     {
@@ -259,9 +309,57 @@ class ContentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update3(Request $request, $id)
+    public function update3(ThirdStore $request, $id)
     {
+        $cover_file = $request->file('cover_file');
 
+        if ($cover_file) {
+
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'cover_file' => 'required|mimes:jpeg,bmp,png'
+            ]);
+            //obtenemos el campo file definido en el formulario
+            //Eliminamos archivos que estamos editando;
+            Storage::delete($request->productCoverDelete);
+
+            $coverName = time(); //. $cover_file->getClientOriginalName();
+
+            $cover_file = $request->file('cover_file');
+
+            // Img del libro o documento PDF.
+            $pathCover = $request->file('cover_file')->storeAs('public/first', $coverName);
+
+            //Almacenamos los datos respectivos en la DB;
+            bannerthree::where('id', $id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'img_paths' => $pathCover,
+
+
+
+
+            ]);
+            //$video->update();
+        } else {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required'
+            ]);
+            //obtenemos el campo file definido en el formulario
+
+
+            //Almacenamos los datos respectivos en la DB;
+            bannerthree::where('id', $id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'img_paths' => $pathCover,
+
+            ]);
+        }
+
+        return redirect()->route('content.list')->with('update');
     }
 
     /**

@@ -41,14 +41,17 @@
                         class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
                         Inicio
                     </a>
+                    @role('Admin')
                     <a href="{{ route('content.list') }}" role="menuitem"
                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
                    Elementos
                 </a>
+                @endrole
 
                 </div>
             </div>
 
+            @role('Admin')
             <!-- Components links -->
             <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
@@ -168,7 +171,8 @@
                     </a>
 
                 </div>
-
+@endrole
+@role('Client')
                 <!-- Layouts links -->
                 <div x-data="{ isActive: false, open: false}">
                     <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
@@ -205,6 +209,7 @@
 
                     </div>
                 </div>
+                @endrole
         </nav>
 
         <!-- Sidebar footer -->

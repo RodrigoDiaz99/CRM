@@ -87,7 +87,7 @@
 
                                     <div class="flex p-4 border-t border-gray-300 text-gray-700">
                                         <div class="flex-1 inline-flex justify-between items-center">
-                                            <a href=""
+                                            <a href="{{route('edit_one',$row->id)}}"
                                                 class="bg-transparent hover:bg-yellow-200 text-yellow-500 font-semibold hover:text-white py-2 px-4 border border-yellow-400 hover:border-transparent rounded">
                                                 <i class="far fa-edit"></i>
                                             </a>

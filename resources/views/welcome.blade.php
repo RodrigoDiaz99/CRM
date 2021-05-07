@@ -1,6 +1,7 @@
 <x-app2-layout>
     <main class="my-8">
         <div class="container mx-auto px-6">
+            @livewire('shopping-cart')
             @forelse ($content1 as $row )
                 <div class="h-64 rounded-md overflow-hidden bg-cover bg-center"
                     style="background-image: url('{{ Storage::url($row->img_paths) }}')">
@@ -24,7 +25,7 @@
                 </div>
             @empty
                 <div class="h-64 rounded-md overflow-hidden bg-cover bg-center"
-                    style="background-image: url('{{ Storage::url($row->img_paths) }}')">
+
                     <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
 
                         No hay datos
@@ -159,7 +160,7 @@
         @endauth
     @endif
 
-    @livewire('shopping-cart')
+ 
 
     <div class="container mx-auto px-6">
 
@@ -195,5 +196,5 @@
                 @endforeach
             </div>
         </div>
-    </div>   
+    </div>
 </x-app2-layout>
