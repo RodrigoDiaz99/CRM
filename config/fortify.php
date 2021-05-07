@@ -74,9 +74,9 @@ return [
     |
     */
 
-   /* 'prefix' => '',
+    'prefix' => '',
 
-    'domain' => null,*/
+    'domain' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -103,8 +103,8 @@ return [
     */
 
     'limiters' => [
-        'login' => 'null',
-
+        'login' => 'login',
+        'two-factor' => 'two-factor',
     ],
 
     /*
@@ -118,7 +118,7 @@ return [
     |
     */
 
-   /* 'views' => true,*/
+    'views' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -128,9 +128,7 @@ return [
     | Some of the Fortify features are optional. You may disable the features
     | by removing them from this array. You're free to only remove some of
     | these features or you can even remove all of these if you need to.
-    |Features::twoFactorAuthentication([
-           'confirmPassword' => false,
-        ]),
+    |
     */
 
     'features' => [
@@ -139,7 +137,9 @@ return [
         Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
-        
+        Features::twoFactorAuthentication([
+            'confirmPassword' => true,
+        ]),
     ],
 
 ];

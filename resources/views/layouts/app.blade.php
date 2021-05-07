@@ -121,11 +121,13 @@
                             <div>
                                 <button @click="setColors('cyan')" class="w-10 h-10 rounded-full" style="background-color: var(--color-cyan)"></button>
                                 <button @click="setColors('teal')" class="w-10 h-10 rounded-full" style="background-color: var(--color-teal)"></button>
-                                <button @click="setColors('green')" class="w-10 h-10 rounded-full" style="background-color: var(--color-green)"></button>
-                                <button @click="setColors('fuchsia')" class="w-10 h-10 rounded-full" style="background-color: var(--color-fuchsia)"></button>
                                 <button @click="setColors('blue')" class="w-10 h-10 rounded-full" style="background-color: var(--color-blue)"></button>
+                              
+                              {{--  <button @click="setColors('green')" class="w-10 h-10 rounded-full" style="background-color: var(--color-green)"></button>
+                                <button @click="setColors('fuchsia')" class="w-10 h-10 rounded-full" style="background-color: var(--color-fuchsia)"></button>
+                             
                                 <button @click="setColors('violet')" class="w-10 h-10 rounded-full" style="background-color: var(--color-violet)"></button>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

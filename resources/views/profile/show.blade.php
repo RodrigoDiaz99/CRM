@@ -5,9 +5,7 @@
             @livewire('profile.update-profile-information-form')
         </div>
 
-        <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker mb-4">
-            @livewire('delivery-data')
-        </div>
+        
 
         <div x-show="open" class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker mb-4" role="menu" arial-label="Components"">
             @livewire('profile.update-password-form')
