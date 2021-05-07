@@ -18,6 +18,7 @@ class CreateShoppingCartsTable extends Migration
             $table->foreignId("user_id");
             $table->foreignId("product_id");
             $table->integer("quantity");
+            $table->double('subtotal')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

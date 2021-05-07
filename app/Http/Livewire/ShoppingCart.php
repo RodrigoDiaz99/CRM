@@ -10,7 +10,9 @@ use App\Models\ShoppingCart as ShoppingCartModel;
 class ShoppingCart extends Component
 {
 
-    protected $listeners = ['postAdded' => 'AddItem'];
+    protected $listeners = [
+        'ShoppingCart:update' => '$refresh',
+    ];
     
     public function render()
     {
@@ -19,18 +21,24 @@ class ShoppingCart extends Component
         ]);
     }
 
-    public function ItemSum($product) {
-        $quantity = ShoppingCartModel::where('product_id', '1')->where('user_id', auth()->user()->id)->get('quantity')->first();
+    public function ItemSum($product, $price) {
+        $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get('quantity')->first();
+        $cantidad = $quantity['quantity'] + 1;
+        $subtotal = $cantidad * $price;
         ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->update([
-            "quantity" => $quantity['quantity'] + 1
+            "quantity" => $cantidad,
+            "subtotal" => $subtotal
         ]);
     }
 
-    public function ItemRest($product) {
-        $quantity = ShoppingCartModel::where('product_id', '1')->where('user_id', auth()->user()->id)->get('quantity')->first();
+    public function ItemRest($product, $price) {
+        $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get('quantity')->first();
+        $cantidad = $quantity['quantity'] - 1;
+        $subtotal = $cantidad * $price;
         if($quantity['quantity'] > 1){
             ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->update([
-                "quantity" => $quantity['quantity'] - 1
+                "quantity" => $cantidad,
+                "subtotal" => $subtotal
             ]);
         }
     }

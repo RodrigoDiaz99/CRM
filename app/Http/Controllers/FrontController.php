@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
 use App\Models\DeliveryData;
-use App\Models\ShoppingCart;
+use App\Models\ShoppingCart as Shopping;
 use App\Http\Controllers\VoucherController; 
 use Mail;
 use Illuminate\Http\Request;
@@ -21,10 +21,9 @@ class FrontController extends Controller
 
     public function index()
     {
-        $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
 
-        return view('welcome', compact('productos', 'price'));
+        return view('welcome', compact('price'));
     }
 
     public function show($id)
@@ -59,19 +58,19 @@ class FrontController extends Controller
 
     public function checkout()
     {
-        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
         return view('store.checkout', compact('ShoppingCart'));
     }
 
     public function payment()
     {
-        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
         return view('store.payment', compact('ShoppingCart'));
     }
 
     public function contact()
     {
-        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();
         return view('store.contact', compact('shopingItems'));
     }
 
@@ -123,7 +122,7 @@ class FrontController extends Controller
 
     public function saveScore()
     {
-        $cart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $cart = Shopping::where('user_id', auth()->user()->id)->get();
 
         foreach ($cart as $row) {
             $score = new ScoreProduct();
@@ -152,7 +151,7 @@ class FrontController extends Controller
     public function addShopingCart($id, Request $request)
     {
         if (Auth::check()) {
-            ShoppingCart::create([
+            Shopping::create([
                 "user_id" => auth()->user()->id,
                 "product_id" => $id,
                 "quantity" => 1
@@ -168,7 +167,7 @@ class FrontController extends Controller
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();
         return view('store.shop', compact('productos', 'price', 'shopingItems'));
     }
 
