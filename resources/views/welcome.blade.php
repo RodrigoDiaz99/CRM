@@ -160,7 +160,7 @@
         @endauth
     @endif
 
- 
+
 
     <div class="container mx-auto px-6">
 
@@ -195,6 +195,7 @@
                     <?php $count++; ?>
                 @endforeach
             </div>
+            @livewire('store-main')
         </div>
     </div>
 </x-app2-layout>
