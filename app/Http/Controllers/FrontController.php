@@ -29,7 +29,7 @@ class FrontController extends Controller
     public function index()
     {
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-
+        $productos = Product::orderBy('id', 'desc')->get()->take(1);
 $content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
 $content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
 $content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
