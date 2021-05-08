@@ -13,8 +13,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="css/tailwind.css" />
-        {{--<link rel="stylesheet" href="{{asset('css/tailwind.css')}}" />--}}
+
+        <link rel="stylesheet" href="{{asset('css/tailwind.css')}}" />
 
         <!-- Scripts -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
