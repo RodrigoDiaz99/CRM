@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CRM') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -122,10 +122,10 @@
                                 <button @click="setColors('cyan')" class="w-10 h-10 rounded-full" style="background-color: var(--color-cyan)"></button>
                                 <button @click="setColors('teal')" class="w-10 h-10 rounded-full" style="background-color: var(--color-teal)"></button>
                                 <button @click="setColors('blue')" class="w-10 h-10 rounded-full" style="background-color: var(--color-blue)"></button>
-                              
+
                               {{--  <button @click="setColors('green')" class="w-10 h-10 rounded-full" style="background-color: var(--color-green)"></button>
                                 <button @click="setColors('fuchsia')" class="w-10 h-10 rounded-full" style="background-color: var(--color-fuchsia)"></button>
-                             
+
                                 <button @click="setColors('violet')" class="w-10 h-10 rounded-full" style="background-color: var(--color-violet)"></button>
                             </div> --}}
                         </div>
