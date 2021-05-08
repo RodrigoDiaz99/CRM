@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\MyResetPassword;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -65,6 +66,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_url',
     ];
 
+   /* public function sendPasswordResetNotification($token)
+{
+    $this->notify(new MyResetPassword($token));
+}*/
     // Relaciones
     public function deliveryData () {
         return $this->hasMany(DeliveryData::class);
