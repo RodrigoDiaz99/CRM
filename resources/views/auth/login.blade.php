@@ -1,11 +1,6 @@
 <x-guest-layout>
     <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
-        <x-jet-validation-errors class="mb-4" />
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+
         <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
             <div class="md:flex w-full">
                 <div class="hidden md:block w-1/2 bg-blue-600 py-10 px-10">
