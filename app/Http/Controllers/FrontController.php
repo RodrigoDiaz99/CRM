@@ -30,12 +30,12 @@ class FrontController extends Controller
     {
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
         $productos = Product::orderBy('id', 'desc')->get()->take(1);
-$content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
-$content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
-$content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
+
+        $content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
+        $content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
+        $content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
 
         return view('welcome', compact('productos', 'price','content1','content2','content3'));
-        //return view('welcome', compact('price'));
     }
 
     public function show($id)

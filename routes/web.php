@@ -1,9 +1,6 @@
 <?php
 
 use App\Http\Controllers\ClientController;
-use App\Models\bannerone;
-use App\Models\bannerthree;
-use App\Models\bannertwo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,13 +23,7 @@ use Illuminate\Support\Facades\Route;
 })->name('dashboard');*/
 
 
-
-
-$content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
-$content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
-$content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
-
-Route::get('/', 'FrontController@index',compact('content1','content2','content3'))->name('welcome');
+Route::resource('/', 'FrontController');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::post('contact/store', 'FrontController@sendEmail')->name('contact_send');
 Route::get('shop', 'FrontController@shop')->name('shop');
