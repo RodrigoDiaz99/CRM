@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('img_paths');
             $table->string('description');
-             $table->string('Color1')->nullable();
+             $table->string('color1')->nullable();
              $table->string('color2')->nullable();
              $table->string('color3')->nullable();
              $table->string('color4')->nullable();

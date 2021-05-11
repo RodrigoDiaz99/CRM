@@ -61,6 +61,20 @@ class ProductController extends Controller
             Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
+
+                'color1' => $request->color1,
+                'color2' => $request->color2,
+                'color3' => $request->color3,
+                'color4' => $request->color4,
+                'color5' => $request->color5,
+
+
+                'talla1' => $request->talla1,
+                'talla2' => $request->talla2,
+                'talla3' => $request->talla3,
+                'talla4' => $request->talla4,
+                'talla5' => $request->talla5,
+
                 'img_paths' => $pathCover,
                 'category_id' => $request->category_id,
             ]);

@@ -83,6 +83,14 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Productos
                     </a>
+                    <a href="{{ route('color.index') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                  Colores
+                </a>
+               <a href="{{ route('talla.index') }}" role="menuitem"
+                class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                Tallas
+            </a>
                     <a href="{{ route('category.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Categorias
@@ -204,7 +212,7 @@ Tarjetas
 
 </a>
 
-               
+
                 @endrole
         </nav>
 

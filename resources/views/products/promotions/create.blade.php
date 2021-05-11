@@ -3,7 +3,7 @@
     <div class="p-4">
         <div class="w-full overflow-hidden rounded-lg">
 
-            <div class="relative py-3 sm:max-w-xl sm:mx-auto ">
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
                 <div class="relative px-4 py-10 bg-white text-center dark:bg-darker mb-4 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
 
                     <div class="max-w-md mx-auto">
@@ -17,58 +17,62 @@
                                     guardar una nueva promocion</p>
                             </div>
                         </div>
-                        <div class="divide-y divide-gray-200 ">
+
+                        <div class="divide-y divide-gray-200 grid grid-cols-3">
                             <form action="{{route('promotions.store') }}" enctype="multipart/form-data" method="POST">
                                 @csrf
-
-                                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                                    <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Titulo de la promoción</label>
-                                        <input type="text" name="title" id="title" onkeyup="mayus(this);"
-                                            style="text-transform: uppercase;"
-                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="Titulo de la promocion" required autofocus>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="product_id"
-                                            class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Producto</label>
-                                        <div class="col-md-6">
-                                            <select name="product_id" id="product_id"
-                                                class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-
-                                                <option value="" selected>Seleccione un producto</option>
-
-                                                @foreach ($products as $row)
-                                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                                @endforeach
-
-                                            </select>
+                                <div class="grid grid-cols-3">
+                                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                                        <div class="flex flex-col">
+                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Titulo de la promoción</label>
+                                            <input type="text" name="title" id="title" onkeyup="mayus(this);"
+                                                style="text-transform: uppercase;"
+                                                class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                                placeholder="Titulo de la promocion" required autofocus>
                                         </div>
-                                    </div>
 
-                                    <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion de la promoción</label>
-                                        <input type="text" name="description" id="description" onkeyup="mayus(this);"
-                                            style="text-transform: uppercase;"
-                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="Descripcion de la promocion" required autofocus>
-                                    </div>
+                                        <div class="form-group row">
+                                            <label for="product_id"
+                                                class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Producto</label>
+                                            <div class="col-md-6">
+                                                <select name="product_id" id="product_id"
+                                                    class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
 
-                                    <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descuento</label>
-                                        <input type="number" min="1" name="cash_discount" id="cash_discount"
-                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="35" required autofocus>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de expiracion de la promocion</label>
-                                        <input type="date" min="1" name="expiration_date" id="expiration_date"
-                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="10" required autofocus>
+                                                    <option value="" selected>Seleccione un producto</option>
+
+                                                    @foreach ($products as $row)
+                                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col">
+                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion de la promoción</label>
+                                            <input type="text" name="description" id="description" onkeyup="mayus(this);"
+                                                style="text-transform: uppercase;"
+                                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                                placeholder="Descripcion de la promocion" required autofocus>
+                                        </div>
+
+                                        <div class="flex flex-col">
+                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descuento</label>
+                                            <input type="number" min="1" name="cash_discount" id="cash_discount"
+                                                class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                                placeholder="35" required autofocus>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de expiracion de la promocion</label>
+                                            <input type="date" min="1" name="expiration_date" id="expiration_date"
+                                                class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                                placeholder="10" required autofocus>
+                                        </div>
+
                                     </div>
 
                                 </div>
+
                                 <div class="pt-4 flex items-center space-x-4">
 
                                     <button type="submit"

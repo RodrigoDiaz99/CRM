@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ColoresController;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
@@ -32,7 +33,7 @@ $content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
 $content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
 $content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
 
-Route::get('/', 'FrontController@index',compact('content1','content2','content3'))->name('welcome');
+Route::get('/', 'FrontController@index', compact('content1', 'content2', 'content3'))->name('welcome');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::post('contact/store', 'FrontController@sendEmail')->name('contact_send');
 Route::get('shop', 'FrontController@shop')->name('shop');
@@ -41,7 +42,7 @@ Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
 Route::post('contact', 'FrontController@contact')->name('contact');
 
-Route::group(['middleware' => ['auth','verified']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::post('checkout/confirm', 'FrontController@confirm')->name('confirm');
     Route::get('checkout', 'FrontController@checkout')->name('checkout');
@@ -55,12 +56,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::put('first/update/{id}', 'ContentController@update1')->name('update_one');
     Route::get('second/create', 'ContentController@create2')->name('create_second');
     Route::post('second/store', 'ContentController@store2')->name('store_second');
-  
-    
+
+
     Route::get('third/create', 'ContentController@create3')->name('create_three');
     Route::post('third/store', 'ContentController@store3')->name('store_three');
- 
- 
+
+
     Route::get('reports/sales', 'ReportController@index2')->name('sales.index');
     Route::get('client/card', 'ClientController@card')->name('card.index');
     Route::get('client/street', 'ClientController@street')->name('street.index');
@@ -71,7 +72,9 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('promotions', PromotionController::class);
     Route::resource('inventory', InventoryProductController::class);
     Route::resource('delivery', DeliveryDataController::class);
- 
+    Route::resource('color', 'ColoresController');
+    Route::resource('talla', TallaController::class);
+
     //Route::resource('report/sales', ReportController::class);
     //Reports Resource
     Route::resource('report', ReportController::class);
@@ -79,7 +82,6 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::resource('voucher', VoucherController::class);
     //Cash Fund Resource
     Route::resource('cashfund', CashFundController::class);
-    
 });
 
 
