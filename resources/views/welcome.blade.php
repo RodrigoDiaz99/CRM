@@ -30,7 +30,6 @@
 
                         No hay datos
 
-
                     </div>
                 </div>
             @endforelse
