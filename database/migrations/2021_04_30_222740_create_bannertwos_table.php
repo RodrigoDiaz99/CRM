@@ -17,7 +17,7 @@ class CreateBannertwosTable extends Migration
             $table->id();
             $table->text('title');
             $table->text('description');
-               $table->string('img_paths')->nullable();
+            $table->string('img_paths')->nullable();
             $table->timestamps();
         });
     }
