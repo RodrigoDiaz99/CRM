@@ -24,7 +24,7 @@ class ColorStore extends FormRequest
     public function rules()
     {
         return [
-            //
+            'color' => 'required' | 'unique:colores',
         ];
     }
 }

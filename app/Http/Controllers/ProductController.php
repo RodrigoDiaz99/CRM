@@ -8,6 +8,8 @@ use App\Models\CategoryProduct;
 use App\Models\InventoryProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\commentsController;
+use App\Models\Colores;
+use App\Models\Talla;
 
 class ProductController extends Controller
 {
@@ -36,7 +38,9 @@ class ProductController extends Controller
     {
 
         $category = CategoryProduct::orderBy('name', 'asc')->get();
-        return view('products.products.create', compact('category'));
+        $color = Colores::orderBy('color','asc')->get();
+        $talla = Talla::orderBy('talla','asc')->get();
+        return view('products.products.create', compact('category','color','talla'));
     }
 
     /**
@@ -63,6 +67,7 @@ class ProductController extends Controller
                 'description' => $request->description,
                'img_paths' => $pathCover,
                 'category_id' => $request->category_id,
+
             ]);
 
             $product = Product::latest('id')->first();

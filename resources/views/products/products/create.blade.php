@@ -25,24 +25,24 @@
 
                                 <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 
-                                        <div class="flex flex-col">
-                                            <label
-                                                class="leading-loose text-blue-500 uppercase dark:text-primary-light">Nombre
-                                                del producto</label>
-                                            <input type="text" name="name" id="name" onkeyup="mayus(this);"
-                                                style="text-transform: uppercase;"
-                                                class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                                placeholder="Nombre del producto" required autofocus>
-                                        </div>
-                                        <div class="flex flex-col">
-                                            <label
-                                                class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion
-                                                producto</label>
-                                            <input type="text" name="description" id="description"
-                                                onkeyup="mayus(this);" style="text-transform: uppercase;"
-                                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                                placeholder="Descripcion del producto" required>
-                                        </div>
+                                    <div class="flex flex-col">
+                                        <label
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Nombre
+                                            del producto</label>
+                                        <input type="text" name="name" id="name" onkeyup="mayus(this);"
+                                            style="text-transform: uppercase;"
+                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                            placeholder="Nombre del producto" required autofocus>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion
+                                            producto</label>
+                                        <input type="text" name="description" id="description" onkeyup="mayus(this);"
+                                            style="text-transform: uppercase;"
+                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                            placeholder="Descripcion del producto" required>
+                                    </div>
 
 
 
@@ -67,13 +67,18 @@
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="flex flex-col" id="div_color">
-                                            <label
-                                                class="leading-loose text-blue-500 uppercase dark:text-primary-light">Color
-                                                del producto</label>
-                                            <input type="color" onkeyup="mayus(this);" style="text-transform: uppercase;"
-                                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                                placeholder="Descripcion del producto">
+                                        <div class="form-group row">
+                                            <label for="direction"
+                                                class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Color</label>
+                                            <div class="col-md-6">
+                                                <select
+                                                    class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
+                                                    <option value="" selected>Seleccione color</option>
+                                                    @foreach ($color as $row)
+                                                        <option value="{{$row->id}}">{{$row->color}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="direction"
@@ -81,22 +86,21 @@
                                             <div class="col-md-6">
                                                 <select
                                                     class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
-
                                                     <option value="" selected>Seleccione tallas</option>
-
-
-                                                    <option value="S">S</option>
-                                                    <option value="M">M</option>
-                                                    <option value="L">L</option>
-                                                    <option value="XL">XL</option>
-                                                    </option>
-
+                                                    @foreach ($talla as $row)
+                                                        <option value="{{$row->id}}">{{$row->talla}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
-
+                                    <label>Escoge una talla
+                                        <input list="talla" name="talla" /></label>
+                                        <datalist id="talla">
+                                            @foreach ($talla as $row)
+                                            <option >{{$row->talla}}</option>
+                                        @endforeach
+                                        </datalist>
                                     <div class="flex flex-col">
                                         <label
                                             class="leading-loose text-blue-500 uppercase dark:text-primary-light">Miniatura</label>

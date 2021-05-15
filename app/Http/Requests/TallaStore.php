@@ -24,7 +24,7 @@ class TallaStore extends FormRequest
     public function rules()
     {
         return [
-            //
+            'talla'=>'required'|'unique:tallas',
         ];
     }
 }
