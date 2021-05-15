@@ -43,5 +43,6 @@
         </div>
     </body>
     @livewireScripts
-    @yield('javascript')
+    
+    @stack('javascript')
 </html>

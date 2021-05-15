@@ -227,7 +227,7 @@
 
                             <p class="mt-4">
                                 <a class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
-                                    href="{{ route('welcome') }}">
+                                    href="{{ route('index') }}">
                                     {{ __('Volver al Inicio') }}
                                 </a>
                             </p>
