@@ -13,16 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');*/
 
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');*/
 
 
-Route::resource('/', 'FrontController');
+Route::get('/', 'FrontController@index')->name('welcome');
 Route::get('product/addShopingCart/{id}', 'FrontController@addShopingCart')->name('addShopingCart');
 Route::post('contact/store', 'FrontController@sendEmail')->name('contact_send');
 Route::get('shop', 'FrontController@shop')->name('shop');

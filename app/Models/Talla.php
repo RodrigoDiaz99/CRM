@@ -4,14 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Talla extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $fillable = [
         'talla',
 
 
     ];
+    public function colors(){
+        //entidad
 
+        return $this->morphOne(Product::class,'productable');
+    }
 }

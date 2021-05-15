@@ -15,4 +15,9 @@ class Colores extends Model
 
 
     ];
+    public function colors(){
+        //entidad
+
+        return $this->morphOne(Product::class,'productable');
+    }
 }

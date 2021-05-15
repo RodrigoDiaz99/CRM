@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateColorsTallasTable extends Migration
+class CreateProductsColoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateColorsTallasTable extends Migration
      */
     public function up()
     {
-        Schema::create('colors__tallas', function (Blueprint $table) {
+        Schema::create('products_colores', function (Blueprint $table) {
             $table->id();
-           // $table->foreignId('products_id')->nullable()->constrained('products');
+            $table->foreignId('product_id');
+            $table->foreignId('colores_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('colores_id')->references('id')->on('colores');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateColorsTallasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colors__tallas');
+        Schema::dropIfExists('products_colores');
     }
 }

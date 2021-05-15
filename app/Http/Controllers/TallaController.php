@@ -29,7 +29,7 @@ return redirect()->route('talla.index');
 }
  public function show($id)
     {
-        //
+
     }
 
 public function edit($id){

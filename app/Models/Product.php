@@ -57,4 +57,8 @@ class Product extends Model
     public function shopingCart (){
         return $this->belongsTo(ShopingCart::class);
     }
+
+    public function productable(){
+return $this->morphTo();
+    }
 }
