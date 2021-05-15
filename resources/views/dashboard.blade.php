@@ -214,7 +214,7 @@
                         </div>
                         <div class="mt-6 flex justify-center h-12 relative">
                             <div
-                                class="flex shadow-md font-medium absolute py-2 px-4 
+                                class="flex shadow-md font-medium absolute py-2 px-4
                 cursor-pointer bg-green-600 text-lg tr-mt svelte-jqwywd text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
                                 Tienda</div>
                         </div>

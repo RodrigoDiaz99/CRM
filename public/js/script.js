@@ -1,12 +1,11 @@
 // All javascript code in this project for now is just for demo DON'T RELY ON IT
-/*Barra barra estatica*/
+
 const random = (max = 100) => {
     return Math.round(Math.random() * max) + 20
 }
 
 const randomData = () => {
     return [
-        /*Aqui iran los reportes por fecha en graficas*/
         random(),
         random(),
         random(),
@@ -214,23 +213,3 @@ const fakeUsersCount = () => {
 setInterval(() => {
     fakeUsersCount()
 }, 1000)
-
-//Usage in Inventory Module
-function salePriceCalculator() {
-    var percent = document.getElementById("percent_of_profit").value;
-    var purchase_price = document.getElementById("purchase_price").value;
-    var calculate = (purchase_price * percent) / 100;
-    var final = Number(purchase_price) + Number(calculate);
-    document.getElementById("sale_price").value = final;
-}
-
-function percentProfitCalculator() {
-    var percent = document.getElementById("percent_of_profit").value;
-    var purchase_price = document.getElementById("purchase_price").value;
-    var sale_price = document.getElementById("sale_price").value;
-    var calculate = Number(sale_price) - Number(purchase_price);
-    var final = (Number(calculate) / Number(purchase_price)) * 100;
-    document.getElementById("percent_of_profit").value = final;
-
-
-}
