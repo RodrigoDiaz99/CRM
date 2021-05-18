@@ -51,6 +51,8 @@ class ProductController extends Controller
      */
     public function store(ProductStore $request)
     {
+        dd($request);
+        exit();
         $cover_file = $request->file('cover_file');
 
         if ($cover_file) {

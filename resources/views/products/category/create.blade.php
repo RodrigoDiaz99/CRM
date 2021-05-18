@@ -5,9 +5,9 @@
 
             {{--  --}}
 
-            @endif
+
             <div class="text-center mt-3">
-                <h1 class="text-4xl">En esta secci�n se agregan las categorias de los productos.</h1>
+                <h1 class="text-4xl">En esta seccion se agregan las categorias de los productos.</h1>
                 <p class="small text-center"></p>
 
 

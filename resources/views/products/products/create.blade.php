@@ -66,8 +66,57 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="grid grid-cols-2">
-                                        <div class="form-group row">
+
+
+                                    <div class="" x-data="handler()">
+
+                                        <table class="table table-bordered align-items-center table-sm">
+
+                                            <tbody>
+                                                <template x-for="(field, index) in fields" :key="index">
+                                                    <tr>
+                                                        <div class="flex-col">
+                                                            <td> <select
+                                                                    class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none w-full pl-10 mt-1 text-sm text-black" name="colores[]">
+                                                                    <option value="" selected>Seleccione color
+                                                                    </option>
+                                                                    @foreach ($color as $row)
+                                                                        <option value="{{ $row->id }}">
+                                                                            {{ $row->color }}</option>
+                                                                    @endforeach
+                                                                </select></td>
+
+
+                                                            <td> <select
+                                                                    class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none w-full pl-10 mt-1 text-sm text-black" name="tallas[]">
+                                                                    <option value="" selected>Seleccione tallas
+                                                                    </option>
+                                                                    @foreach ($talla as $row)
+                                                                        <option value="{{ $row->id }}">
+                                                                            {{ $row->talla }}</option>
+                                                                    @endforeach
+                                                                </select></td>
+                                                        </div>
+
+                                                        <td><button type="button"
+                                                                class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin"
+                                                                @click="removeField(index)">&times;</button>
+                                                        </td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4" class="text-center"><button type="button"
+                                                            class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"
+                                                            @click="addNewField()">+
+                                                            Agregar Colores y Tallas</button></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+
+                                    </div>
+                                    {{-- <div class="form-group row">
                                             <label for="direction"
                                                 class="col-md-4 col-form-label text-md-right text-blue-500 uppercase dark:text-primary-light">Color</label>
                                             <div class="col-md-6">
@@ -75,7 +124,7 @@
                                                     class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
                                                     <option value="" selected>Seleccione color</option>
                                                     @foreach ($color as $row)
-                                                        <option value="{{$row->id}}">{{$row->color}}</option>
+                                                        <option value="{{ $row->id }}">{{ $row->color }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -88,19 +137,13 @@
                                                     class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black">
                                                     <option value="" selected>Seleccione tallas</option>
                                                     @foreach ($talla as $row)
-                                                        <option value="{{$row->id}}">{{$row->talla}}</option>
+                                                        <option value="{{ $row->id }}">{{ $row->talla }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <label>Escoge una talla
-                                        <input list="talla" name="talla" /></label>
-                                        <datalist id="talla">
-                                            @foreach ($talla as $row)
-                                            <option >{{$row->talla}}</option>
-                                        @endforeach
-                                        </datalist>
+                                        </div> --}}
+
+
                                     <div class="flex flex-col">
                                         <label
                                             class="leading-loose text-blue-500 uppercase dark:text-primary-light">Miniatura</label>
@@ -215,4 +258,22 @@
         }
 
     </script>
+    <script>
+        function handler() {
+            return {
+                fields: [],
+                addNewField() {
+                    this.fields.push({
+                        txt1: '',
+                        txt2: ''
+                    });
+                },
+                removeField(index) {
+                    this.fields.splice(index, 1);
+                }
+            }
+        }
+
+    </script>
+
 </x-app-layout>

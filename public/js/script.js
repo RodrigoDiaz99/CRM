@@ -28,7 +28,8 @@ const cssColors = (color) => {
 }
 
 const getColor = () => {
-    return window.localStorage.getItem('color') ? ? 'cyan'
+    // return window.localStorage.getItem('color') ? ? 'cyan',
+    return window.localStorage.getItem('color') ? 'cyan'
 }
 
 const colors = {
