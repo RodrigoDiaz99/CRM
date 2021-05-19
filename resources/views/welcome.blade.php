@@ -168,4 +168,12 @@
             @livewire('store-main')
         </div>
     </div>
+
+    <div class="container mx-auto px-6">
+
+        <div class="mt-16 mb-4">
+            <h3 class="text-gray-600 text-2xl font-medium">Productos Mas Vendidos</h3>
+
+        </div>
+    </div>
 </x-app2-layout>

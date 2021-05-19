@@ -18,10 +18,10 @@
                             </div>
                         </div>
 
-                        <div class="divide-y divide-gray-200 grid grid-cols-3">
+
                             <form action="{{route('promotions.store') }}" enctype="multipart/form-data" method="POST">
                                 @csrf
-                                <div class="grid grid-cols-3">
+
                                     <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                         <div class="flex flex-col">
                                             <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Titulo de la promoción</label>
@@ -71,7 +71,7 @@
 
                                     </div>
 
-                                </div>
+
 
                                 <div class="pt-4 flex items-center space-x-4">
 
@@ -83,7 +83,7 @@
 
                                 </div>
                             </form>
-                        </div>
+
                     </div>
                 </div>
             </div>
