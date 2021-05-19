@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\CommentProduct;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,8 +44,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('second/create', 'ContentController@create2')->name('create_second');
     Route::post('second/store', 'ContentController@store2')->name('store_second');
 
-
-    Route::get('third/create', 'ContentController@create3')->name('create_three');
+    Route::post('third/store', 'ContentController@store3')->name('store_three');
     Route::post('third/store', 'ContentController@store3')->name('store_three');
 
 
@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('client/card', 'ClientController@card')->name('card.index');
     Route::get('client/street', 'ClientController@street')->name('street.index');
     Route::get('client/order', 'ClientController@order')->name('order.index');
+
+    Route::get('client', 'ReportController@clients')->name('client');
     /*Aqui termina la ruta de los banners*/
     Route::resource('products/category', CategoryProductController::class);
     Route::resource('products', ProductController::class);
@@ -60,6 +62,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('delivery', DeliveryDataController::class);
     Route::resource('color', 'ColoresController');
     Route::resource('talla', TallaController::class);
+    Route::resource('comment', commentsController::class);
 
     //Route::resource('report/sales', ReportController::class);
     //Reports Resource

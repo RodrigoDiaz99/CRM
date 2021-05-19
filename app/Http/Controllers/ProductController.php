@@ -38,9 +38,9 @@ class ProductController extends Controller
     {
 
         $category = CategoryProduct::orderBy('name', 'asc')->get();
-        $color = Colores::orderBy('color','asc')->get();
-        $talla = Talla::orderBy('talla','asc')->get();
-        return view('products.products.create', compact('category','color','talla'));
+        $color = Colores::orderBy('color', 'asc')->get();
+        $talla = Talla::orderBy('talla', 'asc')->get();
+        return view('products.products.create', compact('category', 'color', 'talla'));
     }
 
     /**
@@ -51,8 +51,7 @@ class ProductController extends Controller
      */
     public function store(ProductStore $request)
     {
-        dd($request);
-        exit();
+
         $cover_file = $request->file('cover_file');
 
         if ($cover_file) {
@@ -64,13 +63,25 @@ class ProductController extends Controller
             $pathCover = $cover_file->storeAs('public/productsImg', $coverName);
 
             //Almacenamos los datos respectivos en la DB;
+            foreach ($request->tallas as $tallas) {
+                Talla::create([
+                    'talla' => $tallas
+                ]);
+            }
+            foreach ($request->colores as $colores) {
+                Colores::create([
+                    'color' => $colores
+                ]);
+            }
+
             Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
-               'img_paths' => $pathCover,
+                'img_paths' => $pathCover,
                 'category_id' => $request->category_id,
 
             ]);
+
 
             $product = Product::latest('id')->first();
             if ($product != null) {

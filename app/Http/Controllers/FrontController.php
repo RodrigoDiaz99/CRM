@@ -21,6 +21,7 @@ use App\Mail\ContactMail;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
+use Egulias\EmailValidator\Warning\Comment;
 use MercadoPago;
 
 class FrontController extends Controller
@@ -42,7 +43,7 @@ class FrontController extends Controller
     {
         $productos = Product::find($id);
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $comment_products = CommentProduct::orderBy('comment')->get();
+        $comment_products = CommentProduct::where('product_id',$productos->id)->orderBy('comment')->get();
         return view('store.product-detail', compact('productos', 'price', 'comment_products'));
     }
 
@@ -82,8 +83,8 @@ class FrontController extends Controller
 
     public function contact()
     {
-        $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();
-        return view('store.contact', compact('shopingItems'));
+       /* $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
+        return view('store.contact');
     }
 
     public function confirm(Request $request)
@@ -179,8 +180,8 @@ class FrontController extends Controller
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();
-        return view('store.shop', compact('productos', 'price', 'shopingItems'));
+      /*  $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
+        return view('store.shop', compact('productos', 'price'));
     }
 
     public function sendEmail(Request $request)
@@ -192,7 +193,7 @@ class FrontController extends Controller
         ];
 
         //en teoria todo esta bien jajaj algo tienes mal movido xdxd
-        Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
+        Mail::to('contacto@serviciospeninsula.xyz')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
 

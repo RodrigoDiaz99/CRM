@@ -28,8 +28,7 @@ const cssColors = (color) => {
 }
 
 const getColor = () => {
-    // return window.localStorage.getItem('color') ? ? 'cyan',
-    return window.localStorage.getItem('color') ? 'cyan'
+    return window.localStorage.getItem('color') ? ? 'cyan'
 }
 
 const colors = {
@@ -214,3 +213,23 @@ const fakeUsersCount = () => {
 setInterval(() => {
     fakeUsersCount()
 }, 1000)
+
+//Usage in Inventory Module
+function salePriceCalculator() {
+    var percent = document.getElementById("percent_of_profit").value;
+    var purchase_price = document.getElementById("purchase_price").value;
+    var calculate = (purchase_price * percent) / 100;
+    var final = Number(purchase_price) + Number(calculate);
+    document.getElementById("sale_price").value = final;
+}
+
+function percentProfitCalculator() {
+    var percent = document.getElementById("percent_of_profit").value;
+    var purchase_price = document.getElementById("purchase_price").value;
+    var sale_price = document.getElementById("sale_price").value;
+    var calculate = Number(sale_price) - Number(purchase_price);
+    var final = (Number(calculate) / Number(purchase_price)) * 100;
+    document.getElementById("percent_of_profit").value = final;
+
+
+}

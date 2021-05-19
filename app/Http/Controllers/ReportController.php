@@ -115,4 +115,10 @@ class ReportController extends Controller
     {
         //
     }
+
+    public function clients()
+    {
+        $client = ScoreProduct::orderBy('total')->get();
+         return view('report.client.index',compact('client'));
+    }
 }
