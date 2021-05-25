@@ -193,7 +193,7 @@
             </div>
         </div>
         @php
-            $total = 0;   
+            $total = 0;
         @endphp
         @foreach ($ShoppingCart as $item)
             <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
@@ -240,7 +240,7 @@
         @endforeach
     </div>
 
-    @section('javascript')
+    @push('javascript')
         <script src="https://sdk.mercadopago.com/js/v2"></script>
 
         <script>
@@ -288,7 +288,7 @@
                         id: 'form-checkout__installments',
                         placeholder: 'Total Cuotas'
                     },
-                    
+
                     issuer: {
                         id: 'form-checkout__issuer',
                         placeholder: 'Red'
@@ -353,5 +353,5 @@
                 }
             })
         </script>
-    @endsection
+    @endpush
 </x-app2-layout>
