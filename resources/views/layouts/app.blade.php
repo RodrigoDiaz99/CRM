@@ -74,7 +74,14 @@
                         </svg>
                     </button>
                 </div>
+
+
+
+
+
+
                 <!-- Panel content de todo -->
+
                 <div class="flex flex-col h-screen">
                     <!-- Panel header -->
                     <div class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-8 space-y-4 border-b dark:border-primary-dark">
@@ -129,6 +136,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
 
 

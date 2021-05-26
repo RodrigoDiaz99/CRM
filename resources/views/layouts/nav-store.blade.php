@@ -7,6 +7,22 @@
             CRM
         </div>
         <div class="flex items-center justify-end w-full">
+
+            <div class="flex items-center justify-end w-full">
+                <form action="#">
+                    @csrf
+                    <button  class="text-gray-600 focus:outline-none mx-4 sm:mx-0">
+                        <span aria-hidden="true">
+                            <i class="far fa-heart"></i>
+                        </span>
+                    </button>
+
+                </form>
+
+
+
+            </div>
+
             <button @click="cartOpen = !cartOpen" class="text-gray-600 focus:outline-none mx-4 sm:mx-0">
                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
                     stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,6 +34,7 @@
 
 
         </div>
+
     </div>
     <nav class="sm:flex sm:justify-center sm:items-center mt-4">
         <div class="flex flex-col sm:flex-row">
