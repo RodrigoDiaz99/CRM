@@ -148,11 +148,10 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
 
-    @stack('modals')
-    @stack('javascript')
-
     @livewireScripts
 
+    @stack('modals')
+    @stack('javascript')
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
 <script src="{{ asset('js/script.js') }}"></script>
