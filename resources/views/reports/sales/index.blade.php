@@ -6,7 +6,7 @@
 
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
-                    <p class="text-center font-italic">En esta sección se visualiza los productos mas comprados
+                    <p class="text-center font-italic">En esta sección se visualiza los productos más comprados
                         de
                         los
                         productos.

@@ -37,7 +37,7 @@
 
                                     <div class="flex flex-col">
                                         <label
-                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripción
                                             producto</label>
                                         <input value="{{ $content1->description }}" type="text" name="description"
                                             id="description" onkeyup="mayus(this);" style="text-transform: uppercase;"

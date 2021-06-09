@@ -40,7 +40,7 @@
         <div class="flex flex-col sm:flex-row">
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('welcome')}}">Inicio</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('shop')}}">Tienda</a>
-            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categorias</a>
+            <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">Categorías</a>
             <a class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="{{route('contact')}}">Contacto</a>
             @if (Route::has('login'))
                 @auth
@@ -49,7 +49,7 @@
                     <a href="{{ route('login') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Iniciar Sesión</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Registrate</a>
+                        <a href="{{ route('register') }}" class="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">Regístrate</a>
                     @endif
                 @endauth
             @endif

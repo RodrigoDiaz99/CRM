@@ -18,7 +18,7 @@
                     @csrf
                     <div class="mt-8">
                         <div class="grid-cols-2">
-                            <h4 class="text-sm text-gray-500 font-medium">Datos de envio</h4>
+                            <h4 class="text-sm text-gray-500 font-medium">Datos de envío</h4>
 
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="mt-8">
-                        <h4 class="text-sm text-gray-500 font-medium">Direccion de envio de envio</h4>
+                        <h4 class="text-sm text-gray-500 font-medium">Dirección de envío</h4>
                         <div class="grid grid-cols-3">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="country" class="block uppercase tracking-wide text-gray-700 font-bold mb-2"> PAIS
@@ -66,9 +66,9 @@
                                         <option value="HONDURAS">HONDURAS</option>
                                         <option value="MÉXICO">MÉXICO</option>
                                         <option value="NICARAGUA">NICARAGUA</option>
-                                        <option value="PANAMA">PANAMA</option>
-                                        <option value="PERU">PERU</option>
-                                        <option value="REPUBLICA DOMINICANA">REPUBLICA DOMINICANA</option>
+                                        <option value="PANAMA">PANAMÁ</option>
+                                        <option value="PERU">PERÚ</option>
+                                        <option value="REPUBLICA DOMINICANA">REPÚBLICA DOMINICANA</option>
                                         <option value="URUGUAY">URUGUAY</option>
                                         <option value="VENEZUELA">VENEZUELA</option>
                                         <option value="PUERTO RICO">PUERTO RICO</option>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="state"
-                                    class="block uppercase tracking-wide text-gray-700 font-bold mb-2">ESTADO/PROVINCIA/REGION
+                                    class="block uppercase tracking-wide text-gray-700 font-bold mb-2">ESTADO/PROVINCIA/REGIÓN
                                     <input type="text" onkeyup="mayus(this);" style="text-transform: uppercase;"
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                         required id="state" name="state"></label>
@@ -94,14 +94,14 @@
                         <div class="mt-8">
                             <div class="grid grid-cols-3">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="street">DIRECCION
+                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="street">DIRECCIÓN
                                         POSTAL/CALLE
                                         <input type="text" id="street" name="street"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                     </label>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="number_exterior">NUMERO
+                                    <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="number_exterior">NÚMERO
                                         EXTERIOR
                                         <input type="number" id="number_exterior" name="number_exterior"
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
@@ -128,7 +128,7 @@
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-3">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="zip">
-                                    CODIGO POSTAL
+                                    CÓDIGO POSTAL
                                     <input type="number" id="zip" name="zip"
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                 </label>
@@ -148,7 +148,7 @@
                         <div class="flex items-center justify-between mt-8">
                             <button type="submit"
                                 class="flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                                <span>METODO DE PAGO</span>
+                                <span>MÉTODO DE PAGO</span>
                                 <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

@@ -12,7 +12,7 @@
                     </svg>
 
                     <div class="text-green-700">
-                        <div class="font-bold text-xl">Categoria guardada o modificada</div>
+                        <div class="font-bold text-xl">Categoría guardada o modificada</div>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@
 
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Fecha de Creacion</th>
+                                            Fecha de Creación</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Acciones

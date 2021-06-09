@@ -50,7 +50,7 @@
         </a>
 
         <a href="{{ route('register') }}" class="flex w-full mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Registrate
+            Regístrate
         </a>
     @endif
 
