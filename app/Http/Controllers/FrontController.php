@@ -7,9 +7,7 @@ use App\Models\ScoreProduct;
 use App\Models\Product;
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
-use App\Models\DeliveryData;
 
-use App\Models\ShoppingCart;
 use App\Http\Controllers\VoucherController;
 use App\Models\ShoppingCart as Shopping;
 
@@ -21,7 +19,6 @@ use App\Mail\ContactMail;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
-use Egulias\EmailValidator\Warning\Comment;
 use MercadoPago;
 
 class FrontController extends Controller
@@ -89,7 +86,7 @@ class FrontController extends Controller
 
     public function confirm(Request $request)
     {
-        MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
+        MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
 
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
@@ -115,17 +112,20 @@ class FrontController extends Controller
             'status_detail' => $payment->status_detail,
             'id' => $payment->id
         );
-
-        $this->saveScore();
-        $voucher = new VoucherController();
-        $voucher->store($request);
-
         echo json_encode($response);
 
-        // Datos de nuestra vista
-        $item = $request->all();
+        if($response['status'] == "approved"){
+            $this->saveScore();
+            $voucher = new VoucherController();
+            $voucher->store($request);
 
-        return view('store.confirm', compact('response'));
+            // Datos de nuestra vista
+            $item = $request->all();
+
+            return view('store.confirm', compact('response'));
+        }else{
+            return back();
+        }
     }
 
     public function generateVoucher()
@@ -161,20 +161,25 @@ class FrontController extends Controller
         ]);
     }
 
-    public function addShopingCart($id, Request $request)
+    /*public function addShopingCart($id, Request $request)
     {
         if (Auth::check()) {
-            Shopping::create([
-                "user_id" => auth()->user()->id,
-                "product_id" => $id,
-                "quantity" => 1
-            ]);
+            $exist = Shopping::where('product_id', $id)->count();
+            if($exist == 0){
+                Shopping::create([
+                    "user_id" => auth()->user()->id,
+                    "product_id" => $id,
+                    "quantity" => 1
+                ]);
 
-            return redirect()->back();
+                return redirect()->back();
+            }else {
+                echo "error";
+            }
         } else {
             //$this->middleware('authrnticate');
         }
-    }
+    }*/
 
     public function shop()
     {

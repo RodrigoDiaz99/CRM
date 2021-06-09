@@ -13,7 +13,7 @@ class ShoppingCart extends Component
     protected $listeners = [
         'ShoppingCart:update' => '$refresh',
     ];
-    
+
     public function render()
     {
         return view('livewire.shopping-cart', [
@@ -33,10 +33,13 @@ class ShoppingCart extends Component
     public function ItemRest($product, $price) {
         $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get('quantity')->first();
         $cantidad = $quantity['quantity'] - 1;
-         if($quantity['quantity'] > 1){
+
+        if($quantity['quantity'] > 1){
             ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->update([
                 "quantity" => $cantidad,
             ]);
+        }else {
+            ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->delete();
         }
     }
 }

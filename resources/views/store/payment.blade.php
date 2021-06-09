@@ -181,6 +181,7 @@
                                         <label class="font-bold text-sm mb-2 ml-1">Cuotas</label>
                                         <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="installments" id="form-checkout__installments"></select>
                                     </div>
+
                                     <div>
                                         <progress value="0" class="progress-bar">loading...</progress>
                                         <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold" type="submit" id="form-checkout__submit"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
@@ -244,14 +245,11 @@
         <script src="https://sdk.mercadopago.com/js/v2"></script>
 
         <script>
-            const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}", {
-                locale: 'es-MX'
-            });
+            const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}");
 
             const cardForm = mp.cardForm({
                 amount: '{{ $total }}',
                 autoMount: true,
-                processingMode: 'aggregator',
                 form: {
                     id: 'form-checkout',
                     cardholderName: {
