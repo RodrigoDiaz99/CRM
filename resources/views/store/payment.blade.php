@@ -201,8 +201,7 @@
                 <div class="flex justify-center lg:justify-end">
                     <div class="border rounded-md max-w-md w-full px-4 py-3">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-gray-700 font-medium">Total de orden ({{count($ShoppingCart)}})</h3>
-                            <span class="text-gray-600 text-sm">Edit</span>
+                        <h3 class="text-gray-700 font-medium">Total de orden ({{count($ShoppingCart)}})</h3>
                         </div>
                         <div class="flex justify-between mt-6">
                             <div class="flex">
@@ -230,7 +229,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="text-gray-600">${{ $item->products->inventories['0']->sale_price }}</span>
+                            <span class="text-gray-600">$@php
+                                $price = $item->products->inventories['0']->sale_price;
+                                $total = $total + $price;
+                                echo $price
+                            @endphp
+                        </span>
                         </div>
                     </div>
                 </div>

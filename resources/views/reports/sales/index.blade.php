@@ -13,6 +13,12 @@
                     <p class="small text-center"></p>
 
 
+                    <div class="btn-group py-2">
+                        <p href="#" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
+                            <span>Producto más vendido: {{ $score->sortByDesc('total')->first()->product->name }}</span>
+                        </p>
+                    </div>
+
 
                 </div>
 
