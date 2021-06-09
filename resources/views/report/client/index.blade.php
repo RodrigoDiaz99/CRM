@@ -45,7 +45,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                  <div>
-                                                    <div class="text-sm font-semibold">{{ $row->total }}}</div>
+                                                    <div class="text-sm font-semibold">{{ $row->total }}</div>
                                                 </div>
                                          </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
