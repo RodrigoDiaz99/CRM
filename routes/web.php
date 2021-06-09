@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin'])->resource('products', ProductController::class);
     Route::middleware(['role:Admin'])->resource('promotions', PromotionController::class);
     Route::middleware(['role:Admin'])->resource('inventory', InventoryProductController::class);
-    Route::middleware(['role:Admin'])->resource('delivery', DeliveryDataController::class);
+    Route::middleware(['role:Admin|Client'])->resource('delivery', DeliveryDataController::class);
     Route::middleware(['role:SAdmin'])->resource('color', 'ColoresController');
     Route::middleware(['role:Admin'])->resource('talla', TallaController::class);
     Route::middleware(['role:Admin'])->resource('comment', commentsController::class);
