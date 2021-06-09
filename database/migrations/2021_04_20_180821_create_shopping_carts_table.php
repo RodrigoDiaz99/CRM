@@ -18,9 +18,7 @@ class CreateShoppingCartsTable extends Migration
             $table->foreignId("user_id");
             $table->foreignId("product_id");
             $table->integer('quantity');
-            $table->double('unitary_price');
             $table->timestamps();
-            $table->softDeletes();
 
             //Relaciones
             $table->foreign("user_id")->references('id')->on("users");
