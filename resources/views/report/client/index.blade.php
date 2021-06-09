@@ -30,7 +30,7 @@
                                             Total de compra</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Fecha</th>
-                                      
+
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
@@ -51,7 +51,7 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->created_at}}</div>
                                         </td>
-                                        
+
                                     </tr>
 
                                     @endforeach
