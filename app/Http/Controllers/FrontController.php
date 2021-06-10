@@ -117,8 +117,8 @@ class FrontController extends Controller
             'status_detail' => $payment->status_detail,
             'id' => $payment->id
         );
-/*         echo json_encode($response);
- */
+         echo json_encode($response);
+ 
         if($response['status'] == "approved"){
             $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
 
