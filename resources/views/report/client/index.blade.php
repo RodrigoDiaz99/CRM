@@ -9,12 +9,6 @@
                     <p class="small text-center"></p>
 
 
-                    <div class="btn-group py-2">
-                        <a href="{{ route('report.create') }}" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span>Generar reporte</span>
-                        </a>
-                    </div>
                 </div>
 
                 <div></div>
@@ -26,10 +20,14 @@
                                     <tr>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Nombre del cliente</th>
+                                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Correo</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Total de compra</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Fecha</th>
+                                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Acciones</th>
 
                                     </tr>
                                 </thead>
@@ -44,12 +42,25 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div>
+                                               <div class="text-sm font-semibold">{{ $row->user->email }}</div>
+                                           </div>
+                                    </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                  <div>
                                                     <div class="text-sm font-semibold">{{ $row->total }}</div>
                                                 </div>
                                          </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->created_at}}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="btn-group-py">
+                                                <div class="inline-flex items-center">
+                                                    <a href="{{ route('contact.create',$row->user->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Enviar Correo</a>
+
+                                                </div>
+                                            </div>
                                         </td>
 
                                     </tr>

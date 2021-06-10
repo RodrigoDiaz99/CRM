@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use App\Models\CommentProduct;
 use Illuminate\Support\Facades\Route;
 
@@ -71,6 +72,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Super-Admin|Admin'])->resource('voucher', VoucherController::class);
     //Cash Fund Resource
     Route::middleware(['role:Super-Admin|Admin'])->resource('cashfund', CashFundController::class);
+    Route::middleware(['role:Super-Admin|Admin'])->get('contact/user/{id}', 'EmailController@create')->name('contact.create');
+
+    Route::post('/contactar/{id}', 'EmailController@store')->name('contact.store');
+//Ruta que esta señalando nuestro formulario
 });
 
 
