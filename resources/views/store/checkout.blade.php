@@ -169,7 +169,7 @@
                         <div class="flex justify-between mt-6">
                             <div class="flex">
                                 <img class="h-20 w-20 object-cover rounded"
-                                src="{{ Storage::url($item->products->img_paths) }}" alt="{{ Storage::url($item->products->name) }}>
+                                src="{{ Storage::url($item->products->img_paths) }}" alt="{{ Storage::url($item->products->name)" }}>
                                                         <img class="h-20 w-20 object-cover rounded" src="{{ Storage::url($item->products->img_paths) }}" alt="{{ Storage::url($item->products->name) }}">
 
                                 <div class="mx-3">

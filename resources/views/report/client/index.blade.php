@@ -53,7 +53,6 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->created_at}}</div>
                                         </td>
-
                                     </tr>
                                     @else
 

@@ -118,6 +118,8 @@ class FrontController extends Controller
         echo json_encode($response);
 
         if($response['status'] == "approved"){
+            $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
+
             $this->saveScore();
             $voucher = new VoucherController();
             $voucher->store($request);
@@ -125,7 +127,7 @@ class FrontController extends Controller
             // Datos de nuestra vista
             $item = $request->all();
 
-            return view('store.confirm', compact('response'));
+            return view('store.confirm', compact('response', 'ShoppingCart'));
         }else{
             return back();
         }
