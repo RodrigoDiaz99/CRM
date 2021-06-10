@@ -2,7 +2,7 @@
     <div class="container mx-auto px-6">
         <div class="flex space-x-2">
             <div class="flex-1 ...">
-                <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
+                <!-- <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
 
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">Direccion de envio</div>
@@ -63,7 +63,7 @@
                         </label>
                     </div>
 
-                </div>
+                </div> -->
 
             </div>
             @foreach ($ShoppingCart as $item)

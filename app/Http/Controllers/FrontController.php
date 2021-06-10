@@ -19,6 +19,8 @@ use App\Mail\ContactMail;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
+use App\Models\DeliveryData;
+
 use MercadoPago;
 
 class FrontController extends Controller
@@ -115,8 +117,8 @@ class FrontController extends Controller
             'status_detail' => $payment->status_detail,
             'id' => $payment->id
         );
-        echo json_encode($response);
-
+/*         echo json_encode($response);
+ */
         if($response['status'] == "approved"){
             $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
 
