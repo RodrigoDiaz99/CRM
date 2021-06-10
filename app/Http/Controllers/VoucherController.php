@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ShoppingCart;
 use App\Models\Voucher;
 use App\Models\InventoryProduct;
+use App\Models\DeliveryData;
 use App\Models\User;
 
 class VoucherController extends Controller
@@ -44,6 +45,8 @@ class VoucherController extends Controller
     {
         $voucher = new Voucher();
         $totalCart = 0;
+        $delivery_id = DeliveryData::where('user_id',  auth()->user()->id);
+        dd($delivery_id);
         $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
 
         foreach ($ShoppingCart as $row) {
@@ -53,7 +56,6 @@ class VoucherController extends Controller
 
         $voucher->user_id = auth()->user()->id;
         $voucher->expense = $totalCart;
-        $voucher->delivery_id = $delivery_id;
         $voucher->save();
     }
 
