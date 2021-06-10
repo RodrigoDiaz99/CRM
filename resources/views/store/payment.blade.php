@@ -246,11 +246,13 @@
         <script src="https://sdk.mercadopago.com/js/v2"></script>
 
         <script>
-            const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}");
-
+           const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}", {
+                locale: 'es-MX'
+            });
             const cardForm = mp.cardForm({
                 amount: '{{ $total }}',
                 autoMount: true,
+                processingMode: 'aggregator',
                 form: {
                     id: 'form-checkout',
                     cardholderName: {
