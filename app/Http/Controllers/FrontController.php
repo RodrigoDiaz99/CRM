@@ -129,6 +129,7 @@ class FrontController extends Controller
 
             return view('store.confirm', compact('response', 'ShoppingCart'));
         } else {
+            dd($response);
             return back();
         }
     }
