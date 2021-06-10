@@ -55,20 +55,24 @@
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Fecha</th>
 
-                                        <th
+                                            <th
+                                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Estatus
+                                        </th>
+                                            <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Acciones
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
-                                   
+
                                     @foreach($vouchers as $row)
 
                                         <tr>
-                                            
+
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                <div class="text-sm font-semibold">{{ $row->folio }}</div>
+                                                <div class="text-sm font-semibold">Pedido #{{ $row->folio }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="text-sm font-semibold">{{$row->created_at}}</div>
@@ -76,10 +80,18 @@
                                             <td>
 
                                             </td>
-                                           
+                                            <td {{-- {{ route('category_destroy', $row->id) }} --}}
+                                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                                <div class="btn-group-py">
+                                                    <div class="inline-flex items-center">
+                                                        <a href=""
+                                                            class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Ver Datos</a>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
-                                  
+
                                 </tbody>
                             </table>
                             {{--  --}}

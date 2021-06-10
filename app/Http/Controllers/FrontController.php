@@ -123,7 +123,7 @@ class FrontController extends Controller
             $this->saveScore();
             $voucher = new VoucherController();
             $voucher->store($request);
- 
+
             // Datos de nuestra vista
             $item = $request->all();
 

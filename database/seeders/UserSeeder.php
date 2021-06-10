@@ -21,7 +21,9 @@ class UserSeeder extends Seeder
             'second_last_name' => 'Super Admin',
             'email' => 'store@serviciospeninsula.xyz',
 
-            'password' => Hash::make('serviciospeninsula12')
+            'password' => Hash::make('serviciospeninsula12'),
+            'email_verified_at'=>'2021-06-01 19:07:38',
+
         ]);
         $super->assignRole('Admin');
          $super2 = User::create([
@@ -31,7 +33,9 @@ class UserSeeder extends Seeder
             'second_last_name' => 'Null',
             'email' => 'carlosramirez@armyprolife.com',
 
-            'password' => Hash::make('Secret12')
+            'password' => Hash::make('Secret12'),
+            'email_verified_at'=>'2021-06-01 19:07:38',
+
         ]);
         $super2->assignRole('Admin');
 

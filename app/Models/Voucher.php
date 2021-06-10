@@ -23,7 +23,8 @@ class Voucher extends Model
     protected $fillable = [
         'user_id',
         'expense',
-        'report_id'
+        'report_id',
+        'status'
     ];
 
     // Relaciones

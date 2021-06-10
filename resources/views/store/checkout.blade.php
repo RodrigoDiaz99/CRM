@@ -23,14 +23,14 @@
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
                                     for="name">Nombre(s)</label>
-                                <input
+                                <input required
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="text" id="name" autofocus name="name">
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
                                     for="last_name">Apellidos</label>
-                                <input
+                                <input required
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="text" id="last_name" name="last_name">
                             </div>
@@ -39,7 +39,7 @@
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
                                     for="phone">Celular</label>
-                                <input
+                                <input required
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="number" id="phone" name="phone">
                             </div>
@@ -54,31 +54,15 @@
                                         class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
                                         required>
                                         <option value="" selected>SELECCIONE UN PAIS</option>
-                                        <option value="ARGENTINA">ARGENTINA</option>
-                                        <option value="BOLIVIA">BOLIVIA</option>
-                                        <option value="CHILE">CHILE</option>
-                                        <option value="COLOMBIA">COLOMBIA</option>
-                                        <option value="COSTA RICA">COSTA RICA</option>
-                                        <option value="CUBA">CUBA</option>
-                                        <option value="ECUADOR">ECUADOR</option>
-                                        <option value="EL SALVADOR">EL SALVADOR</option>
-                                        <option value="GUATEMALA">GUATEMALA</option>
-                                        <option value="HONDURAS">HONDURAS</option>
+
                                         <option value="MÉXICO">MÉXICO</option>
-                                        <option value="NICARAGUA">NICARAGUA</option>
-                                        <option value="PANAMA">PANAMÁ</option>
-                                        <option value="PERU">PERÚ</option>
-                                        <option value="REPUBLICA DOMINICANA">REPÚBLICA DOMINICANA</option>
-                                        <option value="URUGUAY">URUGUAY</option>
-                                        <option value="VENEZUELA">VENEZUELA</option>
-                                        <option value="PUERTO RICO">PUERTO RICO</option>
-                                    </select>
+                                                                       </select>
                                 </label>
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="state"
                                     class="block uppercase tracking-wide text-gray-700 font-bold mb-2">ESTADO/PROVINCIA/REGIÓN
-                                    <input type="text" onkeyup="mayus(this);" style="text-transform: uppercase;"
+                                    <input type="text" onkeyup="mayus(this);" style="text-transform: uppercase;" required
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                         required id="state" name="state"></label>
                             </div>
@@ -86,7 +70,7 @@
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="city"
                                     class="block uppercase tracking-wide text-gray-700 font-bold mb-2">MUNICIPIO/CIUDAD
-                                    <input type="text"
+                                    <input type="text" required
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                         placeholder="" id="city" name="city"></label>
                             </div>
@@ -96,14 +80,14 @@
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="street">DIRECCIÓN
                                         POSTAL/CALLE
-                                        <input type="text" id="street" name="street"
+                                        <input type="text" id="street" name="street" required
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                     </label>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="number_exterior">NÚMERO
                                         EXTERIOR
-                                        <input type="number" id="number_exterior" name="number_exterior"
+                                        <input type="number" id="number_exterior" name="number_exterior" required
                                             class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                     </label>
                                 </div>
@@ -122,14 +106,14 @@
                             <div class="w-full md:w-1/2 px-3 mb-3">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="suburb">COLONIA
 
-                                    <input type="text" id="suburb" name="suburb"
+                                    <input type="text" id="suburb" name="suburb" required
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                 </label>
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-3">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="zip">
                                     CÓDIGO POSTAL
-                                    <input type="number" id="zip" name="zip"
+                                    <input type="number" id="zip" name="zip" required
                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                 </label>
                             </div>
@@ -137,7 +121,7 @@
                             <div class="w-full md:w-1/2 px-3 mb-3">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="reference">
                                     REFERENCIA
-                                    <textarea id="reference" name="reference"
+                                    <textarea id="reference" name="reference" required
                                         class="px-4 py-2 focus:ring-gray-500 w-full sm:text-sm border-blue-500 focus:outline-none text-gray-600 resize border rounded-md"></textarea>
                                 </label>
                             </div>

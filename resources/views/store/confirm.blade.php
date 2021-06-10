@@ -2,68 +2,6 @@
     <div class="container mx-auto px-6">
         <div class="flex space-x-2">
             <div class="flex-1 ...">
-                <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
-
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Dirección de envío</div>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Nombre
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" value="" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for=""> Apellido
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Teléfono
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Ciudad
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Estado
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Ciudad
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Dirección
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Número exterior
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" or="">colonia
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Código Postal
-                            <input
-                                class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
-                                type="text" readonly>
-                        </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Referencia
-                            <textarea
-                                class="px-4 py-2 focus:ring-gray-500 w-full sm:text-sm border-blue-500 focus:outline-none text-gray-600 resize-none"
-                                type="text" readonly></textarea>
-                        </label>
-                    </div>
-
-                </div>
 
             </div>
             @foreach ($ShoppingCart as $item)

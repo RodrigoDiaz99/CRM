@@ -35,7 +35,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-       
+
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function order(){
-        $vouchers = Voucher::all();
+        $vouchers = Voucher::where('user_id',auth()->user()->id)->get();
         return view('Clients.order', compact('vouchers'));
     }
 
