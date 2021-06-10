@@ -42,11 +42,11 @@ class EmailController extends Controller
         $title = $request->title;
         $msg = $request->msg;
 
-//$email=$user->email;
+$email=$user->email;
 
-$email=$request->email;
-Mail::to($email)->send(new ContactUser($title,$msg,$email));
-return redirect()->view('dashboard',compact('user'));
+//$email=$request->email;
+Mail::to($email)->send(new ContactUser($title,$msg));
+return redirect()->route('dashboard');
     }
 
 

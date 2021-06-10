@@ -32,8 +32,42 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
-                                     @foreach ($allUsers as $row)
+                                    @foreach ($allUsers as $row)
 
+                                    @if($row->scoreProduct == null)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-xl font-semibold">{{ $row->first_name}} {{ $row->last_name}}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div>
+                                               <div class="text-sm font-semibold">{{ $row->email }}</div>
+                                           </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                        <div>
+                                            <div class="text-sm font-semibold">0</div>
+
+                                        </div>
+                                    </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">{{ $row->created_at}}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="btn-group-py">
+                                                <div class="inline-flex items-center">
+                                                    <a href="{{ route('contact.create',$row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Enviar Correo</a>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @else
 
                                     <tr>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -45,7 +79,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div>
-                                               <div class="text-sm font-semibold">{{ $row->user->email }}</div>
+                                               <div class="text-sm font-semibold">{{ $row->email }}</div>
                                            </div>
                                     </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -54,6 +88,7 @@
                                                 </div>
                                          </td>
                                                 <div class="text-sm font-semibold">{{ $row->scoreProduct->total }}</div>
+
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -62,13 +97,14 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="btn-group-py">
                                                 <div class="inline-flex items-center">
-                                                    <a href="{{ route('contact.create',$row->user->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Enviar Correo</a>
+                                                    <a href="{{ route('contact.create',$row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Enviar Correo</a>
 
                                                 </div>
                                             </div>
                                         </td>
 
                                     </tr>
+                                    @endif
                                     @endforeach
 
                                 </tbody>

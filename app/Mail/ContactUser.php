@@ -16,11 +16,11 @@ class ContactUser extends Mailable
      *
      * @return void
      */
-    public function __construct($title,$msg,$email)
+    public function __construct($title,$msg)
     {
         $this->title= $title;
         $this->msg = $msg;
-        $this->email=$email;
+        //$this->email=$email;
     }
 
     /**
@@ -32,8 +32,8 @@ class ContactUser extends Mailable
     {
         $title =$this->title;
         $msg = $this->msg;
-        $email =$this->email;
+     //   $email =$this->email;
 
-        return $this->view('emails.emailuser',compact('msg','title','email'))->subject($title);
+        return $this->view('emails.emailuser',compact('msg','title'))->subject($title);
     }
 }
