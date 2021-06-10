@@ -46,7 +46,6 @@ class VoucherController extends Controller
         $voucher = new Voucher();
         $totalCart = 0;
         $delivery_id = DeliveryData::where('user_id',  auth()->user()->id);
-        dd($delivery_id);
         $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
 
         foreach ($ShoppingCart as $row) {
@@ -55,6 +54,7 @@ class VoucherController extends Controller
         }
 
         $voucher->user_id = auth()->user()->id;
+        $voucher->
         $voucher->expense = $totalCart;
         $voucher->save();
     }
