@@ -49,11 +49,12 @@
 
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Nombre</th>
+                                            Folio de pedido </th>
 
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Fecha de Creación</th>
+                                            Fecha</th>
+
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Acciones
@@ -62,21 +63,22 @@
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
                                    
-
+                                    @foreach($vouchers as $row)
 
                                         <tr>
-
+                                            
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                <div class="text-sm font-semibold"></div>
+                                                <div class="text-sm font-semibold">{{ $row->folio }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                <div class="text-sm font-semibold">
-                                                    
-                                                </div>
+                                                <div class="text-sm font-semibold">{{$row->created_at}}</div>
+                                            </td>
+                                            <td>
+
                                             </td>
                                            
                                         </tr>
-
+                                    @endforeach
                                   
                                 </tbody>
                             </table>
