@@ -22,7 +22,7 @@
 
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="name">Nombre(s)</label>
+                                    for="name">{Nombre}(s)</label>
                                 <input required
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="text" id="name" autofocus name="name">
