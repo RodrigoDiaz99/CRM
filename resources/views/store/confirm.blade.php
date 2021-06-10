@@ -66,6 +66,8 @@
                 </div>
 
             </div>
+            @foreach ($ShoppingCart as $item)
+
             <div class="flex-1 ...">
                 <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
 
@@ -73,12 +75,11 @@
                         <div class="font-bold text-xl mb-2">Productos</div>
                         <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10">
                             <div class="px-4 py-2">
-                                <h1 class="text-gray-900 font-bold text-3xl uppercase">NIKE AIR</h1>
+                                <h1 class="text-gray-900 font-bold text-3xl uppercase">{{ $item->products->name }}</h1>
 
                             </div>
-                            <img class="h-56 w-full object-cover mt-2"
-                                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                                alt="NIKE AIR">
+                            <img class="h-20 w-20 object-cover rounded" src="{{ Storage::url($item->products->img_paths) }}" alt="{{ Storage::url($item->products->name) }}">
+
                             <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
                                 <h1 class="text-gray-200 font-bold text-xl">$129</h1>
                                 <h1 class="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded">Costo
@@ -90,6 +91,7 @@
 
                     </div>
                 </div>
+                @endforeach
 
             </div>
             <div class="flex-1 ...">
