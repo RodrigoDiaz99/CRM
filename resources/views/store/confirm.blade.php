@@ -5,7 +5,7 @@
                 <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
 
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">Direccion de envio</div>
+                        <div class="font-bold text-xl mb-2">Dirección de envío</div>
                         <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Nombre
                             <input
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
@@ -16,7 +16,7 @@
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
                         </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Telefono
+                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Teléfono
                             <input
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
@@ -36,12 +36,12 @@
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
                         </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Direccion
+                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Dirección
                             <input
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
                         </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Numero exterior
+                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Número exterior
                             <input
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
@@ -51,7 +51,7 @@
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
                         </label>
-                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Codigo Postal
+                        <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Código Postal
                             <input
                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                 type="text" readonly>
@@ -118,7 +118,7 @@
                                     </h3>
                                     <p class="py-2 text-green-700">
                                         Gracias por tu compra, El/los producto(s) llegaran en un maximo de 15 dias,
-                                        Porfavor de estar en su locacion para recibir el producto
+                                        Porfavor de estar en su locación para recibir el producto
                                     </p>
                                     <div class="space-x-6">
 

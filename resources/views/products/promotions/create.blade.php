@@ -12,9 +12,9 @@
                                 class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">
                                 SP</div>
                             <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
-                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Subir Promocion</h2>
+                                <h2 class="leading-relaxed text-blue-500 uppercase dark:text-primary-light">Subir Promoción</h2>
                                 <p class="text-sm text-black font-normal leading-relaxed">Llena este formulario para
-                                    guardar una nueva promocion</p>
+                                    guardar una nueva promoción</p>
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@
                                         </div>
 
                                         <div class="flex flex-col">
-                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion de la promoción</label>
+                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripción de la promoción</label>
                                             <input type="text" name="description" id="description" onkeyup="mayus(this);"
                                                 style="text-transform: uppercase;"
                                                 class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
@@ -63,7 +63,7 @@
                                                 placeholder="35" required autofocus>
                                         </div>
                                         <div class="flex flex-col">
-                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de expiracion de la promocion</label>
+                                            <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Fecha de expiración de la promoción</label>
                                             <input type="date" min="1" name="expiration_date" id="expiration_date"
                                                 class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                                 placeholder="10" required autofocus>

@@ -14,7 +14,7 @@
                             </svg>
 
                             <div class="text-green-700">
-                                <div class="font-bold text-xl">Producto guardado o modificada</div>
+                                <div class="font-bold text-xl">Producto guardado o modificado</div>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                             <a href="{{ route('create_three') }}"
                                 class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
                                 <i class="fas fa-plus mr-2"></i>
-                                <span>Tercer banner banner</span>
+                                <span>Tercer banner</span>
                             </a>
                         </div>
                     @endif

@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="flex flex-col">
                                         <label
-                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion
+                                            class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripción
                                             producto</label>
                                         <input type="text" name="description" id="description" onkeyup="mayus(this);"
                                             style="text-transform: uppercase;"
@@ -56,7 +56,7 @@
                                                 class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
                                                 required>
 
-                                                <option value="" selected>Seleccione una categoria</option>
+                                                <option value="" selected>Seleccione una categoría</option>
 
                                                 @foreach ($category as $row)
                                                     <option value="{{ $row->id }}">{{ $row->name }}</option>

@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin|Client'])->get('checkout', 'FrontController@checkout')->name('checkout');
     Route::middleware(['role:Admin|Client'])->get('checkout/payment', 'FrontController@payment')->name('payment');
     Route::middleware(['role:Admin'])->get('comments/list', 'commentsController@index')->name('comments.list');
+    Route::middleware(['role:Super-Admin|Admin'])->get('wish/index','WishListController@index')->name('wishlist');
     /*Aqui empiezan las rutas de los banners*/
     Route::middleware(['role:Admin|'])->get('index/elements', 'ContentController@index')->name('content.list');
     Route::middleware(['role:Admin'])->get('first/create', 'ContentController@create1')->name('create_one');
