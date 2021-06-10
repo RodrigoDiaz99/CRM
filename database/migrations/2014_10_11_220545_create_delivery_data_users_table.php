@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeliveryUsersTable extends Migration
+class CreateDeliveryDataUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateDeliveryUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('delivery_users', function (Blueprint $table) {
+        Schema::create('delivery_data_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('delivery_id');
+            $table->foreignId('delivery_data_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('delivery_id')->references('id')->on('delivery_data');
-
+            $table->foreign('delivery_data_id')->references('id')->on('delivery_data');
             $table->timestamps();
         });
     }

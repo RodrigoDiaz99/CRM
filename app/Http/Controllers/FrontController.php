@@ -33,14 +33,14 @@ class FrontController extends Controller
         $content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
         $content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
 
-        return view('welcome', compact('productos', 'price','content1','content2','content3'));
+        return view('welcome', compact('productos', 'price', 'content1', 'content2', 'content3'));
     }
 
     public function show($id)
     {
         $productos = Product::find($id);
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $comment_products = CommentProduct::where('product_id',$productos->id)->orderBy('comment')->get();
+        $comment_products = CommentProduct::where('product_id', $productos->id)->orderBy('comment')->get();
         return view('store.product-detail', compact('productos', 'price', 'comment_products'));
     }
 
@@ -80,7 +80,7 @@ class FrontController extends Controller
 
     public function contact()
     {
-       /* $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
+        /* $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
         return view('store.contact');
     }
 
@@ -88,8 +88,8 @@ class FrontController extends Controller
     {
 
         MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
-       //pago sin metodo de prueba
-       // MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
+        //pago sin metodo de prueba
+        // MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
 
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
@@ -117,18 +117,18 @@ class FrontController extends Controller
         );
         echo json_encode($response);
 
-        if($response['status'] == "approved"){
+        if ($response['status'] == "approved") {
             $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
 
             $this->saveScore();
             $voucher = new VoucherController();
             $voucher->store($request);
-
+ 
             // Datos de nuestra vista
             $item = $request->all();
 
             return view('store.confirm', compact('response', 'ShoppingCart'));
-        }else{
+        } else {
             return back();
         }
     }
@@ -190,7 +190,7 @@ class FrontController extends Controller
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-      /*  $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
+        /*  $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
         return view('store.shop', compact('productos', 'price'));
     }
 
@@ -207,8 +207,7 @@ class FrontController extends Controller
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
     }
 
-    public function index_element(){
-
-
+    public function index_element()
+    {
     }
 }

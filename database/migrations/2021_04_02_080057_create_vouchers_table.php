@@ -16,13 +16,15 @@ class CreateVouchersTable extends Migration
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id('folio');
             $table->foreignId('user_id');
+            $table->foreignId('delivery_id');
             $table->double('expense');
-            // $table->foreignId('report_id');
             $table->timestamps();
             $table->softDeletes();
             
             // Foreing Key
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('delivery_id')->references('id')->on('delivery_data');
+
             // $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade');
         });
     }

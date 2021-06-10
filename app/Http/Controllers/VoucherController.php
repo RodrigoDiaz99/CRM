@@ -53,6 +53,7 @@ class VoucherController extends Controller
 
         $voucher->user_id = auth()->user()->id;
         $voucher->expense = $totalCart;
+        $voucher->delivery_id = $delivery_id;
         $voucher->save();
     }
 
