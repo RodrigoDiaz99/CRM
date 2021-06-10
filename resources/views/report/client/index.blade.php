@@ -33,8 +33,29 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
-                                     @foreach ($allUsers as $row)
-                                      
+                                    @foreach ($allUsers as $row)
+
+                                    @if($row->scoreProduct == null)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-xl font-semibold">{{ $row->first_name}} {{ $row->last_name}}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div>
+                                                <div class="text-sm font-semibold">No ha hecho ninguna compra.</div>
+
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">{{ $row->created_at}}</div>
+                                        </td>
+
+                                    </tr>
+                                    @else
 
                                     <tr>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -47,6 +68,7 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div>
                                                 <div class="text-sm font-semibold">{{ $row->scoreProduct->total }}</div>
+
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -54,6 +76,7 @@
                                         </td>
 
                                     </tr>
+                                    @endif
                                     @endforeach
 
                                 </tbody>
