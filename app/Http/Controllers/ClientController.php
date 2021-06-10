@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Voucher;
 
 class ClientController extends Controller
 {
@@ -43,9 +44,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function order()
-    {
-        return view('Clients.order');
+    public function order(){
+        $vouchers = Voucher::all();
+        return view('Clients.order', compact('vouchers'));
     }
 
     /**

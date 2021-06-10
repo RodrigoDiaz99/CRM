@@ -21,7 +21,7 @@ const randomData = () => {
     ]
 }
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'okas']
 
 const cssColors = (color) => {
     return getComputedStyle(document.documentElement).getPropertyValue(color)
