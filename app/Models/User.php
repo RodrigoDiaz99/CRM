@@ -72,7 +72,7 @@ class User extends Authenticatable implements MustVerifyEmail
 }*/
     // Relaciones
     public function deliveryData () {
-        return $this->hasMany(DeliveryData::class);
+        return $this->belongsToMany(DeliveryData::class);
     }
 
     public function promotion () {

@@ -28,8 +28,7 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
 
-            // Foreing Key
-           $table->foreign('delivery_data_id')->references('id')->on('delivery_data');
+
         });
     }
 
