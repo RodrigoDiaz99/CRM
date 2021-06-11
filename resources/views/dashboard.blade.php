@@ -109,7 +109,7 @@
             <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                 <!-- Card header -->
                 <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">3 productos más vendidos del mes</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Top productos vendidos del mes</h4>
                     <div class="flex items-center">
                         <button class="relative focus:outline-none" x-cloak @click="isOn = !isOn; $parent.updateDoughnutChart(isOn)">
                             <div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
@@ -135,7 +135,7 @@
         <div class="col-span-1 bg-white rounded-md dark:bg-darker">
             <!-- Card header -->
             <div class="p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Active users right now
+                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Usuarios activos actualmente
                 </h4>
             </div>
             <p class="p-4">
