@@ -41,11 +41,12 @@ class EmailController extends Controller
         $user = User::findOrFail($id);
         $title = $request->title;
         $msg = $request->msg;
+        $promo= $request->promo;
 
 $email=$user->email;
 
 //$email=$request->email;
-Mail::to($email)->send(new ContactUser($title,$msg));
+Mail::to($email)->send(new ContactUser($title,$msg,$promo));
 return redirect()->route('dashboard');
     }
 

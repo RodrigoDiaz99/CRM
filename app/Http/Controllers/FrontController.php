@@ -7,18 +7,19 @@ use App\Models\ScoreProduct;
 use App\Models\Product;
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
-
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\VoucherController;
 use App\Models\ShoppingCart as Shopping;
 
-use Mail;
+//use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
-
+use App\Mail\EmailOrder;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
+use App\Models\User;
 use MercadoPago;
 
 class FrontController extends Controller
@@ -97,6 +98,7 @@ class FrontController extends Controller
 
         /*         MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
  */
+
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
         $payment->transaction_amount = (float)$request->MPHiddenInputAmount;
@@ -124,7 +126,10 @@ class FrontController extends Controller
         echo json_encode($response);
 
         if ($response['status'] == "approved") {
+            $user = User::where('id',auth()->user()->id)->get('email')->first();
+           // $user=User::all();
             $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
+
             $this->saveScore();
             $voucher = new VoucherController();
             $voucher->store($request);
@@ -132,6 +137,7 @@ class FrontController extends Controller
             // Datos de nuestra vista
             $item = $request->all();
 
+            Mail::to($user->email)->send(new EmailOrder ($user));
             return view('store.confirm', compact('response', 'ShoppingCart'));
         } else {
             return back();
