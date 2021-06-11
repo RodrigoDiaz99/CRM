@@ -130,7 +130,7 @@ class FrontController extends Controller
             return view('store.confirm', compact('response', 'ShoppingCart'));
         } else {
             return back();
-        }*/
+        }
     }
 
     public function generateVoucher()
