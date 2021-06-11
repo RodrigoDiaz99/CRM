@@ -13,7 +13,6 @@ use App\Models\ShoppingCart as Shopping;
 
 use Mail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
 
 use App\Models\bannerone;
@@ -86,6 +85,7 @@ class FrontController extends Controller
 
     public function confirm(Request $request)
     {
+        //MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
         MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
 
         $payment = new MercadoPago\Payment();
@@ -114,7 +114,7 @@ class FrontController extends Controller
         );
         echo json_encode($response);
 
-        if($response['status'] == "approved"){
+        //f($response['status'] == "approved"){
             $this->saveScore();
             $voucher = new VoucherController();
             $voucher->store($request);
@@ -123,9 +123,9 @@ class FrontController extends Controller
             $item = $request->all();
 
             return view('store.confirm', compact('response'));
-        }else{
+        /*}else{
             return back();
-        }
+        }*/
     }
 
     public function generateVoucher()

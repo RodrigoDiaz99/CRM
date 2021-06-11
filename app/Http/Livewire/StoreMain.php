@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\InventoryProduct;
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\Promotion;
 use App\Models\ShoppingCart as ShoppingCartStore;
 
 class StoreMain extends Component
@@ -17,17 +19,40 @@ class StoreMain extends Component
 
     public function AddItem($id) {
         $exist = ShoppingCartStore::where('product_id', $id)->count();
+        $price = InventoryProduct::where('product_id', $id)->get('sale_price')->first(); // Obtenemos el precio del producto
+
         if($exist < 1){
+
             ShoppingCartStore::create([
                 'user_id' => auth()->user()->id,
                 'product_id' => $id,
-                'subtotal' => 0,
-                'quantity' => 1
+                'quantity' => 1,
+                'price' => $price->sale_price,
+                'subtotal' => $price->sale_price
             ]);
+
+            $promotion = Promotion::where('product_id', $id)->get('product_id', 'cash_discount', 'expiration_date')->first(); // Obtenemos la promocion de cada producto
+
+            if($promotion != null){
+                $dia = date("d");
+                $mes = date("m");
+                $año = date("y");
+
+                $expiration = explode('-', $promotion['expiration_date']);
+
+                if(($expiration[2] <= $dia) && ($expiration[1] <= $mes) && ($año[0] <= $año)){
+
+                }
+            }
+
         }else {
             $quantity = ShoppingCartStore::where('product_id', $id)->where('user_id', auth()->user()->id)->get('quantity')->first();
+
+            $subtotal = ($quantity['quantity'] + 1)* $price->sale_price; // Calculamos el subtotal por producto
+
             ShoppingCartStore::where('product_id', $id)->update([
-                'quantity' => $quantity['quantity'] + 1
+                'quantity' => $quantity['quantity'] + 1,
+                'subtotal' => $subtotal
             ]);
         }
         $this->emit('ShoppingCart:update');

@@ -220,7 +220,7 @@
                             <span class="text-gray-600">$@php
                                 $price = $item->products->inventories['0']->sale_price;
                                 $quantity = $item->quantity;
-                                $total = $price * 5;
+                                $total = $price * $quantity;
                                 echo $total;
                             @endphp
                         </span>
