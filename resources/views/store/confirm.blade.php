@@ -1,7 +1,7 @@
 <x-app2-layout>
     <div class="container mx-auto px-6">
         <div class="flex space-x-2">
-            <!-- <div class="flex-1 ...">
+             <div class="flex-1 ...">
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">Dirección de envío</div>
                     <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Nombre
