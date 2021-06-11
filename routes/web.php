@@ -44,7 +44,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin'])->get('second/create', 'ContentController@create2')->name('create_second');
     Route::middleware(['role:Admin'])->post('second/store', 'ContentController@store2')->name('store_second');
 
-    Route::middleware(['role:Admin'])->post('third/store', 'ContentController@store3')->name('store_three');
+    Route::middleware(['role:Admin'])->get('third/create', 'ContentController@create3')->name('create_three');
     Route::middleware(['role:Admin'])->post('third/store', 'ContentController@store3')->name('store_three');
 
 
