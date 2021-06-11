@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $users_count = User::count();
         $user = User::all();
         $reports = Report::count();
-        $sales_count = Voucher::count();
+        $sales_count = Voucher::where('status', 'Pendiente')->count();
         $sale = Voucher::sum('expense');
 
         $monthlySale = collect([]);
