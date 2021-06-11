@@ -69,7 +69,12 @@ class VoucherController extends Controller
     {
         //
     }
+    public function status($id){
 
+
+
+
+    }
     /**
      * Show the form for editing the specified resource.
      *

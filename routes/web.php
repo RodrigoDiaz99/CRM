@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmailController;
 use App\Models\CommentProduct;
 use Illuminate\Support\Facades\Route;
@@ -53,7 +54,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin'])->get('reports/sales', 'ReportController@index2')->name('sales.index');
     Route::middleware(['role:Admin|Client'])->get('client/card', 'ClientController@card')->name('card.index');
     Route::middleware(['role:Admin|Client'])->get('client/street', 'ClientController@street')->name('street.index');
-    Route::middleware(['role:Admin|Client'])->get('client/order', 'ClientController@order')->name('order.index');
+    Route::middleware(['role:Admin|Client'])->get('client/order', 'ClientController@order')->name('order.client');
 
     Route::middleware(['role:Super-Admin|Admin'])->get('client', 'ReportController@clients')->name('client');
     /*Aqui termina la ruta de los banners*/
@@ -75,8 +76,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Super-Admin|Admin'])->resource('cashfund', CashFundController::class);
     Route::middleware(['role:Super-Admin|Admin'])->get('contact/user/{id}', 'EmailController@create')->name('contact.create');
 
-    Route::post('/contactar/{id}', 'EmailController@store')->name('contact.store');
-//Ruta que esta señalando nuestro formulario
+    Route::middleware(['role:Super-Admin|Admin'])->post('/contactar/{id}', 'EmailController@store')->name('contact.store');
+    Route::middleware(['role:Super-Admin|Admin'])->get('orders/all','ClientController@index')->name('order.index');
+
+//Route::put('orders/status/{id}','VoucherController@status')->name('order.status');
+//Route::resource('status', 'ClientController');
+   Route::middleware(['role:Super-Admin|Admin'])->put('orders/status/{id}','ClientController@edit')->name('status.edit');
+    //Ruta que esta señalando nuestro formulario
 });
 
 

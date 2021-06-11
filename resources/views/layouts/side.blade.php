@@ -150,6 +150,10 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                         Clientes
                     </a>
+                    <a href="{{ route('order.index') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                    Pedidos
+                </a>
                 </div>
 
 
@@ -185,7 +189,7 @@
                 </div>
                 @endrole
                 @role('Client')
-                <a href="{{ route('order.index') }}" role="menuitem"
+                <a href="{{ route('order.client') }}" role="menuitem"
                     class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
                     <span aria-hidden="true">
                         <i class="fas fa-sort"></i>

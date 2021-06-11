@@ -21,20 +21,11 @@
 
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
-                    <p class="text-center font-italic">En esta sección se hace la administración de las categorías
-                        de
-                        los
-                        productos.
+                    <p class="text-center font-italic">En esta sección el cliente ve sus pedidos.
                     <p class="small text-center"></p>
 
 
-                    <div class="btn-group py-2">
-                        <a href="{{ route('category.create') }}"
-                            class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span>Añadir contenido</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div></div>
@@ -77,8 +68,8 @@
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="text-sm font-semibold">{{$row->created_at}}</div>
                                             </td>
-                                            <td>
-
+                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                                <div class="text-sm font-semibold">{{$row->status}}</div>
                                             </td>
                                             <td {{-- {{ route('category_destroy', $row->id) }} --}}
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
