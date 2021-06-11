@@ -19,6 +19,8 @@ use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
 use App\Models\User;
+use App\Models\DeliveryData;
+
 use MercadoPago;
 
 class FrontController extends Controller

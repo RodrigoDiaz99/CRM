@@ -4,17 +4,14 @@
         <div class="flex flex-col lg:flex-row mt-8">
             <div class="w-full lg:w-1/2 order-2">
                 <div class="flex items-center">
-                    <button class="flex text-sm text-blue-500 focus:outline-none"><span
-                            class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">1</span>
+                    <button class="flex text-sm text-blue-500 focus:outline-none"><span class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">1</span>
                         Contacts</button>
-                    <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span
-                            class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">2</span>
+                    <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">2</span>
                         Shipping</button>
-                    <button class="flex text-sm text-gray-500 ml-8 focus:outline-none" disabled><span
-                            class="flex items-center justify-center border-2 border-gray-500 rounded-full h-5 w-5 mr-2">3</span>
+                    <button class="flex text-sm text-gray-500 ml-8 focus:outline-none" disabled><span class="flex items-center justify-center border-2 border-gray-500 rounded-full h-5 w-5 mr-2">3</span>
                         Payments</button>
                 </div>
-                <form action="{{route('delivery.store')}}" method="POST"class="mt-8 lg:w-3/4">
+                <form action="{{route('delivery.store')}}" method="POST" class="mt-8 lg:w-3/4">
                     @csrf
                     <div class="mt-8">
                         <div class="grid-cols-2">
@@ -50,9 +47,7 @@
                         <div class="grid grid-cols-3">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="country" class="block uppercase tracking-wide text-gray-700 font-bold mb-2"> PAIS
-                                    <select name="country" id="country"
-                                        class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black"
-                                        required>
+                                    <select name="country" id="country" class="px-4 py-2 border focus:ring-gray-500 border-blue-500 rounded-md focus:outline-none block w-full pl-10 mt-1 text-sm text-black" required>
                                         <option value="" selected>SELECCIONE UN PAIS</option>
 
                                         <option value="MÉXICO">MÉXICO</option>
@@ -94,8 +89,7 @@
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="tracking-wide text-gray-700 font-bold mb-2" for="number:interior">NUMERO INTERIOR (opcional)
 
-                                        <input type="number" id="number_interior" name="number_interior"
-                                            class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
+                                        <input type="number" id="number_interior" name="number_interior" class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600">
                                     </label>
                                 </div>
                             </div>
@@ -140,7 +134,8 @@
                             </button>
                         </div>
                     </div>
-                </form>
+            </div>
+            </form>
         </div>
         @foreach ($ShoppingCart as $item)
             <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
@@ -175,12 +170,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="text-gray-600">${{ $item->products->inventories['0']->sale_price }}</span>
                         </div>
+                        <span class="text-gray-600">${{ $item->products->inventories['0']->sale_price }}</span>
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
-        <h2 class="text-2xl text-red-600 text-center">Total:  {{ $item->products->inventories['0']->sale_price }}</h2>
+        <h2 class="text-2xl text-red-600 text-center">Total: {{ $item->products->inventories['0']->sale_price }}</h2>
     </div>
 </x-app2-layout>
