@@ -58,7 +58,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::middleware(['role:Admin|Client'])->get('client/order', 'ClientController@order')->name('order.client');
     Route::middleware(['role:Admin|Client'])->get('client/order/{id}', 'ClientController@orderDetails')->name('orderDetails.client');
-
     Route::middleware(['role:Super-Admin|Admin'])->get('client', 'ReportController@clients')->name('client');
     /*Aqui termina la ruta de los banners*/
     Route::middleware(['role:Admin'])->resource('products/category', CategoryProductController::class);
@@ -81,6 +80,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::middleware(['role:Admin'])->post('/contactar/{id}', 'EmailController@store')->name('contact.store');
     Route::middleware(['role:Admin'])->get('orders/all','ClientController@index')->name('order.index');
+    Route::middleware(['role:Admin'])->get('orders/all','ClientController@index')->name('order.index');
+
 
 //Route::put('orders/status/{id}','VoucherController@status')->name('order.status');
 //Route::resource('status', 'ClientController');
