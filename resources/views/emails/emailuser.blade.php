@@ -11,7 +11,7 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="telephone=no" name="format-detection">
-    <title>Trigger newsletter 4</title>
+    <title>Correo Clientes</title>
     <!--[if (mso 16)]>
     <style type="text/css">
     a {text-decoration: none;}
@@ -364,8 +364,7 @@
                                                                                         style="padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC">
                                                                                         <p
                                                                                             style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px">
-                                                                                            Put your preheader text
-                                                                                            here<br></p>
+                                                                                            CRM<br></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -375,36 +374,6 @@
                                                             </tbody>
                                                         </table>
                                                         <!--[if mso]></td><td style="width:20px"></td><td style="width:278px" valign="top"><![endif]-->
-                                                        <table class="es-right" cellspacing="0" cellpadding="0"
-                                                            align="right"
-                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right">
-                                                            <tbody>
-                                                                <tr style="border-collapse:collapse">
-                                                                    <td align="left"
-                                                                        style="padding:0;Margin:0;width:278px">
-                                                                        <table width="100%" cellspacing="0"
-                                                                            cellpadding="0" role="presentation"
-                                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                                                                            <tbody>
-                                                                                <tr style="border-collapse:collapse">
-                                                                                    <td align="right"
-                                                                                        class="es-infoblock es-m-txt-c"
-                                                                                        style="padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC">
-                                                                                        <p
-                                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:lato, 'helvetica neue', helvetica, arial, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px">
-                                                                                            <a href="https://viewstripo.email"
-                                                                                                class="view"
-                                                                                                target="_blank"
-                                                                                                style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#CCCCCC;font-size:12px;font-family:arial, 'helvetica neue', helvetica, sans-serif">View
-                                                                                                in browser</a></p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
                                                         <!--[if mso]></td></tr></table><![endif]-->
                                                     </td>
                                                 </tr>
@@ -415,12 +384,12 @@
                             </tbody>
                         </table>
                         <table class="es-header" cellspacing="0" cellpadding="0" align="center"
-                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;background-color:#EC6D64;background-repeat:repeat;background-position:center top">
+                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;background-color:#2271b3;background-repeat:repeat;background-position:center top">
                             <tbody>
                                 <tr style="border-collapse:collapse">
                                     <td align="center" style="padding:0;Margin:0">
                                         <table class="es-header-body" cellspacing="0" cellpadding="0" align="center"
-                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#EC6D64;width:600px">
+                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#2271b3;width:600px">
                                             <tbody>
                                                 <tr style="border-collapse:collapse">
                                                     <td align="left"
@@ -461,7 +430,7 @@
                             style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
                             <tbody>
                                 <tr style="border-collapse:collapse">
-                                    <td style="padding:0;Margin:0;background-color:#EC6D64" bgcolor="#ec6d64"
+                                    <td style="padding:0;Margin:0;background-color:#2271b3" bgcolor="#2271b3"
                                         align="center">
                                         <table class="es-content-body"
                                             style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;width:600px"
@@ -594,8 +563,8 @@
                                 <tr style="border-collapse:collapse">
                                     <td align="center" style="padding:0;Margin:0">
                                         <table class="es-content-body"
-                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFE0DE;width:600px"
-                                            cellspacing="0" cellpadding="0" bgcolor="#ffe0de" align="center">
+                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#2271b3;width:600px"
+                                            cellspacing="0" cellpadding="0" bgcolor="#2271b3" align="center">
                                             <tbody>
                                                 <tr style="border-collapse:collapse">
                                                     <td align="left" style="padding:0;Margin:0">
@@ -615,7 +584,7 @@
                                                                                         style="padding:0;Margin:0;padding-top:30px;padding-left:30px;padding-right:30px">
                                                                                         <h3
                                                                                             style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:lato, 'helvetica neue', helvetica, arial, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#111111">
-                                                                                            Need more help?</h3>
+                                                                                            Visita nuestra tienda para comprarte</h3>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr style="border-collapse:collapse">
@@ -623,8 +592,8 @@
                                                                                         style="padding:0;Margin:0;padding-bottom:30px;padding-left:30px;padding-right:30px">
                                                                                         <a target="_blank"
                                                                                             href="https://viewstripo.email"
-                                                                                            style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#EC6D64;font-size:18px">We’re
-                                                                                            here, ready to talk</a></td>
+                                                                                            style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#ffffff;font-size:18px">
+                                                                                            Ir</a></td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

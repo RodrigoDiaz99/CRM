@@ -43,7 +43,7 @@
 
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full px-3">
-                                                    <label for="name"
+                                                    <label for="name" hidden
                                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                                        Correo
                                                     </label>
@@ -63,6 +63,18 @@
                                                     <textarea name="msg" id="msg" required
                                                         class=" no-resize appearance-none block w-full text-gray-700 border border-blue-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none h-48 resize-none"
                                                         id="message"></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-wrap -mx-3 mb-6">
+                                                <div class="w-full px-3">
+                                                    <label for="promotion"
+                                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                       Nombre de la promocion
+                                                    </label>
+                                                    <input hidden name="promotion" id="promotion" required value=""
+                                                        class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
+                                                        type="text">
 
                                                 </div>
                                             </div>

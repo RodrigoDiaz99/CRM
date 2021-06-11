@@ -4,7 +4,8 @@
             <!-- <div class="flex-1 ...">
         <div class="flex space-x-2">
              <div class="flex-1 ...">
-                <div class="px-6 py-4">
+
+            <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">Dirección de envío</div>
                     <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2" for="">Nombre
                         <input class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" type="text" value="" readonly>
@@ -77,12 +78,12 @@
 
                     <div class="">
                         <div class="font-bold text-xl mb-2">Confirmar Compra</div>
-                        <div class="bg-white p-12 flex items-center">
+                        <div class="bg-white p-10 flex items-center">
 
 
                             <!-- Success -->
                             <div
-                                class="bg-green-50 p-4 rounded flex items-start text-green-600 my-4 shadow-lg max-w-x1 mx-auto">
+                                class="bg-green-50 p-4 rounded flex items-start text-green-600 my-4 shadow-lg mx-auto">
                                 <div class="text-lg">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-5 pt-1"
                                         viewBox="0 0 24 24">
