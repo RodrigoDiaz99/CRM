@@ -2,9 +2,7 @@
     <!-- Content header -->
     <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
         <h1 class="text-2xl font-semibold">Dashboard</h1>
-
     </div>
-
     <!-- Content -->
     <div class="mt-2">
         <!-- State cards -->
@@ -12,16 +10,12 @@
             <!-- Value card -->
             @role('Admin')
             <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-
-
                 <div>
                     <h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                         Ventas
                     </h6>
                     <span class="text-xl font-semibold">${{ $sale }}</span>
-
                 </div>
-
                 <div>
                     <span>
                         <svg class="w-12 h-12 text-gray-300 dark:text-primary-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,9 +23,7 @@
                         </svg>
                     </span>
                 </div>
-
             </div>
-
             <!-- Users card -->
             <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                 <div>
@@ -39,17 +31,14 @@
                         Usuarios
                     </h6>
                     <span class="text-xl font-semibold">{{ $users_count }}</span>
-
                 </div>
                 <div>
                     <span>
                         <svg class="w-12 h-12 text-gray-300 dark:text-primary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-
                         </svg>
                     </span>
                 </div>
             </div>
-
             <!-- Orders card -->
             <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                 <div>
@@ -57,7 +46,6 @@
                         Pedidos
                     </h6>
                     <span class="text-xl font-semibold">{{ $sales_count }}</span>
-
                 </div>
                 <div>
                     <span>
@@ -67,7 +55,6 @@
                     </span>
                 </div>
             </div>
-
             <!-- Tickets card -->
             <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
                 <div>
@@ -75,7 +62,6 @@
                         Reportes
                     </h6>
                     <span class="text-xl font-semibold">{{ $reports }}</span>
-
                 </div>
                 <div>
                     <span>
@@ -86,7 +72,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Charts -->
         <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
             <!-- Bar chart card -->
@@ -96,7 +81,6 @@
                     <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total de ventas del mes</h4>
                     <div class="flex items-center space-x-2">
                         <span class="text-sm text-gray-500 dark:text-light">Last year</span>
-
                     </div>
                 </div>
                 <!-- Chart -->
@@ -104,7 +88,27 @@
                     <canvas id="barChart"></canvas>
                 </div>
             </div>
+            <!-- Doughnut chart card -->
+            <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                <!-- Card header -->
+                <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Top clientes del mes</h4>
+                    <div class="flex items-center">
+                        <button class="relative focus:outline-none" x-cloak @click="isOn = !isOn; $parent.updateDoughnutChart(isOn)">
+                            <div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
+                            </div>
+                            <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm" :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <!-- Chart -->
+                <div class="relative p-4 h-72">
+                    <canvas id="doughnutChart2"></canvas>
+                </div>
+            </div>
 
+         
             <!-- Doughnut chart card -->
             <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                 <!-- Card header -->
@@ -124,49 +128,8 @@
                     <canvas id="doughnutChart"></canvas>
                 </div>
             </div>
-
-
-
-    </div>
-
-    <!-- Two grid columns -->
-    <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
-        <!-- Active users chart -->
-        <div class="col-span-1 bg-white rounded-md dark:bg-darker">
-            <!-- Card header -->
-            <div class="p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Usuarios activos actualmente
-                </h4>
-            </div>
-            <p class="p-4">
-                <span class="text-2xl font-medium text-gray-500 dark:text-light" id="usersCount">0</span>
-                <span class="text-sm font-medium text-gray-500 dark:text-primary">Users</span>
-            </p>
-            <!-- Chart -->
-            <div class="relative p-4">
-                <canvas id="activeUsersChart"></canvas>
-            </div>
         </div>
 
-        <!-- Line chart card -->
-        <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-            <!-- Card header -->
-            <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total de pedidos del mes</h4>
-                <div class="flex items-center">
-                    <button class="relative focus:outline-none" x-cloak @click="isOn = !isOn; $parent.updateLineChart()">
-                        <div class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
-                        </div>
-                        <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm" :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }">
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <!-- Chart -->
-            <div class="relative p-4 h-72">
-                <canvas id="lineChart"></canvas>
-            </div>
-        </div>
         @endrole
     </div>
     </div>

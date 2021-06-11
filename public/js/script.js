@@ -21,7 +21,7 @@ const randomData = () => {
     ]
 }
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'okas']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const cssColors = (color) => {
     return getComputedStyle(document.documentElement).getPropertyValue(color)
@@ -82,12 +82,43 @@ const colors = {
             },
         },
     })
+
+    
 /* }
  */
 const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
     type: 'doughnut',
     data: {
-        labels: ['Oct', 'Nov', 'Dec'],
+        labels: ['Rodrigo', 'Kenn', 'Pedro'],
+        datasets: [{
+            data: [random(), random(), random()],
+            backgroundColor: [colors.primary, colors.primaryLighter, colors.primaryLight],
+            hoverBackgroundColor: colors.primaryDark,
+            borderWidth: 0,
+            weight: 0.5,
+        }, ],
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            position: 'bottom',
+        },
+
+        title: {
+            display: false,
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true,
+        },
+    },
+})
+
+const doughnutChart2 = new Chart(document.getElementById('doughnutChart2'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Tenis Nike azul', 'Audifonos Xiaomi Bluetooth', 'Mouse GamerPro'],
         datasets: [{
             data: [random(), random(), random()],
             backgroundColor: [colors.primary, colors.primaryLighter, colors.primaryLight],
