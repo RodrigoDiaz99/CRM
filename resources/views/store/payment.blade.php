@@ -142,6 +142,7 @@
                                         <div class="px-2 w-1/2">
                                             <label class="font-bold text-sm mb-2 ml-1">Provedor de Red</label>
                                             <div>
+
                                                 <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="issuer" id="form-checkout__issuer"></select>
                                             </div>
                                         </div>
@@ -211,27 +212,16 @@
                                 <div class="mx-3">
                                     <h3 class="text-sm text-gray-600">{{ $item->products->name }}</h3>
                                     <div class="flex items-center mt-2">
-                                        <button class="text-gray-500 focus:outline-none focus:text-gray-600">
-                                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                        <span class="text-gray-700 mx-2">{{ $item->sum }}</span>
-                                        <button class="text-gray-500 focus:outline-none focus:text-gray-600">
-                                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                            </svg>
-                                        </button>
+
+                                        <span class="text-gray-700 mx-2">{{ $item->quantity }}</span>
                                     </div>
                                 </div>
                             </div>
                             <span class="text-gray-600">$@php
                                 $price = $item->products->inventories['0']->sale_price;
-                                $total = $total + $price;
-                                echo $price
+                                $quantity = $item->quantity;
+                                $total = $price * 5;
+                                echo $total;
                             @endphp
                         </span>
                         </div>
@@ -293,6 +283,7 @@
                         placeholder: 'Red'
                     }
                 },
+
                 callbacks: {
                     onFormMounted: error => {
                         if (error) return console.warn('Form Mounted handling error: ', error)
