@@ -30,10 +30,11 @@ Route::get('contact', 'FrontController@contact')->name('contact');
 Route::post('comments', 'FrontController@storeComment')->name('storeComment');
 Route::get('product/info/{id}', 'FrontController@show')->name('details.show');
 Route::post('contact', 'FrontController@contact')->name('contact');
+Route::middleware(['role:Admin|Client'])->get('checkout/confirm', 'FrontController@confirm')->name('confirm');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin|Client'])->get('/dashboard', 'DashboardController@index')->name('dashboard');
-    Route::middleware(['role:Admin|Client'])->post('checkout/confirm', 'FrontController@confirm')->name('confirm');
+
     Route::middleware(['role:Admin|Client'])->get('checkout', 'FrontController@checkout')->name('checkout');
     Route::middleware(['role:Admin|Client'])->get('checkout/payment', 'FrontController@payment')->name('payment');
     Route::middleware(['role:Admin'])->get('comments/list', 'commentsController@index')->name('comments.list');

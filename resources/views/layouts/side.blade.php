@@ -196,14 +196,6 @@
                     </span>
                     Pedidos
                 </a>
-                <a href="{{ route('street.index') }}" role="menuitem"
-                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-                    <span aria-hidden="true">
-                        <i class="fas fa-road"></i>
-                    </span>
-                    Direcciones
-
-                </a>
 
 
 
