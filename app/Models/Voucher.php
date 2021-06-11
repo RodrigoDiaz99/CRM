@@ -42,4 +42,8 @@ class Voucher extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+    public function delivery_data()
+    {
+        return $this->hasOne(DeliveryData::class);
+    }
 }
