@@ -24,8 +24,8 @@ class PromotionStore extends FormRequest
     public function rules()
     {
         return [
-            'title' =>'required|min:3|max:20',
-            'description'=>'required|min:15|max:655',
+            'title' =>'required',
+            'description'=>'required',
             'cash_discount'=>'required|numeric',
             'expiration_date'=>'required|date'
         ];

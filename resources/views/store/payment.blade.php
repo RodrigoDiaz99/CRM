@@ -250,6 +250,7 @@
             const cardForm = mp.cardForm({
                 amount: '{{ $total }}',
                 autoMount: true,
+                processingMode: 'aggregator',
                 form: {
                     id: 'form-checkout',
                     cardholderName: {
