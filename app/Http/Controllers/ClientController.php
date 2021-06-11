@@ -98,6 +98,9 @@ class ClientController extends Controller
     {
         $delivery_id = Voucher::findOrFail($id)->delivery_id;
         $row = DeliveryData::findOrFail($delivery_id);
+
+
+
         return view('report.client.orderDetails', compact('row'));
     }
 }

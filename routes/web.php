@@ -63,7 +63,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin'])->resource('promotions', PromotionController::class);
     Route::middleware(['role:Admin'])->resource('inventory', InventoryProductController::class);
     Route::middleware(['role:Admin|Client'])->resource('delivery', DeliveryDataController::class);
-    Route::middleware(['role:SAdmin'])->resource('color', 'ColoresController');
+    Route::middleware(['role:Admin'])->resource('color', 'ColoresController');
     Route::middleware(['role:Admin'])->resource('talla', TallaController::class);
     Route::middleware(['role:Admin'])->resource('comment', commentsController::class);
 
@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 //Route::resource('status', 'ClientController');
    Route::middleware(['role:Admin'])->put('orders/status/{id}','ClientController@edit')->name('status.edit');
     //Ruta que esta señalando nuestro formulario
+    Route::middleware(['role:Admin|Client'])->get('client/order/{id}', 'ClientController@orderDetails')->name('orderDetails.client');
 });
 
 

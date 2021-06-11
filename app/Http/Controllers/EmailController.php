@@ -47,7 +47,7 @@ $email=$user->email;
 
 //$email=$request->email;
 Mail::to($email)->send(new ContactUser($title,$msg,$promo));
-return redirect()->route('dashboard');
+return redirect()->route('client');
     }
 
 

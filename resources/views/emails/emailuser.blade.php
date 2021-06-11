@@ -354,22 +354,7 @@
                                                                 <tr style="border-collapse:collapse">
                                                                     <td align="left"
                                                                         style="padding:0;Margin:0;width:282px">
-                                                                        <table width="100%" cellspacing="0"
-                                                                            cellpadding="0" role="presentation"
-                                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                                                                            <tbody>
-                                                                                <tr style="border-collapse:collapse">
-                                                                                    <td class="es-infoblock es-m-txt-c"
-                                                                                        align="left"
-                                                                                        style="padding:0;Margin:0;line-height:14px;font-size:12px;color:#CCCCCC">
-                                                                                        <p
-                                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:14px;color:#CCCCCC;font-size:12px">
-                                                                                            CRM<br></p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
+                                                                                                                                            </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -584,16 +569,16 @@
                                                                                         style="padding:0;Margin:0;padding-top:30px;padding-left:30px;padding-right:30px">
                                                                                         <h3
                                                                                             style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:lato, 'helvetica neue', helvetica, arial, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#111111">
-                                                                                            Visita nuestra tienda para comprarte</h3>
+                                                                                            Disfruta esta promocion</h3>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr style="border-collapse:collapse">
                                                                                     <td align="center"
                                                                                         style="padding:0;Margin:0;padding-bottom:30px;padding-left:30px;padding-right:30px">
-                                                                                        <a target="_blank"
-                                                                                            href="https://viewstripo.email"
+                                                                                        <a
+
                                                                                             style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#ffffff;font-size:18px">
-                                                                                            Ir</a></td>
+                                                                                            {{$promo}}</a></td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
@@ -656,51 +641,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <table class="es-content" cellspacing="0" cellpadding="0" align="center"
-                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
-                            <tbody>
-                                <tr style="border-collapse:collapse">
-                                    <td align="center" style="padding:0;Margin:0">
-                                        <table class="es-content-body"
-                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;width:600px"
-                                            cellspacing="0" cellpadding="0" align="center">
-                                            <tbody>
-                                                <tr style="border-collapse:collapse">
-                                                    <td align="left"
-                                                        style="Margin:0;padding-left:20px;padding-right:20px;padding-top:30px;padding-bottom:30px">
-                                                        <table width="100%" cellspacing="0" cellpadding="0"
-                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                                                            <tbody>
-                                                                <tr style="border-collapse:collapse">
-                                                                    <td valign="top" align="center"
-                                                                        style="padding:0;Margin:0;width:560px">
-                                                                        <table width="100%" cellspacing="0"
-                                                                            cellpadding="0" role="presentation"
-                                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                                                                            <tbody>
-                                                                                <tr style="border-collapse:collapse">
-                                                                                    <td class="es-infoblock made_with"
-                                                                                        align="center"
-                                                                                        style="padding:0;Margin:0;line-height:120%;font-size:0;color:#CCCCCC">
-                                                                                        <a target="_blank"
-                                                                                            href="https://viewstripo.email/?utm_source=templates&amp;utm_medium=email&amp;utm_campaign=software2&amp;utm_content=trigger_newsletter4"
-                                                                                            style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#CCCCCC;font-size:12px"><img
-                                                                                                src="https://tlr.stripocdn.email/content/guids/CABINET_9df86e5b6c53dd0319931e2447ed854b/images/64951510234941531.png"
-                                                                                                alt width="125"
-                                                                                                style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
+                                                            </td>
                                 </tr>
                             </tbody>
                         </table>

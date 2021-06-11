@@ -33,7 +33,7 @@ class ContactUser extends Mailable
     {
         $title =$this->title;
         $msg = $this->msg;
-        $title = $this->promo;
+        $promo = $this->promo;
      //   $email =$this->email;
 
         return $this->view('emails.emailuser',compact('msg','title','promo'))->subject($title);

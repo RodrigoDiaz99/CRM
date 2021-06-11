@@ -25,13 +25,13 @@
 
                                 <div class="space-y-4 ...">
                                     <div class="max-w-md mx-auto">
-                                        <form action="{{ route('contact.store',$user->id) }}" class="w-full max-w-lg"
+                                        <form action="{{ route('contact.store', $user->id) }}" class="w-full max-w-lg"
                                             method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full px-3">
                                                     <label for="name"
-                                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                        class="leading-loose text-blue-500 uppercase dark:text-primary-light">
                                                         Titulo
                                                     </label>
                                                     <input name="title" id="title" required
@@ -43,11 +43,9 @@
 
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full px-3">
-                                                    <label for="name" hidden
-                                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                                       Correo
-                                                    </label>
-                                                    <input hidden name="email" id="email" required value="{{$user->email}}"
+
+                                                    <input hidden name="email" id="email" required
+                                                        value="{{ $user->email }}"
                                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                                         type="text">
 
@@ -57,7 +55,7 @@
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full px-3">
                                                     <label for="message"
-                                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                        class="leading-loose text-blue-500 uppercase dark:text-primary-light">
                                                         Mensaje
                                                     </label>
                                                     <textarea name="msg" id="msg" required
@@ -69,23 +67,23 @@
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full px-3">
                                                     <label for="promotion"
-                                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                                       Nombre de la promocion
+                                                        class="leading-loose text-blue-500 uppercase dark:text-primary-light">
+                                                        Nombre de la promocion
                                                     </label>
-                                                    <input hidden name="promotion" id="promotion" required value=""
+                                                    <input name="promo" id="promo" required value=""
                                                         class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                                         type="text">
 
                                                 </div>
                                             </div>
                                             <div class="md:flex md:items-center">
-                                                <div class="md:w-1/3">
-                                                    <input type="submit" value="Send"
+                                                <div class="md:w-1/3 center">
+                                                    <input type="submit" value="Enviar"
                                                         class="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
 
 
                                                 </div>
-                                                <div class="md:w-2/3"></div>
+
                                             </div>
                                         </form>
                                     </div>
@@ -96,6 +94,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 </x-app-layout>

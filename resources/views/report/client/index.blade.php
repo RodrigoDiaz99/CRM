@@ -4,6 +4,20 @@
             <div class="w-full overflow-x-auto font-semibold tracking-wide text-left bg-white rounded-md dark:bg-darker mt-4 mb-4">
 
                 <div class="text-center mt-3">
+                    @if(Session::has('success'))
+                <div class="bg-green-100 rounded-md p-3 mb-2 flex">
+                    <svg class="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M0 0h24v24H0z" stroke="none" />
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
+
+                    <div class="text-green-700">
+                        <div class="font-bold text-xl">Correo enviado exitosamente</div>
+                    </div>
+                </div>
+
+                @endif
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
                     <p class="text-center font-italic">En esta sección se hace la administración de los reportes.
                     <p class="small text-center"></p>
