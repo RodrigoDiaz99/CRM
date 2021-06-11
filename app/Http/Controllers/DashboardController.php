@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Report;
 use App\Models\User;
+use App\Models\Voucher;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -22,9 +23,20 @@ class DashboardController extends Controller
         $users_count = User::count();
         $user = User::all();
 
-        $sales_count = Report::count();
-        $sale =Report::all();
-        return view('dashboard', compact('users_count','user','sales_count','sale'));
+        $sales_count = Voucher::count();
+        $sale = Report::count();
+
+        $monthlySale = collect([]);
+
+   /*      for ($i = 1; $i <= 12; $i++) {
+            $aux = whereMonth('created_at', '=', $month)
+                ->get();
+            $monthlySale->push($i);
+        }
+
+        dd($monthlySale); */
+
+        return view('dashboard', compact('users_count', 'user', 'sales_count', 'sale', 'monthlySale'));
     }
 
     /**
