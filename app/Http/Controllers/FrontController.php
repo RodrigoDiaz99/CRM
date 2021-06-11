@@ -13,7 +13,6 @@ use App\Models\ShoppingCart as Shopping;
 
 //use Mail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
 use App\Mail\EmailOrder;
 use App\Models\bannerone;
@@ -87,18 +86,8 @@ class FrontController extends Controller
 
     public function confirm(Request $request)
     {
-
         //MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
-
-      // MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
-       //MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
-       //pago sin metodo de prueba
-       //MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
-        MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
-
-        /*         MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
- */
-
+        MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
         $payment->transaction_amount = (float)$request->MPHiddenInputAmount;
@@ -141,7 +130,7 @@ class FrontController extends Controller
             return view('store.confirm', compact('response', 'ShoppingCart'));
         } else {
             return back();
-        }
+        }*/
     }
 
     public function generateVoucher()
