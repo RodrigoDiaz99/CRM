@@ -22,9 +22,9 @@ class DashboardController extends Controller
     {
         $users_count = User::count();
         $user = User::all();
-
+        $reports = Report::count();
         $sales_count = Voucher::count();
-        $sale = Report::count();
+        $sale = Voucher::sum('expense');
 
         $monthlySale = collect([]);
 
@@ -36,7 +36,7 @@ class DashboardController extends Controller
 
         dd($monthlySale); */
 
-        return view('dashboard', compact('users_count', 'user', 'sales_count', 'sale', 'monthlySale'));
+        return view('dashboard', compact('users_count', 'user', 'sales_count', 'sale', 'reports', 'monthlySale'));
     }
 
     /**

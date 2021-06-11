@@ -39,13 +39,13 @@ const colors = {
     primaryDarker: cssColors(`--color-${getColor()}-darker`),
 }
 
-function monthlySale(monthlyData){
-    const barChart = new Chart(document.getElementById('barChart'), {
+/* function monthlySale(monthlyData){
+ */    const barChart = new Chart(document.getElementById('barChart'), {
         type: 'bar',
         data: {
             labels: months,
             datasets: [{
-                data: monthlyData,
+                data: randomData(),
                 backgroundColor: colors.primary,
                 hoverBackgroundColor: colors.primaryDark,
             }, ],
@@ -82,8 +82,8 @@ function monthlySale(monthlyData){
             },
         },
     })
-}
-
+/* }
+ */
 const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
     type: 'doughnut',
     data: {
