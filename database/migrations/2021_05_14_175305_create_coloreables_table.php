@@ -17,7 +17,7 @@ class CreateColoreablesTable extends Migration
             $table->id();
             $table->foreignId('colores_id');
             $table->foreignId('coloreables_id');
-            $table->foreignId('coloreables_type');
+            $table->string('coloreables_type');
             $table->timestamps();
         });
     }

@@ -16,8 +16,8 @@ class CreateTallablesTable extends Migration
         Schema::create('tallables', function (Blueprint $table) {
             $table->id();
             $table->foreignId('talla_id');
-            $table->foreignId('tallable_id');
-            $table->foreignId('tallable_type');
+            $table->foreignId('tallables_id');
+            $table->string('tallables_type');
             $table->timestamps();
         });
     }
