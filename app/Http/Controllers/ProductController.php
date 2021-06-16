@@ -71,21 +71,21 @@ class ProductController extends Controller
 
             $product = Product::latest('id')->first();
 
+            // Asignamos tallas;
             if($request->tallas != null){
                 foreach($request->tallas as $talla){
                     $product->tallas()->attach($talla);
                 }
             }
 
+            //Asignamos Colores;
             if($request->colores != null){
                 foreach($request->colores as $color){
                     $product->colores()->attach($color);
                 }
             }
-            exit();
 
-
-
+            // Asignamos Inventario;
             if ($product != null) {
                 InventoryProduct::create([
                     'product_id' => $product->id,
