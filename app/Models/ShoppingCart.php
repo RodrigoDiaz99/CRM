@@ -23,11 +23,8 @@ class ShoppingCart extends Model
     ];
 
     // Relaciones
-    public function user (){
-        return $this->hasOne(User::class);
-    }
-    public function products()
+    public function user()
     {
-        return $this->hasOne(Product::class, 'id', 'product_id');
+        return $this->hasOne(User::class);
     }
 }

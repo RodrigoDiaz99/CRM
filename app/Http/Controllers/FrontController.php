@@ -13,6 +13,12 @@ use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
+use App\Mail\EmailOrder;
+use App\Models\bannerone;
+use App\Models\bannerthree;
+use App\Models\bannertwo;
+use App\Models\User;
+
 use MercadoPago;
 
 class FrontController extends Controller
@@ -75,8 +81,7 @@ class FrontController extends Controller
 
     public function contact()
     {
-        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-        return view('store.contact', compact('shopingItems'));
+        return view('store.contact');
     }
 
     public function confirm(Request $request)
@@ -89,15 +94,9 @@ class FrontController extends Controller
         $payment->installments = (int)$request->installments;
         $payment->payment_method_id = $request->MPHiddenInputPaymentMethod;
 
-        //$payment->description = $_POST['description'];
-        //$payment->issuer_id = (int)$_POST['issuer'];
-
         $payer = new MercadoPago\Payer();
         $payer->email = $request->cardholderEmail;
-        /*$payer->identification = array(
-            "type" => $_POST['docType'],
-            "number" => $_POST['docNumber']
-        );*/
+
         $payment->payer = $payer;
 
         $payment->save();
@@ -108,19 +107,20 @@ class FrontController extends Controller
             'id' => $payment->id
         );
 
-        $this->saveScore();
+        if ($response['status'] == "approved") {
+            $user = User::where('id', auth()->user()->id)->get('email')->first();
+            $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
 
         echo json_encode($response);
 
         // Datos de nuestra vista
         $item = $request->all();
 
-        return view('store.confirm', compact('response'));
-    }
-
-    public function generateVoucher()
-    {
-        // TODO
+            Mail::to($user->email)->send(new EmailOrder($user));
+            return view('store.confirm', compact('response', 'ShoppingCart'));
+        } else {
+            return back();
+        }
     }
 
     public function saveScore()
@@ -151,27 +151,11 @@ class FrontController extends Controller
         ]);
     }
 
-    public function addShopingCart($id, Request $request)
-    {
-        if (Auth::check()) {
-            ShoppingCart::create([
-                "user_id" => auth()->user()->id,
-                "product_id" => $id,
-                "quantity" => 1
-            ]);
-
-            return redirect()->back();
-        } else {
-            //$this->middleware('authrnticate');
-        }
-    }
-
     public function shop()
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $shopingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-        return view('store.shop', compact('productos', 'price', 'shopingItems'));
+        return view('store.shop', compact('productos', 'price'));
     }
 
     public function sendEmail(Request $request)
