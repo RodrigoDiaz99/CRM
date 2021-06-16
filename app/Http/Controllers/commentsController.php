@@ -10,6 +10,10 @@ use App\Models\User;
 
 class commentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $comments = CommentProduct::all();
         $products = Product::orderBy('name','ASC')->get();
