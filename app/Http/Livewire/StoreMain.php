@@ -41,6 +41,16 @@ class StoreMain extends Component
                 $expiration = explode('-', $promotion['expiration_date']);
 
                 if(($expiration[2] <= $dia) && ($expiration[1] <= $mes) && ($año[0] <= $año)){
+                    $discount = ($sale_price*$cash_discount)/100;
+                    $sale_price = $sale_price - $discount;
+
+                    ShoppingCart::where('id', $id->id)->update([
+                        'price' => $price->sale_price
+                        ]); 
+                }else{
+                    ShoppingCart::where('id', $id->id)->update([
+                        'price' => $price->sale_price
+                    ]);
 
                 }
             }
