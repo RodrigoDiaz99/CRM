@@ -37,10 +37,10 @@
                                             Numero Interior </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Colonia </th>
-                                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                                Codigo Postal </th>
-                                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                                    Referencia </th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Codigo Postal </th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Referencia </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
@@ -99,7 +99,54 @@
                 </div>
 
 
+
+
+
+
+               <div class="w-full overflow-hidden tracking-wide text-left shadow-xs bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                <div class="w-full overflow-x-auto">
+                    <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white rounded-md dark:bg-darker mt-4 mb-4">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                        Producto </th>
+                                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                        Cantidad</th>
+                                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                        Subtotal </th>
+                                     
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
+                                {{-- --}}
+                               @foreach($getList as $row2)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                        <div class="text-sm font-semibold">{{$allProducts->where('id', $getList->first()->product_id)->first()->name }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                        <div class="text-sm font-semibold">{{ $getList->first()->quantity }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                        <div class="text-sm font-semibold">{{ $getList->first()->subtotal }}</div>
+                                    </td>
+                                     
+
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{-- --}}
+                    </div>
+                </div>
             </div>
+
+
+
+
+
         </div>
+    </div>
     </div>
 </x-app-layout>

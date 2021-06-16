@@ -19,7 +19,7 @@ use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
 use App\Models\User;
-use App\Models\DeliveryData;
+use App\Models\ProductList;
 
 use MercadoPago;
 
@@ -70,13 +70,17 @@ class FrontController extends Controller
 
     public function checkout()
     {
-        $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
+        $LastUserShoppingCart = Shopping::where('user_id', auth()->user()->id)->where('finished', 0)->latest();
+
+        $ShoppingCart = ProductList::where('list_id',  $LastUserShoppingCart->first()->list_id)->get();
         return view('store.checkout', compact('ShoppingCart'));
     }
 
     public function payment()
     {
-        $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
+        $LastUserShoppingCart = Shopping::where('user_id', auth()->user()->id)->where('finished', 0)->latest();
+
+        $ShoppingCart = ProductList::where('list_id',  $LastUserShoppingCart->first()->list_id)->get();
         return view('store.payment', compact('ShoppingCart'));
     }
 
@@ -113,8 +117,10 @@ class FrontController extends Controller
         if ($response['status'] == "approved") {
             $user = User::where('id', auth()->user()->id)->get('email')->first();
             // $user=User::all();
-            $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
+             $LastUserShoppingCart = Shopping::where('user_id', auth()->user()->id)->where('finished', 0)->latest();
 
+            $ShoppingCart = ProductList::where('list_id',  $LastUserShoppingCart->first()->list_id)->get();
+           
             $this->saveScore();
             $voucher = new VoucherController();
             $voucher->store($request);
@@ -136,11 +142,13 @@ class FrontController extends Controller
 
     public function saveScore()
     {
-        $cart = Shopping::where('user_id', auth()->user()->id)->get();
+        $LastUserShoppingCart = Shopping::where('user_id', auth()->user()->id)->where('finished', 0)->latest();
+
+        $cart = ProductList::where('list_id',  $LastUserShoppingCart->first()->list_id)->get();
 
         foreach ($cart as $row) {
             $score = new ScoreProduct();
-            $score->user_id = $row->user_id;
+            $score->user_id = $LastUserShoppingCart->first()->user_id;
 
             if ($actualRow = ScoreProduct::where('product_id', $row->product_id)->first() != null) {
                 $actualRow = ScoreProduct::where('product_id', $row->product_id)->first();

@@ -15,14 +15,14 @@ class CreateProductVoucherTable extends Migration
     {
         Schema::create('product_voucher', function (Blueprint $table) {
             $table->foreignId('product_id');
-            $table->foreignId('voucher_id');
+            $table->foreignId('voucher_folio');
             $table->integer('amount');
             $table->timestamps();
             $table->softDeletes();
 
             // Foreing Key
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('voucher_id')->references('folio')->on('vouchers');
+            $table->foreign('voucher_folio')->references('folio')->on('vouchers');
         });
     }
 

@@ -38,9 +38,9 @@ class Voucher extends Model
         return $this->belongsTo(Report::class);
     }
 
-    public function products()
+    public function product_list()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(ProductList::class);
     }
     public function delivery_data()
     {

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeliveryData;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Voucher;
+use App\Models\ProductList;
 
 class ClientController extends Controller
 {
@@ -100,11 +102,12 @@ class ClientController extends Controller
 
     public function orderDetails($id)
     {
-        $delivery_id = Voucher::findOrFail($id)->delivery_id;
-        $row = DeliveryData::findOrFail($delivery_id);
+        $delivery_id = Voucher::findOrFail($id);
+        $row = DeliveryData::findOrFail($delivery_id->delivery_id);
+        $getList = ProductList::where('list_id', $delivery_id->list_id)->get();
+         $allProducts = Product::all();
+ 
 
-
-
-        return view('report.client.orderDetails', compact('row'));
+        return view('report.client.orderDetails', compact('row', 'getList', 'allProducts'));
     }
 }

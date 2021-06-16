@@ -19,14 +19,14 @@ class CreateVouchersTable extends Migration
             $table->foreignId('delivery_id');
             $table->double('expense');
             $table->string('status')->default('Pendiente');
-            // $table->foreignId('report_id');
+            $table->integer('list_id');
             $table->timestamps();
             $table->softDeletes();
 
             // Foreing Key
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('delivery_id')->references('id')->on('delivery_data');
-
+ 
             // $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade');
         });
     }
