@@ -82,9 +82,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::middleware(['role:Admin'])->get('orders/all','ClientController@index')->name('order.index');
 
 
-//Route::put('orders/status/{id}','VoucherController@status')->name('order.status');
-//Route::resource('status', 'ClientController');
-   Route::middleware(['role:Admin'])->put('orders/status/{id}','ClientController@edit')->name('status.edit');
+    //Route::put('orders/status/{id}','VoucherController@status')->name('order.status');
+    //Route::resource('status', 'ClientController');
+    Route::middleware(['role:Admin'])->put('orders/status/{id}','ClientController@edit')->name('status.edit');
     //Ruta que esta señalando nuestro formulario
     Route::middleware(['role:Admin|Client'])->get('client/order/{id}', 'ClientController@orderDetails')->name('orderDetails.client');
 });

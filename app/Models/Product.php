@@ -58,7 +58,11 @@ class Product extends Model
         return $this->belongsTo(ProductList::class);
     }
 
-    public function productable(){
-return $this->morphTo();
+    public function colores(){
+        return $this->morphToMany(Colores::class, 'coloreables');
+    }
+
+    public function tallas(){
+        return $this->morphToMany(Talla::class, 'tallables');
     }
 }

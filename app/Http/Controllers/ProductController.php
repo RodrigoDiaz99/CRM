@@ -52,7 +52,6 @@ class ProductController extends Controller
      */
     public function store(ProductStore $request)
     {
-
         $cover_file = $request->file('cover_file');
 
         if ($cover_file) {
@@ -63,39 +62,30 @@ class ProductController extends Controller
             // Img del libro o documento PDF.
             $pathCover = $cover_file->storeAs('public/productsImg', $coverName);
 
-         /*   if($request->tallas !=  null ){
-                foreach ($request->tallas as $tallas) {
-                    Talla::create([
-                        'talla' => $tallas
-                    ]);
-                }
-            }*/
-            //Almacenamos los datos respectivos en la DB;
-
-/*if($request->colores != null){
-    foreach ($request->colores as $colores) {
-        Colores::create([
-            'color' => $colores
-        ]);
-    }
-}*/
-
-
-            $id_producto = Product::create([
+            Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'img_paths' => $pathCover,
-                'category_id' => $request->category_id,
-                //'talla_id' =>$request->talla_id,
-                //'colores_id' =>$request->colores_id
-
+                'category_id' => $request->category_id
             ]);
 
-$id_producto->tallas_id->attach($request->tallas);
-
-$id_producto->colores_id->attach($request->colores);
-
             $product = Product::latest('id')->first();
+
+            if($request->tallas != null){
+                foreach($request->tallas as $talla){
+                    $product->tallas()->attach($talla);
+                }
+            }
+
+            if($request->colores != null){
+                foreach($request->colores as $color){
+                    $product->colores()->attach($color);
+                }
+            }
+            exit();
+
+
+
             if ($product != null) {
                 InventoryProduct::create([
                     'product_id' => $product->id,
@@ -104,8 +94,6 @@ $id_producto->colores_id->attach($request->colores);
                     'percent_of_profit' => $request->percent_of_profit,
                     'sale_price' => $request->sale_price,
                     'cost_of_shipping' => $request->cost_of_shipping,
-
-
                 ]);
             }
         } else {

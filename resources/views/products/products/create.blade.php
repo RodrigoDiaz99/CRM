@@ -227,21 +227,9 @@
                                 </div>
                             </form>
                         </div>
-
-
                     </div>
-
-
-
                 </div>
-
-
             </div>
-
-            {{--  --}}
-
-
-
         </div>
     </div>
     </div>
@@ -273,7 +261,5 @@
                 }
             }
         }
-
     </script>
-
 </x-app-layout>

@@ -12,12 +12,11 @@ class Colores extends Model
     use SoftDeletes;
     protected $fillable = [
         'color',
-
-
     ];
-    public function colors(){
-        //entidad
 
-        return $this->morphOne(Product::class,'productable');
+
+    public function productos()
+    {
+        return $this->morphedByMany(Product::class, 'coloreables');
     }
 }
