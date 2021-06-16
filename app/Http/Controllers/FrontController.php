@@ -111,8 +111,8 @@ class FrontController extends Controller
         echo json_encode($response);
 
         if ($response['status'] == "approved") {
-            $user = User::where('id',auth()->user()->id)->get('email')->first();
-           // $user=User::all();
+            $user = User::where('id', auth()->user()->id)->get('email')->first();
+            // $user=User::all();
             $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
 
             $this->saveScore();
@@ -122,7 +122,7 @@ class FrontController extends Controller
             // Datos de nuestra vista
             $item = $request->all();
 
-            Mail::to($user->email)->send(new EmailOrder ($user));
+            Mail::to($user->email)->send(new EmailOrder($user));
             return view('store.confirm', compact('response', 'ShoppingCart'));
         } else {
             return back();
@@ -162,31 +162,11 @@ class FrontController extends Controller
         ]);
     }
 
-    /*public function addShopingCart($id, Request $request)
-    {
-        if (Auth::check()) {
-            $exist = Shopping::where('product_id', $id)->count();
-            if($exist == 0){
-                Shopping::create([
-                    "user_id" => auth()->user()->id,
-                    "product_id" => $id,
-                    "quantity" => 1
-                ]);
-
-                return redirect()->back();
-            }else {
-                echo "error";
-            }
-        } else {
-            //$this->middleware('authrnticate');
-        }
-    }*/
 
     public function shop()
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        /*  $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
         return view('store.shop', compact('productos', 'price'));
     }
 

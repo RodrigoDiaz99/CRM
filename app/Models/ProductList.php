@@ -12,7 +12,8 @@ class ProductList extends Model
          'product_id',
         'quantity',
         'price',
-        'subtotal'
+        'subtotal',
+        'list_id',
     ];
     protected $table = 'product_list';
     public function products()

@@ -19,7 +19,9 @@ class ShoppingCart extends Model
         'product_id',
         'quantity',
         'price',
-        'subtotal'
+        'subtotal',
+        'list_id',
+        'finished'
     ];
 
     // Relaciones

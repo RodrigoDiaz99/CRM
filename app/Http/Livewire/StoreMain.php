@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Product;
 use App\Models\Promotion;
 use App\Models\ShoppingCart as ShoppingCartStore;
+use App\Models\ProductList;
 
 class StoreMain extends Component
 {
@@ -17,23 +18,69 @@ class StoreMain extends Component
         ]);
     }
 
-    public function AddItem($id) {
-        $exist = ShoppingCartStore::where('product_id', $id)->count();
+    public function AddItem($id)
+    {
+        $ShoppingCartExists = ShoppingCartStore::exists();
+        $LastUserShoppingCartExists = ShoppingCartStore::where('user_id', auth()->user()->id)->exists();
+        $LastSoppingCarts = ShoppingCartStore::latest();
+        $LastUserShoppingCart = ShoppingCartStore::where('user_id', auth()->user()->id)->latest()->get()->first();
         $price = InventoryProduct::where('product_id', $id)->get('sale_price')->first(); // Obtenemos el precio del producto
 
-        if($exist < 1){
-
-            ShoppingCartStore::create([
-                'user_id' => auth()->user()->id,
+        if ($ShoppingCartExists == false) {
+            ProductList::create([
                 'product_id' => $id,
                 'quantity' => 1,
                 'price' => $price->sale_price,
-                'subtotal' => $price->sale_price
+                'subtotal' => $price->sale_price,
+                'list_id' => '1'
+
+            ]);
+
+            ShoppingCartStore::create([
+                'user_id' => auth()->user()->id,
+                'list_id' => '1',
+                'finished' => false
+
+            ]);
+        } else if ($LastUserShoppingCartExists == false) {
+            $ProductListLastID = $LastSoppingCarts->first()->list_id + 1;
+
+            ProductList::create([
+                'product_id' => $id,
+                'quantity' => 1,
+                'price' => $price->sale_price,
+                'subtotal' => $price->sale_price,
+                'list_id' => $ProductListLastID,
+
+            ]);
+
+            ShoppingCartStore::create([
+                'user_id' => auth()->user()->id,
+                'list_id' => $ProductListLastID,
+                'finished' => false
+
+            ]);
+        } else if ($LastUserShoppingCart->finished == true) {
+            $ProductListLastID = $LastSoppingCarts->first()->list_id + 1;
+            ProductList::create([
+                'product_id' => $id,
+                'quantity' => 1,
+                'price' => $price->sale_price,
+                'subtotal' => $price->sale_price,
+                'list_id' => $ProductListLastID,
+
+            ]);
+
+            ShoppingCartStore::create([
+                'user_id' => auth()->user()->id,
+                'list_id' => $ProductListLastID,
+                'finished' => false
+
             ]);
 
             $promotion = Promotion::where('product_id', $id)->get('product_id', 'cash_discount', 'expiration_date')->first(); // Obtenemos la promocion de cada producto
 
-            if($promotion != null){
+            if ($promotion != null) {
                 $dia = date("d");
                 $mes = date("m");
                 $año = date("y");
@@ -54,16 +101,28 @@ class StoreMain extends Component
                    //NOTING
                 }
             }
+        } else {
 
-        }else {
-            $quantity = ShoppingCartStore::where('product_id', $id)->where('user_id', auth()->user()->id)->get('quantity')->first();
+            $CheckIfProductExists = ProductList::where('product_id', $id)->where('list_id',  $LastUserShoppingCart->list_id)->exists();
+            $quantity = ProductList::where('product_id', $id)->where('list_id',  $LastUserShoppingCart->list_id)->get()->first();
+            if ($CheckIfProductExists == false) {
 
-            $subtotal = ($quantity['quantity'] + 1)* $price->sale_price; // Calculamos el subtotal por producto
+                ProductList::create([
+                    'product_id' => $id,
+                    'quantity' => 1,
+                    'price' => $price->sale_price,
+                    'subtotal' => $price->sale_price,
+                    'list_id' => $LastUserShoppingCart->list_id,
 
-            ShoppingCartStore::where('product_id', $id)->update([
-                'quantity' => $quantity['quantity'] + 1,
-                'subtotal' => $subtotal
-            ]);
+                ]);
+            } else {
+                $subtotal = ($quantity->quantity + 1) * $price->sale_price; // Calculamos el subtotal por producto
+
+                $quantity->update([
+                    'quantity' => $quantity->quantity + 1,
+                    'subtotal' => $subtotal
+                ]);
+            }
         }
         $this->emit('ShoppingCart:update');
     }

@@ -120,10 +120,8 @@ class ReportController extends Controller
     {
         $client = ScoreProduct::orderBy('total')->get();
         $allUsers = User::all();
-        
+
 
         return view('report.client.index', compact('client', 'allUsers'));
     }
-
-
 }
