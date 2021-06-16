@@ -96,15 +96,9 @@ class FrontController extends Controller
         $payment->installments = (int)$request->installments;
         $payment->payment_method_id = $request->MPHiddenInputPaymentMethod;
 
-        //$payment->description = $_POST['description'];
-        //$payment->issuer_id = (int)$_POST['issuer'];
-
         $payer = new MercadoPago\Payer();
         $payer->email = $request->cardholderEmail;
-        /*$payer->identification = array(
-            "type" => $_POST['docType'],
-            "number" => $_POST['docNumber']
-        );*/
+
         $payment->payer = $payer;
 
         $payment->save();

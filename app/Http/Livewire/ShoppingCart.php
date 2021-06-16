@@ -6,7 +6,6 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShoppingCart as ShoppingCartModel;
 
-
 class ShoppingCart extends Component
 {
 

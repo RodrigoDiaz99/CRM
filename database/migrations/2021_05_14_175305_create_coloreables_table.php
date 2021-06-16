@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsColoresTable extends Migration
+class CreateColoreablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateProductsColoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('products_colores', function (Blueprint $table) {
+        Schema::create('coloreables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
             $table->foreignId('colores_id');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('colores_id')->references('id')->on('colores');
-            $table->timestamps();
+            $table->foreignId('coloreables_id');
+            $table->string('coloreables_type');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateProductsColoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products_colores');
+        Schema::dropIfExists('coloreables');
     }
 }

@@ -24,8 +24,7 @@
                             <table class="min-w-full">
                                 <thead>
                                     <tr>
-                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            ID</th>
+
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Producto</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
@@ -51,13 +50,7 @@
 
 
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                            <div class="flex items-center">
-                                                <div>
-                                                    <div class="text-xl font-semibold">#{{ $row->id }}</div>
-                                                </div>
-                                            </div>
-                                        </td>
+
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
@@ -98,6 +91,7 @@
                                             <div class="btn-group-py">
                                                 <div class="inline-flex items-center">
                                                     <a href="{{ route('inventory.edit', $row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
+                                                 {{--  @if($row->inventory != null)
                                                     <form action="{{route('inventory.destroy',$row->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -105,6 +99,8 @@
 
                                                         </button>
                                                     </form>
+                                                    @endif*/--}}
+
 
                                                 </div>
                                             </div>

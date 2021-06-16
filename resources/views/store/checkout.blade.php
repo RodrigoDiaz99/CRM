@@ -1,15 +1,14 @@
 <x-app2-layout>
     <div class="container mx-auto px-6">
-        <h3 class="text-gray-700 text-2xl font-medium">Checkout</h3>
+        <h3 class="text-gray-700 text-2xl font-medium"></h3>
         <div class="flex flex-col lg:flex-row mt-8">
             <div class="w-full lg:w-1/2 order-2">
                 <div class="flex items-center">
                     <button class="flex text-sm text-blue-500 focus:outline-none"><span class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">1</span>
-                        Contacts</button>
+                        Envio</button>
                     <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">2</span>
-                        Shipping</button>
-                    <button class="flex text-sm text-gray-500 ml-8 focus:outline-none" disabled><span class="flex items-center justify-center border-2 border-gray-500 rounded-full h-5 w-5 mr-2">3</span>
-                        Payments</button>
+                        Pago</button>
+
                 </div>
                 <form action="{{route('delivery.store')}}" method="POST" class="mt-8 lg:w-3/4">
                     @csrf
@@ -19,7 +18,7 @@
 
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 font-bold mb-2"
-                                    for="name">{Nombre}(s)</label>
+                                    for="name">Nombre(s)</label>
                                 <input required
                                     class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600"
                                     type="text" id="name" autofocus name="name">

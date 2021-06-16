@@ -169,6 +169,7 @@
         </div>
     </div>
 
+    {{--
     <div class="container mx-auto px-6">
 
         <div class="mt-16 mb-4">
@@ -176,4 +177,5 @@
 
         </div>
     </div>
+    --}}
 </x-app2-layout>
