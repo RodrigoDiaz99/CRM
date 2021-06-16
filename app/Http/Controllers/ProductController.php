@@ -6,8 +6,6 @@ use App\Http\Requests\ProductStore;
 use App\Models\Product;
 use App\Models\CategoryProduct;
 use App\Models\InventoryProduct;
-use Illuminate\Http\Request;
-use App\Http\Controllers\commentsController;
 use App\Models\Colores;
 use App\Models\Talla;
 
