@@ -26,6 +26,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
         $category = CategoryProduct::orderBy('name', 'asc')->get();
+
         return view('products.products.index', compact('product', 'category'));
     }
 
@@ -62,26 +63,37 @@ class ProductController extends Controller
             // Img del libro o documento PDF.
             $pathCover = $cover_file->storeAs('public/productsImg', $coverName);
 
+         /*   if($request->tallas !=  null ){
+                foreach ($request->tallas as $tallas) {
+                    Talla::create([
+                        'talla' => $tallas
+                    ]);
+                }
+            }*/
             //Almacenamos los datos respectivos en la DB;
-            foreach ($request->tallas as $tallas) {
-                Talla::create([
-                    'talla' => $tallas
-                ]);
-            }
-            foreach ($request->colores as $colores) {
-                Colores::create([
-                    'color' => $colores
-                ]);
-            }
 
-            Product::create([
+/*if($request->colores != null){
+    foreach ($request->colores as $colores) {
+        Colores::create([
+            'color' => $colores
+        ]);
+    }
+}*/
+
+
+            $id_producto = Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'img_paths' => $pathCover,
                 'category_id' => $request->category_id,
+                //'talla_id' =>$request->talla_id,
+                //'colores_id' =>$request->colores_id
 
             ]);
 
+$id_producto->tallas_id->attach($request->tallas);
+
+$id_producto->colores_id->attach($request->colores);
 
             $product = Product::latest('id')->first();
             if ($product != null) {
@@ -200,6 +212,10 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         $product->delete();
+        if($product->delete){
+            $inventory = InventoryProduct::finf($id);
+            $inventory->delete();
+        }
         return back()->with('Success', 'Se elimino correctamente');
     }
 }

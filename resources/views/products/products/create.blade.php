@@ -73,7 +73,7 @@
                                         <table class="table table-bordered align-items-center table-sm">
 
                                             <tbody>
-                                                <template x-for="(field, index) in fields" :key="index">
+                                                <template x-for="(field, index) in fields" :key="index" >
                                                     <tr>
                                                         <div class="flex-col">
                                                             <td> <select

@@ -83,17 +83,17 @@
         }
     </style>
     <div class="container mx-auto px-6">
-        <h3 class="text-gray-700 text-2xl font-medium">Checkout</h3>
+        <h3 class="text-gray-700 text-2xl font-medium"></h3>
         <div class="flex flex-col lg:flex-row mt-8">
             <div class="w-full lg:w-1/2 order-2">
                 <div class="flex items-center">
 
                     <button class="flex text-sm text-blue-500 focus:outline-none"><span
+                            class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">1</span>
+                        Envio</button>
+                    <button class="flex text-sm text-blue-500 ml-8 focus:outline-none"><span
                             class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">2</span>
-                        Shipping</button>
-                    <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span
-                            class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">3</span>
-                        Payments</button>
+                        Pago</button>
                 </div>
                 <form id="form-checkout" action="{{ route('confirm') }}" method="POST" >
                     @csrf

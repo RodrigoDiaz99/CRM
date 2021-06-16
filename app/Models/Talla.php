@@ -16,7 +16,7 @@ class Talla extends Model
 
 
     ];
-    public function colors(){
+    public function tallas(){
         //entidad
 
         return $this->morphOne(Product::class,'productable');

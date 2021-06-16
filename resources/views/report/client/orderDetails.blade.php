@@ -5,7 +5,7 @@
 
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
-                    <p class="text-center font-italic">En esta sección vez los daos de este pediso
+                    <p class="text-center font-italic">En esta sección vez los datos de este pedido
 
                     <p class="small text-center"></p>
 
@@ -24,19 +24,23 @@
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Teléfono </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Ciudad </th>
+                                            Pais </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Estado </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Dirección </th>
+                                            Ciudad </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Número exterior </th>
+                                            Calle </th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Numero Exterior </th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Numero Interior </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Colonia </th>
-                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Código Postal </th>
-                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Referencia </th>
+                                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                                Codigo Postal </th>
+                                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                                    Referencia </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
@@ -58,11 +62,24 @@
                                             <div class="text-sm font-semibold">{{ $row->state }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">{{ $row->city }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->street }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->number_exterior }}</div>
                                         </td>
+
+                                        @if($row->number_interior == null)
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">N/A</div>
+                                        </td>
+                                        @else
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="text-sm font-semibold">{{ $row->number_interior }}</div>
+                                        </td>
+                                        @endif
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="text-sm font-semibold">{{ $row->suburb }}</div>
                                         </td>
