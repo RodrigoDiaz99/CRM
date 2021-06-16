@@ -30,8 +30,11 @@ class commentsController extends Controller
     public function update(){
 
     }
+    public function destroy($id){
+        $comment = CommentProduct::find($id);
 
-    public function destroy(){
-
+        $comment->delete();
+        return back()->with('Success', 'Se elimino correctamente');
     }
+
 }

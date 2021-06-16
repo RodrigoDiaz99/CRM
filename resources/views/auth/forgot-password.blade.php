@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="CRM | Reiniciar Contraseña">
     <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
         <x-jet-validation-errors class="mb-4" />
         @if (session('status'))
@@ -8,7 +8,7 @@
         @endif
         <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
             <div class="md:flex w-full">
-                <div class="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+                <div class="hidden md:block w-1/2 bg-blue-600 py-10 px-10">
                     <svg id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 744.84799 747.07702">
                         <path id="fa3b9e12-7275-481e-bee9-64fd9595a50d" data-name="Path 1"
@@ -30,29 +30,29 @@
                             d="M561.971,337.96451a24.43594,24.43594,0,0,1,12.23-21.174,24.45,24.45,0,1,0,0,42.345A24.43391,24.43391,0,0,1,561.971,337.96451Z"
                             transform="translate(-227.576 -76.46149)" fill="#ccc" />
                         <circle id="a4813fcf-056e-4514-bb8b-e6506f49341f" data-name="Ellipse 1" cx="364.43401"
-                            cy="261.50202" r="24.45" fill="#6c63ff" />
+                            cy="261.50202" r="24.45" fill="#2563EB" />
                         <path id="bbe451c3-febc-41ba-8083-4c8307a2e73e" data-name="Path 8"
                             d="M632.872,414.3305h-142.5a5.123,5.123,0,0,1-5.117-5.117v-142.5a5.123,5.123,0,0,1,5.117-5.117h142.5a5.123,5.123,0,0,1,5.117,5.117v142.5A5.123,5.123,0,0,1,632.872,414.3305Zm-142.5-150.686a3.073,3.073,0,0,0-3.07,3.07v142.5a3.073,3.073,0,0,0,3.07,3.07h142.5a3.073,3.073,0,0,0,3.07-3.07v-142.5a3.073,3.073,0,0,0-3.07-3.07Z"
                             transform="translate(-227.576 -76.46149)" fill="#ccc" />
                         <rect id="bb28937d-932f-4fdf-befe-f406e51091fe" data-name="Rectangle 1" x="218.56201"
                             y="447.10197" width="218.552" height="2.047" fill="#ccc" />
                         <circle id="fcef55fc-4968-45b2-93bb-1a1080c85fc7" data-name="Ellipse 2" cx="225.46401"
-                            cy="427.41999" r="6.902" fill="#6c63ff" />
+                            cy="427.41999" r="6.902" fill="#2563EB" />
                         <rect id="ff33d889-4c74-4b91-85ef-b4882cc8fe76" data-name="Rectangle 2" x="218.56201"
                             y="516.11803" width="218.552" height="2.047" fill="#ccc" />
                         <circle id="e8fa0310-b872-4adf-aedd-0c6eda09f3b8" data-name="Ellipse 3" cx="225.46401"
-                            cy="496.43702" r="6.902" fill="#6c63ff" />
+                            cy="496.43702" r="6.902" fill="#2563EB" />
                         <path
                             d="M660.69043,671.17188H591.62207a4.50493,4.50493,0,0,1-4.5-4.5v-24.208a4.50492,4.50492,0,0,1,4.5-4.5h69.06836a4.50491,4.50491,0,0,1,4.5,4.5v24.208A4.50492,4.50492,0,0,1,660.69043,671.17188Z"
-                            transform="translate(-227.576 -76.46149)" fill="#6c63ff" />
+                            transform="translate(-227.576 -76.46149)" fill="#2563EB" />
                         <circle id="e12ee00d-aa4a-4413-a013-11d20b7f97f7" data-name="Ellipse 7" cx="247.97799"
-                            cy="427.41999" r="6.902" fill="#6c63ff" />
+                            cy="427.41999" r="6.902" fill="#2563EB" />
                         <circle id="f58f497e-6949-45c8-be5f-eee2aa0f6586" data-name="Ellipse 8" cx="270.492"
-                            cy="427.41999" r="6.902" fill="#6c63ff" />
+                            cy="427.41999" r="6.902" fill="#2563EB" />
                         <circle id="b4d4939a-c6e6-4f4d-ba6c-e8b05485017d" data-name="Ellipse 9" cx="247.97799"
-                            cy="496.43702" r="6.902" fill="#6c63ff" />
+                            cy="496.43702" r="6.902" fill="#2563EB" />
                         <circle id="aff120b1-519b-4e96-ac87-836aa55663de" data-name="Ellipse 10" cx="270.492"
-                            cy="496.43702" r="6.902" fill="#6c63ff" />
+                            cy="496.43702" r="6.902" fill="#2563EB" />
                         <path id="f1094013-1297-477a-ac57-08eac07c4bd5" data-name="Path 88"
                             d="M969.642,823.53851H251.656c-1.537,0-2.782-.546-2.782-1.218s1.245-1.219,2.782-1.219H969.642c1.536,0,2.782.546,2.782,1.219S971.178,823.53851,969.642,823.53851Z"
                             transform="translate(-227.576 -76.46149)" fill="#3f3d56" />
@@ -123,8 +123,9 @@
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
                                     <button
-                                        class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
-                                        Email Password Reset Link</button>
+                                        class="block w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-500 focus:bg-blue-600 text-white rounded-lg px-3 py-3 font-semibold">
+
+                                        {{_('Enlace email para restablecer contraseña')}}</button>
                                 </div>
                             </div>
                     </div>

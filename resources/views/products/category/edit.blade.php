@@ -16,12 +16,12 @@
                 </svg>
 
                 <div class="text-green-700">
-                    <div class="font-bold text-xl">Categoria no guardada</div>
+                    <div class="font-bold text-xl">Categoría no guardada</div>
                 </div>
             </div>
                 @endif
                 <div class="text-center mt-3">
-                    <h1 class="text-4xl">En esta sección se editan las categorias de los productos.</h1>
+                    <h1 class="text-4xl">En esta sección se editan las categorías de los productos.</h1>
                     <p class="small text-center"></p>
 
 

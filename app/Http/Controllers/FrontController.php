@@ -7,17 +7,19 @@ use App\Models\ScoreProduct;
 use App\Models\Product;
 use App\Models\CommentProduct;
 use App\Http\Requests\CommentStore;
-use App\Models\DeliveryData;
-use App\Models\ShoppingCart;
-use Mail;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\VoucherController;
+use App\Models\ShoppingCart as Shopping;
+
+//use Mail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
 use App\Mail\EmailOrder;
 use App\Models\bannerone;
 use App\Models\bannerthree;
 use App\Models\bannertwo;
 use App\Models\User;
+use App\Models\DeliveryData;
 
 use MercadoPago;
 
@@ -26,22 +28,21 @@ class FrontController extends Controller
 
     public function index()
     {
-        $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
+        $productos = Product::orderBy('id', 'desc')->get()->take(1);
 
-        if (Auth::check()) {
-            $shoppingItems = ShoppingCart::where('user_id', auth()->user()->id)->get();
-            return view('welcome', compact('productos', 'price', 'shoppingItems'));
-        }
+        $content1 = bannerone::orderBy('id', 'desc')->get()->take(1);
+        $content2 = bannertwo::orderBy('id', 'desc')->get()->take(1);
+        $content3 = bannerthree::orderBy('id', 'desc')->get()->take(1);
 
-        return view('welcome', compact('productos', 'price'));
+        return view('welcome', compact('productos', 'price', 'content1', 'content2', 'content3'));
     }
 
     public function show($id)
     {
         $productos = Product::find($id);
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
-        $comment_products = CommentProduct::orderBy('comment')->get();
+        $comment_products = CommentProduct::where('product_id', $productos->id)->orderBy('comment')->get();
         return view('store.product-detail', compact('productos', 'price', 'comment_products'));
     }
 
@@ -69,25 +70,26 @@ class FrontController extends Controller
 
     public function checkout()
     {
-        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
         return view('store.checkout', compact('ShoppingCart'));
     }
 
     public function payment()
     {
-        $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
         return view('store.payment', compact('ShoppingCart'));
     }
 
     public function contact()
     {
+        /* $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
         return view('store.contact');
     }
 
     public function confirm(Request $request)
     {
         MercadoPago\SDK::setAccessToken("TEST-4942454312390960-042305-71f6bc0c8296d5b0bd38a38ec629d27b-235007960");
-
+        //MercadoPago\SDK::setAccessToken("APP_USR-4942454312390960-042305-ef2aaefb8c887d720e6f97ff9ee224f9-235007960");
         $payment = new MercadoPago\Payment();
         $payment->token = $request->MPHiddenInputToken;
         $payment->transaction_amount = (float)$request->MPHiddenInputAmount;
@@ -102,30 +104,39 @@ class FrontController extends Controller
         $payment->save();
 
         $response = array(
-            'status' => $payment->status,
+            'status' => 'approved',
             'status_detail' => $payment->status_detail,
             'id' => $payment->id
         );
-
-        if ($response['status'] == "approved") {
-            $user = User::where('id', auth()->user()->id)->get('email')->first();
-            $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
-
         echo json_encode($response);
 
-        // Datos de nuestra vista
-        $item = $request->all();
+        if ($response['status'] == "approved") {
+            $user = User::where('id',auth()->user()->id)->get('email')->first();
+           // $user=User::all();
+            $ShoppingCart = Shopping::where('user_id', auth()->user()->id)->get();
 
-            Mail::to($user->email)->send(new EmailOrder($user));
+            $this->saveScore();
+            $voucher = new VoucherController();
+            $voucher->store($request);
+
+            // Datos de nuestra vista
+            $item = $request->all();
+
+            Mail::to($user->email)->send(new EmailOrder ($user));
             return view('store.confirm', compact('response', 'ShoppingCart'));
         } else {
             return back();
         }
     }
 
+    public function generateVoucher()
+    {
+        // TODO
+    }
+
     public function saveScore()
     {
-        $cart = ShoppingCart::where('user_id', auth()->user()->id)->get();
+        $cart = Shopping::where('user_id', auth()->user()->id)->get();
 
         foreach ($cart as $row) {
             $score = new ScoreProduct();
@@ -151,10 +162,31 @@ class FrontController extends Controller
         ]);
     }
 
+    /*public function addShopingCart($id, Request $request)
+    {
+        if (Auth::check()) {
+            $exist = Shopping::where('product_id', $id)->count();
+            if($exist == 0){
+                Shopping::create([
+                    "user_id" => auth()->user()->id,
+                    "product_id" => $id,
+                    "quantity" => 1
+                ]);
+
+                return redirect()->back();
+            }else {
+                echo "error";
+            }
+        } else {
+            //$this->middleware('authrnticate');
+        }
+    }*/
+
     public function shop()
     {
         $productos = Product::all();
         $price = InventoryProduct::orderBy('sale_price', 'desc')->get();
+        /*  $shopingItems = Shopping::where('user_id', auth()->user()->id)->get();*/
         return view('store.shop', compact('productos', 'price'));
     }
 
@@ -166,7 +198,12 @@ class FrontController extends Controller
             'msg' => $request->msg,
         ];
 
-        Mail::to('contacto@armyprolife.com')->send(new ContactMail($details));
+        //en teoria todo esta bien jajaj algo tienes mal movido xdxd
+        Mail::to('contacto@serviciospeninsula.xyz')->send(new ContactMail($details));
         return back()->with('Mensaje Enviado', 'Tu mensaje se envio con exito!');
+    }
+
+    public function index_element()
+    {
     }
 }

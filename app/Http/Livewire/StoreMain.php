@@ -7,7 +7,6 @@ use Livewire\Component;
 use App\Models\Product;
 use App\Models\Promotion;
 use App\Models\ShoppingCart as ShoppingCartStore;
-use App\Models\ProductList;
 
 class StoreMain extends Component
 {
@@ -18,30 +17,14 @@ class StoreMain extends Component
         ]);
     }
 
-    public function AddItem($id)
-    {
-
-        /* 
-        1. Comprobar si hay carritos abiertos o existentes relacionado con id de usuario
-        2. Si no existen para el usuario o está cerrado, crear nuevo carrito.
-        3. Agregar productos al carrito.
-        4. En confirm de venta, marcar como cerrado el carrito.
-            4.1. Modificar lista del carrito solo mostrar el último del usuario si está abierto.
-         */
-
-        
-
-        $exist = ProductList::where('product_id', $id)->count();
+    public function AddItem($id) {
+        $exist = ShoppingCartStore::where('product_id', $id)->count();
         $price = InventoryProduct::where('product_id', $id)->get('sale_price')->first(); // Obtenemos el precio del producto
 
-        if ($exist < 1) {
+        if($exist < 1){
 
             ShoppingCartStore::create([
                 'user_id' => auth()->user()->id,
-            ]);
-
-            ProductList::create([
-
                 'product_id' => $id,
                 'quantity' => 1,
                 'price' => $price->sale_price,
@@ -50,26 +33,28 @@ class StoreMain extends Component
 
             $promotion = Promotion::where('product_id', $id)->get('product_id', 'cash_discount', 'expiration_date')->first(); // Obtenemos la promocion de cada producto
 
-            if ($promotion != null) {
+            if($promotion != null){
                 $dia = date("d");
                 $mes = date("m");
                 $año = date("y");
 
                 $expiration = explode('-', $promotion['expiration_date']);
 
-                if (($expiration[2] <= $dia) && ($expiration[1] <= $mes) && ($año[0] <= $año)) {
+                if(($expiration[2] <= $dia) && ($expiration[1] <= $mes) && ($año[0] <= $año)){
+
                 }
             }
-        } else {
-            $quantity = ProductList::where('product_id', $id)->where('user_id', auth()->user()->id)->get('quantity')->first();
 
-            $subtotal = ($quantity['quantity'] + 1) * $price->sale_price; // Calculamos el subtotal por producto
+        }else {
+            $quantity = ShoppingCartStore::where('product_id', $id)->where('user_id', auth()->user()->id)->get('quantity')->first();
 
-            ProductList::where('product_id', $id)->update([
+            $subtotal = ($quantity['quantity'] + 1)* $price->sale_price; // Calculamos el subtotal por producto
+
+            ShoppingCartStore::where('product_id', $id)->update([
                 'quantity' => $quantity['quantity'] + 1,
                 'subtotal' => $subtotal
             ]);
         }
-        $this->emit('ProductList:update');
+        $this->emit('ShoppingCart:update');
     }
 }

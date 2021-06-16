@@ -25,7 +25,7 @@ class CreateInventoryProductsTable extends Migration
             $table->softDeletes();
 
             // Foreing Keys
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

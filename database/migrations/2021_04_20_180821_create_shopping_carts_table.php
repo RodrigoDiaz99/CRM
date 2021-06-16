@@ -19,7 +19,6 @@ class CreateShoppingCartsTable extends Migration
             $table->foreignId("list_id");
             $table->boolean("finished");
             $table->timestamps();
-            $table->softDeletes();
 
             //Relaciones
             $table->foreign("user_id")->references('id')->on("users");

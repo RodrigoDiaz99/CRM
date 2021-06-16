@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DeliverydataStore;
 use App\Models\DeliveryData;
 use Illuminate\Http\Request;
+use Auth;
 
-class DeliveryDataController extends Controller{
-    public function index(){
-
+class DeliveryDataController extends Controller
+{
+    public function index()
+    {
     }
 
-    public function create(){
-
+    public function create()
+    {
     }
 
-    public function store(Request $request ){
+    public function store(Request $request)
+    {
         $delivery = new DeliveryData();
         $delivery->name = $request->name;
         $delivery->last_name = $request->last_name;
@@ -30,18 +33,19 @@ class DeliveryDataController extends Controller{
         $delivery->zip = $request->zip;
         $delivery->reference = $request->reference;
         $delivery->save();
+        $delivery->user()->attach(Auth::id());
         return redirect()->route('payment')->with('success', 'Se ha publicado correctamente el contenido.');
     }
 
-    public function show(){
-
+    public function show()
+    {
     }
 
-    public function edit(){
-
+    public function edit()
+    {
     }
 
-    public function update(){
-
+    public function update()
+    {
     }
 }

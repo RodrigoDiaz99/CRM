@@ -9,14 +9,17 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\MyResetPassword;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -63,9 +66,13 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+   /* public function sendPasswordResetNotification($token)
+{
+    $this->notify(new MyResetPassword($token));
+}*/
     // Relaciones
     public function deliveryData () {
-        return $this->hasMany(DeliveryData::class);
+        return $this->belongsToMany(DeliveryData::class);
     }
 
     public function promotion () {

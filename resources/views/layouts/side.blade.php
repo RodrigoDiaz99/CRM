@@ -41,10 +41,17 @@
                         class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
                         Inicio
                     </a>
+                    @role('Admin')
+                    <a href="{{ route('content.list') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                        Elementos
+                    </a>
+                    @endrole
 
                 </div>
             </div>
 
+            @role('Admin')
             <!-- Components links -->
             <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
@@ -76,18 +83,26 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Productos
                     </a>
+                    <a href="{{ route('color.index') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Colores
+                    </a>
+                    <a href="{{ route('talla.index') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Tallas
+                    </a>
                     <a href="{{ route('category.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                        Categorias
+                        Categorías
                     </a>
                     <a href="{{ route('inventory.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Inventario
                     </a>
                     <a href="{{ route('comments.list') }}" role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                    Comentarios
-                </a>
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Comentarios
+                    </a>
 
                 </div>
 
@@ -107,8 +122,9 @@
                     <span class="ml-2 text-sm"> Reportes </span>
                     <span aria-hidden="true" class="ml-auto">
                         <!-- active class 'rotate-180' -->
-                       {{-- --}} <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        {{--  --}} <svg class="w-4 h-4 transition-transform transform"
+                            :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </span>
@@ -130,7 +146,14 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                         Ventas
                     </a>
-
+                    <a href="{{ route('client') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                        Clientes
+                    </a>
+                    <a href="{{ route('order.index') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                    Pedidos
+                </a>
                 </div>
 
 
@@ -164,43 +187,19 @@
                     </a>
 
                 </div>
-
-                <!-- Layouts links -->
-                <div x-data="{ isActive: false, open: false}">
-                    <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                    <a href="#" @click="$event.preventDefault(); open = !open"
-                        class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                        :class="{'bg-primary-100 dark:bg-primary': isActive || open}" role="button" aria-haspopup="true"
-                        :aria-expanded="(open || isActive) ? 'true' : 'false'">
-                        <span aria-hidden="true">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                            </svg>
-                        </span>
-                        <span class="ml-2 text-sm"> Layouts </span>
-                        <span aria-hidden="true" class="ml-auto">
-                            <!-- active class 'rotate-180' -->
-                            <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </span>
-                    </a>
-                    <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
-                        <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                        <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                        <a href="layouts/two-columns-sidebar.html" role="menuitem"
-                            class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                            Two Columns Sidebar
-                        </a>
+                @endrole
+                @role('Client')
+                <a href="{{ route('order.client') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                    <span aria-hidden="true">
+                        <i class="fas fa-sort"></i>
+                    </span>
+                    Pedidos
+                </a>
 
 
-                    </div>
-                </div>
+
+                @endrole
         </nav>
 
         <!-- Sidebar footer -->

@@ -24,6 +24,8 @@ class CreateProductsTable extends Migration
 
             // Foreing Keys
             $table->foreign('category_id')->references('id')->on('category_products');
+
+
         });
     }
 

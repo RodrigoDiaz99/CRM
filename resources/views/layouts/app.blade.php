@@ -74,7 +74,14 @@
                         </svg>
                     </button>
                 </div>
+
+
+
+
+
+
                 <!-- Panel content de todo -->
+
                 <div class="flex flex-col h-screen">
                     <!-- Panel header -->
                     <div class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-8 space-y-4 border-b dark:border-primary-dark">
@@ -129,6 +136,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
 
 
@@ -140,11 +148,10 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
 
-    @stack('modals')
-    @stack('javascript')
-
     @livewireScripts
 
+    @stack('modals')
+    @stack('javascript')
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
 <script src="{{ asset('js/script.js') }}"></script>
@@ -154,21 +161,17 @@
             if (window.localStorage.getItem('dark')) {
                 return JSON.parse(window.localStorage.getItem('dark'))
             }
-
             return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         }
-
         const setTheme = (value) => {
             window.localStorage.setItem('dark', value)
         }
-
         const getColor = () => {
             if (window.localStorage.getItem('color')) {
                 return window.localStorage.getItem('color')
             }
             return 'cyan'
         }
-
         const setColors = (color) => {
             const root = document.documentElement
             root.style.setProperty('--color-primary', `var(--color-${color})`)
@@ -182,7 +185,6 @@
             window.localStorage.setItem('color', color)
             //
         }
-
         const updateBarChart = (on) => {
             const data = {
                 data: randomData(),
@@ -196,7 +198,6 @@
                 barChart.update()
             }
         }
-
         const updateDoughnutChart = (on) => {
             const data = random()
             const color = 'rgb(207, 250, 254)'
@@ -212,12 +213,10 @@
                 doughnutChart.update()
             }
         }
-
         const updateLineChart = () => {
             lineChart.data.datasets[0].data.reverse()
             lineChart.update()
         }
-
         return {
             loading: true,
             isDark: getTheme(),

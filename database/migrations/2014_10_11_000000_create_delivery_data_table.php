@@ -29,6 +29,10 @@ class CreateDeliveryDataTable extends Migration
             $table->string('reference');
             $table->timestamps();
             $table->softDeletes();
+
+            // Foreing Keys
+
+
         });
     }
 

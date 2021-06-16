@@ -35,7 +35,7 @@ aria-label="Secondary">
     <button @click="openSettingsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
         <span class="sr-only">Open settings panel</span>
-        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none"
+        <svg class="w-7 h-7" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -51,7 +51,7 @@ aria-label="Secondary">
         :aria-expanded="open ? 'true' : 'false'"
         class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
         <span class="sr-only">Menú de Usuario</span>
-        <img class="w-10 h-10 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->firstname }}" />
+        <img class="w-10 h-10 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->first_name }}" />
     </button>
 
     <!-- User dropdown menu -->
@@ -67,7 +67,7 @@ aria-label="Secondary">
             class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary">
             {{ __('Perfil') }}
         </a>
-     
+
         <div class="border-t border-gray-100"></div>
         <form method="POST" action="{{ route('logout') }}">
             @csrf

@@ -31,6 +31,10 @@ class DeliveryData extends Model
 
     // Relaciones
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
+    }
+    public function voucher()
+    {
+        return $this->belongsTo(Voucher::class);
     }
 }

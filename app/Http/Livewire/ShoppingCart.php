@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShoppingCart as ShoppingCartModel;
-use App\Models\ProductList;
 
 class ShoppingCart extends Component
 {
@@ -21,8 +20,7 @@ class ShoppingCart extends Component
         ]);
     }
 
-    public function ItemSum($product)
-    {
+    public function ItemSum($product) {
         $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get()->first();
 
         $cantidad = $quantity['quantity'] + 1;
@@ -34,19 +32,18 @@ class ShoppingCart extends Component
         ]);
     }
 
-    public function ItemRest($product)
-    {
+    public function ItemRest($product) {
         $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get()->first();
 
         $cantidad = $quantity['quantity'] - 1;
         $resta = $quantity['subtotal'] - $quantity['price'];
 
-        if ($quantity['quantity'] > 1) {
+        if($quantity['quantity'] > 1){
             ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->update([
                 "quantity" => $cantidad,
                 "subtotal" => $resta
             ]);
-        } else {
+        }else {
             ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->delete();
         }
     }

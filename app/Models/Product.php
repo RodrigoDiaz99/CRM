@@ -57,4 +57,8 @@ class Product extends Model
     public function productList (){
         return $this->belongsTo(ProductList::class);
     }
+
+    public function productable(){
+return $this->morphTo();
+    }
 }

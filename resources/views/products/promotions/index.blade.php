@@ -36,13 +36,13 @@
                                             Nombre del Producto</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Descripcion de la Promoción</th>
+                                            Descripción de la Promoción</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Porcentaje de descuento</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Fecha de expiracion de la Promoción</th>
+                                            Fecha de expiración de la Promoción</th>
                                         <th
                                             class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Acciones

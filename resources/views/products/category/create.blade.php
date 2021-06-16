@@ -5,9 +5,9 @@
 
             {{--  --}}
 
-            @endif
+
             <div class="text-center mt-3">
-                <h1 class="text-4xl">En esta sección se agregan las categorias de los productos.</h1>
+                <h1 class="text-4xl">En esta sección se agregan las categorías de los productos.</h1>
                 <p class="small text-center"></p>
 
 
@@ -38,7 +38,7 @@
                             <div class="px-2 -mt-6">
                                 <div class="text-center">
                                     <h1 class="font-normal text-3xl text-grey-800 leading-loose my-3 w-full">
-                                        Ingresar categoria</h1>
+                                        Ingresar categoría</h1>
                                     <div class="w-full text-center">
                                         <form action="{{ route('category.store') }}" enctype="multipart/form-data"
                                             method="POST">
