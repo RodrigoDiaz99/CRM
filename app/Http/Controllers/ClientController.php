@@ -8,6 +8,10 @@ use App\Models\Voucher;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $vouchers = Voucher::all();
