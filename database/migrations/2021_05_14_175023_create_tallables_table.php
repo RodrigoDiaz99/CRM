@@ -18,7 +18,6 @@ class CreateTallablesTable extends Migration
             $table->foreignId('talla_id');
             $table->foreignId('tallables_id');
             $table->string('tallables_type');
-            $table->timestamps();
         });
     }
 
