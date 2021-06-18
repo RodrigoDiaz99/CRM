@@ -1,11 +1,10 @@
-<div class="container mx-auto px-6 py-3">
+﻿<div class="container mx-auto px-6 py-3">
     <div class="flex items-center justify-between">
         <div class="hidden w-full text-gray-600 md:flex md:items-center">
             LOGO
         </div>
         <div class="w-full text-gray-700 md:text-center text-2xl font-semibold">
-            CRM
-        </div>
+            Mex       </div>
         <div class="flex items-center justify-end w-full">
 
             <div class="flex items-center justify-end w-full">
