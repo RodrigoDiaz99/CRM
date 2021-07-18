@@ -16,16 +16,13 @@ class CreateShoppingCartsTable extends Migration
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id");
-            $table->foreignId("product_id");
-            $table->integer("quantity");
-            $table->double('subtotal')->nullable();
+            $table->foreignId("list_id");
+            $table->boolean("finished");
             $table->timestamps();
-            $table->softDeletes();
 
             //Relaciones
             $table->foreign("user_id")->references('id')->on("users");
 
-            $table->foreign("product_id")->references('id')->on("products");
         });
     }
 

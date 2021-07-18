@@ -6,12 +6,18 @@
 
                 <div class="text-center mt-3">
                     <h1 class="text-4xl">¡Bienvenido {{ Auth::user()->first_name }}! </h1>
-                    <p class="text-center font-italic">En esta sección se visualiza los productos mas comprados
+                    <p class="text-center font-italic">En esta sección se visualiza los productos más comprados
                         de
                         los
                         productos.
                     <p class="small text-center"></p>
 
+
+                    <div class="btn-group py-2">
+                        <p href="#" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
+                            <span>Producto más vendido: {{ $score->sortByDesc('total')->first()->product->name }}</span>
+                        </p>
+                    </div>
 
 
                 </div>

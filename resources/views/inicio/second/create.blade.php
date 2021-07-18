@@ -26,7 +26,7 @@
                                     </div>
 
                                     <div class="flex flex-col">
-                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripcion producto</label>
+                                        <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Descripción producto</label>
                                         <input type="text" name="description" id="description" onkeyup="mayus(this);" style="text-transform: uppercase;" class="px-4 py-2 border focus:ring-gray-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Descripcion del producto" required>
                                     </div>
 

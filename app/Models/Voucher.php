@@ -23,7 +23,8 @@ class Voucher extends Model
     protected $fillable = [
         'user_id',
         'expense',
-        'report_id'
+        'report_id',
+        'status'
     ];
 
     // Relaciones
@@ -40,5 +41,9 @@ class Voucher extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class);
+    }
+    public function delivery_data()
+    {
+        return $this->hasOne(DeliveryData::class);
     }
 }

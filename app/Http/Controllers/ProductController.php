@@ -6,8 +6,8 @@ use App\Http\Requests\ProductStore;
 use App\Models\Product;
 use App\Models\CategoryProduct;
 use App\Models\InventoryProduct;
-use Illuminate\Http\Request;
-use App\Http\Controllers\commentsController;
+use App\Models\Colores;
+use App\Models\Talla;
 
 class ProductController extends Controller
 {
@@ -24,6 +24,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
         $category = CategoryProduct::orderBy('name', 'asc')->get();
+
         return view('products.products.index', compact('product', 'category'));
     }
 
@@ -36,7 +37,9 @@ class ProductController extends Controller
     {
 
         $category = CategoryProduct::orderBy('name', 'asc')->get();
-        return view('products.products.create', compact('category'));
+        $color = Colores::orderBy('color', 'asc')->get();
+        $talla = Talla::orderBy('talla', 'asc')->get();
+        return view('products.products.create', compact('category', 'color', 'talla'));
     }
 
     /**
@@ -57,15 +60,30 @@ class ProductController extends Controller
             // Img del libro o documento PDF.
             $pathCover = $cover_file->storeAs('public/productsImg', $coverName);
 
-            //Almacenamos los datos respectivos en la DB;
             Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'img_paths' => $pathCover,
-                'category_id' => $request->category_id,
+                'category_id' => $request->category_id
             ]);
 
             $product = Product::latest('id')->first();
+
+            // Asignamos tallas;
+            if($request->tallas != null){
+                foreach($request->tallas as $talla){
+                    $product->tallas()->attach($talla);
+                }
+            }
+
+            //Asignamos Colores;
+            if($request->colores != null){
+                foreach($request->colores as $color){
+                    $product->colores()->attach($color);
+                }
+            }
+
+            // Asignamos Inventario;
             if ($product != null) {
                 InventoryProduct::create([
                     'product_id' => $product->id,
@@ -74,8 +92,6 @@ class ProductController extends Controller
                     'percent_of_profit' => $request->percent_of_profit,
                     'sale_price' => $request->sale_price,
                     'cost_of_shipping' => $request->cost_of_shipping,
-
-
                 ]);
             }
         } else {
@@ -182,6 +198,10 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         $product->delete();
+        if($product->delete){
+            $inventory = InventoryProduct::finf($id);
+            $inventory->delete();
+        }
         return back()->with('Success', 'Se elimino correctamente');
     }
 }

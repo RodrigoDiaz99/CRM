@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ShoppingCart;
 use App\Models\Voucher;
 use App\Models\InventoryProduct;
+use App\Models\DeliveryData;
 use App\Models\User;
 
 class VoucherController extends Controller
@@ -44,6 +45,7 @@ class VoucherController extends Controller
     {
         $voucher = new Voucher();
         $totalCart = 0;
+        $delivery_id = DeliveryData::find(auth()->user()->id)->latest()->first();
         $ShoppingCart = ShoppingCart::where('user_id', auth()->user()->id)->get();
 
         foreach ($ShoppingCart as $row) {
@@ -52,6 +54,7 @@ class VoucherController extends Controller
         }
 
         $voucher->user_id = auth()->user()->id;
+        $voucher->delivery_id = $delivery_id->id;
         $voucher->expense = $totalCart;
         $voucher->save();
     }
@@ -66,7 +69,12 @@ class VoucherController extends Controller
     {
         //
     }
+    public function status($id){
 
+
+
+
+    }
     /**
      * Show the form for editing the specified resource.
      *

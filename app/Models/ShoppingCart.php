@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ShoppingCart extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -19,15 +17,14 @@ class ShoppingCart extends Model
     protected $fillable = [
         'user_id',
         'product_id',
-        'quantity'
+        'quantity',
+        'price',
+        'subtotal'
     ];
 
     // Relaciones
-    public function user (){
-        return $this->hasOne(User::class);
-    }
-    public function products()
+    public function user()
     {
-        return $this->hasOne(Product::class, 'id', 'product_id');
+        return $this->hasOne(User::class);
     }
 }

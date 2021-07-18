@@ -6,14 +6,13 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShoppingCart as ShoppingCartModel;
 
-
 class ShoppingCart extends Component
 {
 
     protected $listeners = [
         'ShoppingCart:update' => '$refresh',
     ];
-    
+
     public function render()
     {
         return view('livewire.shopping-cart', [
@@ -21,25 +20,31 @@ class ShoppingCart extends Component
         ]);
     }
 
-    public function ItemSum($product, $price) {
-        $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get('quantity')->first();
+    public function ItemSum($product) {
+        $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get()->first();
+
         $cantidad = $quantity['quantity'] + 1;
-        $subtotal = $cantidad * $price;
+        $total = $cantidad * $quantity['price'];
+
         ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->update([
             "quantity" => $cantidad,
-            "subtotal" => $subtotal
+            "subtotal" => $total
         ]);
     }
 
-    public function ItemRest($product, $price) {
-        $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get('quantity')->first();
+    public function ItemRest($product) {
+        $quantity = ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->get()->first();
+
         $cantidad = $quantity['quantity'] - 1;
-        $subtotal = $cantidad * $price;
+        $resta = $quantity['subtotal'] - $quantity['price'];
+
         if($quantity['quantity'] > 1){
             ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->update([
                 "quantity" => $cantidad,
-                "subtotal" => $subtotal
+                "subtotal" => $resta
             ]);
+        }else {
+            ShoppingCartModel::where('product_id', $product)->where('user_id', auth()->user()->id)->delete();
         }
     }
 }

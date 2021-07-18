@@ -54,7 +54,15 @@ class Product extends Model
         return $this->belongsTo(CategoryProduct::class);
     }
 
-    public function shopingCart (){
-        return $this->belongsTo(ShopingCart::class);
+    public function productList (){
+        return $this->belongsTo(ProductList::class);
+    }
+
+    public function colores(){
+        return $this->morphToMany(Colores::class, 'coloreables');
+    }
+
+    public function tallas(){
+        return $this->morphToMany(Talla::class, 'tallables');
     }
 }

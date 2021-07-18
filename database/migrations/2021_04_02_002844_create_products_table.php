@@ -18,24 +18,14 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('img_paths');
             $table->string('description');
-             $table->string('Color1')->nullable();
-             $table->string('color2')->nullable();
-             $table->string('color3')->nullable();
-             $table->string('color4')->nullable();
-             $table->string('color5')->nullable();
-
-             $table->string('talla1')->nullable();
-             $table->string('talla2')->nullable();
-             $table->string('talla3')->nullable();
-             $table->string('talla4')->nullable();
-             $table->string('talla5')->nullable();
-
             $table->foreignId('category_id')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
 
             // Foreing Keys
             $table->foreign('category_id')->references('id')->on('category_products');
+
+
         });
     }
 

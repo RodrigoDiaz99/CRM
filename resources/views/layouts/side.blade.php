@@ -4,7 +4,7 @@
         <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
             <!-- Dashboards links -->
             <div class="flex-shrink-0 px-2 py-4 space-y-2">
-                <a href="{{ route('index') }}" type="button"
+                <a href="{{ route('welcome') }}" type="button"
                     class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
 
                     <span>Tienda</span>
@@ -43,10 +43,10 @@
                     </a>
                     @role('Admin')
                     <a href="{{ route('content.list') }}" role="menuitem"
-                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-                   Elementos
-                </a>
-                @endrole
+                        class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                        Elementos
+                    </a>
+                    @endrole
 
                 </div>
             </div>
@@ -83,18 +83,26 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Productos
                     </a>
+                    <a href="{{ route('color.index') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Colores
+                    </a>
+                    <a href="{{ route('talla.index') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Tallas
+                    </a>
                     <a href="{{ route('category.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                        Categorias
+                        Categorías
                     </a>
                     <a href="{{ route('inventory.index') }}" role="menuitem"
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
                         Inventario
                     </a>
                     <a href="{{ route('comments.list') }}" role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
-                    Comentarios
-                </a>
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                        Comentarios
+                    </a>
 
                 </div>
 
@@ -114,8 +122,9 @@
                     <span class="ml-2 text-sm"> Reportes </span>
                     <span aria-hidden="true" class="ml-auto">
                         <!-- active class 'rotate-180' -->
-                       {{-- --}} <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        {{--  --}} <svg class="w-4 h-4 transition-transform transform"
+                            :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </span>
@@ -137,7 +146,14 @@
                         class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
                         Ventas
                     </a>
-
+                    <a href="{{ route('client') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                        Clientes
+                    </a>
+                    <a href="{{ route('order.index') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                    Pedidos
+                </a>
                 </div>
 
 
@@ -171,40 +187,18 @@
                     </a>
 
                 </div>
-@endrole
-@role('Client')
-<a href="{{ route('order.index') }}" role="menuitem"
-class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">   <span aria-hidden="true">
-    <i class="fas fa-sort"></i>
-</span>
-Pedidos
-</a>
-<a href="{{ route('street.index') }}" role="menuitem"
-class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-<span aria-hidden="true">
-    <i class="fas fa-road"></i>
-</span>
-Direcciones
+                @endrole
+                @role('Client')
+                <a href="{{ route('order.client') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
+                    <span aria-hidden="true">
+                        <i class="fas fa-sort"></i>
+                    </span>
+                    Pedidos
+                </a>
 
-</a>
-<a href="{{ route('promotions.index') }}" role="menuitem"
-class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-<span aria-hidden="true">
-    <i class="fas fa-ad"></i>
-</span>
-Promociones
 
-</a>
-<a href="{{ route('card.index') }}" role="menuitem"
-class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700">
-<span aria-hidden="true">
-    <i class="fas fa-credit-card"></i>
-</span>
-Tarjetas
 
-</a>
-
-               
                 @endrole
         </nav>
 

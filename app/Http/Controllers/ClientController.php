@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeliveryData;
 use Illuminate\Http\Request;
+use App\Models\Voucher;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function index()
+    {
+        $vouchers = Voucher::all();
+        return view('report.client.order', compact('vouchers'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,9 +24,8 @@ class ClientController extends Controller
      */
     public function card()
     {
-       return view('Clients.card');
+        return view('Clients.card');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +35,6 @@ class ClientController extends Controller
     {
         return view('Clients.streets');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,9 +43,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-       
     }
-
     /**
      * Display the specified resource.
      *
@@ -45,9 +52,9 @@ class ClientController extends Controller
      */
     public function order()
     {
-        return view('Clients.order');
+        $vouchers = Voucher::where('user_id', auth()->user()->id)->get();
+        return view('Clients.order', compact('vouchers'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -56,9 +63,19 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vouchers = Voucher::findOrFail($id);
+        if ($vouchers->status == "Pendiente") {
+            $vouchers->status = "Enviado";
+            // $users->password = bcrypt(Str::random(15));
+            $vouchers->update();
+            return back()->with('Success', 'Se ha inhabilitado');
+        } else if ($vouchers->status == "Enviado") {
+            $vouchers->status = "Entregado";
+            $vouchers->update();
+            return back()->with('success', 'Se ha habilitado la direccion.');
+        } else {
+        }
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +87,6 @@ class ClientController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -80,5 +96,15 @@ class ClientController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function orderDetails($id)
+    {
+        $delivery_id = Voucher::findOrFail($id)->delivery_id;
+        $row = DeliveryData::findOrFail($delivery_id);
+
+
+
+        return view('report.client.orderDetails', compact('row'));
     }
 }

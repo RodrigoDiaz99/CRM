@@ -38,22 +38,22 @@
 
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Cantidad de productos</label>
-                                    <input type="number" min="1" name="total_count" id="total_count" step="0.01" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="100" required autofocus>
+                                    <input type="number" min="1" name="total_count" id="total_count" step="0.01" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Ingresar Cantidad de Productos" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio compra</label>
-                                    <input oninput="salePriceCalculator()" type="number" min="1" step="0.01" name="purchase_price" id="purchase_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="35" required autofocus>
+                                    <input oninput="salePriceCalculator()" type="number" min="1" step="0.01" name="purchase_price" id="purchase_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Ingresar Precio de Compra" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Margen ganancia %</label>
-                                    <input oninput="salePriceCalculator()" type="number" min="1" step="0.01" name="percent_of_profit" id="percent_of_profit" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="10" required autofocus>
+                                    <input oninput="salePriceCalculator()" type="number" min="5" step="0.01" name="percent_of_profit" id="percent_of_profit" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Ingresar Margen de Ganancia" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
                                     <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Precio venta</label>
-                                    <input oninput="percentProfitCalculator()" type="number" min="1" step="0.01" name="sale_price" id="sale_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="38.5" required autofocus>
+                                    <input oninput="percentProfitCalculator()" type="number" min="1" step="0.01" name="sale_price" id="sale_price" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="Ingresar Precio de Venta" required autofocus>
                                 </div>
                                 <div class="flex flex-col">
-                                    <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Costo de Envio</label>
+                                    <label class="leading-loose text-blue-500 uppercase dark:text-primary-light">Costo de Envío</label>
                                     <input type="number" min="1" name="cost_of_shipping" id="cost_of_shipping" step="any" class="px-4 py-2 border focus:ring-gray-500 focus:border-green-500 w-full sm:text-sm border-blue-500 rounded-md focus:outline-none text-gray-600" placeholder="150.25" required autofocus>
                                 </div>
 

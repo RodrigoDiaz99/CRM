@@ -83,17 +83,17 @@
         }
     </style>
     <div class="container mx-auto px-6">
-        <h3 class="text-gray-700 text-2xl font-medium">Checkout</h3>
+        <h3 class="text-gray-700 text-2xl font-medium"></h3>
         <div class="flex flex-col lg:flex-row mt-8">
             <div class="w-full lg:w-1/2 order-2">
                 <div class="flex items-center">
 
                     <button class="flex text-sm text-blue-500 focus:outline-none"><span
+                            class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">1</span>
+                        Envio</button>
+                    <button class="flex text-sm text-blue-500 ml-8 focus:outline-none"><span
                             class="flex items-center justify-center text-white bg-blue-500 rounded-full h-5 w-5 mr-2">2</span>
-                        Shipping</button>
-                    <button class="flex text-sm text-gray-700 ml-8 focus:outline-none"><span
-                            class="flex items-center justify-center border-2 border-blue-500 rounded-full h-5 w-5 mr-2">3</span>
-                        Payments</button>
+                        Pago</button>
                 </div>
                 <form id="form-checkout" action="{{ route('confirm') }}" method="POST" >
                     @csrf
@@ -142,6 +142,7 @@
                                         <div class="px-2 w-1/2">
                                             <label class="font-bold text-sm mb-2 ml-1">Provedor de Red</label>
                                             <div>
+
                                                 <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="issuer" id="form-checkout__issuer"></select>
                                             </div>
                                         </div>
@@ -171,7 +172,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="font-bold text-sm mb-2 ml-1">Correo Electronico</label>
+                                        <label class="font-bold text-sm mb-2 ml-1">Correo Electrónico</label>
                                         <div>
                                             <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
                                         </div>
@@ -181,6 +182,7 @@
                                         <label class="font-bold text-sm mb-2 ml-1">Cuotas</label>
                                         <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" name="installments" id="form-checkout__installments"></select>
                                     </div>
+
                                     <div>
                                         <progress value="0" class="progress-bar">loading...</progress>
                                         <button class="block w-full max-w-xs mx-auto bg-blue-600  text-white rounded-lg px-3 py-3 font-semibold" type="submit" id="form-checkout__submit"><i class="mdi mdi-lock-outline mr-1"></i> PAGAR</button>
@@ -193,44 +195,34 @@
             </div>
         </div>
         @php
-            $total = 0;   
+            $total = 0;
         @endphp
         @foreach ($ShoppingCart as $item)
             <div class="w-full mb-8 flex-shrink-0 order-1 lg:w-1/2 lg:mb-0 lg:order-2">
                 <div class="flex justify-center lg:justify-end">
                     <div class="border rounded-md max-w-md w-full px-4 py-3">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-gray-700 font-medium">Order total (1)</h3>
+                        <h3 class="text-gray-700 font-medium">Total de orden ({{count($ShoppingCart)}})</h3>
                         </div>
                         <div class="flex justify-between mt-6">
                             <div class="flex">
                                 <img class="h-20 w-20 object-cover rounded"
-                                    src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
-                                    alt="">
+                                src="{{ Storage::url($item->products->img_paths) }}" alt="{{ Storage::url($item->products->name) }}>
+                                                        <img class="h-20 w-20 object-cover rounded" src="{{ Storage::url($item->products->img_paths) }}" alt="{{ Storage::url($item->products->name) }}">
+
                                 <div class="mx-3">
                                     <h3 class="text-sm text-gray-600">{{ $item->products->name }}</h3>
                                     <div class="flex items-center mt-2">
-                                        <button class="text-gray-500 focus:outline-none focus:text-gray-600">
-                                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                        <span class="text-gray-700 mx-2">{{ $item->sum }}</span>
-                                        <button class="text-gray-500 focus:outline-none focus:text-gray-600">
-                                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                            </svg>
-                                        </button>
+
+                                        <span class="text-gray-700 mx-2">{{ $item->quantity }}</span>
                                     </div>
                                 </div>
                             </div>
                             <span class="text-gray-600">$@php
                                 $price = $item->products->inventories['0']->sale_price;
-                                $total = $total + $price;
-                                echo $price
+                                $quantity = $item->quantity;
+                                $total = $price * $quantity;
+                                echo $total;
                             @endphp
                         </span>
                         </div>
@@ -240,14 +232,13 @@
         @endforeach
     </div>
 
-    @section('javascript')
+    @push('javascript')
         <script src="https://sdk.mercadopago.com/js/v2"></script>
 
         <script>
-            const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}", {
+           const mp = new MercadoPago("{{ config('mercadopago.test.public_key') }}", {
                 locale: 'es-MX'
             });
-
             const cardForm = mp.cardForm({
                 amount: '{{ $total }}',
                 autoMount: true,
@@ -288,12 +279,13 @@
                         id: 'form-checkout__installments',
                         placeholder: 'Total Cuotas'
                     },
-                    
+
                     issuer: {
                         id: 'form-checkout__issuer',
                         placeholder: 'Red'
                     }
                 },
+
                 callbacks: {
                     onFormMounted: error => {
                         if (error) return console.warn('Form Mounted handling error: ', error)
@@ -353,5 +345,5 @@
                 }
             })
         </script>
-    @endsection
+    @endpush
 </x-app2-layout>

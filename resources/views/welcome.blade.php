@@ -148,7 +148,7 @@
 
                                     <div>
                                         <a class="block w-full bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 transition-colors text-white rounded-lg px-3 py-2 font-semibold-center"
-                                            href="{{ route('register') }}">Registrate</a>
+                                            href="{{ route('register') }}">Regístrate</a>
                                     </div>
                                 </form>
                             </div>
@@ -168,4 +168,14 @@
             @livewire('store-main')
         </div>
     </div>
+
+    {{--
+    <div class="container mx-auto px-6">
+
+        <div class="mt-16 mb-4">
+            <h3 class="text-gray-600 text-2xl font-medium">Productos Más Vendidos</h3>
+
+        </div>
+    </div>
+    --}}
 </x-app2-layout>

@@ -10,6 +10,10 @@ use App\Models\User;
 
 class commentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $comments = CommentProduct::all();
         $products = Product::orderBy('name','ASC')->get();
@@ -30,8 +34,11 @@ class commentsController extends Controller
     public function update(){
 
     }
+    public function destroy($id){
+        $comment = CommentProduct::find($id);
 
-    public function destroy(){
-
+        $comment->delete();
+        return back()->with('Success', 'Se elimino correctamente');
     }
+
 }

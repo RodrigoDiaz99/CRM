@@ -88,7 +88,7 @@
                                                 <div class="btn-group-py">
                                                     <div class="inline-flex items-center">
 
-                                                        <form action="" method="POST">
+                                                        <form action="{{route('comment.destroy',$row->id)}}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button

@@ -9,6 +9,10 @@ use App\Http\Requests\PromotionStore;
 
 class PromotionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      *
@@ -47,8 +51,8 @@ class PromotionController extends Controller
         $promotions->description = $request->description;
         $promotions->cash_discount = $request->cash_discount;
         $promotions->expiration_date = $request->expiration_date;
-        $promotions->user_id = auth()->user()->id;
-        
+       $promotions->user_id = auth()->user()->id;
+
         $promotions->save();
         return redirect()->route('promotions.index');
     }
